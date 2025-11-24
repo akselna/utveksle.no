@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link"; // Import Link for navigation
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -24,9 +25,54 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossOrigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossOrigin=""></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <nav className="bg-white border-b border-gray-200 shadow-sm z-30 shrink-0">
+                    <div className="w-full px-6 py-4 flex justify-between items-center">
+                      <div className="flex items-center gap-6">
+                        <ul className="flex items-center gap-6">
+                          <li>
+                            <Link href="/utforsk" className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium">
+                              Utforsk
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/fagplan" className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium">
+                              Min utveksling
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/erfaringer" className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium">
+                              Erfaringer
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/fagbank" className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium">
+                              Fagbank
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/faq" className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium">
+                              FAQ
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <button className="text-lg text-blue-600 hover:text-blue-800 transition-colors font-medium">
+                          Logg inn
+                        </button>
+                        <button className="text-lg bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                          Registrer
+                        </button>
+                      </div>
+                    </div>
+        </nav>
         {children}
       </body>
     </html>
