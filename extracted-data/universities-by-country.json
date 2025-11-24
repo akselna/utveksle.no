@@ -1,0 +1,111 @@
+{
+  "Australia": [
+    "Bond University",
+    "The University of Queensland",
+    "The University of Western Australia",
+    "University of New South Wales"
+  ],
+  "Austria": [
+    "Leopold-Franzens Universität Innsbruck (Universität Innsbruck)",
+    "Technische Universität Graz"
+  ],
+  "Belgium": [
+    "Katholieke Hogeschool Vives"
+  ],
+  "Canada": [
+    "University of Waterloo"
+  ],
+  "China": [
+    "Shanghai Jiao Tong University",
+    "Tsinghua University"
+  ],
+  "Denmark": [
+    "Danmarks Tekniske Universitet",
+    "Københavns Universitet",
+    "Professionshøjskolen VIA University College"
+  ],
+  "Finland": [
+    "Helsingin yliopisto / Helsingfors universitet"
+  ],
+  "France": [
+    "Institut Eurecom, Ecole d'Ingenieurs & Centre de Recherche",
+    "Institut Polytechnique de Grenoble"
+  ],
+  "Germany": [
+    "Albert-Ludwigs-Universität Freiburg",
+    "Technische Universität Berlin",
+    "Technische Universität München",
+    "Universität Mannheim"
+  ],
+  "Greece": [
+    "National Technical University of Athens"
+  ],
+  "India": [
+    "Indian Institute of Technology, Madras"
+  ],
+  "Italy": [
+    "Politecnico di Milano",
+    "Politecnico di Torino",
+    "Università degli Studi di Bologna",
+    "Università degli Studi di Firenze",
+    "Università degli Studi di Genova",
+    "Università degli Studi di Milano-Bicocca",
+    "Università degli Studi di Padova",
+    "Università degli Studi di Roma 'La Sapienza'",
+    "Università degli Studi di Trento"
+  ],
+  "Japan": [
+    "Osaka Furitsu Daigaku",
+    "The University of Tokyo"
+  ],
+  "Netherlands": [
+    "Erasmus Universiteit Rotterdam",
+    "Rotterdam University of Applied Sciences",
+    "Technische Universiteit Delft"
+  ],
+  "New Zealand": [
+    "The University of Auckland"
+  ],
+  "Portugal": [
+    "Instituto Superior Tecnico",
+    "Universidade do Porto"
+  ],
+  "South Africa": [
+    "University of Cape Town"
+  ],
+  "South Korea": [
+    "Chung-Ang University",
+    "Korea Advanced Institute of Science and Technology"
+  ],
+  "Spain": [
+    "Universidad Carlos III de Madrid",
+    "Universidad Politécnica de Madrid",
+    "Universidad Politécnica de Valencia",
+    "Universitat Ramón Llull"
+  ],
+  "Sweden": [
+    "Lunds universitet"
+  ],
+  "Switzerland": [
+    "Ecole Polytechnique Fédérale de Lausanne",
+    "Pädagogische Hochschule Luzern"
+  ],
+  "Taiwan": [
+    "National Taiwan University of Science and Technology"
+  ],
+  "Turkey": [
+    "Bogazici Universitetet",
+    "Yildiz Teknik Üniversitesi"
+  ],
+  "USA": [
+    "Massachusetts Institute of Technology",
+    "Massachusetts Institute of Technology (MIT)",
+    "Texas Tech University",
+    "UUniversity of Hawaii at Manoa",
+    "University of California",
+    "University of California, Berkeley",
+    "University of California, Irvine",
+    "University of California, San Diego",
+    "University of California, Santa Barbara"
+  ]
+}
