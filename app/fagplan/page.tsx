@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Plus,
   X,
@@ -33,6 +33,16 @@ type AbroadSubject = {
   university: string;
   country: string;
   matchesHomeSubjectCode?: string;
+};
+
+type ExchangePlan = {
+  id: string;
+  university: string; // Home university
+  exchangeUniversity: string; // New field for exchange university
+  program: string;
+  studyYear: number;
+  semesterChoice: string;
+  subjects: Subject[];
 };
 
 // --- DATA ---
@@ -113,7 +123,7 @@ const ABROAD_OPTIONS: AbroadSubject[] = [
     id: "a2",
     code: "CS106B",
     name: "Programming Abstractions",
-    university: "Stanford",
+    university: "Stanford University",
     country: "USA",
     matchesHomeSubjectCode: "TDT4120",
   },
@@ -129,7 +139,7 @@ const ABROAD_OPTIONS: AbroadSubject[] = [
     id: "a4",
     code: "CSE 100",
     name: "Control Systems",
-    university: "UCSD",
+    university: "University of California, San Diego",
     country: "USA",
     matchesHomeSubjectCode: "TTK4105",
   },
@@ -143,17 +153,56 @@ const ABROAD_OPTIONS: AbroadSubject[] = [
   },
 ];
 
+const EXCHANGE_UNIVERSITIES = [
+  "Australia - UNSW",
+  "USA - Stanford University",
+  "USA - University of California, San Diego",
+  "Denmark - Technical University of Denmark",
+  "Sweden - KTH Royal Institute of Technology",
+  "Switzerland - ETH Zurich",
+  "None selected",
+];
+
+
+const MOCK_EXCHANGE_PLANS: ExchangePlan[] = [
+  {
+    id: "plan-1",
+    university: "NTNU",
+    exchangeUniversity: "Australia - UNSW",
+    program: "Datateknologi",
+    studyYear: 4,
+    semesterChoice: "Høst",
+    subjects: [
+      {
+        id: "h1",
+        code: "TDT4120",
+        name: "Algoritmer og Datastrukturer",
+        credits: 7.5,
+        matchedWith: { id: "a1", code: "COMP3121", name: "Algorithms & Programming", university: "UNSW", country: "Australia", matchesHomeSubjectCode: "TDT4120" },
+      },
+      { id: "h2", code: "TDT4145", name: "Datamodellering og Databasesystemer", credits: 7.5, matchedWith: null },
+      { id: "h3", code: "TDT4200", name: "Parallell Databehandling", credits: 7.5, matchedWith: null },
+    ]
+  }
+];
+
+
 export default function ExchangePlannerFull() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0); // 0: Dashboard, 1: Profil, 2: Fag, 3: Planlegger
   const [showSaveNotification, setShowSaveNotification] = useState(false);
+  
+  // State for plans
+  const [myPlans, setMyPlans] = useState<ExchangePlan[]>(MOCK_EXCHANGE_PLANS);
+  const [editingPlanId, setEditingPlanId] = useState<string | null>(null);
 
   // State: Steg 1
-  const [university, setUniversity] = useState("NTNU");
+  const [university, setUniversity] = useState("NTNU"); // Home university
+  const [exchangeUniversity, setExchangeUniversity] = useState(EXCHANGE_UNIVERSITIES[0]); // Exchange university
   const [program, setProgram] = useState("Datateknologi");
-  const [studyYear, setStudyYear] = useState<number>(4); // F.eks. 4. klasse
-  const [semesterChoice, setSemesterChoice] = useState("Høst"); // Høst eller Vår
+  const [studyYear, setStudyYear] = useState<number>(4);
+  const [semesterChoice, setSemesterChoice] = useState("Høst");
 
-  // State: Steg 2 & 3 (Faglisten)
+  // State: Steg 2 & 3
   const [mySubjects, setMySubjects] = useState<Subject[]>([]);
 
   // State: Legge til manuelt fag
@@ -161,13 +210,9 @@ export default function ExchangePlannerFull() {
   const [newSubjectName, setNewSubjectName] = useState("");
 
   // --- HJELPEFUNKSJONER ---
-
-  // Beregn hvilket semester-nummer det er basert på år (F.eks. 4. år Høst = 7. semester)
-  const calculatedSemester =
-    semesterChoice === "Høst" ? studyYear * 2 - 1 : studyYear * 2;
+  const calculatedSemester = semesterChoice === "Høst" ? studyYear * 2 - 1 : studyYear * 2;
 
   const handleFetchSubjects = () => {
-    // I en ekte app ville vi brukt `calculatedSemester` for å hente riktig fagpakke
     const defaultPlan = MOCK_STUDY_PLANS[program] || [];
     setMySubjects(defaultPlan);
     setStep(2);
@@ -187,113 +232,171 @@ export default function ExchangePlannerFull() {
     setNewSubjectName("");
   };
 
-  const handleSavePlan = () => {
-    // Her ville du lagret til databasen
-    console.log("Lagrer plan til DB:", mySubjects);
-
-    // Vis feedback til brukeren
-    setShowSaveNotification(true);
-    setTimeout(() => setShowSaveNotification(false), 3000);
+  const resetCreatorForm = () => {
+    setUniversity("NTNU");
+    setExchangeUniversity(EXCHANGE_UNIVERSITIES[0]);
+    setProgram("Datateknologi");
+    setStudyYear(4);
+    setSemesterChoice("Høst");
+    setMySubjects([]);
+    setEditingPlanId(null);
   };
+
+  const handleSavePlan = () => {
+    if (editingPlanId) {
+      const updatedPlan: ExchangePlan = { id: editingPlanId, university, exchangeUniversity, program, studyYear, semesterChoice, subjects: mySubjects };
+      setMyPlans(myPlans.map(p => p.id === editingPlanId ? updatedPlan : p));
+    } else {
+      const newPlan: ExchangePlan = { id: `plan-${Date.now()}`, university, exchangeUniversity, program, studyYear, semesterChoice, subjects: mySubjects };
+      setMyPlans(prevPlans => [...prevPlans, newPlan]);
+    }
+
+    setShowSaveNotification(true);
+    setTimeout(() => {
+      setShowSaveNotification(false);
+      setStep(0);
+      resetCreatorForm();
+    }, 2000);
+  };
+  
+  const handleDeletePlan = (planId: string) => {
+    setMyPlans(myPlans.filter(p => p.id !== planId));
+  };
+
+  const handleOpenPlan = (planId: string) => {
+    const planToOpen = myPlans.find(p => p.id === planId);
+    if (planToOpen) {
+      setUniversity(planToOpen.university);
+      setExchangeUniversity(planToOpen.exchangeUniversity);
+      setProgram(planToOpen.program);
+      setStudyYear(planToOpen.studyYear);
+      setSemesterChoice(planToOpen.semesterChoice);
+      setMySubjects(planToOpen.subjects);
+      setEditingPlanId(planId);
+      setStep(3); // Gå direkte til planleggeren
+    }
+  };
+
 
   return (
     <div className="h-screen flex flex-col bg-gray-50 text-slate-800 font-sans overflow-hidden">
-      {/* --- GLOBAL HEADER MED PROGRESS BAR --- */}
-      <header className="bg-white border-b border-gray-200 shadow-sm z-30 shrink-0">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center mb-4">
-
-            {step === 3 && (
-              <button
-                onClick={handleSavePlan}
-                className="text-sm font-medium text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
-              >
-                <Save size={16} /> Lagre utkast
-              </button>
-            )}
-          </div>
-
-          {/* Progress Bar Visual */}
-          <div className="flex items-center justify-between w-full max-w-4xl mx-auto relative">
-            {/* Linje bak */}
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 rounded"></div>
-            <div
-              className="absolute top-1/2 left-0 h-1 bg-blue-600 -z-10 rounded transition-all duration-500"
-              style={{ width: step === 1 ? "0%" : step === 2 ? "50%" : "100%" }}
-            ></div>
-
-            {/* Steg 1 */}
-            <div className="flex flex-col items-center bg-white px-2">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
-                  step >= 1
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-gray-300 text-gray-400"
-                }`}
-              >
-                1
-              </div>
-              <span
-                className={`text-xs mt-1 font-medium ${
-                  step >= 1 ? "text-blue-700" : "text-gray-400"
-                }`}
-              >
-                Profil
-              </span>
+      {/* --- GLOBAL HEADER (Vises kun under oppretting) --- */}
+      {step > 0 && (
+        <header className="bg-white border-b border-gray-200 shadow-sm z-30 shrink-0">
+          <div className="max-w-6xl mx-auto px-6 py-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-slate-900">
+                {editingPlanId ? "Endre plan" : "Opprett ny plan"}
+              </h2>
+              {step === 3 && (
+                <button
+                  onClick={handleSavePlan}
+                  className="text-sm font-medium text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
+                >
+                  <Save size={16} /> {editingPlanId ? "Lagre endringer" : "Lagre utkast"}
+                </button>
+              )}
             </div>
 
-            {/* Steg 2 */}
-            <div className="flex flex-col items-center bg-white px-2">
+            {/* Progress Bar */}
+            <div className="flex items-center justify-between w-full max-w-4xl mx-auto relative">
+              <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 rounded"></div>
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
-                  step >= 2
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-gray-300 text-gray-400"
-                }`}
-              >
-                2
-              </div>
-              <span
-                className={`text-xs mt-1 font-medium ${
-                  step >= 2 ? "text-blue-700" : "text-gray-400"
-                }`}
-              >
-                Dine fag
-              </span>
-            </div>
-
-            {/* Steg 3 */}
-            <div className="flex flex-col items-center bg-white px-2">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
-                  step >= 3
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-gray-300 text-gray-400"
-                }`}
-              >
-                3
-              </div>
-              <span
-                className={`text-xs mt-1 font-medium ${
-                  step >= 3 ? "text-blue-700" : "text-gray-400"
-                }`}
-              >
-                Planlegger
-              </span>
+                className="absolute top-1/2 left-0 h-1 bg-blue-600 -z-10 rounded transition-all duration-500"
+                style={{ width: step === 1 ? "0%" : step === 2 ? "50%" : "100%" }}
+              ></div>
+              {[
+                { num: 1, title: "Profil" },
+                { num: 2, title: "Dine fag" },
+                { num: 3, title: "Planlegger" }
+              ].map(item => (
+                <div key={item.num} className="flex flex-col items-center bg-white px-2">
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
+                      step >= item.num ? "border-blue-600 bg-blue-600 text-white" : "border-gray-300 text-gray-400"
+                    }`}
+                  >
+                    {item.num}
+                  </div>
+                  <span className={`text-xs mt-1 font-medium ${step >= item.num ? "text-blue-700" : "text-gray-400"}`}>
+                    {item.title}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
       {/* --- MAIN CONTENT AREA --- */}
       <div className="flex-1 overflow-y-auto relative">
-        {/* --- TOAST NOTIFICATION (Når man lagrer) --- */}
         {showSaveNotification && (
           <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-in slide-in-from-top fade-in z-50">
             <CheckCircle className="text-green-400" size={20} />
             <span className="font-medium">
-              Planen er lagret! Du kan fortsette senere.
+              {editingPlanId ? "Planen er oppdatert&quot;!" : "Planen er lagret&quot;!"}
             </span>
+          </div>
+        )}
+
+        {/* --- STEG 0: DASHBOARD / OVERSIKT --- */}
+        {step === 0 && (
+          <div className="p-6 sm:p-10 max-w-7xl mx-auto animate-in fade-in duration-500">
+            <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10">
+              <div>
+                <h1 className="text-3xl font-bold text-slate-900">Mine utvekslinger</h1>
+                <p className="text-slate-500 mt-1">Se, endre eller opprett nye utvekslingsplaner.</p>
+              </div>
+              <button
+                onClick={() => { resetCreatorForm(); setStep(1); }}
+                className="mt-4 sm:mt-0 bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+              >
+                <Plus size={20} /> Opprett ny plan
+              </button>
+            </header>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {myPlans.map((plan) => (
+                <div key={plan.id} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between group">
+                  <div>
+                    <div className="flex justify-between items-start">
+                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">{plan.program}</span>
+                      <button onClick={() => handleDeletePlan(plan.id)} className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100">
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                    <h3 className="font-bold text-slate-800 mt-3 text-lg">{plan.exchangeUniversity}</h3>
+                    <p className="text-sm text-slate-500">{plan.university} | {plan.studyYear}. klasse - {plan.semesterChoice}</p>
+                  </div>
+                  <div className="mt-6">
+                    <p className="text-sm font-medium text-slate-600 mb-2">Fag ({plan.subjects.length})</p>
+                    <div className="space-y-2">
+                      {plan.subjects.slice(0, 3).map(sub => (
+                        <div key={sub.id} className="flex items-center gap-3 text-xs">
+                          <div className="flex-shrink-0">{sub.matchedWith ? <CheckCircle size={14} className="text-green-500" /> : <div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-full" />}</div>
+                          <span className="text-slate-600 font-medium">{sub.code}</span>
+                          <span className="text-slate-400 truncate">{sub.name}</span>
+                        </div>
+                      ))}
+                      {plan.subjects.length > 3 && <p className="text-xs text-slate-400 mt-1">+ {plan.subjects.length - 3} til...</p>}
+                    </div>
+                  </div>
+                  <button onClick={() => handleOpenPlan(plan.id)} className="w-full mt-6 bg-slate-100 text-slate-700 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors text-sm">
+                    Åpne plan
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {myPlans.length === 0 && (
+                <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl mt-6">
+                    <GraduationCap size={40} className="mx-auto text-gray-300" />
+                    <h3 className="mt-4 text-lg font-semibold text-slate-700">Ingen planer ennå</h3>
+                    <p className="mt-1 text-sm text-slate-500">
+                        Trykk på "Opprett ny plan" for å starte.
+                    </p>
+                </div>
+            )}
           </div>
         )}
 
@@ -301,39 +404,32 @@ export default function ExchangePlannerFull() {
         {step === 1 && (
           <div className="flex flex-col items-center justify-center min-h-full p-6 animate-in fade-in duration-500">
             <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border border-gray-100">
-              <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">
-                Start planleggingen
-              </h1>
-
+              <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">Start planleggingen</h1>
               <div className="space-y-5">
-                {/* Universitet */}
+                {/* Hjemmeuniversitet */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
-                    <School size={14} /> Universitet
-                  </label>
-                  <select
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
-                    value={university}
-                    onChange={(e) => setUniversity(e.target.value)}
-                  >
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><School size={14} /> Hjemmeuniversitet</label>
+                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={university} onChange={(e) => setUniversity(e.target.value)}>
                     <option value="NTNU">NTNU</option>
                     <option value="UiO">UiO</option>
                   </select>
                 </div>
 
+                {/* Utvekslingsuniversitet */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><MapPin size={14} /> Utvekslingsuniversitet</label>
+                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={exchangeUniversity} onChange={(e) => setExchangeUniversity(e.target.value)}>
+                    {EXCHANGE_UNIVERSITIES.map(uni => (
+                      <option key={uni} value={uni}>{uni}</option>
+                    ))}
+                  </select>
+                </div>
+
                 {/* Studieprogram */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
-                    <GraduationCap size={14} /> Studieprogram
-                  </label>
-                  <select
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
-                    value={program}
-                    onChange={(e) => setProgram(e.target.value)}
-                  >
-                    <option value="Datateknologi">
-                      Datateknologi (5-årig)
-                    </option>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><GraduationCap size={14} /> Studieprogram</label>
+                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={program} onChange={(e) => setProgram(e.target.value)}>
+                    <option value="Datateknologi">Datateknologi (5-årig)</option>
                     <option value="Kybernetikk">Kybernetikk og Robotikk</option>
                     <option value="Indøk">Industriell Økonomi</option>
                   </select>
@@ -342,141 +438,67 @@ export default function ExchangePlannerFull() {
                 {/* Studieår og Semester */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
-                      <Calendar size={14} /> Studieår
-                    </label>
-                    <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
-                      value={studyYear}
-                      onChange={(e) => setStudyYear(Number(e.target.value))}
-                    >
-                      <option value={1}>1. klasse</option>
-                      <option value={2}>2. klasse</option>
-                      <option value={3}>3. klasse</option>
-                      <option value={4}>4. klasse</option>
-                      <option value={5}>5. klasse</option>
+                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><Calendar size={14} /> Studieår</label>
+                    <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={studyYear} onChange={(e) => setStudyYear(Number(e.target.value))}>
+                      {[1,2,3,4,5].map(year => <option key={year} value={year}>{year}. klasse</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">
-                      Semester
-                    </label>
-                    <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
-                      value={semesterChoice}
-                      onChange={(e) => setSemesterChoice(e.target.value)}
-                    >
-                      <option value="Høst">
-                        Høst ({studyYear * 2 - 1}. sem)
-                      </option>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">Semester</label>
+                    <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={semesterChoice} onChange={(e) => setSemesterChoice(e.target.value)}>
+                      <option value="Høst">Høst ({studyYear * 2 - 1}. sem)</option>
                       <option value="Vår">Vår ({studyYear * 2}. sem)</option>
                     </select>
                   </div>
                 </div>
-
                 <div className="pt-4">
-                  <button
-                    onClick={handleFetchSubjects}
-                    className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg"
-                  >
+                  <button onClick={handleFetchSubjects} className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg">
                     Hent fagplan <ArrowRight size={20} />
                   </button>
-                  <p className="text-xs text-center text-gray-400 mt-3">
-                    Vi henter standard fagplan for deg, som du kan endre i neste
-                    steg.
-                  </p>
+                  <p className="text-xs text-center text-gray-400 mt-3">Vi henter standard fagplan for deg, som du kan endre i neste steg.</p>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* --- STEG 2: SJEKKLISTE (Edit Mode) --- */}
+        {/* --- STEG 2: SJEKKLISTE --- */}
         {step === 2 && (
           <div className="flex flex-col items-center justify-start pt-10 min-h-full p-6 animate-in slide-in-from-right duration-500">
             <div className="max-w-3xl w-full">
-              <button
-                onClick={() => setStep(1)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
-              >
+              <button onClick={() => setStep(1)} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm">
                 <ArrowLeft size={16} /> Tilbake til profil
               </button>
-
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                 <div className="mb-6 border-b border-gray-100 pb-4">
-                  <h2 className="text-2xl font-bold text-slate-900">
-                    Bekreft dine fag
-                  </h2>
-                  <p className="text-slate-500 mt-1">
-                    Dette er fagene vi forventer at du tar i{" "}
-                    <strong>
-                      {studyYear}. klasse ({semesterChoice.toLowerCase()})
-                    </strong>
-                    . Stemmer dette?
-                  </p>
+                  <h2 className="text-2xl font-bold text-slate-900">Bekreft dine fag</h2>
+                  <p className="text-slate-500 mt-1">Dette er fagene vi forventer at du tar i <strong>{studyYear}. klasse ({semesterChoice.toLowerCase()})</strong>. Stemmer dette?</p>
                 </div>
-
                 <div className="space-y-3 mb-8">
                   {mySubjects.map((sub) => (
-                    <div
-                      key={sub.id}
-                      className="flex items-center justify-between p-4 bg-slate-50 border border-gray-200 rounded-xl group hover:border-blue-300 transition-colors"
-                    >
+                    <div key={sub.id} className="flex items-center justify-between p-4 bg-slate-50 border border-gray-200 rounded-xl group hover:border-blue-300 transition-colors">
                       <div className="flex items-center gap-4">
-                        <div className="bg-white p-2 rounded-lg border border-gray-200 text-slate-600">
-                          <BookOpen size={20} />
-                        </div>
+                        <div className="bg-white p-2 rounded-lg border border-gray-200 text-slate-600"><BookOpen size={20} /></div>
                         <div>
-                          <div className="font-bold text-slate-800">
-                            {sub.code}
-                          </div>
-                          <div className="text-sm text-slate-500">
-                            {sub.name}
-                          </div>
+                          <div className="font-bold text-slate-800">{sub.code}</div>
+                          <div className="text-sm text-slate-500">{sub.name}</div>
                         </div>
                       </div>
-                      <button
-                        onClick={() =>
-                          setMySubjects(
-                            mySubjects.filter((s) => s.id !== sub.id)
-                          )
-                        }
-                        className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors"
-                        title="Fjern fag"
-                      >
+                      <button onClick={() => setMySubjects(mySubjects.filter((s) => s.id !== sub.id))} className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors" title="Fjern fag">
                         <Trash2 size={20} />
                       </button>
                     </div>
                   ))}
-
-                  {/* Manuell input */}
                   <div className="flex gap-3 items-center mt-6 pt-6 border-t border-dashed border-gray-200">
-                    <input
-                      placeholder="Kode (eks: TDT4100)"
-                      className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-32 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                      value={newSubjectCode}
-                      onChange={(e) => setNewSubjectCode(e.target.value)}
-                    />
-                    <input
-                      placeholder="Navn (eks: Objektorientert...)"
-                      className="p-3 rounded-lg border border-gray-300 bg-white text-sm flex-1 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                      value={newSubjectName}
-                      onChange={(e) => setNewSubjectName(e.target.value)}
-                    />
-                    <button
-                      onClick={handleAddSubject}
-                      className="bg-blue-50 text-blue-600 font-medium px-4 py-3 rounded-lg hover:bg-blue-100 flex items-center gap-2"
-                    >
+                    <input placeholder="Kode (eks: TDT4100)" className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-32 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" value={newSubjectCode} onChange={(e) => setNewSubjectCode(e.target.value)} />
+                    <input placeholder="Navn (eks: Objektorientert...)" className="p-3 rounded-lg border border-gray-300 bg-white text-sm flex-1 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" value={newSubjectName} onChange={(e) => setNewSubjectName(e.target.value)} />
+                    <button onClick={handleAddSubject} className="bg-blue-50 text-blue-600 font-medium px-4 py-3 rounded-lg hover:bg-blue-100 flex items-center gap-2">
                       <Plus size={18} /> Legg til
                     </button>
                   </div>
                 </div>
-
                 <div className="flex justify-end pt-4 border-t border-gray-100">
-                  <button
-                    onClick={() => setStep(3)}
-                    className="bg-green-600 text-white py-3 px-8 rounded-xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-100 flex items-center gap-2"
-                  >
+                  <button onClick={() => setStep(3)} className="bg-green-600 text-white py-3 px-8 rounded-xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-100 flex items-center gap-2">
                     Alt ser riktig ut <ArrowRight size={20} />
                   </button>
                 </div>
@@ -485,14 +507,11 @@ export default function ExchangePlannerFull() {
           </div>
         )}
 
-        {/* --- STEG 3: PLANLEGGER (Split Screen) --- */}
+        {/* --- STEG 3: PLANLEGGER --- */}
         {step === 3 && (
           <div className="flex flex-col items-center justify-start pt-10 min-h-full p-6 animate-in slide-in-from-right duration-500">
             <div className="max-w-6xl w-full">
-              <button
-                onClick={() => setStep(2)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
-              >
+              <button onClick={() => setStep(2)} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm">
                 <ArrowLeft size={16} /> Tilbake til dine fag
               </button>
               <PlannerInterface
@@ -500,6 +519,7 @@ export default function ExchangePlannerFull() {
                 setSubjects={setMySubjects}
                 program={program}
                 semesterLabel={`${studyYear}. klasse - ${semesterChoice}`}
+                exchangeUniversity={exchangeUniversity}
               />
             </div>
           </div>
@@ -515,11 +535,13 @@ function PlannerInterface({
   setSubjects,
   program,
   semesterLabel,
+  exchangeUniversity,
 }: {
   subjects: Subject[];
   setSubjects: React.Dispatch<React.SetStateAction<Subject[]>>;
   program: string;
   semesterLabel: string;
+  exchangeUniversity: string;
 }) {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -539,11 +561,17 @@ function PlannerInterface({
     );
   };
 
-  const availableOptions = ABROAD_OPTIONS.filter(
-    (opt) =>
-      opt.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      opt.university.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const uniName = exchangeUniversity.includes(" - ") ? exchangeUniversity.split(" - ")[1] : exchangeUniversity;
+
+  const availableOptions = ABROAD_OPTIONS.filter((opt) => {
+    const isFromSelectedUniversity = uniName === "None selected" || opt.university === uniName;
+    if (!isFromSelectedUniversity) {
+      return false;
+    }
+    
+    return opt.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+           opt.university.toLowerCase().includes(searchTerm.toLowerCase())
+  });
 
   return (
     <div className="flex h-full animate-in fade-in duration-700">
@@ -687,3 +715,4 @@ function PlannerInterface({
     </div>
   );
 }
+
