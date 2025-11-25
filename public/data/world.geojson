@@ -1,0 +1,9 @@
+/*
+This is a placeholder file. Please provide the content for world.geojson.
+You can get a world geojson file from many sources, for example:
+https://github.com/johan/world.geo.json
+*/
+{
+  "type": "FeatureCollection",
+  "features": []
+}
