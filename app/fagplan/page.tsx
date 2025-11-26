@@ -67,37 +67,45 @@ const TECHNOLOGY_DIRECTIONS: Record<string, string[]> = {
   Indøk: [
     "Ingen retning",
     "Datateknologi",
-    "Kybernetikk og robotikk",
+    "Maskin- og energiteknikk",
     "Energi og miljø",
-    "Produksjonsteknikk",
+    "Marin teknikk",
   ],
 };
 
-// Spesialiseringer per studieprogram/teknologiretning
+// Spesialiseringer (Fagretninger) per studieprogram/teknologiretning
 const SPECIALIZATIONS: Record<string, string[]> = {
   Datateknologi: [
-    "Ingen spesialisering",
+    "Ingen fagretning",
     "Algoritmer og datamaskiner",
     "Databaser og søk",
     "Kunstig intelligens",
     "Programvaresystemer",
   ],
   Kybernetikk: [
-    "Ingen spesialisering",
+    "Ingen fagretning",
     "Autonome systemer",
     "Modellering og optimering",
     "Robotikk",
   ],
   Indøk_Datateknologi: [
-    "Ingen spesialisering",
+    "Ingen fagretning",
     "Kunstig intelligens",
     "Programvaresystemer",
-    "Databaser og søk",
   ],
-  "Indøk_Kybernetikk og robotikk": [
-    "Ingen spesialisering",
-    "Autonome systemer",
-    "Robotikk",
+  "Indøk_Maskin- og energiteknikk": [
+    "Ingen fagretning",
+    "Ledelse og systemfag",
+    "Energi- og prosessteknikk",
+  ],
+  "Indøk_Energi og miljø": [
+    "Ingen fagretning",
+    "Energi- og prosessteknikk",
+    "Elektrisk energiteknikk og smarte nett",
+  ],
+  "Indøk_Marin teknikk": [
+    "Ingen fagretning",
+    "Marin prosjektering og logistikk",
   ],
 };
 
@@ -746,7 +754,7 @@ export default function ExchangePlannerFull() {
   const [program, setProgram] = useState("Datateknologi");
   const [technologyDirection, setTechnologyDirection] =
     useState("Ingen retning");
-  const [specialization, setSpecialization] = useState("Ingen spesialisering");
+  const [specialization, setSpecialization] = useState("Ingen fagretning");
   const [studyYear, setStudyYear] = useState<number>(4);
   const [semesterChoice, setSemesterChoice] = useState("Høst");
 
@@ -797,7 +805,7 @@ export default function ExchangePlannerFull() {
     const techDir =
       technologyDirection === "Ingen retning" ? "default" : technologyDirection;
     const spec =
-      specialization === "Ingen spesialisering" ? "default" : specialization;
+      specialization === "Ingen fagretning" ? "default" : specialization;
 
     // For Indøk: Program_TechDir_Year_Semester_Spec
     // For andre: Program_default_Year_Semester_Spec
@@ -842,7 +850,7 @@ export default function ExchangePlannerFull() {
     setExchangeUniversity("None selected");
     setProgram("Datateknologi");
     setTechnologyDirection("Ingen retning");
-    setSpecialization("Ingen spesialisering");
+    setSpecialization("Ingen fagretning");
     setStudyYear(4);
     setSemesterChoice("Høst");
     setMySubjects([]);
@@ -924,7 +932,7 @@ export default function ExchangePlannerFull() {
       setExchangeUniversity(planToOpen.exchangeUniversity);
       setProgram(planToOpen.program);
       setTechnologyDirection(planToOpen.technologyDirection || "Ingen retning");
-      setSpecialization(planToOpen.specialization || "Ingen spesialisering");
+      setSpecialization(planToOpen.specialization || "Ingen fagretning");
       setStudyYear(planToOpen.studyYear);
       setSemesterChoice(planToOpen.semesterChoice);
       setMySubjects(planToOpen.subjects);
@@ -1174,7 +1182,7 @@ export default function ExchangePlannerFull() {
                     onChange={(e) => {
                       setProgram(e.target.value);
                       setTechnologyDirection("Ingen retning");
-                      setSpecialization("Ingen spesialisering");
+                      setSpecialization("Ingen fagretning");
                     }}
                   >
                     <option value="Datateknologi">Datateknologi</option>
@@ -1194,7 +1202,7 @@ export default function ExchangePlannerFull() {
                       value={technologyDirection}
                       onChange={(e) => {
                         setTechnologyDirection(e.target.value);
-                        setSpecialization("Ingen spesialisering");
+                        setSpecialization("Ingen fagretning");
                       }}
                     >
                       {TECHNOLOGY_DIRECTIONS[program].map((tech) => (
@@ -1221,7 +1229,7 @@ export default function ExchangePlannerFull() {
                   return availableSpecs.length > 1 ? (
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
-                        <BookOpen size={14} /> Spesialisering
+                        <BookOpen size={14} /> Fagretning
                       </label>
                       <select
                         className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
