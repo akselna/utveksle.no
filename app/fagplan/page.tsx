@@ -15,6 +15,8 @@ import {
   School,
   GraduationCap,
   Calendar,
+  Info,
+  ShieldCheck,
 } from "lucide-react";
 import approvedCoursesData from "../../data/approved_courses.json";
 
@@ -39,6 +41,9 @@ type AbroadSubject = {
   matchesHomeSubjectCode?: string;
   ects?: string;
   behandlingsdato?: string;
+  isVerified?: boolean;
+  wikiUrl?: string;
+  addedBy?: string;
 };
 
 type ExchangePlan = {
@@ -56,15 +61,41 @@ type ExchangePlan = {
 // --- DATA ---
 // Teknologiretninger for Indøk
 const TECHNOLOGY_DIRECTIONS: Record<string, string[]> = {
-  Indøk: ["Ingen retning", "Datateknologi", "Kybernetikk og robotikk", "Energi og miljø", "Produksjonsteknikk"],
+  Indøk: [
+    "Ingen retning",
+    "Datateknologi",
+    "Kybernetikk og robotikk",
+    "Energi og miljø",
+    "Produksjonsteknikk",
+  ],
 };
 
 // Spesialiseringer per studieprogram/teknologiretning
 const SPECIALIZATIONS: Record<string, string[]> = {
-  Datateknologi: ["Ingen spesialisering", "Algoritmer og datamaskiner", "Databaser og søk", "Kunstig intelligens", "Programvaresystemer"],
-  Kybernetikk: ["Ingen spesialisering", "Autonome systemer", "Modellering og optimering", "Robotikk"],
-  "Indøk_Datateknologi": ["Ingen spesialisering", "Kunstig intelligens", "Programvaresystemer", "Databaser og søk"],
-  "Indøk_Kybernetikk og robotikk": ["Ingen spesialisering", "Autonome systemer", "Robotikk"],
+  Datateknologi: [
+    "Ingen spesialisering",
+    "Algoritmer og datamaskiner",
+    "Databaser og søk",
+    "Kunstig intelligens",
+    "Programvaresystemer",
+  ],
+  Kybernetikk: [
+    "Ingen spesialisering",
+    "Autonome systemer",
+    "Modellering og optimering",
+    "Robotikk",
+  ],
+  Indøk_Datateknologi: [
+    "Ingen spesialisering",
+    "Kunstig intelligens",
+    "Programvaresystemer",
+    "Databaser og søk",
+  ],
+  "Indøk_Kybernetikk og robotikk": [
+    "Ingen spesialisering",
+    "Autonome systemer",
+    "Robotikk",
+  ],
 };
 
 // Mock data som simulerer API-kall basert på studie, år og spesialisering
@@ -73,134 +104,593 @@ const MOCK_STUDY_PLANS: Record<StudyPlanKey, Subject[]> = {
   // === INDØK - DATATEKNOLOGI - KUNSTIG INTELLIGENS ===
 
   // 1. år Høst
-  "Indøk_Datateknologi_1_Høst_default": [
-    { id: "i1h1", code: "EXPH0300", name: "Examen philosophicum for naturvitenskap og teknologi", credits: 7.5, matchedWith: null },
-    { id: "i1h2", code: "TDT4109", name: "Informasjonsteknologi, grunnkurs", credits: 7.5, matchedWith: null },
-    { id: "i1h3", code: "TMA4100", name: "Matematikk 1", credits: 7.5, matchedWith: null },
-    { id: "i1h4", code: "TMA4140", name: "Diskret matematikk", credits: 7.5, matchedWith: null },
+  Indøk_Datateknologi_1_Høst_default: [
+    {
+      id: "i1h1",
+      code: "EXPH0300",
+      name: "Examen philosophicum for naturvitenskap og teknologi",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1h2",
+      code: "TDT4109",
+      name: "Informasjonsteknologi, grunnkurs",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1h3",
+      code: "TMA4100",
+      name: "Matematikk 1",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1h4",
+      code: "TMA4140",
+      name: "Diskret matematikk",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // 1. år Vår
-  "Indøk_Datateknologi_1_Vår_default": [
-    { id: "i1v1", code: "TDT4100", name: "Objektorientert programmering", credits: 7.5, matchedWith: null },
-    { id: "i1v2", code: "TIØ4101", name: "Organisasjonsteori og selskapsrett", credits: 7.5, matchedWith: null },
-    { id: "i1v3", code: "TMA4115", name: "Matematikk 3", credits: 7.5, matchedWith: null },
-    { id: "i1v4", code: "TTM4100", name: "Kommunikasjon - Tjenester og nett", credits: 7.5, matchedWith: null },
+  Indøk_Datateknologi_1_Vår_default: [
+    {
+      id: "i1v1",
+      code: "TDT4100",
+      name: "Objektorientert programmering",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1v2",
+      code: "TIØ4101",
+      name: "Organisasjonsteori og selskapsrett",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1v3",
+      code: "TMA4115",
+      name: "Matematikk 3",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i1v4",
+      code: "TTM4100",
+      name: "Kommunikasjon - Tjenester og nett",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // 2. år Høst
-  "Indøk_Datateknologi_2_Høst_default": [
-    { id: "i2h1", code: "TDT4120", name: "Algoritmer og datastrukturer", credits: 7.5, matchedWith: null },
-    { id: "i2h2", code: "TDT4160", name: "Datamaskiner og digitalteknikk", credits: 7.5, matchedWith: null },
-    { id: "i2h3", code: "TFY4107", name: "Fysikk", credits: 7.5, matchedWith: null },
-    { id: "i2h4", code: "TMA4135", name: "Matematikk 4D", credits: 7.5, matchedWith: null },
+  Indøk_Datateknologi_2_Høst_default: [
+    {
+      id: "i2h1",
+      code: "TDT4120",
+      name: "Algoritmer og datastrukturer",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2h2",
+      code: "TDT4160",
+      name: "Datamaskiner og digitalteknikk",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2h3",
+      code: "TFY4107",
+      name: "Fysikk",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2h4",
+      code: "TMA4135",
+      name: "Matematikk 4D",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // 2. år Vår
-  "Indøk_Datateknologi_2_Vår_default": [
-    { id: "i2v1", code: "TDT4140", name: "Programvareutvikling", credits: 7.5, matchedWith: null },
-    { id: "i2v2", code: "TDT4145", name: "Datamodellering og databasesystemer", credits: 7.5, matchedWith: null },
-    { id: "i2v3", code: "TDT4180", name: "Menneske-maskin-interaksjon", credits: 7.5, matchedWith: null },
-    { id: "i2v4", code: "TIØ4105", name: "Industriell økonomisk styring", credits: 7.5, matchedWith: null },
+  Indøk_Datateknologi_2_Vår_default: [
+    {
+      id: "i2v1",
+      code: "TDT4140",
+      name: "Programvareutvikling",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2v2",
+      code: "TDT4145",
+      name: "Datamodellering og databasesystemer",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2v3",
+      code: "TDT4180",
+      name: "Menneske-maskin-interaksjon",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i2v4",
+      code: "TIØ4105",
+      name: "Industriell økonomisk styring",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // 3. år Høst - Kunstig intelligens
   "Indøk_Datateknologi_3_Høst_Kunstig intelligens": [
-    { id: "i3h1", code: "TDT4136", name: "Introduksjon til kunstig intelligens", credits: 7.5, matchedWith: null },
-    { id: "i3h2", code: "TIØ4118", name: "Industriell økonomisk analyse", credits: 7.5, matchedWith: null },
-    { id: "i3h3", code: "TIØ4162", name: "Organisasjon og teknologi 2", credits: 7.5, matchedWith: null },
-    { id: "i3h4", code: "TMA4240", name: "Statistikk", credits: 7.5, matchedWith: null },
+    {
+      id: "i3h1",
+      code: "TDT4136",
+      name: "Introduksjon til kunstig intelligens",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i3h2",
+      code: "TIØ4118",
+      name: "Industriell økonomisk analyse",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i3h3",
+      code: "TIØ4162",
+      name: "Organisasjon og teknologi 2",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i3h4",
+      code: "TMA4240",
+      name: "Statistikk",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // 3. år Vår - Kunstig intelligens
   "Indøk_Datateknologi_3_Vår_Kunstig intelligens": [
-    { id: "i3v1", code: "TDT4171", name: "Metoder i kunstig intelligens", credits: 7.5, matchedWith: null },
-    { id: "i3v2", code: "TIØ4126", name: "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging", credits: 7.5, matchedWith: null },
-    { id: "i3v3a", code: "TIØ4165", name: "Markedsføringsledelse for teknologibedrifter", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "3vår_valg", isSelected: false },
-    { id: "i3v3b", code: "TDT4237", name: "Programvaresikkerhet og personvern", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "3vår_valg", isSelected: false },
-    { id: "i3v3c", code: "TDT4300", name: "Datavarehus og datagruvedrift", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "3vår_valg", isSelected: false },
+    {
+      id: "i3v1",
+      code: "TDT4171",
+      name: "Metoder i kunstig intelligens",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i3v2",
+      code: "TIØ4126",
+      name: "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "i3v3a",
+      code: "TIØ4165",
+      name: "Markedsføringsledelse for teknologibedrifter",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "3vår_valg",
+      isSelected: false,
+    },
+    {
+      id: "i3v3b",
+      code: "TDT4237",
+      name: "Programvaresikkerhet og personvern",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "3vår_valg",
+      isSelected: false,
+    },
+    {
+      id: "i3v3c",
+      code: "TDT4300",
+      name: "Datavarehus og datagruvedrift",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "3vår_valg",
+      isSelected: false,
+    },
   ],
 
   // 4. år Høst - Kunstig intelligens
   "Indøk_Datateknologi_4_Høst_Kunstig intelligens": [
     // Gruppe A - Velg minst 2
-    { id: "i4h1a", code: "TIØ4130", name: "Optimeringsmetoder med teknisk-økonomiske anvendelser", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_gruppeA", isSelected: false },
-    { id: "i4h1b", code: "TIØ4145", name: "Finansstyring for foretak", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_gruppeA", isSelected: false },
-    { id: "i4h1c", code: "TIØ4265", name: "Strategisk ledelse", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_gruppeA", isSelected: false },
+    {
+      id: "i4h1a",
+      code: "TIØ4130",
+      name: "Optimeringsmetoder med teknisk-økonomiske anvendelser",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4h1b",
+      code: "TIØ4145",
+      name: "Finansstyring for foretak",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4h1c",
+      code: "TIØ4265",
+      name: "Strategisk ledelse",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_gruppeA",
+      isSelected: false,
+    },
 
     // Valgbare teknologiemner
-    { id: "i4h2a", code: "TDT4173", name: "Moderne maskinlæring i praksis", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2b", code: "TDT4137", name: "Kognitive systemer", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2c", code: "TDT4259", name: "Anvendt data science", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2d", code: "TIØ4180", name: "Innovasjonsledelse og strategi", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2e", code: "TIØ4195", name: "Miljøledelse og bedriftsstrategi", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2f", code: "TIØ4282", name: "Digital strategi og forretningsmodeller", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2g", code: "TIØ4300", name: "Miljøkunnskap, økosystemtjenester og bærekraft", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2h", code: "TIØ4306", name: "Strategier for industriell bærekraft", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
-    { id: "i4h2i", code: "TIØ4345", name: "Ledelse av bedriftsrelasjoner og -nettverk", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4høst_tek", isSelected: false },
+    {
+      id: "i4h2a",
+      code: "TDT4173",
+      name: "Moderne maskinlæring i praksis",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2b",
+      code: "TDT4137",
+      name: "Kognitive systemer",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2c",
+      code: "TDT4259",
+      name: "Anvendt data science",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2d",
+      code: "TIØ4180",
+      name: "Innovasjonsledelse og strategi",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2e",
+      code: "TIØ4195",
+      name: "Miljøledelse og bedriftsstrategi",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2f",
+      code: "TIØ4282",
+      name: "Digital strategi og forretningsmodeller",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2g",
+      code: "TIØ4300",
+      name: "Miljøkunnskap, økosystemtjenester og bærekraft",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2h",
+      code: "TIØ4306",
+      name: "Strategier for industriell bærekraft",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4h2i",
+      code: "TIØ4345",
+      name: "Ledelse av bedriftsrelasjoner og -nettverk",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4høst_tek",
+      isSelected: false,
+    },
   ],
 
   // 4. år Vår - Kunstig intelligens
   "Indøk_Datateknologi_4_Vår_Kunstig intelligens": [
-    { id: "i4v1", code: "EiT", name: "Eksperter i team", credits: 7.5, matchedWith: null },
+    {
+      id: "i4v1",
+      code: "EiT",
+      name: "Eksperter i team",
+      credits: 7.5,
+      matchedWith: null,
+    },
 
     // Gruppe A - Velg minst 1
-    { id: "i4v2a", code: "TIØ4140", name: "Finansielle derivater og realopsjoner", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2b", code: "TIØ4150", name: "Industriell optimering og beslutningsstøtte", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2c", code: "TIØ4170", name: "Teknologibasert forretningsutvikling", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2d", code: "TIØ4175", name: "Innkjøps- og logistikkledelse", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2e", code: "TIØ4235", name: "Industriell markedsføring og internasjonal handel", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2f", code: "TIØ4276", name: "Endringsledelse", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2g", code: "TIØ4285", name: "Modellering og analyse av industrielle verdikjeder", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
-    { id: "i4v2h", code: "TIØ4317", name: "Empiriske og kvantitative metoder i finans", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_gruppeA", isSelected: false },
+    {
+      id: "i4v2a",
+      code: "TIØ4140",
+      name: "Finansielle derivater og realopsjoner",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2b",
+      code: "TIØ4150",
+      name: "Industriell optimering og beslutningsstøtte",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2c",
+      code: "TIØ4170",
+      name: "Teknologibasert forretningsutvikling",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2d",
+      code: "TIØ4175",
+      name: "Innkjøps- og logistikkledelse",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2e",
+      code: "TIØ4235",
+      name: "Industriell markedsføring og internasjonal handel",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2f",
+      code: "TIØ4276",
+      name: "Endringsledelse",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2g",
+      code: "TIØ4285",
+      name: "Modellering og analyse av industrielle verdikjeder",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
+    {
+      id: "i4v2h",
+      code: "TIØ4317",
+      name: "Empiriske og kvantitative metoder i finans",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_gruppeA",
+      isSelected: false,
+    },
 
     // Valgbare teknologiemner
-    { id: "i4v3a", code: "IT3105", name: "Kunstig intelligens programmering", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_tek", isSelected: false },
-    { id: "i4v3b", code: "IT3708", name: "Bio-inspirert Kunstig Intelligens", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_tek", isSelected: false },
-    { id: "i4v3c", code: "TDT4215", name: "Anbefalingssystemer", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_tek", isSelected: false },
-    { id: "i4v3d", code: "TDT4300", name: "Datavarehus og datagruvedrift", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_tek", isSelected: false },
-    { id: "i4v3e", code: "TDT4305", name: "Big Data-arkitektur", credits: 7.5, matchedWith: null, isElective: true, electiveGroup: "4vår_tek", isSelected: false },
+    {
+      id: "i4v3a",
+      code: "IT3105",
+      name: "Kunstig intelligens programmering",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4v3b",
+      code: "IT3708",
+      name: "Bio-inspirert Kunstig Intelligens",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4v3c",
+      code: "TDT4215",
+      name: "Anbefalingssystemer",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4v3d",
+      code: "TDT4300",
+      name: "Datavarehus og datagruvedrift",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_tek",
+      isSelected: false,
+    },
+    {
+      id: "i4v3e",
+      code: "TDT4305",
+      name: "Big Data-arkitektur",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      electiveGroup: "4vår_tek",
+      isSelected: false,
+    },
   ],
 
   // === ANDRE STUDIEPROGRAM (tidligere eksempler) ===
 
   // Datateknologi - 4. klasse høst
-  "Datateknologi_default_4_Høst_default": [
-    { id: "dt4h1", code: "TDT4120", name: "Algoritmer og Datastrukturer", credits: 7.5, matchedWith: null },
-    { id: "dt4h2", code: "TDT4145", name: "Datamodellering og Databasesystemer", credits: 7.5, matchedWith: null },
-    { id: "dt4h3", code: "TDT4200", name: "Parallell Databehandling", credits: 7.5, matchedWith: null },
-    { id: "dt4h4", code: "EiT", name: "Eksperter i Team", credits: 7.5, matchedWith: null },
+  Datateknologi_default_4_Høst_default: [
+    {
+      id: "dt4h1",
+      code: "TDT4120",
+      name: "Algoritmer og Datastrukturer",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "dt4h2",
+      code: "TDT4145",
+      name: "Datamodellering og Databasesystemer",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "dt4h3",
+      code: "TDT4200",
+      name: "Parallell Databehandling",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "dt4h4",
+      code: "EiT",
+      name: "Eksperter i Team",
+      credits: 7.5,
+      matchedWith: null,
+    },
   ],
 
   // Kybernetikk - 4. klasse vår
-  "Kybernetikk_default_4_Vår_default": [
-    { id: "kyb4v1", code: "TTK4105", name: "Reguleringsteknikk", credits: 7.5, matchedWith: null },
-    { id: "kyb4v2", code: "TTK4115", name: "Lineær Systemteori", credits: 7.5, matchedWith: null },
-    { id: "kyb4v3", code: "TMA4135", name: "Matematikk 4D", credits: 7.5, matchedWith: null },
-    { id: "kyb4v4", code: "Valgfag", name: "Valgbart emne", credits: 7.5, matchedWith: null, isElective: true, isSelected: false },
+  Kybernetikk_default_4_Vår_default: [
+    {
+      id: "kyb4v1",
+      code: "TTK4105",
+      name: "Reguleringsteknikk",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "kyb4v2",
+      code: "TTK4115",
+      name: "Lineær Systemteori",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "kyb4v3",
+      code: "TMA4135",
+      name: "Matematikk 4D",
+      credits: 7.5,
+      matchedWith: null,
+    },
+    {
+      id: "kyb4v4",
+      code: "Valgfag",
+      name: "Valgbart emne",
+      credits: 7.5,
+      matchedWith: null,
+      isElective: true,
+      isSelected: false,
+    },
   ],
 };
 
 // Konverter JSON-data til AbroadSubject format
-const ABROAD_OPTIONS: AbroadSubject[] = (approvedCoursesData as any[]).map((course, index) => ({
-  id: `abroad-${index}`,
-  code: course.Bologna_Emnekode || "",
-  name: course.Bologna_Fagnavn || "",
-  university: course.University || "",
-  country: course.Country || "",
-  matchesHomeSubjectCode: course.NTNU_Emnekode || "",
-  ects: course.ECTS || "",
-  behandlingsdato: course.Behandlingsdato || "",
-}));
+const ABROAD_OPTIONS: AbroadSubject[] = (approvedCoursesData as any[]).map(
+  (course, index) => {
+    // Hvis kurset har Bologna eller Foreign emnekode, er det verifisert fra wiki/manuell input
+    const isBologna = !!course.Bologna_Emnekode;
+    const isForeign = !!course.Foreign_Emnekode;
+    const isVerified = isBologna || isForeign;
+
+    return {
+      id: `abroad-${index}`,
+      code: course.Bologna_Emnekode || course.Foreign_Emnekode || "",
+      name: course.Bologna_Fagnavn || course.Foreign_Fagnavn || "",
+      university: course.University || "",
+      country: course.Country || "",
+      matchesHomeSubjectCode: course.NTNU_Emnekode || "",
+      ects: course.ECTS || "",
+      behandlingsdato: course.Behandlingsdato || "",
+      isVerified,
+      wikiUrl: course.Wiki_URL || undefined,
+      addedBy: isVerified ? undefined : course.addedBy || "Ukjent bruker",
+    };
+  }
+);
 
 // Generer universitetsvalg dynamisk fra data
 const EXCHANGE_UNIVERSITIES = [
   "None selected",
-  ...Array.from(new Set((approvedCoursesData as any[]).map(course =>
-    course.Country && course.University ? `${course.Country} - ${course.University}` : null
-  ).filter(Boolean))).sort()
+  ...Array.from(
+    new Set(
+      (approvedCoursesData as any[])
+        .map((course) =>
+          course.Country && course.University
+            ? `${course.Country} - ${course.University}`
+            : null
+        )
+        .filter(Boolean)
+    )
+  ).sort(),
 ] as string[];
-
 
 const MOCK_EXCHANGE_PLANS: ExchangePlan[] = [
   {
@@ -218,17 +708,28 @@ const MOCK_EXCHANGE_PLANS: ExchangePlan[] = [
         credits: 7.5,
         matchedWith: null,
       },
-      { id: "h2", code: "TDT4145", name: "Datamodellering og Databasesystemer", credits: 7.5, matchedWith: null },
-      { id: "h3", code: "TDT4200", name: "Parallell Databehandling", credits: 7.5, matchedWith: null },
-    ]
-  }
+      {
+        id: "h2",
+        code: "TDT4145",
+        name: "Datamodellering og Databasesystemer",
+        credits: 7.5,
+        matchedWith: null,
+      },
+      {
+        id: "h3",
+        code: "TDT4200",
+        name: "Parallell Databehandling",
+        credits: 7.5,
+        matchedWith: null,
+      },
+    ],
+  },
 ];
-
 
 export default function ExchangePlannerFull() {
   const [step, setStep] = useState(0); // 0: Dashboard, 1: Profil, 2: Fag, 3: Planlegger
   const [showSaveNotification, setShowSaveNotification] = useState(false);
-  
+
   // State for plans
   const [myPlans, setMyPlans] = useState<ExchangePlan[]>(MOCK_EXCHANGE_PLANS);
   const [editingPlanId, setEditingPlanId] = useState<string | null>(null);
@@ -237,7 +738,8 @@ export default function ExchangePlannerFull() {
   const [university, setUniversity] = useState("NTNU"); // Home university
   const [exchangeUniversity, setExchangeUniversity] = useState("None selected"); // Exchange university
   const [program, setProgram] = useState("Datateknologi");
-  const [technologyDirection, setTechnologyDirection] = useState("Ingen retning");
+  const [technologyDirection, setTechnologyDirection] =
+    useState("Ingen retning");
   const [specialization, setSpecialization] = useState("Ingen spesialisering");
   const [studyYear, setStudyYear] = useState<number>(4);
   const [semesterChoice, setSemesterChoice] = useState("Høst");
@@ -250,12 +752,15 @@ export default function ExchangePlannerFull() {
   const [newSubjectName, setNewSubjectName] = useState("");
 
   // --- HJELPEFUNKSJONER ---
-  const calculatedSemester = semesterChoice === "Høst" ? studyYear * 2 - 1 : studyYear * 2;
+  const calculatedSemester =
+    semesterChoice === "Høst" ? studyYear * 2 - 1 : studyYear * 2;
 
   const handleFetchSubjects = () => {
     // Bygg nøkkel basert på program, teknologiretning, år, semester og spesialisering
-    const techDir = technologyDirection === "Ingen retning" ? "default" : technologyDirection;
-    const spec = specialization === "Ingen spesialisering" ? "default" : specialization;
+    const techDir =
+      technologyDirection === "Ingen retning" ? "default" : technologyDirection;
+    const spec =
+      specialization === "Ingen spesialisering" ? "default" : specialization;
 
     // For Indøk: Program_TechDir_Year_Semester_Spec
     // For andre: Program_default_Year_Semester_Spec
@@ -263,7 +768,11 @@ export default function ExchangePlannerFull() {
     const fallbackKey1 = `${program}_${techDir}_${studyYear}_${semesterChoice}_default`;
     const fallbackKey2 = `${program}_default_${studyYear}_${semesterChoice}_default`;
 
-    const defaultPlan = MOCK_STUDY_PLANS[key] || MOCK_STUDY_PLANS[fallbackKey1] || MOCK_STUDY_PLANS[fallbackKey2] || [];
+    const defaultPlan =
+      MOCK_STUDY_PLANS[key] ||
+      MOCK_STUDY_PLANS[fallbackKey1] ||
+      MOCK_STUDY_PLANS[fallbackKey2] ||
+      [];
     setMySubjects(defaultPlan);
     setStep(2);
   };
@@ -284,8 +793,8 @@ export default function ExchangePlannerFull() {
   };
 
   const handleToggleSubjectSelection = (subjectId: string) => {
-    setMySubjects(prev =>
-      prev.map(sub =>
+    setMySubjects((prev) =>
+      prev.map((sub) =>
         sub.id === subjectId ? { ...sub, isSelected: !sub.isSelected } : sub
       )
     );
@@ -305,14 +814,38 @@ export default function ExchangePlannerFull() {
 
   const handleSavePlan = () => {
     // Filtrer ut ikke-valgte valgfrie fag før lagring
-    const selectedSubjects = mySubjects.filter(sub => !sub.isElective || sub.isSelected === true);
+    const selectedSubjects = mySubjects.filter(
+      (sub) => !sub.isElective || sub.isSelected === true
+    );
 
     if (editingPlanId) {
-      const updatedPlan: ExchangePlan = { id: editingPlanId, university, exchangeUniversity, program, technologyDirection, specialization, studyYear, semesterChoice, subjects: selectedSubjects };
-      setMyPlans(myPlans.map(p => p.id === editingPlanId ? updatedPlan : p));
+      const updatedPlan: ExchangePlan = {
+        id: editingPlanId,
+        university,
+        exchangeUniversity,
+        program,
+        technologyDirection,
+        specialization,
+        studyYear,
+        semesterChoice,
+        subjects: selectedSubjects,
+      };
+      setMyPlans(
+        myPlans.map((p) => (p.id === editingPlanId ? updatedPlan : p))
+      );
     } else {
-      const newPlan: ExchangePlan = { id: `plan-${Date.now()}`, university, exchangeUniversity, program, technologyDirection, specialization, studyYear, semesterChoice, subjects: selectedSubjects };
-      setMyPlans(prevPlans => [...prevPlans, newPlan]);
+      const newPlan: ExchangePlan = {
+        id: `plan-${Date.now()}`,
+        university,
+        exchangeUniversity,
+        program,
+        technologyDirection,
+        specialization,
+        studyYear,
+        semesterChoice,
+        subjects: selectedSubjects,
+      };
+      setMyPlans((prevPlans) => [...prevPlans, newPlan]);
     }
 
     setShowSaveNotification(true);
@@ -322,13 +855,13 @@ export default function ExchangePlannerFull() {
       resetCreatorForm();
     }, 2000);
   };
-  
+
   const handleDeletePlan = (planId: string) => {
-    setMyPlans(myPlans.filter(p => p.id !== planId));
+    setMyPlans(myPlans.filter((p) => p.id !== planId));
   };
 
   const handleOpenPlan = (planId: string) => {
-    const planToOpen = myPlans.find(p => p.id === planId);
+    const planToOpen = myPlans.find((p) => p.id === planId);
     if (planToOpen) {
       setUniversity(planToOpen.university);
       setExchangeUniversity(planToOpen.exchangeUniversity);
@@ -342,7 +875,6 @@ export default function ExchangePlannerFull() {
       setStep(3); // Gå direkte til planleggeren
     }
   };
-
 
   return (
     <div className="h-screen flex flex-col bg-gray-50 text-slate-800 font-sans overflow-hidden">
@@ -359,7 +891,8 @@ export default function ExchangePlannerFull() {
                   onClick={handleSavePlan}
                   className="text-sm font-medium text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
                 >
-                  <Save size={16} /> {editingPlanId ? "Lagre endringer" : "Lagre utkast"}
+                  <Save size={16} />{" "}
+                  {editingPlanId ? "Lagre endringer" : "Lagre utkast"}
                 </button>
               )}
             </div>
@@ -369,22 +902,33 @@ export default function ExchangePlannerFull() {
               <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 rounded"></div>
               <div
                 className="absolute top-1/2 left-0 h-1 bg-blue-600 -z-10 rounded transition-all duration-500"
-                style={{ width: step === 1 ? "0%" : step === 2 ? "50%" : "100%" }}
+                style={{
+                  width: step === 1 ? "0%" : step === 2 ? "50%" : "100%",
+                }}
               ></div>
               {[
                 { num: 1, title: "Profil" },
                 { num: 2, title: "Dine fag" },
-                { num: 3, title: "Planlegger" }
-              ].map(item => (
-                <div key={item.num} className="flex flex-col items-center bg-white px-2">
+                { num: 3, title: "Planlegger" },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="flex flex-col items-center bg-white px-2"
+                >
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
-                      step >= item.num ? "border-blue-600 bg-blue-600 text-white" : "border-gray-300 text-gray-400"
+                      step >= item.num
+                        ? "border-blue-600 bg-blue-600 text-white"
+                        : "border-gray-300 text-gray-400"
                     }`}
                   >
                     {item.num}
                   </div>
-                  <span className={`text-xs mt-1 font-medium ${step >= item.num ? "text-blue-700" : "text-gray-400"}`}>
+                  <span
+                    className={`text-xs mt-1 font-medium ${
+                      step >= item.num ? "text-blue-700" : "text-gray-400"
+                    }`}
+                  >
                     {item.title}
                   </span>
                 </div>
@@ -400,7 +944,9 @@ export default function ExchangePlannerFull() {
           <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-in slide-in-from-top fade-in z-50">
             <CheckCircle className="text-green-400" size={20} />
             <span className="font-medium">
-              {editingPlanId ? "Planen er oppdatert&quot;!" : "Planen er lagret&quot;!"}
+              {editingPlanId
+                ? "Planen er oppdatert&quot;!"
+                : "Planen er lagret&quot;!"}
             </span>
           </div>
         )}
@@ -410,11 +956,18 @@ export default function ExchangePlannerFull() {
           <div className="p-6 sm:p-10 max-w-7xl mx-auto animate-in fade-in duration-500">
             <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10">
               <div>
-                <h1 className="text-3xl font-bold text-slate-900">Mine utvekslinger</h1>
-                <p className="text-slate-500 mt-1">Se, endre eller opprett nye utvekslingsplaner.</p>
+                <h1 className="text-3xl font-bold text-slate-900">
+                  Mine utvekslinger
+                </h1>
+                <p className="text-slate-500 mt-1">
+                  Se, endre eller opprett nye utvekslingsplaner.
+                </p>
               </div>
               <button
-                onClick={() => { resetCreatorForm(); setStep(1); }}
+                onClick={() => {
+                  resetCreatorForm();
+                  setStep(1);
+                }}
                 className="mt-4 sm:mt-0 bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
               >
                 <Plus size={20} /> Opprett ny plan
@@ -423,31 +976,69 @@ export default function ExchangePlannerFull() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {myPlans.map((plan) => (
-                <div key={plan.id} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between group">
+                <div
+                  key={plan.id}
+                  className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between group"
+                >
                   <div>
                     <div className="flex justify-between items-start">
-                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">{plan.program}</span>
-                      <button onClick={() => handleDeletePlan(plan.id)} className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100">
+                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                        {plan.program}
+                      </span>
+                      <button
+                        onClick={() => handleDeletePlan(plan.id)}
+                        className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100"
+                      >
                         <Trash2 size={16} />
                       </button>
                     </div>
-                    <h3 className="font-bold text-slate-800 mt-3 text-lg">{plan.exchangeUniversity}</h3>
-                    <p className="text-sm text-slate-500">{plan.university} | {plan.studyYear}. klasse - {plan.semesterChoice}</p>
+                    <h3 className="font-bold text-slate-800 mt-3 text-lg">
+                      {plan.exchangeUniversity}
+                    </h3>
+                    <p className="text-sm text-slate-500">
+                      {plan.university} | {plan.studyYear}. klasse -{" "}
+                      {plan.semesterChoice}
+                    </p>
                   </div>
                   <div className="mt-6">
-                    <p className="text-sm font-medium text-slate-600 mb-2">Fag ({plan.subjects.length})</p>
+                    <p className="text-sm font-medium text-slate-600 mb-2">
+                      Fag ({plan.subjects.length})
+                    </p>
                     <div className="space-y-2">
-                      {plan.subjects.slice(0, 3).map(sub => (
-                        <div key={sub.id} className="flex items-center gap-3 text-xs">
-                          <div className="flex-shrink-0">{sub.matchedWith ? <CheckCircle size={14} className="text-green-500" /> : <div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-full" />}</div>
-                          <span className="text-slate-600 font-medium">{sub.code}</span>
-                          <span className="text-slate-400 truncate">{sub.name}</span>
+                      {plan.subjects.slice(0, 3).map((sub) => (
+                        <div
+                          key={sub.id}
+                          className="flex items-center gap-3 text-xs"
+                        >
+                          <div className="flex-shrink-0">
+                            {sub.matchedWith ? (
+                              <CheckCircle
+                                size={14}
+                                className="text-green-500"
+                              />
+                            ) : (
+                              <div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-full" />
+                            )}
+                          </div>
+                          <span className="text-slate-600 font-medium">
+                            {sub.code}
+                          </span>
+                          <span className="text-slate-400 truncate">
+                            {sub.name}
+                          </span>
                         </div>
                       ))}
-                      {plan.subjects.length > 3 && <p className="text-xs text-slate-400 mt-1">+ {plan.subjects.length - 3} til...</p>}
+                      {plan.subjects.length > 3 && (
+                        <p className="text-xs text-slate-400 mt-1">
+                          + {plan.subjects.length - 3} til...
+                        </p>
+                      )}
                     </div>
                   </div>
-                  <button onClick={() => handleOpenPlan(plan.id)} className="w-full mt-6 bg-slate-100 text-slate-700 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors text-sm">
+                  <button
+                    onClick={() => handleOpenPlan(plan.id)}
+                    className="w-full mt-6 bg-slate-100 text-slate-700 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors text-sm"
+                  >
                     Åpne plan
                   </button>
                 </div>
@@ -455,13 +1046,15 @@ export default function ExchangePlannerFull() {
             </div>
 
             {myPlans.length === 0 && (
-                <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl mt-6">
-                    <GraduationCap size={40} className="mx-auto text-gray-300" />
-                    <h3 className="mt-4 text-lg font-semibold text-slate-700">Ingen planer ennå</h3>
-                    <p className="mt-1 text-sm text-slate-500">
-                        Trykk på "Opprett ny plan" for å starte.
-                    </p>
-                </div>
+              <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl mt-6">
+                <GraduationCap size={40} className="mx-auto text-gray-300" />
+                <h3 className="mt-4 text-lg font-semibold text-slate-700">
+                  Ingen planer ennå
+                </h3>
+                <p className="mt-1 text-sm text-slate-500">
+                  Trykk på "Opprett ny plan" for å starte.
+                </p>
+              </div>
             )}
           </div>
         )}
@@ -470,12 +1063,20 @@ export default function ExchangePlannerFull() {
         {step === 1 && (
           <div className="flex flex-col items-center justify-center min-h-full p-6 animate-in fade-in duration-500">
             <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border border-gray-100">
-              <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">Start planleggingen</h1>
+              <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">
+                Start planleggingen
+              </h1>
               <div className="space-y-5">
                 {/* Hjemmeuniversitet */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><School size={14} /> Hjemmeuniversitet</label>
-                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={university} onChange={(e) => setUniversity(e.target.value)}>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <School size={14} /> Hjemmeuniversitet
+                  </label>
+                  <select
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    value={university}
+                    onChange={(e) => setUniversity(e.target.value)}
+                  >
                     <option value="NTNU">NTNU</option>
                     <option value="UiO">UiO</option>
                   </select>
@@ -483,31 +1084,60 @@ export default function ExchangePlannerFull() {
 
                 {/* Utvekslingsuniversitet */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><MapPin size={14} /> Utvekslingsuniversitet</label>
-                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={exchangeUniversity} onChange={(e) => setExchangeUniversity(e.target.value)}>
-                    {EXCHANGE_UNIVERSITIES.map(uni => (
-                      <option key={uni} value={uni}>{uni}</option>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <MapPin size={14} /> Utvekslingsuniversitet
+                  </label>
+                  <select
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    value={exchangeUniversity}
+                    onChange={(e) => setExchangeUniversity(e.target.value)}
+                  >
+                    {EXCHANGE_UNIVERSITIES.map((uni) => (
+                      <option key={uni} value={uni}>
+                        {uni}
+                      </option>
                     ))}
                   </select>
                 </div>
 
                 {/* Studieprogram */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><GraduationCap size={14} /> Studieprogram</label>
-                  <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={program} onChange={(e) => { setProgram(e.target.value); setTechnologyDirection("Ingen retning"); setSpecialization("Ingen spesialisering"); }}>
-                    <option value="Datateknologi">Datateknologi (5-årig)</option>
+                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <GraduationCap size={14} /> Studieprogram
+                  </label>
+                  <select
+                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    value={program}
+                    onChange={(e) => {
+                      setProgram(e.target.value);
+                      setTechnologyDirection("Ingen retning");
+                      setSpecialization("Ingen spesialisering");
+                    }}
+                  >
+                    <option value="Datateknologi">Datateknologi</option>
                     <option value="Kybernetikk">Kybernetikk og Robotikk</option>
-                    <option value="Indøk">Industriell Økonomi</option>
+                    <option value="Indøk">Indøk</option>
                   </select>
                 </div>
 
                 {/* Teknologiretning (kun for Indøk) */}
                 {TECHNOLOGY_DIRECTIONS[program] && (
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><School size={14} /> Teknologiretning</label>
-                    <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={technologyDirection} onChange={(e) => { setTechnologyDirection(e.target.value); setSpecialization("Ingen spesialisering"); }}>
-                      {TECHNOLOGY_DIRECTIONS[program].map(tech => (
-                        <option key={tech} value={tech}>{tech}</option>
+                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                      <School size={14} /> Teknologiretning
+                    </label>
+                    <select
+                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      value={technologyDirection}
+                      onChange={(e) => {
+                        setTechnologyDirection(e.target.value);
+                        setSpecialization("Ingen spesialisering");
+                      }}
+                    >
+                      {TECHNOLOGY_DIRECTIONS[program].map((tech) => (
+                        <option key={tech} value={tech}>
+                          {tech}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -517,17 +1147,28 @@ export default function ExchangePlannerFull() {
                 {(() => {
                   // Bestem hvilken nøkkel vi skal bruke for å finne spesialiseringer
                   let specKey = program;
-                  if (program === "Indøk" && technologyDirection !== "Ingen retning") {
+                  if (
+                    program === "Indøk" &&
+                    technologyDirection !== "Ingen retning"
+                  ) {
                     specKey = `${program}_${technologyDirection}`;
                   }
                   const availableSpecs = SPECIALIZATIONS[specKey] || [];
 
                   return availableSpecs.length > 1 ? (
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><BookOpen size={14} /> Spesialisering</label>
-                      <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={specialization} onChange={(e) => setSpecialization(e.target.value)}>
-                        {availableSpecs.map(spec => (
-                          <option key={spec} value={spec}>{spec}</option>
+                      <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                        <BookOpen size={14} /> Spesialisering
+                      </label>
+                      <select
+                        className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                        value={specialization}
+                        onChange={(e) => setSpecialization(e.target.value)}
+                      >
+                        {availableSpecs.map((spec) => (
+                          <option key={spec} value={spec}>
+                            {spec}
+                          </option>
                         ))}
                       </select>
                     </div>
@@ -537,24 +1178,48 @@ export default function ExchangePlannerFull() {
                 {/* Studieår og Semester */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1"><Calendar size={14} /> Studieår</label>
-                    <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={studyYear} onChange={(e) => setStudyYear(Number(e.target.value))}>
-                      {[1,2,3,4,5].map(year => <option key={year} value={year}>{year}. klasse</option>)}
+                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                      <Calendar size={14} /> Studieår
+                    </label>
+                    <select
+                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      value={studyYear}
+                      onChange={(e) => setStudyYear(Number(e.target.value))}
+                    >
+                      {[1, 2, 3, 4, 5].map((year) => (
+                        <option key={year} value={year}>
+                          {year}. klasse
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Semester</label>
-                    <select className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500" value={semesterChoice} onChange={(e) => setSemesterChoice(e.target.value)}>
-                      <option value="Høst">Høst ({studyYear * 2 - 1}. sem)</option>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                      Semester
+                    </label>
+                    <select
+                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      value={semesterChoice}
+                      onChange={(e) => setSemesterChoice(e.target.value)}
+                    >
+                      <option value="Høst">
+                        Høst ({studyYear * 2 - 1}. sem)
+                      </option>
                       <option value="Vår">Vår ({studyYear * 2}. sem)</option>
                     </select>
                   </div>
                 </div>
                 <div className="pt-4">
-                  <button onClick={handleFetchSubjects} className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg">
+                  <button
+                    onClick={handleFetchSubjects}
+                    className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg"
+                  >
                     Hent fagplan <ArrowRight size={20} />
                   </button>
-                  <p className="text-xs text-center text-gray-400 mt-3">Vi henter standard fagplan for deg, som du kan endre i neste steg.</p>
+                  <p className="text-xs text-center text-gray-400 mt-3">
+                    Vi henter standard fagplan for deg, som du kan endre i neste
+                    steg.
+                  </p>
                 </div>
               </div>
             </div>
@@ -565,13 +1230,24 @@ export default function ExchangePlannerFull() {
         {step === 2 && (
           <div className="flex flex-col items-center justify-start pt-10 min-h-full p-6 animate-in slide-in-from-right duration-500">
             <div className="max-w-3xl w-full">
-              <button onClick={() => setStep(1)} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm">
+              <button
+                onClick={() => setStep(1)}
+                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+              >
                 <ArrowLeft size={16} /> Tilbake til profil
               </button>
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                 <div className="mb-6 border-b border-gray-100 pb-4">
-                  <h2 className="text-2xl font-bold text-slate-900">Bekreft dine fag</h2>
-                  <p className="text-slate-500 mt-1">Dette er fagene vi forventer at du tar i <strong>{studyYear}. klasse ({semesterChoice.toLowerCase()})</strong>. Stemmer dette?</p>
+                  <h2 className="text-2xl font-bold text-slate-900">
+                    Bekreft dine fag
+                  </h2>
+                  <p className="text-slate-500 mt-1">
+                    Dette er fagene vi forventer at du tar i{" "}
+                    <strong>
+                      {studyYear}. klasse ({semesterChoice.toLowerCase()})
+                    </strong>
+                    . Stemmer dette?
+                  </p>
                 </div>
                 <div className="space-y-3 mb-8">
                   {/* Grupper fag basert på valgfrie grupper */}
@@ -579,9 +1255,10 @@ export default function ExchangePlannerFull() {
                     const grouped: Record<string, Subject[]> = {};
                     const obligatory: Subject[] = [];
 
-                    mySubjects.forEach(sub => {
+                    mySubjects.forEach((sub) => {
                       if (sub.isElective && sub.electiveGroup) {
-                        if (!grouped[sub.electiveGroup]) grouped[sub.electiveGroup] = [];
+                        if (!grouped[sub.electiveGroup])
+                          grouped[sub.electiveGroup] = [];
                         grouped[sub.electiveGroup].push(sub);
                       } else if (sub.isElective) {
                         obligatory.push(sub); // Valgfrie uten gruppe
@@ -594,68 +1271,89 @@ export default function ExchangePlannerFull() {
                       <>
                         {/* Vis obligatoriske fag */}
                         {obligatory.map((sub) => {
-                          const isSelected = sub.isElective ? sub.isSelected === true : true; // default false for electives, true for obligatory
+                          const isSelected = sub.isElective
+                            ? sub.isSelected === true
+                            : true; // default false for electives, true for obligatory
                           const isObligatory = !sub.isElective;
 
                           return (
-                          <div
-                            key={sub.id}
-                            onClick={() => {
-                              if (sub.isElective) {
-                                handleToggleSubjectSelection(sub.id);
-                              }
-                            }}
-                            className={`flex items-center justify-between p-4 rounded-xl transition-all ${
-                              isObligatory
-                                ? "bg-slate-50 border border-gray-200"
-                                : isSelected
-                                ? "bg-green-50 border-2 border-green-400 cursor-pointer hover:border-green-500 hover:bg-green-100"
-                                : "bg-white border border-gray-200 cursor-pointer hover:border-blue-300"
-                            }`}>
-                            <div className="flex items-center gap-4 flex-1">
-                              <div className={`p-2 rounded-lg border ${
-                                isObligatory
-                                  ? "bg-white border-gray-200 text-slate-600"
-                                  : isSelected
-                                  ? "bg-green-100 border-green-200 text-green-700"
-                                  : "bg-white border-gray-200 text-slate-600"
-                              }`}><BookOpen size={20} /></div>
-                              <div>
-                                <div className="flex items-center gap-2">
-                                  <div className={`font-bold ${
-                                    isObligatory || !isSelected
-                                      ? "text-slate-800"
-                                      : "text-green-900"
-                                  }`}>{sub.code}</div>
-                                  {sub.isElective && (
-                                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
-                                      isSelected
-                                        ? "bg-green-100 text-green-700"
-                                        : "bg-blue-50 text-blue-600"
-                                    }`}>
-                                      {isSelected ? "Valgt" : "Klikk for å velge"}
-                                    </span>
-                                  )}
-                                </div>
-                                <div className={`text-sm ${
-                                  isObligatory || !isSelected
-                                    ? "text-slate-500"
-                                    : "text-green-700"
-                                }`}>{sub.name}</div>
-                              </div>
-                            </div>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setMySubjects(mySubjects.filter((s) => s.id !== sub.id));
+                            <div
+                              key={sub.id}
+                              onClick={() => {
+                                if (sub.isElective) {
+                                  handleToggleSubjectSelection(sub.id);
+                                }
                               }}
-                              className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors"
-                              title="Fjern fag"
+                              className={`flex items-center justify-between p-4 rounded-xl transition-all ${
+                                isObligatory
+                                  ? "bg-slate-50 border border-gray-200"
+                                  : isSelected
+                                  ? "bg-green-50 border-2 border-green-400 cursor-pointer hover:border-green-500 hover:bg-green-100"
+                                  : "bg-white border border-gray-200 cursor-pointer hover:border-blue-300"
+                              }`}
                             >
-                              <Trash2 size={20} />
-                            </button>
-                          </div>
-                        );
+                              <div className="flex items-center gap-4 flex-1">
+                                <div
+                                  className={`p-2 rounded-lg border ${
+                                    isObligatory
+                                      ? "bg-white border-gray-200 text-slate-600"
+                                      : isSelected
+                                      ? "bg-green-100 border-green-200 text-green-700"
+                                      : "bg-white border-gray-200 text-slate-600"
+                                  }`}
+                                >
+                                  <BookOpen size={20} />
+                                </div>
+                                <div>
+                                  <div className="flex items-center gap-2">
+                                    <div
+                                      className={`font-bold ${
+                                        isObligatory || !isSelected
+                                          ? "text-slate-800"
+                                          : "text-green-900"
+                                      }`}
+                                    >
+                                      {sub.code}
+                                    </div>
+                                    {sub.isElective && (
+                                      <span
+                                        className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                                          isSelected
+                                            ? "bg-green-100 text-green-700"
+                                            : "bg-blue-50 text-blue-600"
+                                        }`}
+                                      >
+                                        {isSelected
+                                          ? "Valgt"
+                                          : "Klikk for å velge"}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div
+                                    className={`text-sm ${
+                                      isObligatory || !isSelected
+                                        ? "text-slate-500"
+                                        : "text-green-700"
+                                    }`}
+                                  >
+                                    {sub.name}
+                                  </div>
+                                </div>
+                              </div>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setMySubjects(
+                                    mySubjects.filter((s) => s.id !== sub.id)
+                                  );
+                                }}
+                                className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-lg transition-colors"
+                                title="Fjern fag"
+                              >
+                                <Trash2 size={20} />
+                              </button>
+                            </div>
+                          );
                         })}
 
                         {/* Vis valgfrie grupper */}
@@ -668,66 +1366,113 @@ export default function ExchangePlannerFull() {
                             : "Velg ett av følgende fag";
 
                           return (
-                          <div key={groupKey} className="border-2 border-dashed border-purple-200 bg-purple-50/30 rounded-xl p-4">
-                            <div className="text-xs font-semibold text-purple-700 mb-2 flex items-center gap-2">
-                              <CheckCircle size={14} /> {groupName}
-                            </div>
-                            <div className="space-y-2">
-                              {subs.map((sub) => {
-                                const isSelected = sub.isSelected === true; // default false
-                                return (
-                                <div
-                                  key={sub.id}
-                                  onClick={() => handleToggleSubjectSelection(sub.id)}
-                                  className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
-                                    isSelected
-                                      ? "bg-green-50 border-2 border-green-400 hover:border-green-500 hover:bg-green-100"
-                                      : "bg-white border border-gray-200 hover:border-blue-300"
-                                  }`}>
-                                  <div className="flex items-center gap-3 flex-1">
-                                    <div className={`p-1.5 rounded-lg border ${
-                                      isSelected
-                                        ? "bg-green-100 border-green-200 text-green-700"
-                                        : "bg-white border-gray-200 text-slate-600"
-                                    }`}><BookOpen size={16} /></div>
-                                    <div className="flex-1">
-                                      <div className="flex items-center gap-2">
-                                        <div className={`font-bold text-sm ${isSelected ? "text-green-900" : "text-slate-800"}`}>{sub.code}</div>
-                                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
-                                          isSelected
-                                            ? "bg-green-100 text-green-700"
-                                            : "bg-blue-50 text-blue-600"
-                                        }`}>
-                                          {isSelected ? "Valgt" : "Klikk for å velge"}
-                                        </span>
+                            <div
+                              key={groupKey}
+                              className="border-2 border-dashed border-purple-200 bg-purple-50/30 rounded-xl p-4"
+                            >
+                              <div className="text-xs font-semibold text-purple-700 mb-2 flex items-center gap-2">
+                                <CheckCircle size={14} /> {groupName}
+                              </div>
+                              <div className="space-y-2">
+                                {subs.map((sub) => {
+                                  const isSelected = sub.isSelected === true; // default false
+                                  return (
+                                    <div
+                                      key={sub.id}
+                                      onClick={() =>
+                                        handleToggleSubjectSelection(sub.id)
+                                      }
+                                      className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
+                                        isSelected
+                                          ? "bg-green-50 border-2 border-green-400 hover:border-green-500 hover:bg-green-100"
+                                          : "bg-white border border-gray-200 hover:border-blue-300"
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-3 flex-1">
+                                        <div
+                                          className={`p-1.5 rounded-lg border ${
+                                            isSelected
+                                              ? "bg-green-100 border-green-200 text-green-700"
+                                              : "bg-white border-gray-200 text-slate-600"
+                                          }`}
+                                        >
+                                          <BookOpen size={16} />
+                                        </div>
+                                        <div className="flex-1">
+                                          <div className="flex items-center gap-2">
+                                            <div
+                                              className={`font-bold text-sm ${
+                                                isSelected
+                                                  ? "text-green-900"
+                                                  : "text-slate-800"
+                                              }`}
+                                            >
+                                              {sub.code}
+                                            </div>
+                                            <span
+                                              className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                                                isSelected
+                                                  ? "bg-green-100 text-green-700"
+                                                  : "bg-blue-50 text-blue-600"
+                                              }`}
+                                            >
+                                              {isSelected
+                                                ? "Valgt"
+                                                : "Klikk for å velge"}
+                                            </span>
+                                          </div>
+                                          <div
+                                            className={`text-xs ${
+                                              isSelected
+                                                ? "text-green-700"
+                                                : "text-slate-500"
+                                            }`}
+                                          >
+                                            {sub.name}
+                                          </div>
+                                        </div>
                                       </div>
-                                      <div className={`text-xs ${isSelected ? "text-green-700" : "text-slate-500"}`}>{sub.name}</div>
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setMySubjects(
+                                            mySubjects.filter(
+                                              (s) => s.id !== sub.id
+                                            )
+                                          );
+                                        }}
+                                        className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition-colors"
+                                        title="Fjern fag"
+                                      >
+                                        <Trash2 size={16} />
+                                      </button>
                                     </div>
-                                  </div>
-                                  <button
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setMySubjects(mySubjects.filter((s) => s.id !== sub.id));
-                                    }}
-                                    className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-lg transition-colors"
-                                    title="Fjern fag"
-                                  >
-                                    <Trash2 size={16} />
-                                  </button>
-                                </div>
-                              );
-                              })}
+                                  );
+                                })}
+                              </div>
                             </div>
-                          </div>
                           );
                         })}
                       </>
                     );
                   })()}
                   <div className="flex gap-3 items-center mt-6 pt-6 border-t border-dashed border-gray-200">
-                    <input placeholder="Kode (eks: TDT4100)" className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-32 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" value={newSubjectCode} onChange={(e) => setNewSubjectCode(e.target.value)} />
-                    <input placeholder="Navn (eks: Objektorientert...)" className="p-3 rounded-lg border border-gray-300 bg-white text-sm flex-1 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100" value={newSubjectName} onChange={(e) => setNewSubjectName(e.target.value)} />
-                    <button onClick={handleAddSubject} className="bg-blue-50 text-blue-600 font-medium px-4 py-3 rounded-lg hover:bg-blue-100 flex items-center gap-2">
+                    <input
+                      placeholder="Kode (eks: TDT4100)"
+                      className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-32 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                      value={newSubjectCode}
+                      onChange={(e) => setNewSubjectCode(e.target.value)}
+                    />
+                    <input
+                      placeholder="Navn (eks: Objektorientert...)"
+                      className="p-3 rounded-lg border border-gray-300 bg-white text-sm flex-1 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                      value={newSubjectName}
+                      onChange={(e) => setNewSubjectName(e.target.value)}
+                    />
+                    <button
+                      onClick={handleAddSubject}
+                      className="bg-blue-50 text-blue-600 font-medium px-4 py-3 rounded-lg hover:bg-blue-100 flex items-center gap-2"
+                    >
                       <Plus size={18} /> Legg til
                     </button>
                   </div>
@@ -752,7 +1497,10 @@ export default function ExchangePlannerFull() {
         {step === 3 && (
           <div className="flex flex-col items-center justify-start pt-10 min-h-full p-6 animate-in slide-in-from-right duration-500">
             <div className="max-w-6xl w-full">
-              <button onClick={() => setStep(2)} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm">
+              <button
+                onClick={() => setStep(2)}
+                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+              >
                 <ArrowLeft size={16} /> Tilbake til dine fag
               </button>
               <PlannerInterface
@@ -785,9 +1533,14 @@ function PlannerInterface({
   exchangeUniversity: string;
 }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [selectedCourseInfo, setSelectedCourseInfo] =
+    useState<AbroadSubject | null>(null);
 
   // Filtrer til kun valgte fag for visning
-  const selectedSubjects = subjects.filter(sub => !sub.isElective || sub.isSelected === true);
+  const selectedSubjects = subjects.filter(
+    (sub) => !sub.isElective || sub.isSelected === true
+  );
 
   const handleMatch = (abroadSubject: AbroadSubject, homeSubjectId: string) => {
     setSubjects((prev) =>
@@ -805,26 +1558,34 @@ function PlannerInterface({
     );
   };
 
-  const uniName = exchangeUniversity.includes(" - ") ? exchangeUniversity.split(" - ")[1] : exchangeUniversity;
+  const uniName = exchangeUniversity.includes(" - ")
+    ? exchangeUniversity.split(" - ")[1]
+    : exchangeUniversity;
 
   // Filtrer basert på universitet og søk
   const filteredOptions = ABROAD_OPTIONS.filter((opt) => {
-    const isFromSelectedUniversity = uniName === "None selected" || opt.university === uniName;
+    const isFromSelectedUniversity =
+      uniName === "None selected" || opt.university === uniName;
     if (!isFromSelectedUniversity) {
       return false;
     }
 
-    const matchesSearch = opt.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-           opt.university.toLowerCase().includes(searchTerm.toLowerCase()) ||
-           opt.code.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch =
+      opt.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      opt.university.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      opt.code.toLowerCase().includes(searchTerm.toLowerCase());
 
     return matchesSearch;
   });
 
   // Sorter slik at kompatible forslag kommer først
   const availableOptions = filteredOptions.sort((a, b) => {
-    const aIsCompatible = selectedSubjects.some(s => s.code === a.matchesHomeSubjectCode);
-    const bIsCompatible = selectedSubjects.some(s => s.code === b.matchesHomeSubjectCode);
+    const aIsCompatible = selectedSubjects.some(
+      (s) => s.code === a.matchesHomeSubjectCode
+    );
+    const bIsCompatible = selectedSubjects.some(
+      (s) => s.code === b.matchesHomeSubjectCode
+    );
 
     // Kompatible først
     if (aIsCompatible && !bIsCompatible) return -1;
@@ -847,9 +1608,14 @@ function PlannerInterface({
             <div
               className="bg-green-500 h-2 rounded-full transition-all duration-500"
               style={{
-                width: selectedSubjects.length > 0
-                  ? `${(selectedSubjects.filter((s) => s.matchedWith).length / selectedSubjects.length) * 100}%`
-                  : '0%',
+                width:
+                  selectedSubjects.length > 0
+                    ? `${
+                        (selectedSubjects.filter((s) => s.matchedWith).length /
+                          selectedSubjects.length) *
+                        100
+                      }%`
+                    : "0%",
               }}
             ></div>
           </div>
@@ -950,14 +1716,31 @@ function PlannerInterface({
                     <p className="text-sm text-slate-500">{opt.code}</p>
 
                     {isCompatible && (
-                      <div className="mt-2 inline-flex items-center gap-1 bg-green-100 text-green-800 px-2 py-0.5 rounded text-[10px] font-medium">
-                        <CheckCircle size={10} /> Passer med{" "}
-                        {matchingHomeSub?.code}
+                      <div className="mt-2 flex items-center gap-2">
+                        <div className="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2 py-0.5 rounded text-[10px] font-medium">
+                          <CheckCircle size={10} /> Passer med{" "}
+                          {matchingHomeSub?.code}
+                        </div>
+                        {opt.isVerified && (
+                          <div className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[10px] font-medium">
+                            <ShieldCheck size={10} /> Verifisert
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
 
-                  <div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        setSelectedCourseInfo(opt);
+                        setShowInfoModal(true);
+                      }}
+                      className="bg-gray-100 text-gray-600 p-2 rounded-full hover:bg-gray-200 transition-colors"
+                      title="Vis informasjon"
+                    >
+                      <Info size={18} />
+                    </button>
                     {isCompatible && !isAlreadyMatched && (
                       <button
                         onClick={() =>
@@ -976,7 +1759,108 @@ function PlannerInterface({
           </div>
         </div>
       </main>
+
+      {/* Info Modal */}
+      {showInfoModal && selectedCourseInfo && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowInfoModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex items-center gap-2">
+                <Info className="text-blue-600" size={24} />
+                <h3 className="text-xl font-bold text-slate-900">
+                  Fagsinformasjon
+                </h3>
+              </div>
+              <button
+                onClick={() => setShowInfoModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-bold text-slate-800 text-lg">
+                  {selectedCourseInfo.name}
+                </h4>
+                <p className="text-sm text-slate-500">
+                  {selectedCourseInfo.code}
+                </p>
+                <p className="text-sm text-slate-600 mt-1">
+                  {selectedCourseInfo.university}
+                </p>
+              </div>
+
+              {selectedCourseInfo.isVerified ? (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <ShieldCheck className="text-blue-600" size={20} />
+                    <span className="font-semibold text-blue-900">
+                      Verifisert fag
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-700 mb-3">
+                    Bekreftet gjennom NTNU sine wikisider for utveksling.
+                  </p>
+                  {selectedCourseInfo.wikiUrl && (
+                    <a
+                      href={selectedCourseInfo.wikiUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-600 hover:text-blue-800 underline break-all"
+                    >
+                      {selectedCourseInfo.wikiUrl}
+                    </a>
+                  )}
+                  {selectedCourseInfo.behandlingsdato && (
+                    <p className="text-xs text-slate-500 mt-2">
+                      Behandlingsdato: {selectedCourseInfo.behandlingsdato}
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Info className="text-amber-600" size={20} />
+                    <span className="font-semibold text-amber-900">
+                      Brukerlagt fag
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-700">
+                    Lagt til av:{" "}
+                    <span className="font-medium">
+                      {selectedCourseInfo.addedBy || "Ukjent bruker"}
+                    </span>
+                  </p>
+                </div>
+              )}
+
+              {selectedCourseInfo.matchesHomeSubjectCode && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <p className="text-sm text-green-800">
+                    <strong>Matcher:</strong>{" "}
+                    {selectedCourseInfo.matchesHomeSubjectCode}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={() => setShowInfoModal(false)}
+              className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+            >
+              Lukk
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-

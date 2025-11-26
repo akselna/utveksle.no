@@ -510,6 +510,23 @@ const MapChart = () => {
                     `
                         : ""
                     }
+                    <button
+                      id="view-all-${universityName.replace(/\s+/g, "-")}"
+                      style="
+                        width: 100%;
+                        margin-top: 8px;
+                        padding: 8px;
+                        background: #DC143C;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 12px;
+                        font-weight: bold;
+                        cursor: pointer;
+                      "
+                    >
+                      Se alle anmeldelser
+                    </button>
                   </div>
                 `;
               } else {
@@ -544,11 +561,40 @@ const MapChart = () => {
                     `
                         : ""
                     }
+                    <button
+                      id="view-all-${universityName.replace(/\s+/g, "-")}"
+                      style="
+                        width: 100%;
+                        margin-top: 8px;
+                        padding: 8px;
+                        background: #DC143C;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 12px;
+                        font-weight: bold;
+                        cursor: pointer;
+                      "
+                    >
+                      Se alle
+                    </button>
                   </div>
                 `;
               }
 
               marker.bindPopup(popupContent);
+
+              // Add click event listener to the marker to handle "View All" button
+              marker.on('popupopen', () => {
+                const button = document.getElementById(`view-all-${universityName.replace(/\s+/g, "-")}`);
+                if (button) {
+                  button.addEventListener('click', () => {
+                    // Navigate to erfaringer page with university filter
+                    window.location.href = `/erfaringer?university=${encodeURIComponent(universityName)}`;
+                  });
+                }
+              });
+
               marker.addTo(universityMarkersRef.current!);
             });
 

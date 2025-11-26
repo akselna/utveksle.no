@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Course } from "@/types/course";
 import approvedCoursesData from "@/data/approved_courses.json";
-import { Search, Filter, X } from "lucide-react";
+import { Search, Filter, X, Info, ShieldCheck, Plus } from "lucide-react";
 
 export default function FagbankPage() {
   const courses: Course[] = approvedCoursesData as Course[];
@@ -12,13 +12,41 @@ export default function FagbankPage() {
   const [selectedUniversity, setSelectedUniversity] = useState<string>("all");
   const [selectedCountry, setSelectedCountry] = useState<string>("all");
   const [selectedECTS, setSelectedECTS] = useState<string>("all");
+  const [showVerifiedOnly, setShowVerifiedOnly] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [showAddCourseModal, setShowAddCourseModal] = useState(false);
+
+  // Add course form state
+  const [exchangeUniversity, setExchangeUniversity] = useState("None selected");
+  const [courseEntries, setCourseEntries] = useState(() => [
+    {
+      id: new Date().getTime(),
+      ntnuEmnekode: "",
+      ntnuFagnavn: "",
+      foreignEmnekode: "",
+      foreignFagnavn: "",
+      semester: "Høst",
+      ects: "",
+    }
+  ]);
 
   // Get unique values for filters
   const universities = useMemo(() => {
     const uniqueUniversities = Array.from(new Set(courses.map(c => c.University))).sort();
     return uniqueUniversities;
   }, [courses]);
+
+  // Get exchange universities with country prefix (same as in fagplan)
+  const EXCHANGE_UNIVERSITIES = useMemo(() => {
+    return [
+      "None selected",
+      ...Array.from(new Set((approvedCoursesData as Course[]).map(course =>
+        course.Country && course.University ? `${course.Country} - ${course.University}` : null
+      ).filter(Boolean))).sort()
+    ] as string[];
+  }, []);
 
   const countries = useMemo(() => {
     const uniqueCountries = Array.from(new Set(courses.map(c => c.Country))).sort();
@@ -38,9 +66,15 @@ export default function FagbankPage() {
     return uniqueECTS;
   }, [courses]);
 
-  // Filter and search courses
+  const hasActiveFilters = searchQuery || selectedUniversity !== "all" || selectedCountry !== "all" || selectedECTS !== "all" || showVerifiedOnly;
+
+  // Filter and search courses - only recalculate when filter dependencies change
   const filteredCourses = useMemo(() => {
     return courses.filter(course => {
+      // Verified filter
+      const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
+      const matchesVerified = !showVerifiedOnly || isVerified;
+
       // Search filter
       const searchLower = searchQuery.toLowerCase();
       const matchesSearch = !searchQuery ||
@@ -62,9 +96,9 @@ export default function FagbankPage() {
       // ECTS filter
       const matchesECTS = selectedECTS === "all" || course.ECTS === selectedECTS;
 
-      return matchesSearch && matchesUniversity && matchesCountry && matchesECTS;
+      return matchesVerified && matchesSearch && matchesUniversity && matchesCountry && matchesECTS;
     });
-  }, [courses, searchQuery, selectedUniversity, selectedCountry, selectedECTS]);
+  }, [courses, searchQuery, selectedUniversity, selectedCountry, selectedECTS, showVerifiedOnly]);
 
   // Reset filters
   const resetFilters = () => {
@@ -72,19 +106,112 @@ export default function FagbankPage() {
     setSelectedUniversity("all");
     setSelectedCountry("all");
     setSelectedECTS("all");
+    setShowVerifiedOnly(false);
   };
 
-  const hasActiveFilters = searchQuery || selectedUniversity !== "all" || selectedCountry !== "all" || selectedECTS !== "all";
+  // Add new course entry
+  const addCourseEntry = useCallback(() => {
+    setCourseEntries(prev => [...prev, {
+      id: Date.now(),
+      ntnuEmnekode: "",
+      ntnuFagnavn: "",
+      foreignEmnekode: "",
+      foreignFagnavn: "",
+      semester: "Høst",
+      ects: "",
+    }]);
+  }, []);
+
+  // Remove course entry
+  const removeCourseEntry = useCallback((id: number) => {
+    setCourseEntries(prev => {
+      if (prev.length > 1) {
+        return prev.filter(entry => entry.id !== id);
+      }
+      return prev;
+    });
+  }, []);
+
+  // Update course entry - optimized with useCallback to prevent re-renders
+  const updateCourseEntry = useCallback((id: number, field: string, value: string) => {
+    setCourseEntries(prev => prev.map(entry =>
+      entry.id === id ? { ...entry, [field]: value } : entry
+    ));
+  }, []);
+
+  // Handle add course form submission
+  const handleAddCourse = () => {
+    // Validate university selection
+    if (exchangeUniversity === "None selected") {
+      alert("Vennligst velg et utvekslingsuniversitet");
+      return;
+    }
+
+    // Validate that at least one course has required fields
+    const validEntries = courseEntries.filter(entry =>
+      entry.ntnuEmnekode && entry.foreignEmnekode
+    );
+
+    if (validEntries.length === 0) {
+      alert("Vennligst fyll ut minst ett fag med NTNU emnekode og utvekslings emnekode");
+      return;
+    }
+
+    // Extract university and country from selection
+    const [country, university] = exchangeUniversity.includes(" - ")
+      ? exchangeUniversity.split(" - ")
+      : ["", exchangeUniversity];
+
+    // Create course objects for each valid entry
+    const coursesToAdd = validEntries.map(entry => ({
+      University: university,
+      Country: country,
+      NTNU_Emnekode: entry.ntnuEmnekode,
+      NTNU_Fagnavn: entry.ntnuFagnavn || "",
+      Foreign_Emnekode: entry.foreignEmnekode,
+      Foreign_Fagnavn: entry.foreignFagnavn || "",
+      ECTS: entry.ects || "7.5",
+      Behandlingsdato: new Date().toISOString().split('T')[0],
+      Semester: entry.semester,
+    }));
+
+    console.log("Nye kurs:", coursesToAdd);
+
+    // TODO: Send to backend/API to save
+    // For now, just show success message
+    alert(`${validEntries.length} kurs er sendt inn! De vil bli gjennomgått og lagt til i fagbanken.`);
+
+    // Reset form and close modal
+    setExchangeUniversity("None selected");
+    setCourseEntries([{
+      id: Date.now(),
+      ntnuEmnekode: "",
+      ntnuFagnavn: "",
+      foreignEmnekode: "",
+      foreignFagnavn: "",
+      semester: "Høst",
+      ects: "",
+    }]);
+    setShowAddCourseModal(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Fagbank</h1>
-          <p className="text-lg text-gray-600">
-            Søk blant {courses.length} godkjente utvekslingskurs
-          </p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Fagbank</h1>
+            <p className="text-lg text-gray-600">
+              Søk blant {courses.length} godkjente utvekslingskurs
+            </p>
+          </div>
+          <button
+            onClick={() => setShowAddCourseModal(true)}
+            className="bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+          >
+            <Plus size={20} /> Legg til kurs
+          </button>
         </div>
 
         {/* Search and Filter Controls */}
@@ -97,7 +224,7 @@ export default function FagbankPage() {
               placeholder="Søk etter emnekode, emnenavn, universitet eller land..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             />
           </div>
 
@@ -126,56 +253,74 @@ export default function FagbankPage() {
 
           {/* Filter Options */}
           {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-200">
-              {/* Country Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Land
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              {/* Verified Checkbox */}
+              <div className="mb-4">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showVerifiedOnly}
+                    onChange={(e) => setShowVerifiedOnly(e.target.checked)}
+                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  />
+                  <span className="text-sm font-medium text-gray-700 flex items-center gap-1">
+                    <ShieldCheck className="w-4 h-4 text-blue-600" />
+                    Vis kun verifiserte kurs
+                  </span>
                 </label>
-                <select
-                  value={selectedCountry}
-                  onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="all">Alle land</option>
-                  {countries.map(country => (
-                    <option key={country} value={country}>{country}</option>
-                  ))}
-                </select>
               </div>
 
-              {/* University Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Universitet
-                </label>
-                <select
-                  value={selectedUniversity}
-                  onChange={(e) => setSelectedUniversity(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="all">Alle universiteter</option>
-                  {universities.map(uni => (
-                    <option key={uni} value={uni}>{uni}</option>
-                  ))}
-                </select>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Country Filter */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Land
+                  </label>
+                  <select
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  >
+                    <option value="all">Alle land</option>
+                    {countries.map(country => (
+                      <option key={country} value={country}>{country}</option>
+                    ))}
+                  </select>
+                </div>
 
-              {/* ECTS Filter */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  ECTS
-                </label>
-                <select
-                  value={selectedECTS}
-                  onChange={(e) => setSelectedECTS(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="all">Alle studiepoeng</option>
-                  {ectsOptions.map(ects => (
-                    <option key={ects} value={ects}>{ects} ECTS</option>
-                  ))}
-                </select>
+                {/* University Filter */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Universitet
+                  </label>
+                  <select
+                    value={selectedUniversity}
+                    onChange={(e) => setSelectedUniversity(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  >
+                    <option value="all">Alle universiteter</option>
+                    {universities.map(uni => (
+                      <option key={uni} value={uni}>{uni}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* ECTS Filter */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    ECTS
+                  </label>
+                  <select
+                    value={selectedECTS}
+                    onChange={(e) => setSelectedECTS(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  >
+                    <option value="all">Alle studiepoeng</option>
+                    {ectsOptions.map(ects => (
+                      <option key={ects} value={ects}>{ects} ECTS</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
           )}
@@ -204,6 +349,7 @@ export default function FagbankPage() {
             filteredCourses.map((course, index) => {
               const foreignCode = course.Bologna_Emnekode || course.Foreign_Emnekode;
               const foreignName = course.Bologna_Fagnavn || course.Foreign_Fagnavn;
+              const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
 
               return (
                 <div
@@ -229,14 +375,31 @@ export default function FagbankPage() {
 
                     {/* Exchange Course */}
                     <div>
-                      <div className="mb-3">
-                        <span className="inline-flex items-center gap-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded mb-2">
+                      <div className="mb-3 flex items-center gap-2">
+                        <span className="inline-flex items-center gap-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
                           {course.Country}
                         </span>
+                        {isVerified && (
+                          <span className="inline-flex items-center gap-1 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                            <ShieldCheck size={12} /> Verifisert
+                          </span>
+                        )}
                       </div>
-                      <h3 className="text-sm font-semibold text-green-600 uppercase mb-2">
-                        Utvekslingskurs
-                      </h3>
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="text-sm font-semibold text-green-600 uppercase">
+                          Utvekslingskurs
+                        </h3>
+                        <button
+                          onClick={() => {
+                            setSelectedCourse(course);
+                            setShowInfoModal(true);
+                          }}
+                          className="bg-gray-100 text-gray-600 p-1.5 rounded-full hover:bg-gray-200 transition-colors"
+                          title="Vis informasjon"
+                        >
+                          <Info size={16} />
+                        </button>
+                      </div>
                       <p className="text-lg font-semibold text-gray-900 mb-1">
                         {foreignCode}
                       </p>
@@ -253,6 +416,275 @@ export default function FagbankPage() {
           )}
         </div>
       </div>
+
+      {/* Info Modal */}
+      {showInfoModal && selectedCourse && (() => {
+        const foreignCode = selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode;
+        const foreignName = selectedCourse.Bologna_Fagnavn || selectedCourse.Foreign_Fagnavn;
+        const isVerified = !!(selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode);
+
+        return (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowInfoModal(false)}>
+            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6" onClick={(e) => e.stopPropagation()}>
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex items-center gap-2">
+                  <Info className="text-blue-600" size={24} />
+                  <h3 className="text-xl font-bold text-slate-900">Kursinformasjon</h3>
+                </div>
+                <button
+                  onClick={() => setShowInfoModal(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-bold text-slate-800 text-lg">{foreignName}</h4>
+                  <p className="text-sm text-slate-500">{foreignCode}</p>
+                  <p className="text-sm text-slate-600 mt-1">{selectedCourse.University}</p>
+                </div>
+
+                {isVerified ? (
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <ShieldCheck className="text-blue-600" size={20} />
+                      <span className="font-semibold text-blue-900">Verifisert kurs</span>
+                    </div>
+                    <p className="text-sm text-slate-700 mb-3">
+                      Bekreftet gjennom NTNU sine wikisider for utveksling.
+                    </p>
+                    {selectedCourse.Wiki_URL && (
+                      <a
+                        href={selectedCourse.Wiki_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 hover:text-blue-800 underline break-all"
+                      >
+                        {selectedCourse.Wiki_URL}
+                      </a>
+                    )}
+                    {selectedCourse.Behandlingsdato && (
+                      <p className="text-xs text-slate-500 mt-2">
+                        Behandlingsdato: {new Date(selectedCourse.Behandlingsdato).toLocaleDateString('nb-NO')}
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Info className="text-amber-600" size={20} />
+                      <span className="font-semibold text-amber-900">Brukerlagt kurs</span>
+                    </div>
+                    <p className="text-sm text-slate-700">
+                      Lagt til av: <span className="font-medium">Ukjent bruker</span>
+                    </p>
+                  </div>
+                )}
+
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <p className="text-sm text-green-800">
+                    <strong>Matcher NTNU-kurs:</strong> {selectedCourse.NTNU_Emnekode} - {selectedCourse.NTNU_Fagnavn}
+                  </p>
+                  <p className="text-xs text-green-700 mt-1">
+                    <strong>ECTS:</strong> {selectedCourse.ECTS}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setShowInfoModal(false)}
+                className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+              >
+                Lukk
+              </button>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Add Course Modal */}
+      {showAddCourseModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowAddCourseModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 my-8 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center gap-2">
+                <Plus className="text-blue-600" size={24} />
+                <h3 className="text-2xl font-bold text-slate-900">Legg til godkjente kurs</h3>
+              </div>
+              <button
+                onClick={() => setShowAddCourseModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-sm text-gray-600">
+                Bidra til fagbanken ved å dele kurs du har fått godkjent på utveksling!
+              </p>
+
+              {/* University Selection */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Utvekslingsuniversitet <span className="text-red-500">*</span>
+                </label>
+                <select
+                  value={exchangeUniversity}
+                  onChange={(e) => setExchangeUniversity(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                >
+                  {EXCHANGE_UNIVERSITIES.map(uni => (
+                    <option key={uni} value={uni}>{uni}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Course Entries */}
+              <div className="border-t border-gray-200 pt-4">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Fag</h4>
+
+                <div className="space-y-6">
+                  {courseEntries.map((entry, index) => (
+                    <div key={entry.id} className="bg-gray-50 rounded-lg p-4 relative">
+                      {/* Remove button (only show if more than 1 entry) */}
+                      {courseEntries.length > 1 && (
+                        <button
+                          onClick={() => removeCourseEntry(entry.id)}
+                          className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors"
+                          title="Fjern fag"
+                        >
+                          <X size={20} />
+                        </button>
+                      )}
+
+                      <div className="mb-3">
+                        <span className="text-sm font-semibold text-gray-700">Fag {index + 1}</span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* NTNU Course Code */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            NTNU Emnekode <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="F.eks. TDT4120"
+                            value={entry.ntnuEmnekode}
+                            onChange={(e) => updateCourseEntry(entry.id, "ntnuEmnekode", e.target.value.toUpperCase())}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          />
+                        </div>
+
+                        {/* NTNU Course Name */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            NTNU Emnenavn
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="F.eks. Algoritmer og datastrukturer"
+                            value={entry.ntnuFagnavn}
+                            onChange={(e) => updateCourseEntry(entry.id, "ntnuFagnavn", e.target.value.toUpperCase())}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          />
+                        </div>
+
+                        {/* Exchange Course Code */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Utvekslings Emnekode <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="F.eks. CS101"
+                            value={entry.foreignEmnekode}
+                            onChange={(e) => updateCourseEntry(entry.id, "foreignEmnekode", e.target.value.toUpperCase())}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          />
+                        </div>
+
+                        {/* Exchange Course Name */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Utvekslings Emnenavn
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="F.eks. Algorithms and Data Structures"
+                            value={entry.foreignFagnavn}
+                            onChange={(e) => updateCourseEntry(entry.id, "foreignFagnavn", e.target.value.toUpperCase())}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          />
+                        </div>
+
+                        {/* Semester */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Semester
+                          </label>
+                          <select
+                            value={entry.semester}
+                            onChange={(e) => updateCourseEntry(entry.id, "semester", e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          >
+                            <option value="Høst">Høst</option>
+                            <option value="Vår">Vår</option>
+                          </select>
+                        </div>
+
+                        {/* ECTS */}
+                        <div>
+                          <label className="block text-xs font-medium text-gray-600 mb-1">
+                            Tilsvarende stp.
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="F.eks. 7.5"
+                            value={entry.ects}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              const sanitizedValue = value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+                              updateCourseEntry(entry.id, "ects", sanitizedValue);
+                            }}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Add More Button */}
+                <button
+                  onClick={addCourseEntry}
+                  className="mt-4 w-full border-2 border-dashed border-gray-300 rounded-lg py-3 text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-colors flex items-center justify-center gap-2 font-medium"
+                >
+                  <Plus size={20} /> Legg til flere fag
+                </button>
+              </div>
+            </div>
+
+            <div className="flex gap-3 mt-6">
+              <button
+                onClick={() => setShowAddCourseModal(false)}
+                className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
+              >
+                Avbryt
+              </button>
+              <button
+                onClick={handleAddCourse}
+                className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Send inn {courseEntries.length > 1 ? `${courseEntries.length} kurs` : "kurs"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

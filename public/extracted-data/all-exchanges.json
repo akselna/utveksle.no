@@ -7,7 +7,22 @@
     "specialization": "Kunstig intelligens",
     "studyYear": "4",
     "numSemesters": 2,
-    "year": "2023"
+    "semester": "Høst + Vår",
+    "year": "2023",
+    "studentName": "Maria L.",
+    "review": "Stockholm var fantastisk! KTH har et veldig høyt akademisk nivå og moderne fasiliteter. Byen er vakker med mange øyer og broer. Livet er dyrt, men kvaliteten er høy. Anbefaler virkelig!",
+    "imageUrl": "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800",
+      "https://images.unsplash.com/photo-1508189860359-777d945909ef?w=800",
+      "https://images.unsplash.com/photo-1471623320832-752e8bbf8413?w=800"
+    ],
+    "beerPrice": "85 kr",
+    "mealPrice": "180 kr",
+    "rentPrice": "8500 kr/mnd",
+    "rating": 5,
+    "pros": ["Moderne campus og fasiliteter", "Vakker by med god infrastruktur", "Høyt akademisk nivå"],
+    "cons": ["Dyrt å bo", "Mørkt om vinteren", "Vanskelig å finne bolig"]
   },
   {
     "id": "2",
@@ -67,7 +82,21 @@
     "specialization": "Kunstig intelligens",
     "studyYear": "4",
     "numSemesters": 2,
-    "year": "2023"
+    "semester": "Høst + Vår",
+    "year": "2023",
+    "studentName": "Thomas H.",
+    "review": "MIT var en drøm som ble virkelighet! Det akademiske nivået er helt utrolig, og man møter noen av de smarteste studentene i verden. Boston er en flott by med mye historie. Dyrt å leve, men verdt hver krone!",
+    "imageUrl": "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=800",
+      "https://images.unsplash.com/photo-1562774053-701939374585?w=800"
+    ],
+    "beerPrice": "90 kr",
+    "mealPrice": "200 kr",
+    "rentPrice": "15000 kr/mnd",
+    "rating": 5,
+    "pros": ["Verdens beste studenter og professorer", "Utrolige forskningsfasiliteter", "Boston er en fantastisk studentby"],
+    "cons": ["Ekstremt dyrt", "Veldig krevende akademisk", "Høyt press og stress"]
   },
   {
     "id": "8",
@@ -278,5 +307,31 @@
     "studyYear": "4",
     "numSemesters": 2,
     "year": "2023"
+  },
+  {
+    "id": "29",
+    "university": "University of Cape Town",
+    "country": "South Africa",
+    "study": "Datateknologi",
+    "specialization": "Kunstig intelligens",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "semester": "Vår",
+    "year": "2024",
+    "studentName": "Anders N.",
+    "review": "Cape Town var en utrolig opplevelse! Universitetet ligger ved foten av Table Mountain med fantastisk utsikt. Akademisk nivå var høyt, og jeg lærte mye om AI og maskinlæring. Sosiallivet var fantastisk med strander, fjelltur og safari i nærheten.",
+    "imageUrl": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800",
+      "https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=800",
+      "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=800",
+      "https://images.unsplash.com/photo-1563656156874-ab7d8f8b0cfa?w=800"
+    ],
+    "beerPrice": "35 kr",
+    "mealPrice": "120 kr",
+    "rentPrice": "6000 kr/mnd",
+    "rating": 5,
+    "pros": ["Table Mountain og naturopplevelser", "Fantastiske strender", "Rimelig å leve"],
+    "cons": ["Lang reise fra Norge", "Noen trygghetsutfordringer", "Annet studiesystem"]
   }
 ]
