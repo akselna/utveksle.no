@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Course } from "@/types/course";
@@ -9,7 +9,17 @@ import { Search, Filter, X, Info, ShieldCheck, Plus, ChevronLeft, ChevronRight, 
 
 export default function FagbankPage() {
   const { data: session } = useSession();
-  const courses: Course[] = approvedCoursesData as Course[];
+  const originalCourses: Course[] = approvedCoursesData as Course[];
+  const [shuffledCourses, setShuffledCourses] = useState<Course[]>([]);
+
+  // Shuffle courses on mount
+  useEffect(() => {
+    const shuffled = [...originalCourses].sort(() => 0.5 - Math.random());
+    setShuffledCourses(shuffled);
+  }, []);
+
+  // Use shuffled courses if available, otherwise original (e.g. during first render)
+  const displayCourses = shuffledCourses.length > 0 ? shuffledCourses : originalCourses;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState<string>("all");
@@ -41,9 +51,9 @@ export default function FagbankPage() {
 
   // Get unique values for filters
   const universities = useMemo(() => {
-    const uniqueUniversities = Array.from(new Set(courses.map(c => c.University))).sort();
+    const uniqueUniversities = Array.from(new Set(displayCourses.map(c => c.University))).sort();
     return uniqueUniversities;
-  }, [courses]);
+  }, [displayCourses]);
 
   // Get exchange universities with country prefix (same as in fagplan)
   const EXCHANGE_UNIVERSITIES = useMemo(() => {
@@ -56,12 +66,12 @@ export default function FagbankPage() {
   }, []);
 
   const countries = useMemo(() => {
-    const uniqueCountries = Array.from(new Set(courses.map(c => c.Country))).sort();
+    const uniqueCountries = Array.from(new Set(displayCourses.map(c => c.Country))).sort();
     return uniqueCountries;
-  }, [courses]);
+  }, [displayCourses]);
 
   const ectsOptions = useMemo(() => {
-    const uniqueECTS = Array.from(new Set(courses.map(c => c.ECTS)))
+    const uniqueECTS = Array.from(new Set(displayCourses.map(c => c.ECTS)))
       .filter(ects => ects != null && ects !== '')
       .sort((a, b) => {
         const strA = String(a);
@@ -71,13 +81,13 @@ export default function FagbankPage() {
         return numA - numB;
       });
     return uniqueECTS;
-  }, [courses]);
+  }, [displayCourses]);
 
   const hasActiveFilters = searchQuery || selectedUniversity !== "all" || selectedCountry !== "all" || selectedECTS !== "all" || showVerifiedOnly;
 
   // Filter and search courses - only recalculate when filter dependencies change
   const filteredCourses = useMemo(() => {
-    return courses.filter(course => {
+    return displayCourses.filter(course => {
       // Verified filter
       const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
       const matchesVerified = !showVerifiedOnly || isVerified;
@@ -105,7 +115,7 @@ export default function FagbankPage() {
 
       return matchesVerified && matchesSearch && matchesUniversity && matchesCountry && matchesECTS;
     });
-  }, [courses, searchQuery, selectedUniversity, selectedCountry, selectedECTS, showVerifiedOnly]);
+  }, [displayCourses, searchQuery, selectedUniversity, selectedCountry, selectedECTS, showVerifiedOnly]);
 
   const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
   const paginatedCourses = filteredCourses.slice(
@@ -217,7 +227,7 @@ export default function FagbankPage() {
           <div>
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Fagbank</h1>
             <p className="text-lg text-gray-600">
-              Søk blant {courses.length} godkjente utvekslingskurs
+              Søk blant {originalCourses.length} godkjente utvekslingskurs
             </p>
           </div>
           <button
@@ -358,7 +368,7 @@ export default function FagbankPage() {
         {/* Results Count */}
         <div className="mb-4 text-gray-600">
           Viser {Math.min((currentPage - 1) * itemsPerPage + 1, filteredCourses.length)}-
-          {Math.min(currentPage * itemsPerPage, filteredCourses.length)} av {filteredCourses.length} kurs
+          {Math.min(currentPage * itemsPerPage, filteredCourses.length)} av {displayCourses.length} kurs
         </div>
 
         {/* Course List */}
@@ -381,9 +391,10 @@ export default function FagbankPage() {
               const foreignName = course.Bologna_Fagnavn || course.Foreign_Fagnavn;
               const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
               
-              // Use original index from the full dataset to ensure search results outside the top 10 are also blurred
-              const originalIndex = courses.indexOf(course);
-              const isBlurred = !session && originalIndex >= 10;
+              // Use global index from the current display list (shuffled or original)
+              // This ensures the first 10 visible cards are unblurred, but search results deep in the list are blurred
+              const globalIndex = displayCourses.indexOf(course);
+              const isBlurred = !session && globalIndex >= 10;
 
               return (
                 <div
