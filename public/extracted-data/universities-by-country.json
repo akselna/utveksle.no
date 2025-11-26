@@ -1,0 +1,88 @@
+{
+  "Norway": [
+    "University of Oslo",
+    "Norwegian University of Science and Technology"
+  ],
+  "Sweden": [
+    "KTH Royal Institute of Technology",
+    "Lund University",
+    "Chalmers University of Technology"
+  ],
+  "Denmark": [
+    "Technical University of Denmark",
+    "University of Copenhagen",
+    "Aarhus University"
+  ],
+  "Germany": [
+    "Technical University of Munich",
+    "RWTH Aachen University",
+    "Technical University of Berlin",
+    "Karlsruhe Institute of Technology",
+    "University of Stuttgart"
+  ],
+  "United States of America": [
+    "MIT",
+    "Stanford University",
+    "UC Berkeley",
+    "Carnegie Mellon University",
+    "Georgia Institute of Technology",
+    "University of Michigan",
+    "Caltech",
+    "Cornell University"
+  ],
+  "United Kingdom": [
+    "Imperial College London",
+    "University of Cambridge",
+    "University of Oxford",
+    "University College London"
+  ],
+  "France": [
+    "École Polytechnique",
+    "Sorbonne University",
+    "CentraleSupélec"
+  ],
+  "Japan": [
+    "University of Tokyo",
+    "Kyoto University",
+    "Tokyo Institute of Technology"
+  ],
+  "Australia": [
+    "University of Melbourne",
+    "Australian National University",
+    "University of Sydney"
+  ],
+  "Canada": [
+    "University of Toronto",
+    "University of British Columbia",
+    "McGill University"
+  ],
+  "Switzerland": [
+    "ETH Zurich",
+    "EPFL"
+  ],
+  "Netherlands": [
+    "Delft University of Technology",
+    "Eindhoven University of Technology"
+  ],
+  "Spain": [
+    "Polytechnic University of Madrid",
+    "Polytechnic University of Catalonia"
+  ],
+  "Italy": [
+    "Politecnico di Milano",
+    "University of Bologna"
+  ],
+  "Singapore": [
+    "National University of Singapore",
+    "Nanyang Technological University"
+  ],
+  "South Korea": [
+    "KAIST",
+    "Seoul National University"
+  ],
+  "China": [
+    "Tsinghua University",
+    "Peking University",
+    "Shanghai Jiao Tong University"
+  ]
+}

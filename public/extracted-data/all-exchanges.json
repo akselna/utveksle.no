@@ -1,0 +1,252 @@
+[
+  {
+    "id": "1",
+    "university": "KTH Royal Institute of Technology",
+    "country": "Sweden",
+    "study": "Datateknologi",
+    "specialization": "Kunstig intelligens",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "2",
+    "university": "KTH Royal Institute of Technology",
+    "country": "Sweden",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Robotikk",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "3",
+    "university": "Lund University",
+    "country": "Sweden",
+    "study": "Elektronisk systemdesign",
+    "specialization": "Ingen",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "4",
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "study": "Datateknologi",
+    "specialization": "Algoritmer",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "5",
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Autonome systemer",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "6",
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "study": "Industriell økonomi",
+    "specialization": "Produksjon",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "7",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "specialization": "Kunstig intelligens",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "8",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Robotikk",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "9",
+    "university": "Stanford University",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "specialization": "Maskinlæring",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "10",
+    "university": "UC Berkeley",
+    "country": "United States of America",
+    "study": "Elektronikk",
+    "specialization": "Signalbehandling",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "11",
+    "university": "Imperial College London",
+    "country": "United Kingdom",
+    "study": "Datateknologi",
+    "specialization": "Datasikkerhet",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "12",
+    "university": "University of Cambridge",
+    "country": "United Kingdom",
+    "study": "Datateknologi",
+    "specialization": "Teoretisk datateknologi",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "13",
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Autonome systemer",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "14",
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "study": "Datateknologi",
+    "specialization": "Datasystemer",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2022"
+  },
+  {
+    "id": "15",
+    "university": "Technical University of Denmark",
+    "country": "Denmark",
+    "study": "Elektronikk",
+    "specialization": "Kommunikasjonsteknologi",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "16",
+    "university": "University of Copenhagen",
+    "country": "Denmark",
+    "study": "Datateknologi",
+    "specialization": "Bioinformatikk",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "17",
+    "university": "University of Tokyo",
+    "country": "Japan",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Robotikk",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "18",
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "study": "Bygg og miljøteknikk",
+    "specialization": "Konstruksjonsteknikk",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "19",
+    "university": "Politecnico di Milano",
+    "country": "Italy",
+    "study": "Produktutvikling",
+    "specialization": "Design",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "20",
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "study": "Datateknologi",
+    "specialization": "Distribuerte systemer",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "21",
+    "university": "University of Oslo",
+    "country": "Norway",
+    "study": "Informatikk",
+    "specialization": "Kunstig intelligens",
+    "studyYear": "3",
+    "numSemesters": 1,
+    "year": "2023"
+  },
+  {
+    "id": "22",
+    "university": "Norwegian University of Science and Technology",
+    "country": "Norway",
+    "study": "Marin teknikk",
+    "specialization": "Skipsdesign",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2022"
+  },
+  {
+    "id": "23",
+    "university": "Chalmers University of Technology",
+    "country": "Sweden",
+    "study": "Industriell økonomi",
+    "specialization": "Supply chain",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "24",
+    "university": "KAIST",
+    "country": "South Korea",
+    "study": "Elektronikk",
+    "specialization": "Nanoteknologi",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "25",
+    "university": "Tsinghua University",
+    "country": "China",
+    "study": "Energi og miljø",
+    "specialization": "Fornybar energi",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  }
+]

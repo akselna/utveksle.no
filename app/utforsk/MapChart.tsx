@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -11,11 +11,67 @@ declare global {
   }
 }
 
+// Types
+interface University {
+  name: string;
+  lat: number;
+  lng: number;
+  exchangeCount: number;
+}
+
+interface Exchange {
+  id: string;
+  university: string;
+  country: string;
+  study: string;
+  year: string;
+  numSemesters: number;
+}
+
 const MapChart = () => {
   const mapRef = useRef<L.Map | null>(null);
   const geojsonLayerRef = useRef<L.GeoJSON | null>(null);
+  const universityMarkersRef = useRef<L.LayerGroup | null>(null);
+  const selectedCountryRef = useRef<string | null>(null);
+
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [universitiesByCountry, setUniversitiesByCountry] = useState<Record<string, string[]>>({});
+  const [allExchanges, setAllExchanges] = useState<Exchange[]>([]);
+
+  // Update ref whenever state changes
+  useEffect(() => {
+    selectedCountryRef.current = selectedCountry;
+  }, [selectedCountry]);
+
+  // Load university and exchange data
+  useEffect(() => {
+    console.log("Loading university data...");
+    fetch("/extracted-data/universities-by-country.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Universities loaded:", data);
+        setUniversitiesByCountry(data);
+      })
+      .catch((err) => console.error("Failed to load universities:", err));
+
+    fetch("/extracted-data/all-exchanges.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Exchanges loaded:", data.length, "exchanges");
+        setAllExchanges(data);
+      })
+      .catch((err) => console.error("Failed to load exchanges:", err));
+  }, []);
 
   useEffect(() => {
+    // Wait for data to load before initializing map
+    if (Object.keys(universitiesByCountry).length === 0) {
+      console.log("Waiting for university data to load...");
+      return;
+    }
+
+    console.log("Initializing map with data:", universitiesByCountry);
+
     // =============================
     // 1. Konfigurasjon
     // =============================
@@ -33,12 +89,41 @@ const MapChart = () => {
     // =============================
     if (!mapRef.current) {
       mapRef.current = L.map("map", {
-        zoomControl: true,
+        zoomControl: !selectedCountry, // Disable zoom control when country is selected
         attributionControl: true,
-        minZoom: INITIAL_ZOOM, // Prevent zooming out further than the initial zoom
-        maxBounds: bounds, // Restrict panning to world bounds
-        maxBoundsViscosity: 1.0, // Prevents the user from panning beyond the maxBounds
+        minZoom: INITIAL_ZOOM,
+        maxBounds: bounds,
+        maxBoundsViscosity: 1.0,
+        dragging: !selectedCountry, // Disable dragging when country is selected
+        scrollWheelZoom: !selectedCountry, // Disable scroll zoom when country is selected
+        doubleClickZoom: !selectedCountry, // Disable double click zoom when country is selected
+        boxZoom: !selectedCountry, // Disable box zoom when country is selected
+        keyboard: !selectedCountry, // Disable keyboard navigation when country is selected
+        touchZoom: !selectedCountry, // Disable touch zoom when country is selected
       }).setView(INITIAL_VIEW, INITIAL_ZOOM);
+    } else {
+      // Update map interaction settings based on selection state
+      if (selectedCountry) {
+        mapRef.current.dragging.disable();
+        mapRef.current.scrollWheelZoom.disable();
+        mapRef.current.doubleClickZoom.disable();
+        mapRef.current.boxZoom.disable();
+        mapRef.current.keyboard.disable();
+        mapRef.current.touchZoom.disable();
+        if (mapRef.current.zoomControl) {
+          mapRef.current.removeControl(mapRef.current.zoomControl);
+        }
+      } else {
+        mapRef.current.dragging.enable();
+        mapRef.current.scrollWheelZoom.enable();
+        mapRef.current.doubleClickZoom.enable();
+        mapRef.current.boxZoom.enable();
+        mapRef.current.keyboard.enable();
+        mapRef.current.touchZoom.enable();
+        if (!mapRef.current.zoomControl) {
+          mapRef.current.addControl(L.control.zoom({ position: 'topleft' }));
+        }
+      }
     }
 
     // =============================
@@ -65,117 +150,69 @@ const MapChart = () => {
     fetch("/data/world.geojson")
       .then((response) => response.json())
       .then((geojsonData) => {
-        // Test data: color specific countries with different shades of red
-        const countryColors: Record<string, string> = {
-          // Full names - different shades of red
-          Norway: "#FF6B6B", // Light red
-          Sweden: "#EE5A6F", // Medium light red
-          Denmark: "#DC143C", // Crimson
-          Finland: "#C9184A", // Deep red
-          Iceland: "#A4133C", // Very deep red
-          Germany: "#FF8787", // Pale red
-          France: "#FF4D4D", // Bright red
-          Spain: "#B30000", // Dark red
-          Italy: "#FF1A1A", // Pure red
-          "United Kingdom": "#8B0000", // Dark red
-          "Great Britain": "#8B0000",
-          "United States of America": "#CD5C5C",
-          "United States": "#CD5C5C",
-          USA: "#CD5C5C",
-          US: "#CD5C5C",
-          // ISO codes (common in GeoJSON)
-          NOR: "#FF6B6B",
-          SWE: "#EE5A6F",
-          DNK: "#DC143C",
-          FIN: "#C9184A",
-          ISL: "#A4133C",
-          DEU: "#FF8787",
-          FRA: "#FF4D4D",
-          ESP: "#B30000",
-          ITA: "#FF1A1A",
-          GBR: "#8B0000",
-          // 2-letter codes
-          NO: "#FF6B6B",
-          SE: "#EE5A6F",
-          DK: "#DC143C",
-          FI: "#C9184A",
-          IS: "#A4133C",
-          DE: "#FF8787",
-          FR: "#FF4D4D",
-          ES: "#B30000",
-          IT: "#FF1A1A",
-          GB: "#8B0000",
-        };
-
-        // Helper function to get country color
-        const getCountryColor = (feature: GeoJSON.Feature): string | null => {
+        // Helper function to get country color based on number of universities
+        const getCountryColor = (feature: GeoJSON.Feature): string => {
           const props = feature.properties || {};
+          const countryName = props.name || "";
 
-          // Try different property names that might contain country identifier
-          const possibleNames = [
-            props.name,
-            props.NAME,
-            props.admin,
-            props.ADMIN,
-            props.NAME_LONG,
-            props.name_long,
-            props["ISO3166-1-Alpha-3"],
-            props["ISO3166-1-Alpha-2"],
-            props.iso_a3,
-            props.ISO_A3,
-            props.iso_a2,
-            props.ISO_A2,
-            props.adm0_a3,
-            props.ADM0_A3,
-          ];
-
-          // Log first feature to help debug
-          if (!window.loggedCountryProps) {
-            console.log("Country properties:", props);
-            console.log(
-              "Possible names:",
-              possibleNames.filter((n) => n)
-            );
-            window.loggedCountryProps = true;
+          // Check if this country has universities
+          const universities = universitiesByCountry[countryName];
+          if (!universities || universities.length === 0) {
+            return "#f0f0f0"; // Light gray for countries with no exchanges
           }
 
-          // Try to find a match
-          for (const name of possibleNames) {
-            if (name && countryColors[name]) {
-              console.log(
-                `Matched country: ${name} with color ${countryColors[name]}`
-              );
-              return countryColors[name];
-            }
-          }
-
-          return null;
+          // Color based on number of universities (shades of red)
+          const count = universities.length;
+          if (count >= 10) return "#8B0000"; // Dark red
+          if (count >= 7) return "#A4133C";  // Very deep red
+          if (count >= 5) return "#C9184A";  // Deep red
+          if (count >= 3) return "#DC143C";  // Crimson
+          if (count >= 2) return "#EE5A6F";  // Medium red
+          return "#FF6B6B"; // Light red (1 university)
         };
 
-        // GeoJSON styling - now dynamic based on country
+        // GeoJSON styling - now dynamic based on country and selection
         const style = (feature?: GeoJSON.Feature): L.PathOptions => {
           if (!feature) {
             return {
               weight: 1.2,
               color: "#222",
-              fillColor: "#ffffff",
-              fillOpacity: 0.3,
+              fillColor: "#f0f0f0",
+              fillOpacity: 0.5,
             };
           }
 
-          const fillColor = getCountryColor(feature) || "#ffffff";
-          const fillOpacity = getCountryColor(feature) ? 0.7 : 0.3;
+          const countryName = feature.properties?.name || "";
+          const isSelected = selectedCountry === countryName;
+
+          // If a country is selected and this is not it, make it grey
+          if (selectedCountry && !isSelected) {
+            return {
+              weight: 1.2,
+              color: "#222",
+              fillColor: "#d0d0d0",
+              fillOpacity: 0.4,
+            };
+          }
+
+          const fillColor = getCountryColor(feature);
+          const hasUniversities = universitiesByCountry[countryName];
 
           return {
             weight: 1.2,
             color: "#222",
             fillColor: fillColor,
-            fillOpacity: fillOpacity,
+            fillOpacity: hasUniversities ? 0.7 : 0.3,
           };
         };
 
         // Hover-stil - more subtle
         function highlightFeature(e: L.LeafletMouseEvent): void {
+          // Don't do anything if a country is selected
+          if (selectedCountryRef.current) {
+            return;
+          }
+
           const layer = e.target as L.Path;
           const currentOpacity = layer.options.fillOpacity || 0.3;
           layer.setStyle({
@@ -188,21 +225,177 @@ const MapChart = () => {
 
         // Tilbakestill hover-stil
         function resetHighlight(e: L.LeafletMouseEvent): void {
+          // Don't do anything if a country is selected
+          if (selectedCountryRef.current) {
+            return;
+          }
+
+          // No country selected, use default resetStyle
           if (geojsonLayerRef.current) {
             geojsonLayerRef.current.resetStyle(e.target);
           }
         }
 
-        // Klikk → senere kan dette åpne land-kart
+        // Klikk → zoom inn til landet og vis universiteter
         function onClickFeature(e: L.LeafletMouseEvent): void {
+          // Don't do anything if a country is already selected
+          if (selectedCountryRef.current) {
+            return;
+          }
+
+          const layer = e.target as L.Path;
           const feature = (e.target as L.Layer & { feature: GeoJSON.Feature })
             .feature;
           const props = feature?.properties || {};
-          alert(`Du klikket på: ${props.name || "ukjent land"}`);
+          const countryName = props.name || "";
+
+          console.log("Clicked country:", countryName);
+          console.log("Available universities:", universitiesByCountry);
+          console.log("Universities in this country:", universitiesByCountry[countryName]);
+
+          // Check if country has universities
+          const universities = universitiesByCountry[countryName];
+          if (!universities || universities.length === 0) {
+            alert(`Ingen utvekslingssteder funnet i ${countryName}`);
+            // Don't change styling if there are no universities
+            return;
+          }
+
+          if (mapRef.current) {
+            // Get the bounds of the clicked country
+            let bounds;
+            if (typeof layer.getBounds === 'function') {
+              bounds = layer.getBounds();
+            } else if (feature?.geometry) {
+              // Fallback: create bounds from the GeoJSON layer
+              const tempLayer = L.geoJSON(feature);
+              bounds = tempLayer.getBounds();
+            }
+
+            if (!bounds) {
+              console.error("Could not get bounds for country:", countryName);
+              return;
+            }
+
+            console.log("Zooming to bounds:", bounds);
+
+            // Remove maxBounds restriction to allow proper centering on any country
+            mapRef.current.setMaxBounds(null as any);
+
+            // Zoom to fit the country with some padding
+            mapRef.current.fitBounds(bounds, {
+              padding: [50, 50],
+              maxZoom: 6,
+              animate: true,
+              duration: 0.5
+            });
+
+            // Set selected country
+            setSelectedCountry(countryName);
+
+            // Update all country styles to grey out non-selected countries
+            if (geojsonLayerRef.current) {
+              geojsonLayerRef.current.setStyle((feature) => {
+                const featureCountryName = feature?.properties?.name || "";
+                const isSelected = featureCountryName === countryName;
+
+                if (!isSelected) {
+                  return {
+                    weight: 1.2,
+                    color: "#222",
+                    fillColor: "#d0d0d0",
+                    fillOpacity: 0.4,
+                  };
+                }
+
+                // Keep the selected country's original color
+                const fillColor = getCountryColor(feature);
+                return {
+                  weight: 1.2,
+                  color: "#222",
+                  fillColor: fillColor,
+                  fillOpacity: 0.7,
+                };
+              });
+            }
+
+            // Clear existing university markers
+            if (universityMarkersRef.current) {
+              universityMarkersRef.current.clearLayers();
+            } else {
+              universityMarkersRef.current = L.layerGroup().addTo(mapRef.current);
+            }
+
+            // Add university markers (we'll use approximate locations for now)
+            // In a real implementation, you'd have actual coordinates
+            universities.forEach((universityName, index) => {
+              // Get exchanges for this university
+              const universityExchanges = allExchanges.filter(
+                (ex) => ex.university === universityName
+              );
+
+              // Create a marker (positioned around the country center for now)
+              const center = bounds.getCenter();
+              const offset = 0.5; // Spread markers around
+              const marker = L.marker([
+                center.lat + (Math.random() - 0.5) * offset,
+                center.lng + (Math.random() - 0.5) * offset,
+              ], {
+                icon: L.divIcon({
+                  className: 'university-marker',
+                  html: `<div style="
+                    background: #DC143C;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 10px;
+                  ">${universityExchanges.length}</div>`,
+                  iconSize: [24, 24],
+                  iconAnchor: [12, 12],
+                })
+              });
+
+              // Add popup with university info
+              const popupContent = `
+                <div style="min-width: 200px;">
+                  <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
+                    ${universityName}
+                  </h3>
+                  <p style="margin: 0 0 5px 0; font-size: 12px;">
+                    <strong>${universityExchanges.length}</strong> utveksling${universityExchanges.length !== 1 ? 'er' : ''}
+                  </p>
+                  ${universityExchanges.slice(0, 3).map((ex) => `
+                    <div style="margin: 5px 0; padding: 5px; background: #f5f5f5; border-radius: 3px; font-size: 11px;">
+                      <div><strong>${ex.study}</strong></div>
+                      <div>År: ${ex.year} | ${ex.numSemesters} semester</div>
+                    </div>
+                  `).join('')}
+                  ${universityExchanges.length > 3 ? `
+                    <p style="margin: 5px 0 0 0; font-size: 11px; font-style: italic;">
+                      + ${universityExchanges.length - 3} flere...
+                    </p>
+                  ` : ''}
+                </div>
+              `;
+
+              marker.bindPopup(popupContent);
+              marker.addTo(universityMarkersRef.current!);
+            });
+
+            console.log(`Showing ${universities.length} universities in ${countryName}`);
+          }
         }
 
         // Legg til events for hvert land
         function onEachFeature(feature: GeoJSON.Feature, layer: L.Layer): void {
+          // Always attach the event handlers - they will check selectedCountry internally
           layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlight,
@@ -229,9 +422,162 @@ const MapChart = () => {
         mapRef.current = null;
       }
     };
-  }, []);
+  }, [universitiesByCountry, allExchanges]);
 
-  return <div id="map" style={{ width: "100%", height: "100vh" }}></div>;
+  const resetView = () => {
+    if (mapRef.current) {
+      // Re-enable all map interactions
+      mapRef.current.dragging.enable();
+      mapRef.current.scrollWheelZoom.enable();
+      mapRef.current.doubleClickZoom.enable();
+      mapRef.current.boxZoom.enable();
+      mapRef.current.keyboard.enable();
+      mapRef.current.touchZoom.enable();
+
+      // Re-add zoom control if it doesn't exist
+      if (!mapRef.current.zoomControl) {
+        mapRef.current.addControl(L.control.zoom({ position: 'topleft' }));
+      }
+
+      // Restore maxBounds restriction
+      const bounds = L.latLngBounds(
+        [-90, -180] as L.LatLngTuple,
+        [90, 180] as L.LatLngTuple
+      );
+      mapRef.current.setMaxBounds(bounds);
+
+      // Reset to world view
+      mapRef.current.setView([20, 0], 2, {
+        animate: true,
+        duration: 0.5,
+      });
+
+      // Clear university markers
+      if (universityMarkersRef.current) {
+        universityMarkersRef.current.clearLayers();
+      }
+
+      // Clear selected country first to allow style reset
+      setSelectedCountry(null);
+
+      // Restore all country colors - this will trigger a re-render with new styles
+      if (geojsonLayerRef.current) {
+        geojsonLayerRef.current.eachLayer((layer) => {
+          if (geojsonLayerRef.current) {
+            geojsonLayerRef.current.resetStyle(layer);
+          }
+        });
+      }
+    }
+  };
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+      <div id="map" style={{ width: "100%", height: "100%" }}></div>
+
+      {/* Reset View Button */}
+      {selectedCountry && (
+        <button
+          onClick={resetView}
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1000,
+            padding: "12px 24px",
+            backgroundColor: "#DC143C",
+            color: "white",
+            border: "none",
+            borderRadius: "8px",
+            fontSize: "14px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+            transition: "all 0.2s",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "#B30000";
+            e.currentTarget.style.transform = "translateX(-50%) scale(1.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#DC143C";
+            e.currentTarget.style.transform = "translateX(-50%) scale(1)";
+          }}
+        >
+          ← Tilbake til verdenskart
+        </button>
+      )}
+
+      {/* Legend */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "30px",
+          right: "20px",
+          zIndex: 1000,
+          backgroundColor: "white",
+          padding: "15px",
+          borderRadius: "8px",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+          fontSize: "12px",
+        }}
+      >
+        <div style={{ fontWeight: "bold", marginBottom: "10px" }}>
+          Antall universiteter
+        </div>
+        <div style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              backgroundColor: "#8B0000",
+              marginRight: "8px",
+              borderRadius: "3px",
+            }}
+          ></div>
+          <span>10+ universiteter</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              backgroundColor: "#DC143C",
+              marginRight: "8px",
+              borderRadius: "3px",
+            }}
+          ></div>
+          <span>3-9 universiteter</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              backgroundColor: "#FF6B6B",
+              marginRight: "8px",
+              borderRadius: "3px",
+            }}
+          ></div>
+          <span>1-2 universiteter</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              backgroundColor: "#f0f0f0",
+              marginRight: "8px",
+              borderRadius: "3px",
+              border: "1px solid #ccc",
+            }}
+          ></div>
+          <span>Ingen utveksling</span>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MapChart;
