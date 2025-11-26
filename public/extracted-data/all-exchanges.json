@@ -248,5 +248,35 @@
     "studyYear": "4",
     "numSemesters": 1,
     "year": "2022"
+  },
+  {
+    "id": "26",
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "study": "Datateknologi",
+    "specialization": "Kunstig intelligens",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
+  },
+  {
+    "id": "27",
+    "university": "Australian National University",
+    "country": "Australia",
+    "study": "Kybernetikk og robotikk",
+    "specialization": "Robotikk",
+    "studyYear": "4",
+    "numSemesters": 1,
+    "year": "2022"
+  },
+  {
+    "id": "28",
+    "university": "University of Sydney",
+    "country": "Australia",
+    "study": "Produktutvikling",
+    "specialization": "Design",
+    "studyYear": "4",
+    "numSemesters": 2,
+    "year": "2023"
   }
 ]

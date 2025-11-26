@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p1",
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p2",
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p3",
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p4",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p5",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p6",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Elektronikk",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p7",
+    "university": "MIT",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p8",
+    "university": "Stanford University",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p9",
+    "university": "Stanford University",
+    "country": "United States of America",
+    "study": "Industriell økonomi",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p10",
+    "university": "Stanford University",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p11",
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p12",
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p13",
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "study": "Elektronikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p14",
+    "university": "KTH Royal Institute of Technology",
+    "country": "Sweden",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p15",
+    "university": "KTH Royal Institute of Technology",
+    "country": "Sweden",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p16",
+    "university": "Lund University",
+    "country": "Sweden",
+    "study": "Elektronikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p17",
+    "university": "Imperial College London",
+    "country": "United Kingdom",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p18",
+    "university": "Imperial College London",
+    "country": "United Kingdom",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p19",
+    "university": "University of Cambridge",
+    "country": "United Kingdom",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p20",
+    "university": "EPFL",
+    "country": "Switzerland",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p21",
+    "university": "EPFL",
+    "country": "Switzerland",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p22",
+    "university": "Technical University of Denmark",
+    "country": "Denmark",
+    "study": "Elektronikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p23",
+    "university": "University of Tokyo",
+    "country": "Japan",
+    "study": "Kybernetikk og robotikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p24",
+    "university": "University of Tokyo",
+    "country": "Japan",
+    "study": "Elektronikk",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p25",
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p26",
+    "university": "Tsinghua University",
+    "country": "China",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p27",
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "study": "Bygg og miljøteknikk",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p28",
+    "university": "UC Berkeley",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  },
+  {
+    "id": "p29",
+    "university": "Carnegie Mellon University",
+    "country": "United States of America",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Vår 2026"
+  },
+  {
+    "id": "p30",
+    "university": "University of Toronto",
+    "country": "Canada",
+    "study": "Datateknologi",
+    "studentName": "Anonymous",
+    "semester": "Høst 2025"
+  }
+]
