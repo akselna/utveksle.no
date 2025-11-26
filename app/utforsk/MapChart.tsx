@@ -55,12 +55,101 @@ const MapChart = () => {
         fetch("/data/world.geojson")
             .then(response => response.json())
             .then(geojsonData => {
-                // GeoJSON styling
-                const style = {
-                    weight: 1.2,
-                    color: "#222",
-                    fillColor: "#ffffff",
-                    fillOpacity: 0.3
+                // Test data: color specific countries
+                // Try multiple property names that might contain the country name
+                const countryColors = {
+                    // Full names
+                    "Norway": "#4CAF50",      // Green
+                    "Sweden": "#2196F3",      // Blue
+                    "Denmark": "#F44336",     // Red
+                    "Finland": "#FF9800",     // Orange
+                    "Iceland": "#9C27B0",     // Purple
+                    "Germany": "#FFEB3B",     // Yellow
+                    "France": "#00BCD4",      // Cyan
+                    "Spain": "#E91E63",       // Pink
+                    "Italy": "#8BC34A",       // Light Green
+                    "United Kingdom": "#673AB7", // Deep Purple
+                    "Great Britain": "#673AB7",
+                    "United States of America": "#FF5722",
+                    "United States": "#FF5722",
+                    "USA": "#FF5722",
+                    "US": "#FF5722",
+                    // ISO codes (common in GeoJSON)
+                    "NOR": "#4CAF50",
+                    "SWE": "#2196F3",
+                    "DNK": "#F44336",
+                    "FIN": "#FF9800",
+                    "ISL": "#9C27B0",
+                    "DEU": "#FFEB3B",
+                    "FRA": "#00BCD4",
+                    "ESP": "#E91E63",
+                    "ITA": "#8BC34A",
+                    "GBR": "#673AB7",
+                    "USA": "#FF5722",
+                    // 2-letter codes
+                    "NO": "#4CAF50",
+                    "SE": "#2196F3",
+                    "DK": "#F44336",
+                    "FI": "#FF9800",
+                    "IS": "#9C27B0",
+                    "DE": "#FFEB3B",
+                    "FR": "#00BCD4",
+                    "ES": "#E91E63",
+                    "IT": "#8BC34A",
+                    "GB": "#673AB7",
+                };
+
+                // Helper function to get country color
+                const getCountryColor = (feature) => {
+                    const props = feature.properties;
+
+                    // Try different property names that might contain country identifier
+                    const possibleNames = [
+                        props.name,
+                        props.NAME,
+                        props.admin,
+                        props.ADMIN,
+                        props.NAME_LONG,
+                        props.name_long,
+                        props["ISO3166-1-Alpha-3"],
+                        props["ISO3166-1-Alpha-2"],
+                        props.iso_a3,
+                        props.ISO_A3,
+                        props.iso_a2,
+                        props.ISO_A2,
+                        props.adm0_a3,
+                        props.ADM0_A3
+                    ];
+
+                    // Log first feature to help debug
+                    if (!window.loggedCountryProps) {
+                        console.log("Country properties:", props);
+                        console.log("Possible names:", possibleNames.filter(n => n));
+                        window.loggedCountryProps = true;
+                    }
+
+                    // Try to find a match
+                    for (const name of possibleNames) {
+                        if (name && countryColors[name]) {
+                            console.log(`Matched country: ${name} with color ${countryColors[name]}`);
+                            return countryColors[name];
+                        }
+                    }
+
+                    return null;
+                };
+
+                // GeoJSON styling - now dynamic based on country
+                const style = (feature) => {
+                    const fillColor = getCountryColor(feature) || "#ffffff";
+                    const fillOpacity = getCountryColor(feature) ? 0.7 : 0.3;
+
+                    return {
+                        weight: 1.2,
+                        color: "#222",
+                        fillColor: fillColor,
+                        fillOpacity: fillOpacity
+                    };
                 };
 
                 // Hover-stil
@@ -69,7 +158,7 @@ const MapChart = () => {
                     layer.setStyle({
                         weight: 2,
                         color: "#ff8800",
-                        fillOpacity: 0.5
+                        fillOpacity: 0.9
                     });
                     layer.bringToFront();
                 }
