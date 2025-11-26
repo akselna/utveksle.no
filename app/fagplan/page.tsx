@@ -17,6 +17,7 @@ import {
   Calendar,
   Info,
   ShieldCheck,
+  AlertTriangle,
 } from "lucide-react";
 import approvedCoursesData from "../../data/approved_courses.json";
 
@@ -727,7 +728,7 @@ const MOCK_EXCHANGE_PLANS: ExchangePlan[] = [
 ];
 
 export default function ExchangePlannerFull() {
-  const [step, setStep] = useState(0); // 0: Dashboard, 1: Profil, 2: Fag, 3: Planlegger
+  const [step, setStep] = useState(0); // 0: Dashboard, 1: Profil, 2: Fag, 3: Planlegger, 4: Last ned PDF
   const [showSaveNotification, setShowSaveNotification] = useState(false);
 
   // State for plans
@@ -898,18 +899,26 @@ export default function ExchangePlannerFull() {
             </div>
 
             {/* Progress Bar */}
-            <div className="flex items-center justify-between w-full max-w-4xl mx-auto relative">
+            <div className="flex items-center justify-between w-full max-w-5xl mx-auto relative">
               <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 rounded"></div>
               <div
                 className="absolute top-1/2 left-0 h-1 bg-blue-600 -z-10 rounded transition-all duration-500"
                 style={{
-                  width: step === 1 ? "0%" : step === 2 ? "50%" : "100%",
+                  width:
+                    step === 1
+                      ? "0%"
+                      : step === 2
+                      ? "33%"
+                      : step === 3
+                      ? "66%"
+                      : "100%",
                 }}
               ></div>
               {[
                 { num: 1, title: "Profil" },
                 { num: 2, title: "Dine fag" },
                 { num: 3, title: "Planlegger" },
+                { num: 4, title: "Last ned PDF" },
               ].map((item) => (
                 <div
                   key={item.num}
@@ -1509,7 +1518,91 @@ export default function ExchangePlannerFull() {
                 program={program}
                 semesterLabel={`${studyYear}. klasse - ${semesterChoice}`}
                 exchangeUniversity={exchangeUniversity}
+                onNext={() => setStep(4)}
               />
+            </div>
+          </div>
+        )}
+
+        {/* --- STEG 4: LAST NED PDF --- */}
+        {step === 4 && (
+          <div className="flex flex-col items-center justify-start pt-10 min-h-full p-6 animate-in slide-in-from-right duration-500">
+            <div className="max-w-4xl w-full">
+              <button
+                onClick={() => setStep(3)}
+                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+              >
+                <ArrowLeft size={16} /> Tilbake til planlegger
+              </button>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="text-green-600" size={32} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                    Planen din er klar!
+                  </h2>
+                  <p className="text-slate-600">
+                    Du har matchet alle fagene dine. Last ned planen som PDF.
+                  </p>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  <div className="bg-slate-50 p-4 rounded-xl">
+                    <h3 className="font-semibold text-slate-800 mb-2">
+                      Plandetaljer
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">Studieprogram:</span>
+                        <span className="font-medium text-slate-800">
+                          {program}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">
+                          Utvekslingsuniversitet:
+                        </span>
+                        <span className="font-medium text-slate-800">
+                          {exchangeUniversity}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">Periode:</span>
+                        <span className="font-medium text-slate-800">
+                          {studyYear}. klasse - {semesterChoice}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">Antall fag:</span>
+                        <span className="font-medium text-slate-800">
+                          {mySubjects.filter(
+                            (s) => !s.isElective || s.isSelected
+                          ).length}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => {
+                      // TODO: Implementer PDF-nedlasting
+                      alert("PDF-nedlasting kommer snart!");
+                    }}
+                    className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-2"
+                  >
+                    <Save size={20} /> Last ned PDF
+                  </button>
+                  <button
+                    onClick={handleSavePlan}
+                    className="flex-1 bg-slate-900 text-white py-3 px-6 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <Save size={20} /> Lagre plan
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -1525,17 +1618,26 @@ function PlannerInterface({
   program,
   semesterLabel,
   exchangeUniversity,
+  onNext,
 }: {
   subjects: Subject[];
   setSubjects: React.Dispatch<React.SetStateAction<Subject[]>>;
   program: string;
   semesterLabel: string;
   exchangeUniversity: string;
+  onNext: () => void;
 }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [selectedCourseInfo, setSelectedCourseInfo] =
     useState<AbroadSubject | null>(null);
+
+  // State for manuell match
+  const [showManualMatchForm, setShowManualMatchForm] = useState(false);
+  const [manualNtnuCode, setManualNtnuCode] = useState("");
+  const [manualExchangeCode, setManualExchangeCode] = useState("");
+  const [manualExchangeName, setManualExchangeName] = useState("");
+  const [manualMatches, setManualMatches] = useState<AbroadSubject[]>([]);
 
   // Filtrer til kun valgte fag for visning
   const selectedSubjects = subjects.filter(
@@ -1558,14 +1660,54 @@ function PlannerInterface({
     );
   };
 
+  const handleAddManualMatch = () => {
+    if (!manualNtnuCode || !manualExchangeCode || !manualExchangeName) {
+      alert("Vennligst fyll ut alle feltene");
+      return;
+    }
+
+    const uniName = exchangeUniversity.includes(" - ")
+      ? exchangeUniversity.split(" - ")[1]
+      : exchangeUniversity;
+
+    const newManualMatch: AbroadSubject = {
+      id: `manual-${Date.now()}`,
+      code: manualExchangeCode,
+      name: manualExchangeName,
+      university: uniName !== "None selected" ? uniName : "Manuelt lagt til",
+      country: exchangeUniversity.includes(" - ")
+        ? exchangeUniversity.split(" - ")[0]
+        : "",
+      matchesHomeSubjectCode: manualNtnuCode,
+      isVerified: false,
+      addedBy: "Deg (manuelt)",
+    };
+
+    setManualMatches((prev) => [...prev, newManualMatch]);
+    setManualNtnuCode("");
+    setManualExchangeCode("");
+    setManualExchangeName("");
+    setShowManualMatchForm(false);
+  };
+
   const uniName = exchangeUniversity.includes(" - ")
     ? exchangeUniversity.split(" - ")[1]
     : exchangeUniversity;
 
+  // Kombiner ABROAD_OPTIONS med manuelle matcher
+  const allOptions = [...ABROAD_OPTIONS, ...manualMatches];
+
   // Filtrer basert på universitet og søk
-  const filteredOptions = ABROAD_OPTIONS.filter((opt) => {
+  const filteredOptions = allOptions.filter((opt) => {
+    // Manuelle matcher skal alltid vises
+    const isManual = opt.id.toString().startsWith("manual-");
+
     const isFromSelectedUniversity =
-      uniName === "None selected" || opt.university === uniName;
+      isManual ||
+      uniName === "None selected" ||
+      opt.university === uniName ||
+      opt.university === "Manuelt lagt til";
+
     if (!isFromSelectedUniversity) {
       return false;
     }
@@ -1578,8 +1720,8 @@ function PlannerInterface({
     return matchesSearch;
   });
 
-  // Sorter slik at kompatible forslag kommer først
-  const availableOptions = filteredOptions.sort((a, b) => {
+  // Sorter og filtrer: Prioriter kompatible fag
+  const sortedOptions = filteredOptions.sort((a, b) => {
     const aIsCompatible = selectedSubjects.some(
       (s) => s.code === a.matchesHomeSubjectCode
     );
@@ -1595,6 +1737,26 @@ function PlannerInterface({
     return a.name.localeCompare(b.name);
   });
 
+  // Filtrer bort fag som allerede er matchet
+  const notYetMatchedOptions = sortedOptions.filter((opt) => {
+    return !selectedSubjects.some(
+      (s) => s.matchedWith && s.matchedWith.id === opt.id
+    );
+  });
+
+  // Vis kun kompatible fag først, deretter maks 10 ikke-kompatible
+  const compatibleOptions = notYetMatchedOptions.filter((opt) =>
+    selectedSubjects.some((s) => s.code === opt.matchesHomeSubjectCode)
+  );
+  const nonCompatibleOptions = notYetMatchedOptions.filter(
+    (opt) => !selectedSubjects.some((s) => s.code === opt.matchesHomeSubjectCode)
+  );
+
+  const availableOptions = [
+    ...compatibleOptions,
+    ...nonCompatibleOptions.slice(0, 10),
+  ];
+
   return (
     <div className="flex h-full animate-in fade-in duration-700">
       {/* Venstre side (Sticky) */}
@@ -1604,7 +1766,7 @@ function PlannerInterface({
           <p className="text-sm text-slate-500 mb-4">{semesterLabel}</p>
 
           {/* Progress Bar inside Panel */}
-          <div className="w-full bg-gray-100 rounded-full h-2">
+          <div className="w-full bg-gray-100 rounded-full h-2 mb-4">
             <div
               className="bg-green-500 h-2 rounded-full transition-all duration-500"
               style={{
@@ -1619,6 +1781,40 @@ function PlannerInterface({
               }}
             ></div>
           </div>
+
+          {/* Next button - kompakt versjon */}
+          {(() => {
+            const allMatched = selectedSubjects.every(
+              (sub) => sub.matchedWith !== null
+            );
+            return (
+              <button
+                onClick={onNext}
+                disabled={!allMatched}
+                className={`w-full py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 text-sm ${
+                  allMatched
+                    ? "bg-green-600 text-white hover:bg-green-700 shadow-md"
+                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                }`}
+                title={
+                  allMatched
+                    ? "Gå videre til PDF-nedlasting"
+                    : "Du må matche alle fag før du kan gå videre"
+                }
+              >
+                {allMatched ? (
+                  <>
+                    <CheckCircle size={16} /> Gå til PDF-nedlasting
+                  </>
+                ) : (
+                  <>
+                    {selectedSubjects.filter((s) => s.matchedWith).length}/
+                    {selectedSubjects.length} matchet
+                  </>
+                )}
+              </button>
+            );
+          })()}
         </div>
 
         <div className="space-y-4 overflow-y-auto pb-20 pr-2">
@@ -1626,6 +1822,17 @@ function PlannerInterface({
             <div key={sub.id} className="relative group">
               {!sub.matchedWith ? (
                 <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 bg-gray-50/50 flex flex-col justify-center items-center text-center h-28 transition-colors hover:border-blue-300 hover:bg-blue-50/30">
+                  <button
+                    onClick={() => {
+                      setSubjects((prev) =>
+                        prev.filter((s) => s.id !== sub.id)
+                      );
+                    }}
+                    className="absolute top-2 right-2 p-1 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                    title="Fjern fag"
+                  >
+                    <Trash2 size={14} />
+                  </button>
                   <span className="font-bold text-slate-700 text-sm">
                     {sub.code}
                   </span>
@@ -1638,24 +1845,58 @@ function PlannerInterface({
                 </div>
               ) : (
                 <div className="border border-green-200 bg-green-50 rounded-xl p-4 shadow-sm relative">
-                  <button
-                    onClick={() => handleRemoveMatch(sub.id)}
-                    className="absolute top-2 right-2 p-1 text-green-700 hover:bg-green-200 rounded-full opacity-0 group-hover:opacity-100 transition-all"
-                  >
-                    <X size={14} />
-                  </button>
+                  <div className="absolute top-2 right-2 flex gap-1">
+                    <button
+                      onClick={() => handleRemoveMatch(sub.id)}
+                      className="p-1 text-green-700 hover:bg-green-200 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                      title="Fjern match"
+                    >
+                      <X size={14} />
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSubjects((prev) =>
+                          prev.filter((s) => s.id !== sub.id)
+                        );
+                      }}
+                      className="p-1 text-green-700 hover:text-red-500 hover:bg-red-50 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                      title="Fjern fag"
+                    >
+                      <Trash2 size={14} />
+                    </button>
+                  </div>
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle size={14} className="text-green-600" />
                     <span className="text-xs font-bold text-green-800 uppercase">
                       Dekket
                     </span>
                   </div>
-                  <h4 className="font-bold text-sm text-slate-800">
-                    {sub.matchedWith.name}
-                  </h4>
-                  <p className="text-xs text-slate-500">
-                    {sub.matchedWith.university}
-                  </p>
+
+                  {/* NTNU-fag som dekkes */}
+                  <div className="mb-2 pb-2 border-b border-green-200">
+                    <p className="text-[10px] text-green-700 font-medium mb-0.5">
+                      NTNU-fag:
+                    </p>
+                    <p className="font-bold text-xs text-slate-800">
+                      {sub.code}
+                    </p>
+                    <p className="text-[10px] text-slate-600 line-clamp-1">
+                      {sub.name}
+                    </p>
+                  </div>
+
+                  {/* Utvekslingsfag */}
+                  <div>
+                    <p className="text-[10px] text-green-700 font-medium mb-0.5">
+                      Dekkes av:
+                    </p>
+                    <h4 className="font-bold text-xs text-slate-800">
+                      {sub.matchedWith.name}
+                    </h4>
+                    <p className="text-[10px] text-slate-500">
+                      {sub.matchedWith.university}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
@@ -1681,6 +1922,85 @@ function PlannerInterface({
             />
           </div>
 
+          {/* Manuell match knapp og form */}
+          <div className="mb-6">
+            {!showManualMatchForm ? (
+              <button
+                onClick={() => setShowManualMatchForm(true)}
+                className="w-full bg-blue-50 border-2 border-dashed border-blue-200 text-blue-600 py-3 px-4 rounded-xl font-medium hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
+              >
+                <Plus size={18} /> Legg til match manuelt
+              </button>
+            ) : (
+              <div className="bg-white p-5 rounded-xl border-2 border-blue-200 shadow-sm">
+                <div className="flex justify-between items-center mb-4">
+                  <h4 className="font-bold text-slate-800">
+                    Legg til match manuelt
+                  </h4>
+                  <button
+                    onClick={() => {
+                      setShowManualMatchForm(false);
+                      setManualNtnuCode("");
+                      setManualExchangeCode("");
+                      setManualExchangeName("");
+                    }}
+                    className="text-gray-400 hover:text-gray-600"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                      NTNU emnekode
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="eks: EiT"
+                      className="w-full p-2.5 rounded-lg border border-gray-300 bg-white text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                      value={manualNtnuCode}
+                      onChange={(e) => setManualNtnuCode(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                      Utvekslingsfag emnekode
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="eks: COMP3900"
+                      className="w-full p-2.5 rounded-lg border border-gray-300 bg-white text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                      value={manualExchangeCode}
+                      onChange={(e) => setManualExchangeCode(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                      Utvekslingsfag navn
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="eks: Computer Science Project"
+                      className="w-full p-2.5 rounded-lg border border-gray-300 bg-white text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                      value={manualExchangeName}
+                      onChange={(e) => setManualExchangeName(e.target.value)}
+                    />
+                  </div>
+
+                  <button
+                    onClick={handleAddManualMatch}
+                    className="w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Plus size={18} /> Legg til match
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="grid grid-cols-1 gap-4">
             {availableOptions.map((opt) => {
               const matchingHomeSub = selectedSubjects.find(
@@ -1688,6 +2008,21 @@ function PlannerInterface({
               );
               const isCompatible = !!matchingHomeSub;
               const isAlreadyMatched = matchingHomeSub?.matchedWith !== null;
+
+              // Sjekk om kurset ble godkjent for mer enn 4 år siden
+              let isOldApproval = false;
+              if (opt.behandlingsdato) {
+                try {
+                  const approvalDate = new Date(opt.behandlingsdato);
+                  const currentDate = new Date();
+                  const yearsDiff =
+                    (currentDate.getTime() - approvalDate.getTime()) /
+                    (1000 * 60 * 60 * 24 * 365.25);
+                  isOldApproval = yearsDiff > 5;
+                } catch (e) {
+                  // Ignorer hvis dato er ugyldig
+                }
+              }
 
               return (
                 <div
@@ -1716,7 +2051,7 @@ function PlannerInterface({
                     <p className="text-sm text-slate-500">{opt.code}</p>
 
                     {isCompatible && (
-                      <div className="mt-2 flex items-center gap-2">
+                      <div className="mt-2 flex items-center gap-2 flex-wrap">
                         <div className="inline-flex items-center gap-1 bg-green-100 text-green-800 px-2 py-0.5 rounded text-[10px] font-medium">
                           <CheckCircle size={10} /> Passer med{" "}
                           {matchingHomeSub?.code}
@@ -1724,6 +2059,12 @@ function PlannerInterface({
                         {opt.isVerified && (
                           <div className="inline-flex items-center gap-1 bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[10px] font-medium">
                             <ShieldCheck size={10} /> Verifisert
+                          </div>
+                        )}
+                        {isOldApproval && (
+                          <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-medium">
+                            <AlertTriangle size={10} /> Behandlet for over 5 år
+                            siden
                           </div>
                         )}
                       </div>
