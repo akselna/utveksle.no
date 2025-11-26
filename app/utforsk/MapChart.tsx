@@ -324,33 +324,60 @@ const MapChart = () => {
           }
 
           if (mapRef.current) {
-            // Get the bounds of the clicked country
-            let bounds;
-            if (typeof layer.getBounds === "function") {
-              bounds = layer.getBounds();
-            } else if (feature?.geometry) {
-              // Fallback: create bounds from the GeoJSON layer
-              const tempLayer = L.geoJSON(feature);
-              bounds = tempLayer.getBounds();
-            }
-
-            if (!bounds) {
-              console.error("Could not get bounds for country:", countryName);
-              return;
-            }
-
-            console.log("Zooming to bounds:", bounds);
-
-            // Remove maxBounds restriction to allow proper centering on any country
+            // Remove maxBounds restriction first to allow proper centering
             mapRef.current.setMaxBounds(null as any);
 
-            // Zoom to fit the country with some padding
-            mapRef.current.fitBounds(bounds, {
-              padding: [50, 50],
-              maxZoom: 6,
-              animate: true,
-              duration: 0.5,
-            });
+            // Special handling for large countries
+            const largeCountries: Record<string, { center: L.LatLngTuple; zoom: number }> = {
+              "United States of America": { center: [39.8283, -98.5795], zoom: 4 },
+              "Canada": { center: [56.1304, -106.3468], zoom: 3 },
+              "Russia": { center: [61.5240, 105.3188], zoom: 3 },
+              "China": { center: [35.8617, 104.1954], zoom: 4 },
+              "Australia": { center: [-25.2744, 133.7751], zoom: 4 },
+              "Brazil": { center: [-14.2350, -51.9253], zoom: 4 },
+            };
+
+            if (largeCountries[countryName]) {
+              // Use predefined center and zoom for large countries
+              const { center, zoom } = largeCountries[countryName];
+              console.log(`Using predefined center for ${countryName}:`, center, zoom);
+
+              mapRef.current.setView(center, zoom, {
+                animate: true,
+                duration: 0.5,
+              });
+            } else {
+              // For smaller countries, use bounds as before
+              let bounds;
+              if (typeof layer.getBounds === "function") {
+                bounds = layer.getBounds();
+              } else if (feature?.geometry) {
+                const tempLayer = L.geoJSON(feature);
+                bounds = tempLayer.getBounds();
+              }
+
+              if (!bounds) {
+                console.error("Could not get bounds for country:", countryName);
+                return;
+              }
+
+              console.log("Zooming to bounds:", bounds);
+              mapRef.current.fitBounds(bounds, {
+                padding: [50, 50],
+                maxZoom: 6,
+                animate: true,
+                duration: 0.5,
+              });
+            }
+
+            // After zoom animation completes, re-apply bounds to the visible area
+            setTimeout(() => {
+              if (mapRef.current) {
+                const currentBounds = mapRef.current.getBounds();
+                const extendedBounds = currentBounds.pad(0.5);
+                mapRef.current.setMaxBounds(extendedBounds);
+              }
+            }, 600);
 
             // Set selected country
             setSelectedCountry(countryName);
