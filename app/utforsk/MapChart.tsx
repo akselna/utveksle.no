@@ -48,7 +48,9 @@ const MapChart = () => {
     Record<string, string[]>
   >({});
   const [allExchanges, setAllExchanges] = useState<Exchange[]>([]);
-  const [plannedExchanges, setPlannedExchanges] = useState<PlannedExchange[]>([]);
+  const [plannedExchanges, setPlannedExchanges] = useState<PlannedExchange[]>(
+    []
+  );
   const [universityCoordinates, setUniversityCoordinates] = useState<
     Record<string, { lat: number; lng: number }>
   >({});
@@ -328,19 +330,29 @@ const MapChart = () => {
             mapRef.current.setMaxBounds(null as any);
 
             // Special handling for large countries
-            const largeCountries: Record<string, { center: L.LatLngTuple; zoom: number }> = {
-              "United States of America": { center: [39.8283, -98.5795], zoom: 4 },
-              "Canada": { center: [56.1304, -106.3468], zoom: 3 },
-              "Russia": { center: [61.5240, 105.3188], zoom: 3 },
-              "China": { center: [35.8617, 104.1954], zoom: 4 },
-              "Australia": { center: [-25.2744, 133.7751], zoom: 4 },
-              "Brazil": { center: [-14.2350, -51.9253], zoom: 4 },
+            const largeCountries: Record<
+              string,
+              { center: L.LatLngTuple; zoom: number }
+            > = {
+              "United States of America": {
+                center: [39.8283, -98.5795],
+                zoom: 4,
+              },
+              Canada: { center: [56.1304, -106.3468], zoom: 3 },
+              Russia: { center: [61.524, 105.3188], zoom: 3 },
+              China: { center: [35.8617, 104.1954], zoom: 4 },
+              Australia: { center: [-25.2744, 133.7751], zoom: 4 },
+              Brazil: { center: [-14.235, -51.9253], zoom: 4 },
             };
 
             if (largeCountries[countryName]) {
               // Use predefined center and zoom for large countries
               const { center, zoom } = largeCountries[countryName];
-              console.log(`Using predefined center for ${countryName}:`, center, zoom);
+              console.log(
+                `Using predefined center for ${countryName}:`,
+                center,
+                zoom
+              );
 
               mapRef.current.setView(center, zoom, {
                 animate: true,
@@ -423,7 +435,9 @@ const MapChart = () => {
               const isReviewMode = mapMode === "reviews";
               const universityData = isReviewMode
                 ? allExchanges.filter((ex) => ex.university === universityName)
-                : plannedExchanges.filter((ex) => ex.university === universityName);
+                : plannedExchanges.filter(
+                    (ex) => ex.university === universityName
+                  );
 
               if (universityData.length === 0) {
                 return; // Skip if no data for this university in current mode
@@ -472,7 +486,9 @@ const MapChart = () => {
                       ${universityName}
                     </h3>
                     <p style="margin: 0 0 5px 0; font-size: 12px;">
-                      <strong>${reviews.length}</strong> anmeldelse${reviews.length !== 1 ? "r" : ""}
+                      <strong>${reviews.length}</strong> anmeldelse${
+                  reviews.length !== 1 ? "r" : ""
+                }
                     </p>
                     ${reviews
                       .slice(0, 3)
@@ -504,7 +520,9 @@ const MapChart = () => {
                       ${universityName}
                     </h3>
                     <p style="margin: 0 0 5px 0; font-size: 12px;">
-                      <strong>${planned.length}</strong> student${planned.length !== 1 ? "er" : ""} planlegger å dra
+                      <strong>${planned.length}</strong> student${
+                  planned.length !== 1 ? "er" : ""
+                } planlegger å dra
                     </p>
                     ${planned
                       .slice(0, 3)
@@ -574,7 +592,13 @@ const MapChart = () => {
         mapRef.current = null;
       }
     };
-  }, [universitiesByCountry, allExchanges, plannedExchanges, universityCoordinates, mapMode]);
+  }, [
+    universitiesByCountry,
+    allExchanges,
+    plannedExchanges,
+    universityCoordinates,
+    mapMode,
+  ]);
 
   const resetView = () => {
     if (mapRef.current) {
@@ -625,7 +649,15 @@ const MapChart = () => {
   };
 
   return (
-    <div style={{ position: "relative", width: "100vw", height: "100vh", left: "50%", transform: "translateX(-50%)" }}>
+    <div
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "100vh",
+        left: "50%",
+        transform: "translateX(-50%)",
+      }}
+    >
       <div id="map" style={{ width: "100%", height: "100%" }}></div>
 
       {/* Toggle Button - Map Mode Selector */}
