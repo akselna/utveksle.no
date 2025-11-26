@@ -6,7 +6,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-02-25"
+    "Behandlingsdato": "2019-02-25",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -15,7 +16,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-02-25"
+    "Behandlingsdato": "2019-02-25",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -24,7 +26,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2022-02-20"
+    "Behandlingsdato": "2022-02-20",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -33,7 +36,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2022-02-20"
+    "Behandlingsdato": "2022-02-20",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -42,7 +46,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2022-02-20"
+    "Behandlingsdato": "2022-02-20",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -51,7 +56,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2022-02-20"
+    "Behandlingsdato": "2022-02-20",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -60,7 +66,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -69,7 +76,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -78,7 +86,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -87,7 +96,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -96,7 +106,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -105,7 +116,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -114,7 +126,8 @@
     "ECTS": "11",
     "NTNU_Emnekode": "TMM4135",
     "NTNU_Fagnavn": "Dimensjonering basert på elementmetoden",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -123,7 +136,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -132,7 +146,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimeringsmetoder",
-    "Behandlingsdato": "2016-03-09"
+    "Behandlingsdato": "2016-03-09",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -141,7 +156,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TET4140",
     "NTNU_Fagnavn": "Numeriske feltberegninger i elkraftteknikken",
-    "Behandlingsdato": "2017-03-08"
+    "Behandlingsdato": "2017-03-08",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -150,7 +166,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TTK4105",
     "NTNU_Fagnavn": "Regulerings teknikk",
-    "Behandlingsdato": "2017-03-08"
+    "Behandlingsdato": "2017-03-08",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -159,7 +176,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Ind sikkerhet og pålitelighet",
-    "Behandlingsdato": "2017-03-13"
+    "Behandlingsdato": "2017-03-13",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -168,7 +186,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Ind sikkerhet og pålitelighet",
-    "Behandlingsdato": "2023-01-31"
+    "Behandlingsdato": "2023-01-31",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -177,7 +196,8 @@
     "ECTS": "4",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Pros og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -186,7 +206,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektstyring",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -195,7 +216,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -204,7 +226,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -213,7 +236,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -222,7 +246,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2023-01-31"
+    "Behandlingsdato": "2023-01-31",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -231,7 +256,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2020-01-16"
+    "Behandlingsdato": "2020-01-16",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -240,7 +266,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Også godkjent for Energiplanlegging",
-    "Behandlingsdato": "2020-01-16"
+    "Behandlingsdato": "2020-01-16",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -249,7 +276,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -258,7 +286,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2017-03-01"
+    "Behandlingsdato": "2017-03-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -267,7 +296,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4102",
     "NTNU_Fagnavn": "Prosedyre og obj or progr",
-    "Behandlingsdato": "2023-02-21"
+    "Behandlingsdato": "2023-02-21",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -276,7 +306,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2017-03-08"
+    "Behandlingsdato": "2017-03-08",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -285,7 +316,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4295",
     "NTNU_Fagnavn": "Miljøanalyse og industriell økologi",
-    "Behandlingsdato": "2018-08-27"
+    "Behandlingsdato": "2018-08-27",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -294,7 +326,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4135",
     "NTNU_Fagnavn": "Produksjonslogistikk",
-    "Behandlingsdato": "2018-01-01"
+    "Behandlingsdato": "2018-01-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -303,7 +336,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4110",
     "NTNU_Fagnavn": "Kvalitets og prestasjonsfokusert ledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -312,7 +346,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Fyllfag for studiepoeng",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -321,7 +356,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2019-01-18"
+    "Behandlingsdato": "2019-01-18",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -330,7 +366,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TTM4190",
     "NTNU_Fagnavn": "Kommunikasjonsteknologi for SmartGrid",
-    "Behandlingsdato": "2019-01-25"
+    "Behandlingsdato": "2019-01-25",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -339,7 +376,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elekstriske maskiner",
-    "Behandlingsdato": "2019-01-25"
+    "Behandlingsdato": "2019-01-25",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -348,7 +386,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Fyllfag for studiepoeng",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -357,7 +396,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro kunstig intell.",
-    "Behandlingsdato": "2019-02-24"
+    "Behandlingsdato": "2019-02-24",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -366,7 +406,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutn støtte",
-    "Behandlingsdato": "2019-02-12"
+    "Behandlingsdato": "2019-02-12",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -375,7 +416,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2022-03-02"
+    "Behandlingsdato": "2022-03-02",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -384,7 +426,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind. økonomisk analyse",
-    "Behandlingsdato": "2020-01-29"
+    "Behandlingsdato": "2020-01-29",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -393,7 +436,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til Al",
-    "Behandlingsdato": "2025-03-01"
+    "Behandlingsdato": "2025-03-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -402,7 +446,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TDT4120",
     "NTNU_Fagnavn": "Algoritmer og datastrukturer",
-    "Behandlingsdato": "2020-01-17"
+    "Behandlingsdato": "2020-01-17",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -411,7 +456,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i AI",
-    "Behandlingsdato": "2020-01-14"
+    "Behandlingsdato": "2020-01-14",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -420,7 +466,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Int. ind. markedsføring",
-    "Behandlingsdato": "2020-03-03"
+    "Behandlingsdato": "2020-03-03",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -429,7 +476,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimization Methods with Applications",
-    "Behandlingsdato": "2021-01-25"
+    "Behandlingsdato": "2021-01-25",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -438,7 +486,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Maskinlæring",
-    "Behandlingsdato": "2021-01-19"
+    "Behandlingsdato": "2021-01-19",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -447,7 +496,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2021-04-20"
+    "Behandlingsdato": "2021-04-20",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -456,7 +506,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2021-01-24"
+    "Behandlingsdato": "2021-01-24",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -465,7 +516,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2021-01-21"
+    "Behandlingsdato": "2021-01-21",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -474,7 +526,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
-    "Behandlingsdato": "2021-09-14"
+    "Behandlingsdato": "2021-09-14",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -483,7 +536,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2022-01-27"
+    "Behandlingsdato": "2022-01-27",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -492,7 +546,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datagruve-datavare",
-    "Behandlingsdato": "2021-09-01"
+    "Behandlingsdato": "2021-09-01",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -501,7 +556,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2024-09-19"
+    "Behandlingsdato": "2024-09-19",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -510,7 +566,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4170",
     "NTNU_Fagnavn": "Teknologibasert forretningsutvikling",
-    "Behandlingsdato": "2025-10-03"
+    "Behandlingsdato": "2025-10-03",
+    "Country": "Italy"
   },
   {
     "University": "The University of Bologna",
@@ -519,9 +576,9 @@
     "ECTS": "6",
     "NTNU_Emnekode": "IT3708",
     "NTNU_Fagnavn": "Bio-inspirert kunstig intelligens",
-    "Behandlingsdato": "2025-10-03"
+    "Behandlingsdato": "2025-10-03",
+    "Country": "Italy"
   },
-
   {
     "University": "Universita Degli Studi de Padova",
     "Foreign_Emnekode": "EP2093",
@@ -529,7 +586,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind.økonomisk analyse",
-    "Behandlingsdato": "2020-01-30"
+    "Behandlingsdato": "2020-01-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -538,7 +596,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -547,7 +606,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -556,7 +616,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -565,7 +626,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2024-11-01"
+    "Behandlingsdato": "2024-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -574,7 +636,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2019-10-04"
+    "Behandlingsdato": "2019-10-04",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -583,7 +646,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2017-09-18"
+    "Behandlingsdato": "2017-09-18",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -592,7 +656,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder",
-    "Behandlingsdato": "2021-09-01"
+    "Behandlingsdato": "2021-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -601,7 +666,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TTM4190",
     "NTNU_Fagnavn": "Kommunikasjonsteknologi for SmartGrids",
-    "Behandlingsdato": "2017-09-10"
+    "Behandlingsdato": "2017-09-10",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -610,7 +676,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimeringsmetoder og besl støtte",
-    "Behandlingsdato": "2018-01-22"
+    "Behandlingsdato": "2018-01-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -619,7 +686,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-01-28"
+    "Behandlingsdato": "2018-01-28",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -628,7 +696,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4276",
     "NTNU_Fagnavn": "Endringsledelse",
-    "Behandlingsdato": "2019-04-29"
+    "Behandlingsdato": "2019-04-29",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -637,7 +706,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-04-25"
+    "Behandlingsdato": "2019-04-25",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -646,7 +716,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-04-25"
+    "Behandlingsdato": "2019-04-25",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -655,7 +726,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til kunstig intelligens",
-    "Behandlingsdato": "2019-05-01"
+    "Behandlingsdato": "2019-05-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -664,7 +736,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet",
-    "Behandlingsdato": "2022-03-26"
+    "Behandlingsdato": "2022-03-26",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -673,7 +746,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektplanlegging og styring",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -682,7 +756,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4295",
     "NTNU_Fagnavn": "Miljøanalyse og ind. økologi",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -691,7 +766,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2019-05-02"
+    "Behandlingsdato": "2019-05-02",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -700,7 +776,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -709,7 +786,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell Økonomisk analyse",
-    "Behandlingsdato": "2019-10-03"
+    "Behandlingsdato": "2019-10-03",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -718,7 +796,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2022-09-05"
+    "Behandlingsdato": "2022-09-05",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -727,7 +806,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder",
-    "Behandlingsdato": "2017-09-10"
+    "Behandlingsdato": "2017-09-10",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -736,7 +816,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4195",
     "NTNU_Fagnavn": "Miljøledelse og bedriftsstrategi",
-    "Behandlingsdato": "2019-04-27"
+    "Behandlingsdato": "2019-04-27",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -745,7 +826,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finanssturing for foretak",
-    "Behandlingsdato": "2019-06-11"
+    "Behandlingsdato": "2019-06-11",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -754,7 +836,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-09-09"
+    "Behandlingsdato": "2019-09-09",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -763,7 +846,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-09-09"
+    "Behandlingsdato": "2019-09-09",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -772,7 +856,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4235",
     "NTNU_Fagnavn": "Energibruk i bygning",
-    "Behandlingsdato": "2020-02-05"
+    "Behandlingsdato": "2020-02-05",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -781,7 +866,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "Fyllfag",
     "NTNU_Fagnavn": "Fyllfag for studiepoeng - økonomi",
-    "Behandlingsdato": "2019-10-01"
+    "Behandlingsdato": "2019-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -790,7 +876,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Int, ind markedsføring",
-    "Behandlingsdato": "2019-10-02"
+    "Behandlingsdato": "2019-10-02",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -799,7 +886,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutnings støtte",
-    "Behandlingsdato": "2019-09-03"
+    "Behandlingsdato": "2019-09-03",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -808,7 +896,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4300",
     "NTNU_Fagnavn": "Miljøkunnskap. økosystemtjenester og bærekraft?",
-    "Behandlingsdato": "2019-09-16"
+    "Behandlingsdato": "2019-09-16",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -817,7 +906,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2019-10-01"
+    "Behandlingsdato": "2019-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -826,7 +916,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2022-09-05"
+    "Behandlingsdato": "2022-09-05",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -835,7 +926,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektledelse",
-    "Behandlingsdato": "2019-10-14"
+    "Behandlingsdato": "2019-10-14",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -844,7 +936,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og besl støtte",
-    "Behandlingsdato": "2021-09-01"
+    "Behandlingsdato": "2021-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -853,7 +946,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2023-01-10"
+    "Behandlingsdato": "2023-01-10",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -862,7 +956,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA4135",
     "NTNU_Fagnavn": "Matematikk 4",
-    "Behandlingsdato": "2022-09-15"
+    "Behandlingsdato": "2022-09-15",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -871,7 +966,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -880,7 +976,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TFY4107",
     "NTNU_Fagnavn": "Fysikk",
-    "Behandlingsdato": "2023-06-04"
+    "Behandlingsdato": "2023-06-04",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -889,7 +986,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TFY4107",
     "NTNU_Fagnavn": "Fysikk",
-    "Behandlingsdato": "2023-06-04"
+    "Behandlingsdato": "2023-06-04",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -898,7 +996,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Industriell økonomisk styring",
-    "Behandlingsdato": "2023-01-10"
+    "Behandlingsdato": "2023-01-10",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -907,7 +1006,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4220",
     "NTNU_Fagnavn": "Miljøpåvirkningsindikatorer for beslutningsstøtte",
-    "Behandlingsdato": "2022-08-01"
+    "Behandlingsdato": "2022-08-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -916,7 +1016,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
-    "Behandlingsdato": "2022-09-01"
+    "Behandlingsdato": "2022-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -925,7 +1026,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4306",
     "NTNU_Fagnavn": "Strategier for industriell bærekraft",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -934,7 +1036,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TPK4180",
     "NTNU_Fagnavn": "Produksjonsstrategi",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -943,7 +1046,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -952,7 +1056,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -961,7 +1066,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og besl støtte",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -970,7 +1076,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TET4190",
     "NTNU_Fagnavn": "Kraftelektronikk",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -979,7 +1086,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TET4105",
     "NTNU_Fagnavn": "Elektriske kraftsystemer 1",
-    "Behandlingsdato": "2022-02-01"
+    "Behandlingsdato": "2022-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -988,7 +1096,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -997,7 +1106,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2025-09-24"
+    "Behandlingsdato": "2025-09-24",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1006,7 +1116,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1015,7 +1126,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1024,7 +1136,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og bsl.støtte for tek.-øk. planlegging",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1033,7 +1146,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1042,7 +1156,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2024-12-01"
+    "Behandlingsdato": "2024-12-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1051,7 +1166,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2025-09-03"
+    "Behandlingsdato": "2025-09-03",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1060,7 +1176,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder",
-    "Behandlingsdato": "2025-08-11"
+    "Behandlingsdato": "2025-08-11",
+    "Country": "Italy"
   },
   {
     "University": "Universita Degli Studi de Padova",
@@ -1069,7 +1186,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2025-09-11"
+    "Behandlingsdato": "2025-09-11",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1078,7 +1196,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4102",
     "NTNU_Fagnavn": "Organisasjon og teknologi 1",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1087,7 +1206,8 @@
     "ECTS": "7",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2017-06-01"
+    "Behandlingsdato": "2017-06-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1096,7 +1216,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-09-01"
+    "Behandlingsdato": "2023-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1105,7 +1226,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind økonomisk analyse",
-    "Behandlingsdato": "2020-02-01"
+    "Behandlingsdato": "2020-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1114,7 +1236,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1123,7 +1246,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1132,7 +1256,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1141,7 +1266,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2017-06-01"
+    "Behandlingsdato": "2017-06-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1150,7 +1276,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutn støtte for.....",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1159,7 +1286,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4250",
     "NTNU_Fagnavn": "Venture Cup",
-    "Behandlingsdato": "2017-10-01"
+    "Behandlingsdato": "2017-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1168,7 +1296,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-08-01"
+    "Behandlingsdato": "2023-08-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1177,7 +1306,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-08-01"
+    "Behandlingsdato": "2023-08-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1186,7 +1316,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2020-01-01"
+    "Behandlingsdato": "2020-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1195,7 +1326,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2020-01-01"
+    "Behandlingsdato": "2020-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1204,7 +1336,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1213,7 +1346,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1222,7 +1356,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1231,7 +1366,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4250",
     "NTNU_Fagnavn": "Entreprenørskap og Venture Cup",
-    "Behandlingsdato": "2020-01-01"
+    "Behandlingsdato": "2020-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1240,7 +1376,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til Al",
-    "Behandlingsdato": "2020-01-01"
+    "Behandlingsdato": "2020-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1249,7 +1386,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til Al",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1258,7 +1396,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empirisk finans",
-    "Behandlingsdato": "2023-04-01"
+    "Behandlingsdato": "2023-04-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1267,7 +1406,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4165",
     "NTNU_Fagnavn": "programmeringsspråk",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1276,7 +1416,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1285,7 +1426,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1294,7 +1436,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i Kunstig Intelligens",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1303,7 +1446,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig ingelligens",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1312,7 +1456,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig ntelligens",
-    "Behandlingsdato": "2023-03-01"
+    "Behandlingsdato": "2023-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1321,7 +1466,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4305",
     "NTNU_Fagnavn": "Big Data- arkitektur",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1330,7 +1476,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4259",
     "NTNU_Fagnavn": "Anvendt data science",
-    "Behandlingsdato": "2021-11-01"
+    "Behandlingsdato": "2021-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1339,7 +1486,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empirisk Finans",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1348,7 +1496,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4250",
     "NTNU_Fagnavn": "Entreprenørskap/Venture Cup",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1357,7 +1506,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4250",
     "NTNU_Fagnavn": "Entreprenørskap/Venture Cup",
-    "Behandlingsdato": "2023-04-01"
+    "Behandlingsdato": "2023-04-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1366,7 +1516,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse",
-    "Behandlingsdato": "2022-04-01"
+    "Behandlingsdato": "2022-04-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1375,7 +1526,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1384,7 +1536,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2029-02-01"
+    "Behandlingsdato": "2029-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1393,7 +1546,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-10-01"
+    "Behandlingsdato": "2025-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1402,7 +1556,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1411,7 +1566,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2023-03-01"
+    "Behandlingsdato": "2023-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1420,7 +1576,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2022-10-01"
+    "Behandlingsdato": "2022-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1429,7 +1586,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1438,7 +1596,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1447,7 +1606,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "teknisk valgfag i 4. klasse",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1456,7 +1616,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empiriske og quantitative metoder i finans",
-    "Behandlingsdato": "2022-10-01"
+    "Behandlingsdato": "2022-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1465,7 +1626,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1474,7 +1636,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1483,7 +1646,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og Teknologi 2",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1492,7 +1656,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Machine Learning",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1501,7 +1666,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-03-01"
+    "Behandlingsdato": "2023-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1510,7 +1676,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Industriell økonomisk styring",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1519,7 +1686,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1528,7 +1696,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TPK4140",
     "NTNU_Fagnavn": "Driftssikkerhet, vedlikeholdsstyring",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1537,7 +1706,8 @@
     "ECTS": "8+8",
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Industriell økonomisk styring",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1546,7 +1716,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1555,7 +1726,8 @@
     "ECTS": "6 6",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1564,7 +1736,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TDT4120",
     "NTNU_Fagnavn": "Algoritmer og datastrukturer",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1573,7 +1746,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TDT4145",
     "NTNU_Fagnavn": "Datamodellering og databasesystemer",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1582,7 +1756,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4240",
     "NTNU_Fagnavn": "Programvarearkitektur",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1591,7 +1766,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1600,7 +1776,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Libero Universita di Bolzano",
@@ -1609,7 +1786,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4305",
     "NTNU_Fagnavn": "Big Data- arkitektur",
-    "Behandlingsdato": "2025-06-01"
+    "Behandlingsdato": "2025-06-01",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1618,7 +1796,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "T104117",
     "NTNU_Fagnavn": "Mikroøkonomi",
-    "Behandlingsdato": "2016-04-04"
+    "Behandlingsdato": "2016-04-04",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1627,7 +1806,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "T104118",
     "NTNU_Fagnavn": "Mikroøkonomi",
-    "Behandlingsdato": "2016-04-04"
+    "Behandlingsdato": "2016-04-04",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1636,7 +1816,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "T104126",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2016-04-04"
+    "Behandlingsdato": "2016-04-04",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1645,7 +1826,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektstyring",
-    "Behandlingsdato": "2018-01-24"
+    "Behandlingsdato": "2018-01-24",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1654,7 +1836,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TPK5160",
     "NTNU_Fagnavn": "Risk Analysis",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1663,7 +1846,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": "2016-06-10"
+    "Behandlingsdato": "2016-06-10",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1672,7 +1856,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1681,7 +1866,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Economy and accounting",
-    "Behandlingsdato": "2016-08-09"
+    "Behandlingsdato": "2016-08-09",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1690,7 +1876,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TI04161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2016-04-04"
+    "Behandlingsdato": "2016-04-04",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1699,7 +1886,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2017-05-18"
+    "Behandlingsdato": "2017-05-18",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1708,7 +1896,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2017-05-24"
+    "Behandlingsdato": "2017-05-24",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1717,7 +1906,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TI04145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2017-05-23"
+    "Behandlingsdato": "2017-05-23",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1726,7 +1916,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "T104145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2024-02-20"
+    "Behandlingsdato": "2024-02-20",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1735,7 +1926,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2017-10-10"
+    "Behandlingsdato": "2017-10-10",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1744,7 +1936,8 @@
     "ECTS": "4",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind.økoomsk analyse",
-    "Behandlingsdato": "2017-09-29"
+    "Behandlingsdato": "2017-09-29",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1753,7 +1946,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Ind sikkerhet og pålitlighet",
-    "Behandlingsdato": "2018-01-24"
+    "Behandlingsdato": "2018-01-24",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1762,7 +1956,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TI04162",
     "NTNU_Fagnavn": "Org 2",
-    "Behandlingsdato": "2025-08-01"
+    "Behandlingsdato": "2025-08-01",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1771,7 +1966,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TI04165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2020-01-24"
+    "Behandlingsdato": "2020-01-24",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1780,7 +1976,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1789,7 +1986,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder, ressurser og miljø",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1798,7 +1996,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Italy"
   },
   {
     "University": "Politec de Torino",
@@ -1807,7 +2006,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-01-14"
+    "Behandlingsdato": "2023-01-14",
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1816,7 +2016,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1825,7 +2026,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimeringsmetoder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1834,7 +2036,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1843,7 +2046,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TFY4125",
     "NTNU_Fagnavn": "Fysikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1852,7 +2056,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1861,7 +2066,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1870,7 +2076,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1879,7 +2086,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1888,7 +2096,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1897,7 +2106,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TDT4102",
     "NTNU_Fagnavn": "Objektorientert programmering",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1906,7 +2116,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1915,7 +2126,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TET4115",
     "NTNU_Fagnavn": "Elektriske kraftsystemer",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1924,7 +2136,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1933,7 +2146,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1942,7 +2156,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1951,7 +2166,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TEP4185",
     "NTNU_Fagnavn": "Naturgass",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1960,7 +2176,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TEP4295",
     "NTNU_Fagnavn": "Miljøanalyse og industriell økologi",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1969,7 +2186,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": "Varme- og massetransport",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1978,7 +2196,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1987,7 +2206,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -1996,7 +2216,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruve",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2005,7 +2226,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TEP4220",
     "NTNU_Fagnavn": "Forståelse og kvantifisering av miljøpåvirkninger på økosystemer",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2014,7 +2236,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2023,7 +2246,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TEP4245",
     "NTNU_Fagnavn": "Energi og bygning",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2032,7 +2256,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2041,7 +2266,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2050,7 +2276,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruve",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2059,7 +2286,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TET",
     "NTNU_Fagnavn": "Kraftmarkeder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2068,7 +2296,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2077,7 +2306,8 @@
     "ECTS": "2",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2086,7 +2316,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TTM4190",
     "NTNU_Fagnavn": "Kommunikasjon for SmartGrid",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2095,7 +2326,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2104,7 +2336,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TET4190",
     "NTNU_Fagnavn": "Kraftelektronikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2113,7 +2346,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2122,7 +2356,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2131,7 +2366,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2140,7 +2376,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2149,7 +2386,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimeringsmetoder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2158,7 +2396,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimeringsmetoder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2167,7 +2406,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TET4115",
     "NTNU_Fagnavn": "Elektriske Kraftsystemer",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2176,7 +2416,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TET4175",
     "NTNU_Fagnavn": "Design og drift av Smart Grid kraftsystemer",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2185,7 +2426,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Industriell økonomisk styring",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2194,7 +2436,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empiriske og kvantitative metoder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2203,7 +2446,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empiriske og kvantitative metoder",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2212,7 +2456,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4285",
     "NTNU_Fagnavn": "Produksjons- og nettverksøkonomi",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2221,7 +2466,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4285",
     "NTNU_Fagnavn": "Produksjons- og nettverksøkonomi",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2230,7 +2476,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4225",
     "NTNU_Fagnavn": "Store, distribuerte data",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2239,7 +2486,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2248,7 +2496,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2257,7 +2506,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2266,7 +2516,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2275,7 +2526,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2284,7 +2536,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2293,7 +2546,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2302,7 +2556,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TEP4223",
     "NTNU_Fagnavn": "Livssyklusanalyse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2311,7 +2566,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2320,7 +2576,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ5210",
     "NTNU_Fagnavn": "Program- og porteføljeledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2329,7 +2586,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ5210",
     "NTNU_Fagnavn": "Program- og porteføljeledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2338,7 +2596,8 @@
     "ECTS": "5+8",
     "NTNU_Emnekode": "TIØ5201",
     "NTNU_Fagnavn": "Prosjektorganisasjoner i en verden i endring",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2347,7 +2606,8 @@
     "ECTS": "10",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell marketsføring og internasjonal handel",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2356,7 +2616,8 @@
     "ECTS": "7",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2365,7 +2626,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2374,7 +2636,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Politecnico de Milano",
@@ -2383,7 +2646,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2392,7 +2656,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind. økonomisk analyse",
-    "Behandlingsdato": "2019-01-01"
+    "Behandlingsdato": "2019-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2401,7 +2666,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2022-02-01"
+    "Behandlingsdato": "2022-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2410,7 +2676,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2419,7 +2686,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2019-03-01"
+    "Behandlingsdato": "2019-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2428,7 +2696,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4195",
     "NTNU_Fagnavn": "Miljøledelse og bedriftsstrategi",
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2437,7 +2706,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2022-01-01"
+    "Behandlingsdato": "2022-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2446,7 +2716,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til Al",
-    "Behandlingsdato": "2022-02-01"
+    "Behandlingsdato": "2022-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2455,7 +2726,8 @@
     "ECTS": "12",
     "NTNU_Emnekode": "TDT4136 / TDT4173",
     "NTNU_Fagnavn": "Intro til Al OG Maskinlæring",
-    "Behandlingsdato": "2022-09-01"
+    "Behandlingsdato": "2022-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2464,7 +2736,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Maskinlæring",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2473,7 +2746,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4305",
     "NTNU_Fagnavn": "Big Data-arkitektur",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2482,7 +2756,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2491,7 +2766,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2500,7 +2776,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2509,7 +2786,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2518,7 +2796,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2527,7 +2806,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2536,7 +2816,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2545,7 +2826,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2554,7 +2836,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2022-10-03"
+    "Behandlingsdato": "2022-10-03",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2563,7 +2846,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2022-01-01"
+    "Behandlingsdato": "2022-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2572,7 +2856,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2581,7 +2866,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2590,7 +2876,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "Matte 4",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Sapienza Università di Roma",
@@ -2599,7 +2886,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4160",
     "NTNU_Fagnavn": "Datamaskiner",
-    "Behandlingsdato": "2025-03-01"
+    "Behandlingsdato": "2025-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Tor Vergata - University of Rome",
@@ -2608,7 +2896,8 @@
     "ECTS": "6+6",
     "NTNU_Emnekode": "T104265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2021-04-20"
+    "Behandlingsdato": "2021-04-20",
+    "Country": "Italy"
   },
   {
     "University": "Tor Vergata - University of Rome",
@@ -2617,7 +2906,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "T104145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2021-04-16"
+    "Behandlingsdato": "2021-04-16",
+    "Country": "Italy"
   },
   {
     "University": "Tor Vergata - University of Rome",
@@ -2626,7 +2916,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Tor Vergata - University of Rome",
@@ -2635,7 +2926,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "T104180",
     "NTNU_Fagnavn": "Innovasjonsledelse",
-    "Behandlingsdato": "2021-01-01"
+    "Behandlingsdato": "2021-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2644,7 +2936,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-03-01"
+    "Behandlingsdato": "2025-03-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2653,7 +2946,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2662,7 +2956,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2671,7 +2966,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2680,7 +2976,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2689,7 +2986,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2698,7 +2996,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-02-01"
+    "Behandlingsdato": "2025-02-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita de Pisa",
@@ -2707,7 +3006,8 @@
     "ECTS": "3+9",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2025-11-24"
+    "Behandlingsdato": "2025-11-24",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2716,7 +3016,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2725,7 +3026,8 @@
     "ECTS": "5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og bsl støtte for tek.-øk. planlegging",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2734,7 +3036,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2743,7 +3046,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMR4335",
     "NTNU_Fagnavn": "Propulsjonssystemer, sikkerhet og miljø",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2752,7 +3056,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMR4335",
     "NTNU_Fagnavn": "Propulsjonssystemer, sikkerhet og miljø",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2761,7 +3066,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMR4256",
     "NTNU_Fagnavn": "Marin teknikk 6",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2770,7 +3076,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matte 4N",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2779,7 +3086,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statisikk",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2788,7 +3096,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMR4130",
     "NTNU_Fagnavn": "Risikoanalyse og sikkerhetsledelse (4. klasse)",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2797,7 +3106,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMR4135",
     "NTNU_Fagnavn": "Prosjekteringsmetoder 2",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2806,7 +3116,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Università degli studi di Genova (UniGe)",
@@ -2815,7 +3126,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi",
-    "Behandlingsdato": "2023-11-01"
+    "Behandlingsdato": "2023-11-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2824,7 +3136,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2019-05-01"
+    "Behandlingsdato": "2019-05-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2833,7 +3146,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2019-04-29"
+    "Behandlingsdato": "2019-04-29",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2842,7 +3156,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og besl. modeller",
-    "Behandlingsdato": "2019-04-29"
+    "Behandlingsdato": "2019-04-29",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2851,7 +3166,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TTM4135",
     "NTNU_Fagnavn": "Anvendt kryptografi og nettverkssikkerhet",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2860,7 +3176,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4175",
     "NTNU_Fagnavn": "Informasjonssystemer",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2869,7 +3186,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2878,7 +3196,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-04-30"
+    "Behandlingsdato": "2019-04-30",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2887,7 +3206,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind økonomisk analyse",
-    "Behandlingsdato": "2019-04-29"
+    "Behandlingsdato": "2019-04-29",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2896,7 +3216,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2020-05-02"
+    "Behandlingsdato": "2020-05-02",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2905,7 +3226,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2020-05-02"
+    "Behandlingsdato": "2020-05-02",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2914,7 +3236,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2923,7 +3246,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind øk analyse",
-    "Behandlingsdato": "2022-01-01"
+    "Behandlingsdato": "2022-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2932,7 +3256,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
-    "Behandlingsdato": "2023-03-22"
+    "Behandlingsdato": "2023-03-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2941,7 +3266,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4135",
     "NTNU_Fagnavn": "Matematikk 4D",
-    "Behandlingsdato": "2023-03-22"
+    "Behandlingsdato": "2023-03-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2950,7 +3276,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4137",
     "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
-    "Behandlingsdato": "2023-03-22"
+    "Behandlingsdato": "2023-03-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2959,7 +3286,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
-    "Behandlingsdato": "2023-03-22"
+    "Behandlingsdato": "2023-03-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2968,7 +3296,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2977,7 +3306,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2986,7 +3316,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": "2023-09-01"
+    "Behandlingsdato": "2023-09-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -2995,7 +3326,8 @@
     "ECTS": "3",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Teknisk fyllfag",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -3004,7 +3336,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -3013,7 +3346,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4195",
     "NTNU_Fagnavn": "Miljøledelse",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -3022,7 +3356,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita degli studi Firenze",
@@ -3031,7 +3366,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2024-09-01"
+    "Behandlingsdato": "2024-09-01",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3040,7 +3376,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2019-08-05"
+    "Behandlingsdato": "2019-08-05",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3049,7 +3386,8 @@
     "ECTS": "6+6",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2019-07-29"
+    "Behandlingsdato": "2019-07-29",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3058,7 +3396,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2019-08-05"
+    "Behandlingsdato": "2019-08-05",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3067,7 +3406,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3076,7 +3416,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3085,7 +3426,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3094,7 +3436,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i KI",
-    "Behandlingsdato": "2020-02-03"
+    "Behandlingsdato": "2020-02-03",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3103,7 +3446,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet",
-    "Behandlingsdato": "2020-02-13"
+    "Behandlingsdato": "2020-02-13",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3112,7 +3456,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2019-01-01"
+    "Behandlingsdato": "2019-01-01",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3121,7 +3466,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2019-01-01"
+    "Behandlingsdato": "2019-01-01",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3130,7 +3476,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro to Al",
-    "Behandlingsdato": "2019-08-16"
+    "Behandlingsdato": "2019-08-16",
+    "Country": "Italy"
   },
   {
     "University": "University of Venice",
@@ -3139,7 +3486,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2020-02-03"
+    "Behandlingsdato": "2020-02-03",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3148,7 +3496,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4300",
     "NTNU_Fagnavn": "Miljøkunnskap, økosystemtjenester og bærekraft",
-    "Behandlingsdato": "2021-04-22"
+    "Behandlingsdato": "2021-04-22",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3157,7 +3506,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2021-04-21"
+    "Behandlingsdato": "2021-04-21",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3166,7 +3516,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Maskinlæring",
-    "Behandlingsdato": "2021-04-24"
+    "Behandlingsdato": "2021-04-24",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3175,7 +3526,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk Ledelse",
-    "Behandlingsdato": "2021-04-28"
+    "Behandlingsdato": "2021-04-28",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3184,7 +3536,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3193,7 +3546,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3202,7 +3556,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4195",
     "NTNU_Fagnavn": "Miljøledelse og bedriftsstategi",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3211,7 +3566,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3220,7 +3576,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3229,7 +3586,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3238,7 +3596,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder, ressurs og miljø",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3247,7 +3606,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4105",
     "NTNU_Fagnavn": "Elektriske Kraftsystemer 1",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3256,7 +3616,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Valgbart teknisk emne i 3.året",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3265,7 +3626,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4102",
     "NTNU_Fagnavn": "Organisasjon og teknologi 1",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3274,7 +3636,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Velgbart teknisk masteremne for EMIL prosess-retning",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3283,7 +3646,8 @@
     "ECTS": "8",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3292,7 +3656,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3301,7 +3666,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": "TET4185",
     "NTNU_Fagnavn": "Kraftmarkeder, ressurs og miljø",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Italy"
   },
   {
     "University": "Universita Di Siena",
@@ -3310,7 +3676,8 @@
     "ECTS": "6",
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Teknisk fyllfag/valgemne EMIL",
-    "Behandlingsdato": "2025-08-21"
+    "Behandlingsdato": "2025-08-21",
+    "Country": "Italy"
   },
   {
     "University": "Griffith University",
@@ -3319,7 +3686,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind. økonomisk analyse",
-    "Behandlingsdato": "2018-04-19"
+    "Behandlingsdato": "2018-04-19",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3328,7 +3696,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4120",
     "NTNU_Fagnavn": "Termo 1",
-    "Behandlingsdato": "2018-05-24"
+    "Behandlingsdato": "2018-05-24",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3337,7 +3706,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": "2018-04-16"
+    "Behandlingsdato": "2018-04-16",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3346,7 +3716,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TTk4105",
     "NTNU_Fagnavn": "Reguleringsteknikk",
-    "Behandlingsdato": "2019-04-19"
+    "Behandlingsdato": "2019-04-19",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3355,7 +3726,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4102",
     "NTNU_Fagnavn": "Pros &obj or progr",
-    "Behandlingsdato": "2018-04-18"
+    "Behandlingsdato": "2018-04-18",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3364,7 +3736,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-03-21"
+    "Behandlingsdato": "2018-03-21",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3373,7 +3746,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TFY4106",
     "NTNU_Fagnavn": "Fysikk",
-    "Behandlingsdato": "2018-04-15"
+    "Behandlingsdato": "2018-04-15",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3382,7 +3756,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2018-04-19"
+    "Behandlingsdato": "2018-04-19",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3391,7 +3766,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring",
-    "Behandlingsdato": "2020-02-22"
+    "Behandlingsdato": "2020-02-22",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3400,7 +3776,8 @@
     "ECTS": "10 cred/7,5 sp",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell Økonomisk Analyse",
-    "Behandlingsdato": "2024-09-12"
+    "Behandlingsdato": "2024-09-12",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3409,7 +3786,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "",
-    "Behandlingsdato": "2024-09-09"
+    "Behandlingsdato": "2024-09-09",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3418,7 +3796,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4120",
     "NTNU_Fagnavn": "Matte 4K",
-    "Behandlingsdato": "2024-09-21"
+    "Behandlingsdato": "2024-09-21",
+    "Country": "Australia"
   },
   {
     "University": "Griffith University",
@@ -3427,7 +3806,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2023-05-08"
+    "Behandlingsdato": "2023-05-08",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3436,7 +3816,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104250",
     "NTNU_Fagnavn": "Entreprenørskap",
-    "Behandlingsdato": "2018-06-11"
+    "Behandlingsdato": "2018-06-11",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3445,7 +3826,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMM4100",
     "NTNU_Fagnavn": "Materialteknikk",
-    "Behandlingsdato": "2017-01-20"
+    "Behandlingsdato": "2017-01-20",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3454,7 +3836,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektstyring",
-    "Behandlingsdato": "2016-10-31"
+    "Behandlingsdato": "2016-10-31",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3463,7 +3846,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Ind sikkerhet",
-    "Behandlingsdato": "2016-10-31"
+    "Behandlingsdato": "2016-10-31",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3472,7 +3856,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104126",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2016-11-18"
+    "Behandlingsdato": "2016-11-18",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3481,7 +3866,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2018-04-16"
+    "Behandlingsdato": "2018-04-16",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3490,7 +3876,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4110",
     "NTNU_Fagnavn": "Matte 3",
-    "Behandlingsdato": "2017-03-09"
+    "Behandlingsdato": "2017-03-09",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3499,7 +3886,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4115",
     "NTNU_Fagnavn": "Matte 3",
-    "Behandlingsdato": "2017-03-09"
+    "Behandlingsdato": "2017-03-09",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3508,7 +3896,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-01-23"
+    "Behandlingsdato": "2018-01-23",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3517,7 +3906,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2018-02-08"
+    "Behandlingsdato": "2018-02-08",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3526,7 +3916,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2018-02-07"
+    "Behandlingsdato": "2018-02-07",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3535,7 +3926,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2018-02-08"
+    "Behandlingsdato": "2018-02-08",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3544,7 +3936,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektstyring",
-    "Behandlingsdato": "2018-02-08"
+    "Behandlingsdato": "2018-02-08",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3553,7 +3946,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T104165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2018-02-23"
+    "Behandlingsdato": "2018-02-23",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3562,7 +3956,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TI04165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2023-09-07"
+    "Behandlingsdato": "2023-09-07",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3571,7 +3966,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TI04165",
     "NTNU_Fagnavn": "Markedføringsledelse",
-    "Behandlingsdato": "2023-09-07"
+    "Behandlingsdato": "2023-09-07",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3580,7 +3976,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": "2018-01-21"
+    "Behandlingsdato": "2018-01-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3589,7 +3986,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TTM4190",
     "NTNU_Fagnavn": "Kommunikasjonsteknologi for smartgrid",
-    "Behandlingsdato": "2018-01-21"
+    "Behandlingsdato": "2018-01-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3598,7 +3996,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2018-01-21"
+    "Behandlingsdato": "2018-01-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3607,7 +4006,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2018-01-21"
+    "Behandlingsdato": "2018-01-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3616,7 +4016,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TTK4105",
     "NTNU_Fagnavn": "Reguleringsteknikk",
-    "Behandlingsdato": "2018-01-21"
+    "Behandlingsdato": "2018-01-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3625,7 +4026,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4102",
     "NTNU_Fagnavn": "Prosedyre og obj or progr",
-    "Behandlingsdato": "2018-04-16"
+    "Behandlingsdato": "2018-04-16",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3634,7 +4036,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMM4100",
     "NTNU_Fagnavn": "Materialteknikk",
-    "Behandlingsdato": "2018-12-04"
+    "Behandlingsdato": "2018-12-04",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3643,7 +4046,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMM4100",
     "NTNU_Fagnavn": "Materialteknikk",
-    "Behandlingsdato": "2019-01-22"
+    "Behandlingsdato": "2019-01-22",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3652,7 +4056,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-01-24"
+    "Behandlingsdato": "2019-01-24",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3661,7 +4066,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-01-24"
+    "Behandlingsdato": "2019-01-24",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3670,7 +4076,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TI04126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2019-02-21"
+    "Behandlingsdato": "2019-02-21",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3679,7 +4086,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TKT4123",
     "NTNU_Fagnavn": "Mekanikk 2",
-    "Behandlingsdato": "2019-01-04"
+    "Behandlingsdato": "2019-01-04",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3688,7 +4096,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": "2019-01-01"
+    "Behandlingsdato": "2019-01-01",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3697,7 +4106,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TI04161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2019-07-15"
+    "Behandlingsdato": "2019-07-15",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3706,7 +4116,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TI04161",
     "NTNU_Fagnavn": "Prosjekt- og personalledelse",
-    "Behandlingsdato": "2023-09-07"
+    "Behandlingsdato": "2023-09-07",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3715,7 +4126,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavare data gruve",
-    "Behandlingsdato": "2020-01-24"
+    "Behandlingsdato": "2020-01-24",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3724,7 +4136,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavare og Datagruve",
-    "Behandlingsdato": "2020-01-24"
+    "Behandlingsdato": "2020-01-24",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3733,7 +4146,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": "2022-02-01"
+    "Behandlingsdato": "2022-02-01",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3742,7 +4156,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Maskinlæring",
-    "Behandlingsdato": "2023-09-24"
+    "Behandlingsdato": "2023-09-24",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3751,7 +4166,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro KI",
-    "Behandlingsdato": "2023-10-07"
+    "Behandlingsdato": "2023-10-07",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3760,7 +4176,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2025-09-01"
+    "Behandlingsdato": "2025-09-01",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3769,7 +4186,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matematikk 4N",
-    "Behandlingsdato": "2025-09-12"
+    "Behandlingsdato": "2025-09-12",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3778,7 +4196,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": "T105210",
     "NTNU_Fagnavn": "Program- og porteføljeledelse",
-    "Behandlingsdato": "2022-08-31"
+    "Behandlingsdato": "2022-08-31",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3787,7 +4206,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Valgfag Proman",
-    "Behandlingsdato": "2024-03-22"
+    "Behandlingsdato": "2024-03-22",
+    "Country": "Australia"
   },
   {
     "University": "Queensland University of Technology",
@@ -3796,7 +4216,8 @@
     "ECTS": 7.5,
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Valgfag Proman",
-    "Behandlingsdato": "2024-03-22"
+    "Behandlingsdato": "2024-03-22",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3805,7 +4226,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind økonomisk analyse",
-    "Behandlingsdato": "2018-03-01"
+    "Behandlingsdato": "2018-03-01",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3814,7 +4236,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2018-03-26"
+    "Behandlingsdato": "2018-03-26",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3823,7 +4246,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3832,7 +4256,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind økonomisk analyse",
-    "Behandlingsdato": "2018-08-08"
+    "Behandlingsdato": "2018-08-08",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3841,7 +4266,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": "Varme masse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3850,7 +4276,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-09-01"
+    "Behandlingsdato": "2023-09-01",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3859,7 +4286,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-01-31"
+    "Behandlingsdato": "2019-01-31",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3868,7 +4296,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2019-01-31"
+    "Behandlingsdato": "2019-01-31",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3877,7 +4306,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Project management/Prosjektstyring",
-    "Behandlingsdato": "2019-03-27"
+    "Behandlingsdato": "2019-03-27",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3886,7 +4316,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Project management/Prosjektstyring",
-    "Behandlingsdato": "2019-03-27"
+    "Behandlingsdato": "2019-03-27",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3895,7 +4326,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2019-01-30"
+    "Behandlingsdato": "2019-01-30",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3904,7 +4336,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Data gruve",
-    "Behandlingsdato": "2019-03-13"
+    "Behandlingsdato": "2019-03-13",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3913,7 +4346,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2019-01-24"
+    "Behandlingsdato": "2019-01-24",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3922,7 +4356,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2019-01-24"
+    "Behandlingsdato": "2019-01-24",
+    "Country": "Australia"
   },
   {
     "University": "RMIT University",
@@ -3931,7 +4366,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4190",
     "NTNU_Fagnavn": "Kraftelektronikk",
-    "Behandlingsdato": "2019-10-09"
+    "Behandlingsdato": "2019-10-09",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3940,7 +4376,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2028-06-10"
+    "Behandlingsdato": "2028-06-10",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3949,7 +4386,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK5160",
     "NTNU_Fagnavn": "Risikoanalyse",
-    "Behandlingsdato": "2024-03-21"
+    "Behandlingsdato": "2024-03-21",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3958,7 +4396,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2023-10-01"
+    "Behandlingsdato": "2023-10-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3967,7 +4406,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TTK4105",
     "NTNU_Fagnavn": "Reguleringsteknikk",
-    "Behandlingsdato": "2016-01-05"
+    "Behandlingsdato": "2016-01-05",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3976,7 +4416,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2016-01-05"
+    "Behandlingsdato": "2016-01-05",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3985,7 +4426,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2017-05-16"
+    "Behandlingsdato": "2017-05-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -3994,7 +4436,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2017-04-05"
+    "Behandlingsdato": "2017-04-05",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4003,7 +4446,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2024-01-22"
+    "Behandlingsdato": "2024-01-22",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4012,7 +4456,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4162",
     "NTNU_Fagnavn": "Organisasjon og teknologi 2",
-    "Behandlingsdato": "2024-01-16"
+    "Behandlingsdato": "2024-01-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4021,7 +4466,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK5100",
     "NTNU_Fagnavn": "Praktisk prosjektledelse",
-    "Behandlingsdato": "2024-10-28"
+    "Behandlingsdato": "2024-10-28",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4030,7 +4476,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2017-04-09"
+    "Behandlingsdato": "2017-04-09",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4039,7 +4486,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Mikroøkonomi/Industriell økonomisk analyse",
-    "Behandlingsdato": "2017-04-18"
+    "Behandlingsdato": "2017-04-18",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4048,7 +4496,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering",
-    "Behandlingsdato": "2023-01-04"
+    "Behandlingsdato": "2023-01-04",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4057,7 +4506,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4105",
     "NTNU_Fagnavn": "Styring og intern regnskap",
-    "Behandlingsdato": "2017-05-16"
+    "Behandlingsdato": "2017-05-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4066,7 +4516,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TEP4135",
     "NTNU_Fagnavn": "Fluidmekanikk 2",
-    "Behandlingsdato": "2023-02-15"
+    "Behandlingsdato": "2023-02-15",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4075,7 +4526,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMM4135",
     "NTNU_Fagnavn": "Dimensjonering basert på elementmetoden",
-    "Behandlingsdato": "2017-05-16"
+    "Behandlingsdato": "2017-05-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4084,7 +4536,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2017-05-17"
+    "Behandlingsdato": "2017-05-17",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4093,7 +4546,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2025-02-06"
+    "Behandlingsdato": "2025-02-06",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4102,7 +4556,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
-    "Behandlingsdato": "2017-01-01"
+    "Behandlingsdato": "2017-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4111,7 +4566,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
-    "Behandlingsdato": "2017-01-01"
+    "Behandlingsdato": "2017-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4120,7 +4576,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
-    "Behandlingsdato": "2024-01-16"
+    "Behandlingsdato": "2024-01-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4129,7 +4586,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TFY4104",
     "NTNU_Fagnavn": "Fysikk",
-    "Behandlingsdato": "2017-09-22"
+    "Behandlingsdato": "2017-09-22",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4138,7 +4596,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2024-10-01"
+    "Behandlingsdato": "2024-10-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4147,7 +4606,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA4267",
     "NTNU_Fagnavn": "Stokastiske prosesser",
-    "Behandlingsdato": "2017-09-22"
+    "Behandlingsdato": "2017-09-22",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4156,7 +4616,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektstyring",
-    "Behandlingsdato": "2017-02-27"
+    "Behandlingsdato": "2017-02-27",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4165,7 +4626,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4174,7 +4636,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til KI",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4183,7 +4646,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i kunstig intelligens",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4192,7 +4656,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4173",
     "NTNU_Fagnavn": "Maskinlæring",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4201,7 +4666,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutn støtte",
-    "Behandlingsdato": "2023-09-01"
+    "Behandlingsdato": "2023-09-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4210,7 +4676,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-09-04"
+    "Behandlingsdato": "2018-09-04",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4219,7 +4686,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-09-04"
+    "Behandlingsdato": "2018-09-04",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4228,7 +4696,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-08-28"
+    "Behandlingsdato": "2018-08-28",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4237,7 +4706,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2018-08-28"
+    "Behandlingsdato": "2018-08-28",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4246,7 +4716,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2019-01-26"
+    "Behandlingsdato": "2019-01-26",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4255,7 +4726,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TTM4190",
     "NTNU_Fagnavn": "Kommunikasjonsteknologi for smartgrid",
-    "Behandlingsdato": "2019-02-26"
+    "Behandlingsdato": "2019-02-26",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4264,7 +4736,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4273,7 +4746,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": "Varme masse",
-    "Behandlingsdato": "2018-10-22"
+    "Behandlingsdato": "2018-10-22",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4282,7 +4756,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": "Varme- og massetransport",
-    "Behandlingsdato": "2023-08-17"
+    "Behandlingsdato": "2023-08-17",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4291,7 +4766,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2020-02-12"
+    "Behandlingsdato": "2020-02-12",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4300,7 +4776,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4130",
     "NTNU_Fagnavn": "Optimeringsmetoder",
-    "Behandlingsdato": "2021-02-01"
+    "Behandlingsdato": "2021-02-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4309,7 +4786,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matematikk 4N",
-    "Behandlingsdato": "2024-01-16"
+    "Behandlingsdato": "2024-01-16",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4318,7 +4796,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4327,7 +4806,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2025-01-01"
+    "Behandlingsdato": "2025-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4336,7 +4816,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4105",
     "NTNU_Fagnavn": "Elektriske kraftsystemer 1",
-    "Behandlingsdato": "2023-02-06"
+    "Behandlingsdato": "2023-02-06",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4345,7 +4826,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4101",
     "NTNU_Fagnavn": "Organisasjonsteori og Selskapsrett",
-    "Behandlingsdato": "2023-04-03"
+    "Behandlingsdato": "2023-04-03",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4354,7 +4836,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
-    "Behandlingsdato": "2023-02-01"
+    "Behandlingsdato": "2023-02-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4363,7 +4846,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4306",
     "NTNU_Fagnavn": "Strategier for industriell bærekraft",
-    "Behandlingsdato": "2022-01-01"
+    "Behandlingsdato": "2022-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4372,7 +4856,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-05-01"
+    "Behandlingsdato": "2023-05-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4381,7 +4866,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4140",
     "NTNU_Fagnavn": "Programvareutvikling",
-    "Behandlingsdato": "2023-06-20"
+    "Behandlingsdato": "2023-06-20",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4390,7 +4876,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4145",
     "NTNU_Fagnavn": "Datamodellering og databasesystemer",
-    "Behandlingsdato": "2023-06-20"
+    "Behandlingsdato": "2023-06-20",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4399,7 +4886,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4180",
     "NTNU_Fagnavn": "Menneske-maskin- interaksjon",
-    "Behandlingsdato": "2023-06-20"
+    "Behandlingsdato": "2023-06-20",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4408,7 +4896,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4417,7 +4906,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TPK4120",
     "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
-    "Behandlingsdato": "2024-01-01"
+    "Behandlingsdato": "2024-01-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4426,7 +4916,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4100",
     "NTNU_Fagnavn": "Kretsanalyse",
-    "Behandlingsdato": "2024-03-23"
+    "Behandlingsdato": "2024-03-23",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4435,7 +4926,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4105",
     "NTNU_Fagnavn": "Elektriske kraftssystemer 1",
-    "Behandlingsdato": "2024-09-01"
+    "Behandlingsdato": "2024-09-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4444,7 +4936,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
-    "Behandlingsdato": "2024-09-10"
+    "Behandlingsdato": "2024-09-10",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4453,7 +4946,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2024-09-23"
+    "Behandlingsdato": "2024-09-23",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4462,7 +4956,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i Kunstig Intelligens",
-    "Behandlingsdato": "2024-09-23"
+    "Behandlingsdato": "2024-09-23",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4471,7 +4966,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2024-09-01"
+    "Behandlingsdato": "2024-09-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4480,7 +4976,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TDT4160",
     "NTNU_Fagnavn": "Datamaskiner",
-    "Behandlingsdato": "2024-02-01"
+    "Behandlingsdato": "2024-02-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4489,7 +4986,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TIØ4180",
     "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
-    "Behandlingsdato": "2025-03-01"
+    "Behandlingsdato": "2025-03-01",
+    "Country": "Australia"
   },
   {
     "University": "The University of Queensland",
@@ -4498,7 +4996,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "N/A",
     "NTNU_Fagnavn": "Studieprogramrelevant valgemne 4. klasse",
-    "Behandlingsdato": "2025-09-01"
+    "Behandlingsdato": "2025-09-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4507,7 +5006,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIO4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2023-08-02"
+    "Behandlingsdato": "2023-08-02",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4516,7 +5016,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIO4117",
     "NTNU_Fagnavn": "Mikroøkonomi",
-    "Behandlingsdato": "2016-04-04"
+    "Behandlingsdato": "2016-04-04",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4525,7 +5026,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4235",
     "NTNU_Fagnavn": "Energibruk i bygninger",
-    "Behandlingsdato": "2016-04-19"
+    "Behandlingsdato": "2016-04-19",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4534,7 +5036,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4185",
     "NTNU_Fagnavn": "Naturgass -4.ärskurs",
-    "Behandlingsdato": "2016-05-18"
+    "Behandlingsdato": "2016-05-18",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4543,7 +5046,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TET4140",
     "NTNU_Fagnavn": "Gri.num.modellering i elkrafttekn",
-    "Behandlingsdato": "2016-04-19"
+    "Behandlingsdato": "2016-04-19",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4552,7 +5056,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TET4140",
     "NTNU_Fagnavn": "Grl.num.modellering i elkrafttekn.",
-    "Behandlingsdato": "2016-03-11"
+    "Behandlingsdato": "2016-03-11",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4561,7 +5066,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4130",
     "NTNU_Fagnavn": "Varme masse",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4570,7 +5076,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4100",
     "NTNU_Fagnavn": "Fluidmekanikk",
-    "Behandlingsdato": "2023-07-12"
+    "Behandlingsdato": "2023-07-12",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4579,7 +5086,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TEP4125",
     "NTNU_Fagnavn": "Termodynarmikk 2",
-    "Behandlingsdato": "2017-10-25"
+    "Behandlingsdato": "2017-10-25",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4588,7 +5096,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2016-02-19"
+    "Behandlingsdato": "2016-02-19",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4597,7 +5106,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TBA5100",
     "NTNU_Fagnavn": "Project planning and Control",
-    "Behandlingsdato": "2017-04-17"
+    "Behandlingsdato": "2017-04-17",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4606,7 +5116,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK4180",
     "NTNU_Fagnavn": "Produksjonsstrategi",
-    "Behandlingsdato": "2017-01-14"
+    "Behandlingsdato": "2017-01-14",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4615,7 +5126,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2016-04-19"
+    "Behandlingsdato": "2016-04-19",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4624,7 +5136,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": "2016-02-10"
+    "Behandlingsdato": "2016-02-10",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4633,7 +5146,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TFY4125",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2015-10-14"
+    "Behandlingsdato": "2015-10-14",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4642,7 +5156,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "T104145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2015-11-20"
+    "Behandlingsdato": "2015-11-20",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4651,7 +5166,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "T104162",
     "NTNU_Fagnavn": "Prosjekt-og persenalledelse",
-    "Behandlingsdato": "2024-08-01"
+    "Behandlingsdato": "2024-08-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4660,7 +5176,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMM4100",
     "NTNU_Fagnavn": "Materialteknikk",
-    "Behandlingsdato": "2017-01-20"
+    "Behandlingsdato": "2017-01-20",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4669,7 +5186,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA..",
     "NTNU_Fagnavn": "Matte 4",
-    "Behandlingsdato": "2016-05-10"
+    "Behandlingsdato": "2016-05-10",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4678,7 +5196,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2016-05-10"
+    "Behandlingsdato": "2016-05-10",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4687,7 +5206,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TI04102",
     "NTNU_Fagnavn": "Organisasjon og teknologi 1",
-    "Behandlingsdato": "2024-08-01"
+    "Behandlingsdato": "2024-08-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4696,7 +5216,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TBA5200",
     "NTNU_Fagnavn": "Project planning and analysis",
-    "Behandlingsdato": "2017-04-17"
+    "Behandlingsdato": "2017-04-17",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4705,7 +5226,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
-    "Behandlingsdato": "2017-02-20"
+    "Behandlingsdato": "2017-02-20",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4714,7 +5236,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk Ledelse",
-    "Behandlingsdato": "2017-11-04"
+    "Behandlingsdato": "2017-11-04",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4723,7 +5246,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK5160",
     "NTNU_Fagnavn": "Risikoanalyse",
-    "Behandlingsdato": "2017-10-07"
+    "Behandlingsdato": "2017-10-07",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4732,7 +5256,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": "2017-11-24"
+    "Behandlingsdato": "2017-11-24",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4741,7 +5266,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2017-11-24"
+    "Behandlingsdato": "2017-11-24",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4750,7 +5276,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4175",
     "NTNU_Fagnavn": "Design av vindturbin",
-    "Behandlingsdato": "2017-10-25"
+    "Behandlingsdato": "2017-10-25",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4759,7 +5286,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMR 4320",
     "NTNU_Fagnavn": "Simulertbasert Design",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4768,7 +5296,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TKT 4123",
     "NTNU_Fagnavn": "Mekanikk 2",
-    "Behandlingsdato": "2018-02-02"
+    "Behandlingsdato": "2018-02-02",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4777,7 +5306,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMM4100",
     "NTNU_Fagnavn": "Materialteknikk",
-    "Behandlingsdato": "2017-10-19"
+    "Behandlingsdato": "2017-10-19",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4786,7 +5316,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMR4253",
     "NTNU_Fagnavn": null,
-    "Behandlingsdato": "2018-06-06"
+    "Behandlingsdato": "2018-06-06",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4795,7 +5326,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4317",
     "NTNU_Fagnavn": "Empirisk finans",
-    "Behandlingsdato": "2018-09-12"
+    "Behandlingsdato": "2018-09-12",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4804,7 +5336,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "T104140",
     "NTNU_Fagnavn": "Prosjektfinans og analyse",
-    "Behandlingsdato": "2018-09-04"
+    "Behandlingsdato": "2018-09-04",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4813,7 +5346,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TKT4123",
     "NTNU_Fagnavn": "Mekanikk 2",
-    "Behandlingsdato": "2018-11-27"
+    "Behandlingsdato": "2018-11-27",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4822,7 +5356,8 @@
     "ECTS": "7.5",
     "NTNU_Emnekode": "TET4110",
     "NTNU_Fagnavn": "Elektriske maskiner",
-    "Behandlingsdato": "2020-01-27"
+    "Behandlingsdato": "2020-01-27",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4831,7 +5366,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2020-01-27"
+    "Behandlingsdato": "2020-01-27",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4840,7 +5376,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TEP4105",
     "NTNU_Fagnavn": "Reguleringsteknikk",
-    "Behandlingsdato": "2020-01-27"
+    "Behandlingsdato": "2020-01-27",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4849,7 +5386,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TI04165",
     "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
-    "Behandlingsdato": "2023-06-01"
+    "Behandlingsdato": "2023-06-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4858,7 +5396,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "T104126",
     "NTNU_Fagnavn": "Optimering og besluttningsstøtte for teknisk-økonomisk planlegging",
-    "Behandlingsdato": "2023-06-01"
+    "Behandlingsdato": "2023-06-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4867,7 +5406,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TI04145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2023-05-01"
+    "Behandlingsdato": "2023-05-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4876,7 +5416,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "T104126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2023-05-01"
+    "Behandlingsdato": "2023-05-01",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4885,7 +5426,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4135",
     "NTNU_Fagnavn": "Matematikk 4D",
-    "Behandlingsdato": "2025-07-18"
+    "Behandlingsdato": "2025-07-18",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4894,7 +5436,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro KI",
-    "Behandlingsdato": "2024-06-27"
+    "Behandlingsdato": "2024-06-27",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4903,7 +5446,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder KI",
-    "Behandlingsdato": "2025-09-15"
+    "Behandlingsdato": "2025-09-15",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4912,7 +5456,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4237",
     "NTNU_Fagnavn": "Programvaresikkerhet og personvem",
-    "Behandlingsdato": "2025-09-15"
+    "Behandlingsdato": "2025-09-15",
+    "Country": "Australia"
   },
   {
     "University": "University of New South Wales",
@@ -4921,7 +5466,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "IT3030",
     "NTNU_Fagnavn": "Dyp læring",
-    "Behandlingsdato": "2025-09-15"
+    "Behandlingsdato": "2025-09-15",
+    "Country": "Australia"
   },
   {
     "University": "University of Newcastle",
@@ -4930,7 +5476,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Ind økonomisk analyse",
-    "Behandlingsdato": "2018-03-18"
+    "Behandlingsdato": "2018-03-18",
+    "Country": "Australia"
   },
   {
     "University": "University of Newcastle",
@@ -4939,7 +5486,8 @@
     "ECTS": null,
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2018-03-18"
+    "Behandlingsdato": "2018-03-18",
+    "Country": "Australia"
   },
   {
     "University": "University of Otago",
@@ -4948,7 +5496,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og Personalledelse",
-    "Behandlingsdato": "2017-11-08"
+    "Behandlingsdato": "2017-11-08",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -4957,7 +5506,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2017-11-06"
+    "Behandlingsdato": "2017-11-06",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -4966,7 +5516,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2019-01-03"
+    "Behandlingsdato": "2019-01-03",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -4975,7 +5526,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matematikk 4",
-    "Behandlingsdato": "2020-01-23"
+    "Behandlingsdato": "2020-01-23",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -4984,7 +5536,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Internasjonal ind. markedsf.",
-    "Behandlingsdato": "2019-11-06"
+    "Behandlingsdato": "2019-11-06",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -4993,7 +5546,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4145",
     "NTNU_Fagnavn": "Finansstyring for foretak",
-    "Behandlingsdato": "2020-01-31"
+    "Behandlingsdato": "2020-01-31",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5002,7 +5556,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk (implisitt fra fagkode-splitt)",
-    "Behandlingsdato": "2020-01-19"
+    "Behandlingsdato": "2020-01-19",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5011,7 +5566,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TMA4245",
     "NTNU_Fagnavn": "Statistikk (implisitt fra fagkode-splitt)",
-    "Behandlingsdato": "2020-01-19"
+    "Behandlingsdato": "2020-01-19",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5020,7 +5576,8 @@
     "ECTS": "9-10",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2024-01-31"
+    "Behandlingsdato": "2024-01-31",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5029,7 +5586,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i Al",
-    "Behandlingsdato": "2019-08-14"
+    "Behandlingsdato": "2019-08-14",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5038,7 +5596,8 @@
     "ECTS": "9-10",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Introduksjon til kunstig intelligense",
-    "Behandlingsdato": "2024-01-22"
+    "Behandlingsdato": "2024-01-22",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5047,7 +5606,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TET4135",
     "NTNU_Fagnavn": "Energiplanlegging",
-    "Behandlingsdato": "2022-11-15"
+    "Behandlingsdato": "2022-11-15",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5056,7 +5616,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk ledelse",
-    "Behandlingsdato": "2023-01-23"
+    "Behandlingsdato": "2023-01-23",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Otago",
@@ -5065,7 +5626,8 @@
     "ECTS": "9",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
-    "Behandlingsdato": "2023-01-24"
+    "Behandlingsdato": "2023-01-24",
+    "Country": "New Zealand"
   },
   {
     "University": "University of Wollongong",
@@ -5074,7 +5636,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4117",
     "NTNU_Fagnavn": "Mikroøkonomi",
-    "Behandlingsdato": "2016-03-17"
+    "Behandlingsdato": "2016-03-17",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5083,7 +5646,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4235",
     "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
-    "Behandlingsdato": "2017-04-17"
+    "Behandlingsdato": "2017-04-17",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5092,7 +5656,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4265",
     "NTNU_Fagnavn": "Strategisk Ledelse",
-    "Behandlingsdato": "2017-04-18"
+    "Behandlingsdato": "2017-04-18",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5101,7 +5666,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4161",
     "NTNU_Fagnavn": "Prosjekt og personalledelse",
-    "Behandlingsdato": "2017-04-18"
+    "Behandlingsdato": "2017-04-18",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5110,7 +5676,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2017-04-25"
+    "Behandlingsdato": "2017-04-25",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5119,7 +5686,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4165",
     "NTNU_Fagnavn": "Markedsføringsledelse",
-    "Behandlingsdato": "2023-07-05"
+    "Behandlingsdato": "2023-07-05",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5128,7 +5696,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4130",
     "NTNU_Fagnavn": "Matematikk 4",
-    "Behandlingsdato": "2017-04-27"
+    "Behandlingsdato": "2017-04-27",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5137,7 +5706,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
-    "Behandlingsdato": "2023-08-07"
+    "Behandlingsdato": "2023-08-07",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5146,7 +5716,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektplanlegging og styring",
-    "Behandlingsdato": "2017-04-25"
+    "Behandlingsdato": "2017-04-25",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5155,7 +5726,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK4160",
     "NTNU_Fagnavn": "Verdikjedestyring",
-    "Behandlingsdato": "2017-04-17"
+    "Behandlingsdato": "2017-04-17",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5164,7 +5736,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TPK4115",
     "NTNU_Fagnavn": "Prosjektplanlegging og styring",
-    "Behandlingsdato": "2017-06-06"
+    "Behandlingsdato": "2017-06-06",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5173,7 +5746,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4276",
     "NTNU_Fagnavn": "Endringsledelse",
-    "Behandlingsdato": "2017-06-06"
+    "Behandlingsdato": "2017-06-06",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5182,7 +5756,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2017-06-06"
+    "Behandlingsdato": "2017-06-06",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5191,7 +5766,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4240",
     "NTNU_Fagnavn": "Programvaredesign",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5200,7 +5776,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4300",
     "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
-    "Behandlingsdato": "2023-03-16"
+    "Behandlingsdato": "2023-03-16",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5209,7 +5786,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4126",
     "NTNU_Fagnavn": "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging",
-    "Behandlingsdato": "2023-01-05"
+    "Behandlingsdato": "2023-01-05",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5218,7 +5796,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4175",
     "NTNU_Fagnavn": "Informasjonssystemer",
-    "Behandlingsdato": null
+    "Behandlingsdato": null,
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5227,7 +5806,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TMA4240",
     "NTNU_Fagnavn": "Statistikk",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5236,7 +5816,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4136",
     "NTNU_Fagnavn": "Intro til Al",
-    "Behandlingsdato": "2023-03-16"
+    "Behandlingsdato": "2023-03-16",
+    "Country": "Australia"
   },
   {
     "University": "University of Wollongong",
@@ -5245,7 +5826,8 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TDT4171",
     "NTNU_Fagnavn": "Metoder i Al",
-    "Behandlingsdato": "2023-03-16"
+    "Behandlingsdato": "2023-03-16",
+    "Country": "Australia"
   },
   {
     "University": "University of the Sunshine Coast (Queensland)",
@@ -5254,6 +5836,7 @@
     "ECTS": "7,5",
     "NTNU_Emnekode": "TIØ4118",
     "NTNU_Fagnavn": "Industriell økonomisk analyse",
-    "Behandlingsdato": "2023-01-01"
+    "Behandlingsdato": "2023-01-01",
+    "Country": "Australia"
   }
 ]
