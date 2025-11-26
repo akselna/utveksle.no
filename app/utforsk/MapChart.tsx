@@ -625,7 +625,7 @@ const MapChart = () => {
   };
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+    <div style={{ position: "relative", width: "100vw", height: "100vh", left: "50%", transform: "translateX(-50%)" }}>
       <div id="map" style={{ width: "100%", height: "100%" }}></div>
 
       {/* Toggle Button - Map Mode Selector */}

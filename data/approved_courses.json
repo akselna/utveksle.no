@@ -1,0 +1,3315 @@
+[
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75368",
+    "Bologna_Fagnavn": "STATISTICS",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-02-25"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75368",
+    "Bologna_Fagnavn": "STATISTICS",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-02-25"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "37321",
+    "Bologna_Fagnavn": "STATISTICS for Data Analysis",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2022-02-20"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "37321",
+    "Bologna_Fagnavn": "STATISTICS for Data Analysis",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2022-02-20"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "79189",
+    "Bologna_Fagnavn": "STATISTICS II",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2022-02-20"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "79189",
+    "Bologna_Fagnavn": "STATISTICS II",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2022-02-20"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "47732",
+    "Bologna_Fagnavn": "STATISTICS",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "47732",
+    "Bologna_Fagnavn": "STATISTICS",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "96844",
+    "Bologna_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "96844",
+    "Bologna_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "93064",
+    "Bologna_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "93064",
+    "Bologna_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "72769",
+    "Bologna_Fagnavn": "Computational Mechanics",
+    "ECTS": "11",
+    "NTNU_Emnekode": "TMM4135",
+    "NTNU_Fagnavn": "Dimensjonering basert på elementmetoden",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "65900",
+    "Bologna_Fagnavn": "Complimentary principles of Mathematical Analysis",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "35192",
+    "Bologna_Fagnavn": "Resources Optimization M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimeringsmetoder",
+    "Behandlingsdato": "2016-03-09"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "34614",
+    "Bologna_Fagnavn": "CAD of Electrical and Magnetic Fields (graduate course)",
+    "ECTS": null,
+    "NTNU_Emnekode": "TET4140",
+    "NTNU_Fagnavn": "Numeriske feltberegninger i elkraftteknikken",
+    "Behandlingsdato": "2017-03-08"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "28015",
+    "Bologna_Fagnavn": "Automatic Controls",
+    "ECTS": null,
+    "NTNU_Emnekode": "TTK4105",
+    "NTNU_Fagnavn": "Regulerings teknikk",
+    "Behandlingsdato": "2017-03-08"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "81645",
+    "Bologna_Fagnavn": "Industrial and Environmental Safety Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Ind sikkerhet og pålitelighet",
+    "Behandlingsdato": "2017-03-13"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "84195",
+    "Bologna_Fagnavn": "Process Safety Engineering M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Ind sikkerhet og pålitelighet",
+    "Behandlingsdato": "2023-01-31"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75435",
+    "Bologna_Fagnavn": "Project Management",
+    "ECTS": "4",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Pros og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "73462",
+    "Bologna_Fagnavn": "Project Management T",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektstyring",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "90825",
+    "Bologna_Fagnavn": "Project Management Laboratory",
+    "ECTS": "3",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "90825",
+    "Bologna_Fagnavn": "Project Management Laboratory",
+    "ECTS": "3",
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "09511",
+    "Bologna_Fagnavn": "Marketing",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "34469",
+    "Bologna_Fagnavn": "Industrial Marketing M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2023-01-31"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "73414",
+    "Bologna_Fagnavn": "Algorithms for Decision Making M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2020-01-16"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "73414",
+    "Bologna_Fagnavn": "Algorithms for Decision Making M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Også godkjent for Energiplanlegging",
+    "Behandlingsdato": "2020-01-16"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75973",
+    "Bologna_Fagnavn": "Human Resource Management and Leadership",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "72926",
+    "Bologna_Fagnavn": "Project Management Laboratory",
+    "ECTS": "3",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2017-03-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "93363",
+    "Bologna_Fagnavn": "Advanced Programming",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4102",
+    "NTNU_Fagnavn": "Prosedyre og obj or progr",
+    "Behandlingsdato": "2023-02-21"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75363",
+    "Bologna_Fagnavn": "Corporate Finance",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2017-03-08"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "69996",
+    "Bologna_Fagnavn": "Industrial Ecology M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4295",
+    "NTNU_Fagnavn": "Miljøanalyse og industriell økologi",
+    "Behandlingsdato": "2018-08-27"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "34285",
+    "Bologna_Fagnavn": "Industrial Logistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4135",
+    "NTNU_Fagnavn": "Produksjonslogistikk",
+    "Behandlingsdato": "2018-01-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75478",
+    "Bologna_Fagnavn": "Control Systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4110",
+    "NTNU_Fagnavn": "Kvalitets og prestasjonsfokusert ledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "73387",
+    "Bologna_Fagnavn": "Creativity and Innovation M",
+    "ECTS": "3",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Fyllfag for studiepoeng",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "39051",
+    "Bologna_Fagnavn": "International Supply Chain Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2019-01-18"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "78453",
+    "Bologna_Fagnavn": "Electric Power Systems and Smart Grids M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TTM4190",
+    "NTNU_Fagnavn": "Kommunikasjonsteknologi for SmartGrid",
+    "Behandlingsdato": "2019-01-25"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "73924",
+    "Bologna_Fagnavn": "Power Electronic Circuits M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elekstriske maskiner",
+    "Behandlingsdato": "2019-01-25"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "87704",
+    "Bologna_Fagnavn": "Italian language and Culture studies",
+    "ECTS": "6",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Fyllfag for studiepoeng",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "81940",
+    "Bologna_Fagnavn": "INTELLIGENZA ARTIFICIALE",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro kunstig intell.",
+    "Behandlingsdato": "2019-02-24"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "72935",
+    "Bologna_Fagnavn": "Ricerca Operativa",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutn støtte",
+    "Behandlingsdato": "2019-02-12"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "91762",
+    "Bologna_Fagnavn": "Combinatorial Decision Making and Optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2022-03-02"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "052909",
+    "Bologna_Fagnavn": "Business & Industrial Economics",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind. økonomisk analyse",
+    "Behandlingsdato": "2020-01-29"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "91248",
+    "Bologna_Fagnavn": "Fundamentals of Artificial Intelligence and Knowledge representation",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til Al",
+    "Behandlingsdato": "2025-03-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "69443",
+    "Bologna_Fagnavn": "Algorithms and data structures for Computational biology",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TDT4120",
+    "NTNU_Fagnavn": "Algoritmer og datastrukturer",
+    "Behandlingsdato": "2020-01-17"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "78778",
+    "Bologna_Fagnavn": "INTELLIGENT SYSTEMS M",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i AI",
+    "Behandlingsdato": "2020-01-14"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "21872",
+    "Bologna_Fagnavn": "International Marketing",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Int. ind. markedsføring",
+    "Behandlingsdato": "2020-03-03"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "91717",
+    "Bologna_Fagnavn": "Algorithms for Combinatorial Optimization Problems M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimization Methods with Applications",
+    "Behandlingsdato": "2021-01-25"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "81610",
+    "Bologna_Fagnavn": "Machine Learning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Maskinlæring",
+    "Behandlingsdato": "2021-01-19"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "28873 + 28874",
+    "Bologna_Fagnavn": "Microeconomics 1 + Microeconomics 2",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2021-04-20"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": null,
+    "Bologna_Fagnavn": "Strategic Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2021-01-24"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "48144",
+    "Bologna_Fagnavn": "Corporate finance",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2021-01-21"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "86530",
+    "Bologna_Fagnavn": "Econometrics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
+    "Behandlingsdato": "2021-09-14"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "393334",
+    "Bologna_Fagnavn": "Human Resource Management and Leadership (Weblink)",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2022-01-27"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "75194",
+    "Bologna_Fagnavn": "Datamining M",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datagruve-datavare",
+    "Behandlingsdato": "2021-09-01"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "78456",
+    "Bologna_Fagnavn": "Economics And Management of Energy Utilities M",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2024-09-19"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "88435",
+    "Bologna_Fagnavn": "Technology Entrepreneurship",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4170",
+    "NTNU_Fagnavn": "Teknologibasert forretningsutvikling",
+    "Behandlingsdato": "2025-10-03"
+  },
+  {
+    "University": "The University of Bologna",
+    "Bologna_Emnekode": "91267",
+    "Bologna_Fagnavn": "Multi-Agent Systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "IT3708",
+    "NTNU_Fagnavn": "Bio-inspirert kunstig intelligens",
+    "Behandlingsdato": "2025-10-03"
+  },
+
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EP2093",
+    "Foreign_Fagnavn": "INDUSTRIAL ORGANIZATION - MARKETS AND STRATEGIES",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind.økonomisk analyse",
+    "Behandlingsdato": "2020-01-30"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EP2093",
+    "Foreign_Fagnavn": "Human resource management for international firms",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Human resource management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "IN0522",
+    "Foreign_Fagnavn": "STATISTICAL METHODS AND APPLICATIONS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EP2093",
+    "Foreign_Fagnavn": "PRINCIPLES OF MARKETING",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2024-11-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EOO7081317",
+    "Foreign_Fagnavn": "Advanced Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2019-10-04"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "ECO2045245",
+    "Foreign_Fagnavn": "Advanced corporate finance",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2017-09-18"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "1NO2044788",
+    "Foreign_Fagnavn": "Electricity market economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder",
+    "Behandlingsdato": "2021-09-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INN1029353",
+    "Foreign_Fagnavn": "Smart Grids",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TTM4190",
+    "NTNU_Fagnavn": "Kommunikasjonsteknologi for SmartGrids",
+    "Behandlingsdato": "2017-09-10"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP7080718",
+    "Foreign_Fagnavn": "Optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimeringsmetoder og besl støtte",
+    "Behandlingsdato": "2018-01-22"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SC2095",
+    "Foreign_Fagnavn": "STATISTICS 1-italiensk",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-01-28"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP7082020",
+    "Foreign_Fagnavn": "ORGANIZATION DEVELOPMENT AND BEHAVIOUR",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4276",
+    "NTNU_Fagnavn": "Endringsledelse",
+    "Behandlingsdato": "2019-04-29"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INM0018840",
+    "Foreign_Fagnavn": "STATISTICAL METHODS AND APPLICATIONS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-04-25"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INM0018840",
+    "Foreign_Fagnavn": "STATISTICAL METHODS AND APPLICATIONS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-04-25"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCP6076337",
+    "Foreign_Fagnavn": "ARTIFICIAL INTELLIGENCE",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til kunstig intelligens",
+    "Behandlingsdato": "2019-05-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCP9087558",
+    "Foreign_Fagnavn": "CYBERSECURITY: PRINCIPLES AND PRACTICES",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet",
+    "Behandlingsdato": "2022-03-26"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SUP8083737",
+    "Foreign_Fagnavn": "Essentials of project planning and evaluation",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektplanlegging og styring",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INO2043821",
+    "Foreign_Fagnavn": "Environmental impact and life cycle assesment",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4295",
+    "NTNU_Fagnavn": "Miljøanalyse og ind. økologi",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP6077101",
+    "Foreign_Fagnavn": "Global firms og global value chains",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2019-05-02"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Smart operations and supply chain management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP3051653",
+    "Foreign_Fagnavn": "INDUSTRIAL ORGANIZATION - MARKETS AND STRATEGIES",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell Økonomisk analyse",
+    "Behandlingsdato": "2019-10-03"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPQ0091699",
+    "Foreign_Fagnavn": "Industrial organization and high-tech markets",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2022-09-05"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "1NO2044788",
+    "Foreign_Fagnavn": "Electricity market economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder",
+    "Behandlingsdato": "2017-09-10"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "ECM0013191",
+    "Foreign_Fagnavn": "Environmental economics and policy",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4195",
+    "NTNU_Fagnavn": "Miljøledelse og bedriftsstrategi",
+    "Behandlingsdato": "2019-04-27"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP6077359",
+    "Foreign_Fagnavn": "ADVANCED CORPORATE FINANCE AND ACCOUNTING",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finanssturing for foretak",
+    "Behandlingsdato": "2019-06-11"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SC01107882",
+    "Foreign_Fagnavn": "MATHEMATICAL STATISTICS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-09-09"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SC01107882",
+    "Foreign_Fagnavn": "MATHEMATICAL STATISTICS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-09-09"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INN 1032119",
+    "Foreign_Fagnavn": "Energy and buildings",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4235",
+    "NTNU_Fagnavn": "Energibruk i bygning",
+    "Behandlingsdato": "2020-02-05"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP4064803",
+    "Foreign_Fagnavn": "MONETARY AND FISCAL POLICY",
+    "ECTS": "6",
+    "NTNU_Emnekode": "Fyllfag",
+    "NTNU_Fagnavn": "Fyllfag for studiepoeng - økonomi",
+    "Behandlingsdato": "2019-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP4064804",
+    "Foreign_Fagnavn": "International Business",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Int, ind markedsføring",
+    "Behandlingsdato": "2019-10-02"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP9087864",
+    "Foreign_Fagnavn": "OPTIMIZATION",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutnings støtte",
+    "Behandlingsdato": "2019-09-03"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCL1001355",
+    "Foreign_Fagnavn": "ECOLOGY",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4300",
+    "NTNU_Fagnavn": "Miljøkunnskap. økosystemtjenester og bærekraft?",
+    "Behandlingsdato": "2019-09-16"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SC 2095",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2019-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPP4064795",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2022-09-05"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP9086683",
+    "Foreign_Fagnavn": "INP9086683",
+    "ECTS": "3",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektledelse",
+    "Behandlingsdato": "2019-10-14"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ0091561",
+    "Foreign_Fagnavn": "Operations research1",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og besl støtte",
+    "Behandlingsdato": "2021-09-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCQ2101510",
+    "Foreign_Fagnavn": "Operations Research",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2023-01-10"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCQ0094080",
+    "Foreign_Fagnavn": "Introduction to Partial Differential Equations",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA4135",
+    "NTNU_Fagnavn": "Matematikk 4",
+    "Behandlingsdato": "2022-09-15"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP9086964",
+    "Foreign_Fagnavn": "STATISTICAL METHODS AND APPLICATIONS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "IN29103186",
+    "Foreign_Fagnavn": "Physics 1",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TFY4107",
+    "NTNU_Fagnavn": "Fysikk",
+    "Behandlingsdato": "2023-06-04"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "AG09103039",
+    "Foreign_Fagnavn": "Physics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TFY4107",
+    "NTNU_Fagnavn": "Fysikk",
+    "Behandlingsdato": "2023-06-04"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPQ0091700",
+    "Foreign_Fagnavn": "Management Accounting and Control Systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Industriell økonomisk styring",
+    "Behandlingsdato": "2023-01-10"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Environmental Sustainability Metrics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4220",
+    "NTNU_Fagnavn": "Miljøpåvirkningsindikatorer for beslutningsstøtte",
+    "Behandlingsdato": "2022-08-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Global Firms and Global Value Chains",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
+    "Behandlingsdato": "2022-09-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Circular Economy",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4306",
+    "NTNU_Fagnavn": "Strategier for industriell bærekraft",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Strategy and digital transformation",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TPK4180",
+    "NTNU_Fagnavn": "Produksjonsstrategi",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Product Innovation management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Principles of Finance and Corporate Finance",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ0091320",
+    "Foreign_Fagnavn": "Convex Optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og besl støtte",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP9087838",
+    "Foreign_Fagnavn": "Power Electronics",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TET4190",
+    "NTNU_Fagnavn": "Kraftelektronikk",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ1097820",
+    "Foreign_Fagnavn": "Electric Power Systems",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TET4105",
+    "NTNU_Fagnavn": "Elektriske kraftsystemer 1",
+    "Behandlingsdato": "2022-02-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPO3102385",
+    "Foreign_Fagnavn": "Environmental Projects management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "EPQ0091682",
+    "Foreign_Fagnavn": "Supply Chain Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2025-09-24"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "SCQ0093639",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ3103090",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ4106180",
+    "Foreign_Fagnavn": "Advanced topics in optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og bsl.støtte for tek.-øk. planlegging",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ0091641",
+    "Foreign_Fagnavn": "Computers and networks security",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INP9087244",
+    "Foreign_Fagnavn": "Big Data Analytics data mining for enginners",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2024-12-01"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "IN09105674",
+    "Foreign_Fagnavn": "Fluid Mechanics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2025-09-03"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ2100261",
+    "Foreign_Fagnavn": "Electricity Market",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder",
+    "Behandlingsdato": "2025-08-11"
+  },
+  {
+    "University": "Universita Degli Studi de Padova",
+    "Foreign_Emnekode": "INQ4106180",
+    "Foreign_Fagnavn": "Advanced Topics in Optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2025-09-11"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25571",
+    "Foreign_Fagnavn": "People Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4102",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 1",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27036",
+    "Foreign_Fagnavn": "Banking and Corporate Finance",
+    "ECTS": "7",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2017-06-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27345",
+    "Foreign_Fagnavn": "Banking and Corporate Finance",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-09-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27022",
+    "Foreign_Fagnavn": "Industrial economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind økonomisk analyse",
+    "Behandlingsdato": "2020-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25569",
+    "Foreign_Fagnavn": "Entrepreneurial Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25561",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25561",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "75012",
+    "Foreign_Fagnavn": "Empirical Methods",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2017-06-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "42150",
+    "Foreign_Fagnavn": "Operations Research",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutn støtte for.....",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "72105",
+    "Foreign_Fagnavn": "Lean Start-Up",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4250",
+    "NTNU_Fagnavn": "Venture Cup",
+    "Behandlingsdato": "2017-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27010",
+    "Foreign_Fagnavn": "Statistica",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-08-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27010",
+    "Foreign_Fagnavn": "Statistica",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-08-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73004",
+    "Foreign_Fagnavn": "Statistics for data science",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2020-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73004",
+    "Foreign_Fagnavn": "Statistics for data science",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2020-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76411",
+    "Foreign_Fagnavn": "Probability Theory and Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76411",
+    "Foreign_Fagnavn": "Probability Theory and Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73065",
+    "Foreign_Fagnavn": "Mathematics and Statistics for Data Science",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76053",
+    "Foreign_Fagnavn": "Lean Start-Up and Entrepreneurship",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4250",
+    "NTNU_Fagnavn": "Entreprenørskap og Venture Cup",
+    "Behandlingsdato": "2020-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73011",
+    "Foreign_Fagnavn": "Artificial Intelligence - Methods and Applications",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til Al",
+    "Behandlingsdato": "2020-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76251A",
+    "Foreign_Fagnavn": "Foundations of Artificial Intelligence",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til Al",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25423",
+    "Foreign_Fagnavn": "Financial Econometrics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empirisk finans",
+    "Behandlingsdato": "2023-04-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Programming Paradigms",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4165",
+    "NTNU_Fagnavn": "programmeringsspråk",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Social and Security Aspects of Data Science",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76439",
+    "Foreign_Fagnavn": "Data Mining and Decision Making",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Artificial Intelligence - Methods and Applications",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i Kunstig Intelligens",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76251B",
+    "Foreign_Fagnavn": "Machine Learning in Practice",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig ingelligens",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76252A",
+    "Foreign_Fagnavn": "Knowledge representation (module 1)",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig ntelligens",
+    "Behandlingsdato": "2023-03-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73057",
+    "Foreign_Fagnavn": "Advanced Data Management Technologies",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4305",
+    "NTNU_Fagnavn": "Big Data- arkitektur",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73026",
+    "Foreign_Fagnavn": "Decision Making and Support Systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4259",
+    "NTNU_Fagnavn": "Anvendt data science",
+    "Behandlingsdato": "2021-11-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27347",
+    "Foreign_Fagnavn": "Econometrics for Economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empirisk Finans",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27241",
+    "Foreign_Fagnavn": "Social Entrepreneurship",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4250",
+    "NTNU_Fagnavn": "Entreprenørskap/Venture Cup",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25557",
+    "Foreign_Fagnavn": "Foundations of Entrepreneurship",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4250",
+    "NTNU_Fagnavn": "Entreprenørskap/Venture Cup",
+    "Behandlingsdato": "2023-04-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Innovation Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse",
+    "Behandlingsdato": "2022-04-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "42169",
+    "Foreign_Fagnavn": "Optimisation",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27322",
+    "Foreign_Fagnavn": "Microeconomies",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2029-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27362A",
+    "Foreign_Fagnavn": "Microeconomics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27239",
+    "Foreign_Fagnavn": "Entrepreneurial Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73057",
+    "Foreign_Fagnavn": "Data Management Technologies",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2023-03-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "25441",
+    "Foreign_Fagnavn": "Advanced Strategic Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2022-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "30165",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27355",
+    "Foreign_Fagnavn": "Human Resources and Organization / Personal und Organisation",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "47553",
+    "Foreign_Fagnavn": "Digital Transformation and Sustainability Management",
+    "ECTS": "5",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "teknisk valgfag i 4. klasse",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Econometrics for Finance",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empiriske og quantitative metoder i finans",
+    "Behandlingsdato": "2022-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "47540",
+    "Foreign_Fagnavn": "Project. Process and Technology Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "47540",
+    "Foreign_Fagnavn": "Project. Process and Technology Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "47540",
+    "Foreign_Fagnavn": "Project. Process and Technology Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og Teknologi 2",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73006",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Machine Learning",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Advanced Corporate Finance",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-03-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Introduction to Accounting",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Industriell økonomisk styring",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "42149",
+    "Foreign_Fagnavn": "Fluidmechanik",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "47560",
+    "Foreign_Fagnavn": "Digital Factory and Industrial Maintenance",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TPK4140",
+    "NTNU_Fagnavn": "Driftssikkerhet, vedlikeholdsstyring",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "27323/30163",
+    "Foreign_Fagnavn": "Macroeconomics + Introduction to Accounting for TSE",
+    "ECTS": "8+8",
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Industriell økonomisk styring",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "42173",
+    "Foreign_Fagnavn": "Engineering Thermodynamics and Heat Transfer",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76308 + 76319",
+    "Foreign_Fagnavn": "Introduction to Data Mining + Data-driven Decision Making",
+    "ECTS": "6 6",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76243",
+    "Foreign_Fagnavn": "Data Structures and Algorithms",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TDT4120",
+    "NTNU_Fagnavn": "Algoritmer og datastrukturer",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76445",
+    "Foreign_Fagnavn": "Modeling and Databases with Project",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TDT4145",
+    "NTNU_Fagnavn": "Datamodellering og databasesystemer",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76261A",
+    "Foreign_Fagnavn": null,
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4240",
+    "NTNU_Fagnavn": "Programvarearkitektur",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "76097",
+    "Foreign_Fagnavn": "Software and Systems Security",
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73057",
+    "Foreign_Fagnavn": "Data Management Technologies",
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Libero Universita di Bolzano",
+    "Foreign_Emnekode": "73033",
+    "Foreign_Fagnavn": "Real-Time Big Data Processing",
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4305",
+    "NTNU_Fagnavn": "Big Data- arkitektur",
+    "Behandlingsdato": "2025-06-01"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "02AQJPG",
+    "Foreign_Fagnavn": "Industrial economics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "T104117",
+    "NTNU_Fagnavn": "Mikroøkonomi",
+    "Behandlingsdato": "2016-04-04"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "02AQJPG",
+    "Foreign_Fagnavn": "Industrial economics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "T104118",
+    "NTNU_Fagnavn": "Mikroøkonomi",
+    "Behandlingsdato": "2016-04-04"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01QWHBG",
+    "Foreign_Fagnavn": "Operational research",
+    "ECTS": "6",
+    "NTNU_Emnekode": "T104126",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2016-04-04"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "04ΙΧΤΡΗ",
+    "Foreign_Fagnavn": "Project management",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektstyring",
+    "Behandlingsdato": "2018-01-24"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "02MAYMW",
+    "Foreign_Fagnavn": "Risk Analysis",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TPK5160",
+    "NTNU_Fagnavn": "Risk Analysis",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "04LSILM",
+    "Foreign_Fagnavn": "Mathematical methods",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": "2016-06-10"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01QYVLZ",
+    "Foreign_Fagnavn": "Numerical methods and matlab",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "010FYLI",
+    "Foreign_Fagnavn": "Company economics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Economy and accounting",
+    "Behandlingsdato": "2016-08-09"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01PCEPG",
+    "Foreign_Fagnavn": "Organizational Models and HRM",
+    "ECTS": null,
+    "NTNU_Emnekode": "TI04161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2016-04-04"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "09BXTMQ",
+    "Foreign_Fagnavn": "Probability and statistics",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2017-05-18"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "09BNTNL",
+    "Foreign_Fagnavn": "Marketing in industries",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2017-05-24"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01PEBPH",
+    "Foreign_Fagnavn": "Accounting and Corporate finance",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TI04145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2017-05-23"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01VJRPH",
+    "Foreign_Fagnavn": "Applied Corporate Finance and Private Capital",
+    "ECTS": "8",
+    "NTNU_Emnekode": "T104145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2024-02-20"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01NLBJM, 01NLBLI",
+    "Foreign_Fagnavn": "Experimental statistics and mechanical measurement",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2017-10-10"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "020JAPH",
+    "Foreign_Fagnavn": "Industrial Economics",
+    "ECTS": "4",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind.økoomsk analyse",
+    "Behandlingsdato": "2017-09-29"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01QFYNL",
+    "Foreign_Fagnavn": "Quality management systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Ind sikkerhet og pålitlighet",
+    "Behandlingsdato": "2018-01-24"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "04ΙΧΤΡΗ",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TI04162",
+    "NTNU_Fagnavn": "Org 2",
+    "Behandlingsdato": "2025-08-01"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "010FILO",
+    "Foreign_Fagnavn": "Strategic marketing and products planning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TI04165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2020-01-24"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "05LNMTR",
+    "Foreign_Fagnavn": "Fluid mechanics",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01TVFND",
+    "Foreign_Fagnavn": "Energy Economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder, ressurser og miljø",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "020KGND",
+    "Foreign_Fagnavn": "Models and scenarios for Energy planning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "Politec de Torino",
+    "Foreign_Emnekode": "01TWWSM",
+    "Foreign_Fagnavn": "Statistical Methods in Data Science",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-01-14"
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052909",
+    "Foreign_Fagnavn": "BUSINESS & INDUSTRIAL ECONOMICS",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "098474",
+    "Foreign_Fagnavn": "METODI DI OTTIMIZZAZIONE DELLA RICERCA OPERATIVA-Mathematical methods for operations research",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimeringsmetoder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097320",
+    "Foreign_Fagnavn": "INDUSTRIAL PROJECT MANAGEMENT A",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "083560",
+    "Foreign_Fagnavn": "FISICA I",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TFY4125",
+    "NTNU_Fagnavn": "Fysikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "A052796",
+    "Foreign_Fagnavn": "Leadership & Innovation",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052911",
+    "Foreign_Fagnavn": "Applied statistics",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052911",
+    "Foreign_Fagnavn": "Applied statistics",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "053791",
+    "Foreign_Fagnavn": "Applied statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "053791",
+    "Foreign_Fagnavn": "Applied statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "054383",
+    "Foreign_Fagnavn": "ADVANCED PROGRAMMING FOR SCIENTIFIC COMPUTING",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TDT4102",
+    "NTNU_Fagnavn": "Objektorientert programmering",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "089244",
+    "Foreign_Fagnavn": "Electrical Machines (bachelor)",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "093586",
+    "Foreign_Fagnavn": "Electric Power Systems",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TET4115",
+    "NTNU_Fagnavn": "Elektriske kraftsystemer",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "089214/056889",
+    "Foreign_Fagnavn": "Artificial Intelligence/ Foundations of Artificial Intelligence",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052795",
+    "Foreign_Fagnavn": "STRATEGY & MARKETING",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "094849",
+    "Foreign_Fagnavn": "Fluid Mechanics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "095917",
+    "Foreign_Fagnavn": "FUNDAMENTALS OF OIL AND GAS ENGINEERING",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TEP4185",
+    "NTNU_Fagnavn": "Naturgass",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "099247",
+    "Foreign_Fagnavn": "INDUSTRIAL ECOLOGY",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TEP4295",
+    "NTNU_Fagnavn": "Miljøanalyse og industriell økologi",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "083903",
+    "Foreign_Fagnavn": "HEAT TRANSFER AND THERMAL ANALYSIS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": "Varme- og massetransport",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "058060",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "058060",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052537",
+    "Foreign_Fagnavn": "TECHNOLOGIES FOR INFORMATION SYSTEMS",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruve",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097461",
+    "Foreign_Fagnavn": "ECOSYSTEMS CONSERVATION AND MANAGEMENT",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TEP4220",
+    "NTNU_Fagnavn": "Forståelse og kvantifisering av miljøpåvirkninger på økosystemer",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "054911",
+    "Foreign_Fagnavn": "Supply Chain Management",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "090932",
+    "Foreign_Fagnavn": "ENERGY EFFICIENCY IN BUILDINGS",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TEP4245",
+    "NTNU_Fagnavn": "Energi og bygning",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "088983",
+    "Foreign_Fagnavn": "Foundations of Operations Research",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "051177",
+    "Foreign_Fagnavn": "Operations Research Programma Dettagliato",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "089167",
+    "Foreign_Fagnavn": "Datamining and text mining",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruve",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052589",
+    "Foreign_Fagnavn": "Electricity Markets",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TET",
+    "NTNU_Fagnavn": "Kraftmarkeder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "095914/055634",
+    "Foreign_Fagnavn": "Energy Economics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "088713",
+    "Foreign_Fagnavn": "Electrical Machines",
+    "ECTS": "2",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "096101",
+    "Foreign_Fagnavn": "Communication Networks for Electricity Systems",
+    "ECTS": null,
+    "NTNU_Emnekode": "TTM4190",
+    "NTNU_Fagnavn": "Kommunikasjon for SmartGrid",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "096094",
+    "Foreign_Fagnavn": "PROJECT MANAGEMENT: PRINCIPLES & TOOLS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "093588",
+    "Foreign_Fagnavn": "POWER ELECTRONICS",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TET4190",
+    "NTNU_Fagnavn": "Kraftelektronikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "096668",
+    "Foreign_Fagnavn": "PROJECT AND PROGRAMME MANAGEMENT B",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "088698",
+    "Foreign_Fagnavn": "FUNDAMENTALS OF OPERATIONS RESEARCH",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsanalyse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "055633",
+    "Foreign_Fagnavn": "COMPUTER SECURITY - UIC 587",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097749",
+    "Foreign_Fagnavn": "CORPORATE FINANCE B",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "051823",
+    "Foreign_Fagnavn": "DISCRETE OPTIMIZATION",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimeringsmetoder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "095972",
+    "Foreign_Fagnavn": "OPTIMIZATION",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimeringsmetoder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "095916",
+    "Foreign_Fagnavn": "ELECTRIC POWER SYSTEMS",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TET4115",
+    "NTNU_Fagnavn": "Elektriske Kraftsystemer",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "054173",
+    "Foreign_Fagnavn": "SMART GRIDS: COMPONENTS; FUNCTIONALITIES AND BENEFITS",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TET4175",
+    "NTNU_Fagnavn": "Design og drift av Smart Grid kraftsystemer",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "082741",
+    "Foreign_Fagnavn": "BUSINESS ECONOMICS AND ORGANIZATION",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Industriell økonomisk styring",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097387",
+    "Foreign_Fagnavn": "FINANCIAL ECONOMETRICS",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empiriske og kvantitative metoder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097355",
+    "Foreign_Fagnavn": "FINANCIAL RISK MANAGEMENT",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empiriske og kvantitative metoder",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "056999",
+    "Foreign_Fagnavn": "Supply Chain Management",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4285",
+    "NTNU_Fagnavn": "Produksjons- og nettverksøkonomi",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "052909",
+    "Foreign_Fagnavn": "Business & Industrial Economics",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4285",
+    "NTNU_Fagnavn": "Produksjons- og nettverksøkonomi",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "095898",
+    "Foreign_Fagnavn": "COMPUTING INFRASTRUCTURES",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4225",
+    "NTNU_Fagnavn": "Store, distribuerte data",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "056890",
+    "Foreign_Fagnavn": "Uncertainty in Artificial Intelligence",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057093",
+    "Foreign_Fagnavn": "Finance Lab",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "056994",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Human Resource Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Statistical and Probabilistic Methods",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "096868",
+    "Foreign_Fagnavn": "Project and Programme Management B",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "096868",
+    "Foreign_Fagnavn": "Project and Programme Management B",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "056913",
+    "Foreign_Fagnavn": "Life cycle assessment of materials and processes",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TEP4223",
+    "NTNU_Fagnavn": "Livssyklusanalyse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "056999",
+    "Foreign_Fagnavn": "Supply Chain Management",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057049",
+    "Foreign_Fagnavn": "Complex Projects Lab",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ5210",
+    "NTNU_Fagnavn": "Program- og porteføljeledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057030",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ5210",
+    "NTNU_Fagnavn": "Program- og porteføljeledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057030 + 096868",
+    "Foreign_Fagnavn": "Project Management + Project and Programme Management",
+    "ECTS": "5+8",
+    "NTNU_Emnekode": "TIØ5201",
+    "NTNU_Fagnavn": "Prosjektorganisasjoner i en verden i endring",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057035",
+    "Foreign_Fagnavn": "Invest in Foreign Markets Lab",
+    "ECTS": "10",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell marketsføring og internasjonal handel",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "083503",
+    "Foreign_Fagnavn": "Fluid Mechanics",
+    "ECTS": "7",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "057030",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "059857",
+    "Foreign_Fagnavn": "ARTIFICIAL INTELLIGENCE METHODS",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Politecnico de Milano",
+    "Foreign_Emnekode": "097683",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1051807",
+    "Foreign_Fagnavn": "Microeconomics",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind. økonomisk analyse",
+    "Behandlingsdato": "2019-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1047726",
+    "Foreign_Fagnavn": "Corporate and Investment banking - endret navn til International Finance",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2022-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1018586",
+    "Foreign_Fagnavn": "MECHANICS OF FLUIDS I",
+    "ECTS": null,
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1047612",
+    "Foreign_Fagnavn": "ORGANIZATION AND HUMAN RESOURCES DEVELOPMENT ADVANCED COURSE",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2019-03-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10600597",
+    "Foreign_Fagnavn": "Quality and Sustainability Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4195",
+    "NTNU_Fagnavn": "Miljøledelse og bedriftsstrategi",
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10595533",
+    "Foreign_Fagnavn": "Optimization",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2022-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10595618",
+    "Foreign_Fagnavn": "Artificial Intelligence and Machine Learning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til Al",
+    "Behandlingsdato": "2022-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10595618",
+    "Foreign_Fagnavn": "Artificial Intelligence and Machine Learning",
+    "ECTS": "12",
+    "NTNU_Emnekode": "TDT4136 / TDT4173",
+    "NTNU_Fagnavn": "Intro til Al OG Maskinlæring",
+    "Behandlingsdato": "2022-09-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1022858",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Maskinlæring",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1044406",
+    "Foreign_Fagnavn": "Big Data Computing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4305",
+    "NTNU_Fagnavn": "Big Data-arkitektur",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10596216",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10596216",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10592927",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10592927",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10592927",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1052024",
+    "Foreign_Fagnavn": "Strategic Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10600392",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10600182",
+    "Foreign_Fagnavn": "Strategic and Innovation Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10600196",
+    "Foreign_Fagnavn": "Statistics and Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2022-10-03"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1055043",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2022-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "1047727",
+    "Foreign_Fagnavn": "International Marketing Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "AAF1803",
+    "Foreign_Fagnavn": "Cyber Security Seminars",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": null,
+    "Foreign_Fagnavn": "Metodi Numerici per l'Ingegneria Biomedica",
+    "ECTS": "6",
+    "NTNU_Emnekode": "Matte 4",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Sapienza Università di Roma",
+    "Foreign_Emnekode": "10595546",
+    "Foreign_Fagnavn": "Computer Architecture",
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4160",
+    "NTNU_Fagnavn": "Datamaskiner",
+    "Behandlingsdato": "2025-03-01"
+  },
+  {
+    "University": "Tor Vergata - University of Rome",
+    "Foreign_Emnekode": "8011859",
+    "Foreign_Fagnavn": "General Management Moduel 1 og 2",
+    "ECTS": "6+6",
+    "NTNU_Emnekode": "T104265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2021-04-20"
+  },
+  {
+    "University": "Tor Vergata - University of Rome",
+    "Foreign_Emnekode": "8011546",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "6",
+    "NTNU_Emnekode": "T104145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2021-04-16"
+  },
+  {
+    "University": "Tor Vergata - University of Rome",
+    "Foreign_Emnekode": "8011706",
+    "Foreign_Fagnavn": "Sustainable supply Chain Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Tor Vergata - University of Rome",
+    "Foreign_Emnekode": "8011718",
+    "Foreign_Fagnavn": "Social Entrepreneurship and innovation",
+    "ECTS": "6",
+    "NTNU_Emnekode": "T104180",
+    "NTNU_Fagnavn": "Innovasjonsledelse",
+    "Behandlingsdato": "2021-01-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "538PP",
+    "Foreign_Fagnavn": "CORPORATE FINANCE",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-03-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "666AA",
+    "Foreign_Fagnavn": "MODEL DRIVEN DECISION MAKING METHODS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "052PP",
+    "Foreign_Fagnavn": "ECONOMIA INDUSTRIALE",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "643AA",
+    "Foreign_Fagnavn": "ARTIFICIAL INTELLIGENCE FUNDAMENTALS",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "87711",
+    "Foreign_Fagnavn": "COMPUTATIONAL INTELLIGENCE AND DEEP LEARNING",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "309AA",
+    "Foreign_Fagnavn": "FUNDAMENTALS OF DATA MINING AND MACHINE LEARNING",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "628PP",
+    "Foreign_Fagnavn": "Statistics for Data Science A.Y. 2024/2025",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-02-01"
+  },
+  {
+    "University": "Universita de Pisa",
+    "Foreign_Emnekode": "PP031 + 0015P",
+    "Foreign_Fagnavn": "Principles of Economics and Management + Advanced Microeconomics I",
+    "ECTS": "3+9",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2025-11-24"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "106833",
+    "Foreign_Fagnavn": "Microeconomics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "66204",
+    "Foreign_Fagnavn": "Operations research",
+    "ECTS": "5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og bsl støtte for tek.-øk. planlegging",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "111165",
+    "Foreign_Fagnavn": "Marketing management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "66133",
+    "Foreign_Fagnavn": "Reliability and safety of marine plants",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMR4335",
+    "NTNU_Fagnavn": "Propulsjonssystemer, sikkerhet og miljø",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "108719",
+    "Foreign_Fagnavn": "Marine propulsion systems",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMR4335",
+    "NTNU_Fagnavn": "Propulsjonssystemer, sikkerhet og miljø",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "60190",
+    "Foreign_Fagnavn": "Merchant ship design",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMR4256",
+    "NTNU_Fagnavn": "Marin teknikk 6",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "86902",
+    "Foreign_Fagnavn": "Mathematical analysis 4",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matte 4N",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "108718",
+    "Foreign_Fagnavn": "Probability and statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statisikk",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "66113",
+    "Foreign_Fagnavn": "Reliability and safety of marine plants",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMR4130",
+    "NTNU_Fagnavn": "Risikoanalyse og sikkerhetsledelse (4. klasse)",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "60191",
+    "Foreign_Fagnavn": "Naval ship design",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMR4135",
+    "NTNU_Fagnavn": "Prosjekteringsmetoder 2",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "104835",
+    "Foreign_Fagnavn": "Project management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Università degli studi di Genova (UniGe)",
+    "Foreign_Emnekode": "106849",
+    "Foreign_Fagnavn": "Fundamentals of strategic business",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi",
+    "Behandlingsdato": "2023-11-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO28600",
+    "Foreign_Fagnavn": "Topics in Human Resources",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2019-05-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B028581/B029734",
+    "Foreign_Fagnavn": "Topics in Management and Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2019-04-29"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO20934",
+    "Foreign_Fagnavn": "Portofolio choice and optimization",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og besl. modeller",
+    "Behandlingsdato": "2019-04-29"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO27554",
+    "Foreign_Fagnavn": "Security Engineering",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TTM4135",
+    "NTNU_Fagnavn": "Anvendt kryptografi og nettverkssikkerhet",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO25419",
+    "Foreign_Fagnavn": "Statistical information systems: Big data, open data and semantic web",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4175",
+    "NTNU_Fagnavn": "Informasjonssystemer",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO27563",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO27563",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-04-30"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO30704",
+    "Foreign_Fagnavn": "Microeconomics 1/Game Theory and Microeconomics",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind økonomisk analyse",
+    "Behandlingsdato": "2019-04-29"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B020835",
+    "Foreign_Fagnavn": "Statistical Inference",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2020-05-02"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B020835",
+    "Foreign_Fagnavn": "Statistical Inference",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2020-05-02"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "BO27554",
+    "Foreign_Fagnavn": "Security Engineering",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B030704",
+    "Foreign_Fagnavn": "Game Theory and Microeconomics",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind øk analyse",
+    "Behandlingsdato": "2022-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B031308",
+    "Foreign_Fagnavn": "Innovation Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
+    "Behandlingsdato": "2023-03-22"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B032438 eller B030633",
+    "Foreign_Fagnavn": "Numerical Methods for Scientific Computing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4135",
+    "NTNU_Fagnavn": "Matematikk 4D",
+    "Behandlingsdato": "2023-03-22"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B031233",
+    "Foreign_Fagnavn": "Macroeconomics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4137",
+    "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
+    "Behandlingsdato": "2023-03-22"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B003725",
+    "Foreign_Fagnavn": "Artificial Intelligens",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Introduksjon til kunstig intelligens",
+    "Behandlingsdato": "2023-03-22"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B031733",
+    "Foreign_Fagnavn": "Statistical Methods for Engineering",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B031733",
+    "Foreign_Fagnavn": "Statistical Methods for Engineering",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B027605/B031389",
+    "Foreign_Fagnavn": "Secure Wireless and Mobile Networks/Network Security",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": "2023-09-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B028010",
+    "Foreign_Fagnavn": "Data Analysis Lab",
+    "ECTS": "3",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Teknisk fyllfag",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B032669",
+    "Foreign_Fagnavn": "Energy and Environmental Economics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B031730",
+    "Foreign_Fagnavn": "CIRCULAR DESIGN POLICIES, REGULATIONS AND PRACTICES",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4195",
+    "NTNU_Fagnavn": "Miljøledelse",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B000072",
+    "Foreign_Fagnavn": "Fundamentals of Operations Research",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "Universita degli studi Firenze",
+    "Foreign_Emnekode": "B032439",
+    "Foreign_Fagnavn": "Operations Research and Optimization",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2024-09-01"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "ET2008",
+    "Foreign_Fagnavn": "Human resource management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2019-08-05"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "EM2Q01",
+    "Foreign_Fagnavn": "Microeconomics 1",
+    "ECTS": "6+6",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2019-07-29"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "EM3A02",
+    "Foreign_Fagnavn": "Project management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2019-08-05"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "ET2022",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "ET2022",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "ET2030",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "CM0491",
+    "Foreign_Fagnavn": "Artificial Intelligence: Knowledge Representation and Planning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i KI",
+    "Behandlingsdato": "2020-02-03"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "CM0494",
+    "Foreign_Fagnavn": "Security 2",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet",
+    "Behandlingsdato": "2020-02-13"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "309414",
+    "Foreign_Fagnavn": "Introduction to statistics for language sciences",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2019-01-01"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "309414",
+    "Foreign_Fagnavn": "Introduction to statistics for language sciences",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2019-01-01"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "CM0471",
+    "Foreign_Fagnavn": "Artificial Intelligence: Knowledge presentation and planning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro to Al",
+    "Behandlingsdato": "2019-08-16"
+  },
+  {
+    "University": "University of Venice",
+    "Foreign_Emnekode": "ET2030",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2020-02-03"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "",
+    "Foreign_Fagnavn": "APPLIED ECOLOGY AND ENVIRONMENTAL MANAGEMENT",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4300",
+    "NTNU_Fagnavn": "Miljøkunnskap, økosystemtjenester og bærekraft",
+    "Behandlingsdato": "2021-04-22"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2012394",
+    "Foreign_Fagnavn": "Project and human resource management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2021-04-21"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2000185",
+    "Foreign_Fagnavn": "Machine learning",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Maskinlæring",
+    "Behandlingsdato": "2021-04-24"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2014363",
+    "Foreign_Fagnavn": "Business Strategy",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk Ledelse",
+    "Behandlingsdato": "2021-04-28"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2017409",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2001552",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2015074",
+    "Foreign_Fagnavn": "Management Control and Sustainable Development",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4195",
+    "NTNU_Fagnavn": "Miljøledelse og bedriftsstategi",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2001570",
+    "Foreign_Fagnavn": "Microeconomics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "103627D",
+    "Foreign_Fagnavn": "Operations Research",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2012241",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2017529",
+    "Foreign_Fagnavn": "Energy Market",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder, ressurs og miljø",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2017522",
+    "Foreign_Fagnavn": "Electric systems and green power devices",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4105",
+    "NTNU_Fagnavn": "Elektriske Kraftsystemer 1",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2017418",
+    "Foreign_Fagnavn": "Bioelectromagnetism and device electromagnetic compatibility",
+    "ECTS": "6",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Valgbart teknisk emne i 3.året",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2012239",
+    "Foreign_Fagnavn": "Management",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4102",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 1",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2012405",
+    "Foreign_Fagnavn": "Technologies for environmental resource management",
+    "ECTS": "6",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Velgbart teknisk masteremne for EMIL prosess-retning",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2001558",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "8",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "107441",
+    "Foreign_Fagnavn": "International Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2017519",
+    "Foreign_Fagnavn": "Electric System and Energy Market",
+    "ECTS": "6",
+    "NTNU_Emnekode": "TET4185",
+    "NTNU_Fagnavn": "Kraftmarkeder, ressurs og miljø",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "Universita Di Siena",
+    "Foreign_Emnekode": "2012405",
+    "Foreign_Fagnavn": "Technologies for Environmental Resource Management",
+    "ECTS": "6",
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Teknisk fyllfag/valgemne EMIL",
+    "Behandlingsdato": "2025-08-21"
+  }
+]
