@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import {
   Plus,
   X,
@@ -728,6 +730,9 @@ const MOCK_EXCHANGE_PLANS: ExchangePlan[] = [
 ];
 
 export default function ExchangePlannerFull() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const [step, setStep] = useState(0); // 0: Dashboard, 1: Profil, 2: Fag, 3: Planlegger, 4: Last ned PDF
   const [showSaveNotification, setShowSaveNotification] = useState(false);
 
@@ -751,6 +756,37 @@ export default function ExchangePlannerFull() {
   // State: Legge til manuelt fag
   const [newSubjectCode, setNewSubjectCode] = useState("");
   const [newSubjectName, setNewSubjectName] = useState("");
+
+  // Restore progress if saved
+  useEffect(() => {
+    const savedProgress = localStorage.getItem("unsaved_plan_progress");
+    if (savedProgress) {
+      // Only restore if we are in a session (just logged in)
+      // Or maybe we restore it anyway? The user said "sender den deg til logg inn-siden, men samtidig lagrer progressen"
+      // which implies we want to recover it after login.
+      // If we restore it without session, it might be confusing if they are not logged in yet.
+      // But we want to show it.
+
+      if (session) {
+        try {
+          const parsed = JSON.parse(savedProgress);
+          setUniversity(parsed.university);
+          setExchangeUniversity(parsed.exchangeUniversity);
+          setProgram(parsed.program);
+          setTechnologyDirection(parsed.technologyDirection);
+          setSpecialization(parsed.specialization);
+          setStudyYear(parsed.studyYear);
+          setSemesterChoice(parsed.semesterChoice);
+          setMySubjects(parsed.mySubjects);
+          setStep(4); // Go to the download step
+          localStorage.removeItem("unsaved_plan_progress");
+        } catch (e) {
+          console.error("Failed to parse saved progress", e);
+          localStorage.removeItem("unsaved_plan_progress");
+        }
+      }
+    }
+  }, [session]);
 
   // --- HJELPEFUNKSJONER ---
   const calculatedSemester =
@@ -814,6 +850,26 @@ export default function ExchangePlannerFull() {
   };
 
   const handleSavePlan = () => {
+    // Check if user is logged in
+    if (!session) {
+      const progressToSave = {
+        university,
+        exchangeUniversity,
+        program,
+        technologyDirection,
+        specialization,
+        studyYear,
+        semesterChoice,
+        mySubjects,
+      };
+      localStorage.setItem(
+        "unsaved_plan_progress",
+        JSON.stringify(progressToSave)
+      );
+      router.push("/auth/signin");
+      return;
+    }
+
     // Filtrer ut ikke-valgte valgfrie fag før lagring
     const selectedSubjects = mySubjects.filter(
       (sub) => !sub.isElective || sub.isSelected === true
@@ -953,9 +1009,7 @@ export default function ExchangePlannerFull() {
           <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-in slide-in-from-top fade-in z-50">
             <CheckCircle className="text-green-400" size={20} />
             <span className="font-medium">
-              {editingPlanId
-                ? "Planen er oppdatert&quot;!"
-                : "Planen er lagret&quot;!"}
+              {editingPlanId ? "Planen er oppdatert!" : "Planen er lagret!"}
             </span>
           </div>
         )}
@@ -1576,9 +1630,11 @@ export default function ExchangePlannerFull() {
                       <div className="flex justify-between">
                         <span className="text-slate-600">Antall fag:</span>
                         <span className="font-medium text-slate-800">
-                          {mySubjects.filter(
-                            (s) => !s.isElective || s.isSelected
-                          ).length}
+                          {
+                            mySubjects.filter(
+                              (s) => !s.isElective || s.isSelected
+                            ).length
+                          }
                         </span>
                       </div>
                     </div>
@@ -1588,6 +1644,24 @@ export default function ExchangePlannerFull() {
                 <div className="flex gap-3">
                   <button
                     onClick={() => {
+                      if (!session) {
+                        const progressToSave = {
+                          university,
+                          exchangeUniversity,
+                          program,
+                          technologyDirection,
+                          specialization,
+                          studyYear,
+                          semesterChoice,
+                          mySubjects,
+                        };
+                        localStorage.setItem(
+                          "unsaved_plan_progress",
+                          JSON.stringify(progressToSave)
+                        );
+                        router.push("/auth/signin");
+                        return;
+                      }
                       // TODO: Implementer PDF-nedlasting
                       alert("PDF-nedlasting kommer snart!");
                     }}
@@ -1749,7 +1823,8 @@ function PlannerInterface({
     selectedSubjects.some((s) => s.code === opt.matchesHomeSubjectCode)
   );
   const nonCompatibleOptions = notYetMatchedOptions.filter(
-    (opt) => !selectedSubjects.some((s) => s.code === opt.matchesHomeSubjectCode)
+    (opt) =>
+      !selectedSubjects.some((s) => s.code === opt.matchesHomeSubjectCode)
   );
 
   const availableOptions = [

@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { Course } from "@/types/course";
 import approvedCoursesData from "@/data/approved_courses.json";
-import { Search, Filter, X, Info, ShieldCheck, Plus } from "lucide-react";
+import { Search, Filter, X, Info, ShieldCheck, Plus, ChevronLeft, ChevronRight, Lock } from "lucide-react";
 
 export default function FagbankPage() {
+  const { data: session } = useSession();
   const courses: Course[] = approvedCoursesData as Course[];
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +20,10 @@ export default function FagbankPage() {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [showAddCourseModal, setShowAddCourseModal] = useState(false);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
 
   // Add course form state
   const [exchangeUniversity, setExchangeUniversity] = useState("None selected");
@@ -100,6 +107,12 @@ export default function FagbankPage() {
     });
   }, [courses, searchQuery, selectedUniversity, selectedCountry, selectedECTS, showVerifiedOnly]);
 
+  const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
+  const paginatedCourses = filteredCourses.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   // Reset filters
   const resetFilters = () => {
     setSearchQuery("");
@@ -107,6 +120,7 @@ export default function FagbankPage() {
     setSelectedCountry("all");
     setSelectedECTS("all");
     setShowVerifiedOnly(false);
+    setCurrentPage(1);
   };
 
   // Add new course entry
@@ -223,7 +237,10 @@ export default function FagbankPage() {
               type="text"
               placeholder="Søk etter emnekode, emnenavn, universitet eller land..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             />
           </div>
@@ -260,7 +277,10 @@ export default function FagbankPage() {
                   <input
                     type="checkbox"
                     checked={showVerifiedOnly}
-                    onChange={(e) => setShowVerifiedOnly(e.target.checked)}
+                    onChange={(e) => {
+                      setShowVerifiedOnly(e.target.checked);
+                      setCurrentPage(1);
+                    }}
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <span className="text-sm font-medium text-gray-700 flex items-center gap-1">
@@ -278,7 +298,10 @@ export default function FagbankPage() {
                   </label>
                   <select
                     value={selectedCountry}
-                    onChange={(e) => setSelectedCountry(e.target.value)}
+                    onChange={(e) => {
+                      setSelectedCountry(e.target.value);
+                      setCurrentPage(1);
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle land</option>
@@ -295,7 +318,10 @@ export default function FagbankPage() {
                   </label>
                   <select
                     value={selectedUniversity}
-                    onChange={(e) => setSelectedUniversity(e.target.value)}
+                    onChange={(e) => {
+                      setSelectedUniversity(e.target.value);
+                      setCurrentPage(1);
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle universiteter</option>
@@ -312,7 +338,10 @@ export default function FagbankPage() {
                   </label>
                   <select
                     value={selectedECTS}
-                    onChange={(e) => setSelectedECTS(e.target.value)}
+                    onChange={(e) => {
+                      setSelectedECTS(e.target.value);
+                      setCurrentPage(1);
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle studiepoeng</option>
@@ -328,7 +357,8 @@ export default function FagbankPage() {
 
         {/* Results Count */}
         <div className="mb-4 text-gray-600">
-          Viser {filteredCourses.length} av {courses.length} kurs
+          Viser {Math.min((currentPage - 1) * itemsPerPage + 1, filteredCourses.length)}-
+          {Math.min(currentPage * itemsPerPage, filteredCourses.length)} av {filteredCourses.length} kurs
         </div>
 
         {/* Course List */}
@@ -346,163 +376,211 @@ export default function FagbankPage() {
               )}
             </div>
           ) : (
-            filteredCourses.map((course, index) => {
+            paginatedCourses.map((course, index) => {
               const foreignCode = course.Bologna_Emnekode || course.Foreign_Emnekode;
               const foreignName = course.Bologna_Fagnavn || course.Foreign_Fagnavn;
               const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
+              
+              // Use original index from the full dataset to ensure search results outside the top 10 are also blurred
+              const originalIndex = courses.indexOf(course);
+              const isBlurred = !session && originalIndex >= 10;
 
               return (
                 <div
                   key={`${course.NTNU_Emnekode}-${foreignCode}-${index}`}
-                  className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
+                  className={`relative bg-white rounded-lg shadow-sm border border-gray-200 transition-all
+                    ${!isBlurred ? 'hover:shadow-md' : 'overflow-hidden group'}`}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* NTNU Course */}
-                    <div className="border-r-0 md:border-r border-gray-200 pr-0 md:pr-6">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-sm font-semibold text-blue-600 uppercase">
-                          NTNU Kurs
-                        </h3>
-                        <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                          {course.ECTS} ECTS
-                        </span>
-                      </div>
-                      <p className="text-lg font-semibold text-gray-900 mb-1">
-                        {course.NTNU_Emnekode}
-                      </p>
-                      <p className="text-gray-700">{course.NTNU_Fagnavn}</p>
-                    </div>
-
-                    {/* Exchange Course */}
-                    <div>
-                      <div className="mb-3 flex items-center gap-2">
-                        <span className="inline-flex items-center gap-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                          {course.Country}
-                        </span>
-                        {isVerified && (
-                          <span className="inline-flex items-center gap-1 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                            <ShieldCheck size={12} /> Verifisert
+                  <div className={`p-6 ${isBlurred ? 'blur-md select-none' : ''}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* NTNU Course */}
+                      <div className="border-r-0 md:border-r border-gray-200 pr-0 md:pr-6">
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="text-sm font-semibold text-blue-600 uppercase">
+                            NTNU Kurs
+                          </h3>
+                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                            {course.ECTS} ECTS
                           </span>
-                        )}
+                        </div>
+                        <p className="text-lg font-semibold text-gray-900 mb-1">
+                          {course.NTNU_Emnekode}
+                        </p>
+                        <p className="text-gray-700">{course.NTNU_Fagnavn}</p>
                       </div>
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-sm font-semibold text-green-600 uppercase">
-                          Utvekslingskurs
-                        </h3>
-                        <button
-                          onClick={() => {
-                            setSelectedCourse(course);
-                            setShowInfoModal(true);
-                          }}
-                          className="bg-gray-100 text-gray-600 p-1.5 rounded-full hover:bg-gray-200 transition-colors"
-                          title="Vis informasjon"
-                        >
-                          <Info size={16} />
-                        </button>
+
+                      {/* Exchange Course */}
+                      <div>
+                        <div className="mb-3 flex items-center gap-2">
+                          <span className="inline-flex items-center gap-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
+                            {course.Country}
+                          </span>
+                          {isVerified && (
+                            <span className="inline-flex items-center gap-1 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                              <ShieldCheck size={12} /> Verifisert
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="text-sm font-semibold text-green-600 uppercase">
+                            Utvekslingskurs
+                          </h3>
+                          <button
+                            onClick={() => {
+                              if (!isBlurred) {
+                                setSelectedCourse(course);
+                                setShowInfoModal(true);
+                              }
+                            }}
+                            className="bg-gray-100 text-gray-600 p-1.5 rounded-full hover:bg-gray-200 transition-colors"
+                            title="Vis informasjon"
+                            disabled={isBlurred}
+                          >
+                            <Info size={16} />
+                          </button>
+                        </div>
+                        <p className="text-lg font-semibold text-gray-900 mb-1">
+                          {foreignCode}
+                        </p>
+                        <p className="text-gray-700 mb-2">{foreignName}</p>
+                        <p className="text-sm text-gray-600">{course.University}</p>
+                        <p className="text-xs text-gray-500 mt-2">
+                          Godkjent: {new Date(course.Behandlingsdato).toLocaleDateString('nb-NO')}
+                        </p>
                       </div>
-                      <p className="text-lg font-semibold text-gray-900 mb-1">
-                        {foreignCode}
-                      </p>
-                      <p className="text-gray-700 mb-2">{foreignName}</p>
-                      <p className="text-sm text-gray-600">{course.University}</p>
-                      <p className="text-xs text-gray-500 mt-2">
-                        Godkjent: {new Date(course.Behandlingsdato).toLocaleDateString('nb-NO')}
-                      </p>
                     </div>
                   </div>
+                  
+                  {/* Login Overlay for Blurred Items */}
+                  {isBlurred && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/50 z-10">
+                      <Link 
+                        href="/auth/signin"
+                        className="flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-slate-800 transform transition-transform hover:scale-105"
+                      >
+                        <Lock size={18} />
+                        Logg inn for å se faget
+                      </Link>
+                    </div>
+                  )}
                 </div>
               );
             })
           )}
         </div>
+
+        {/* Pagination Controls */}
+        {filteredCourses.length > itemsPerPage && (
+          <div className="mt-8 flex justify-center items-center gap-4">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-gray-700">
+                Side {currentPage} av {totalPages}
+              </span>
+            </div>
+
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Info Modal */}
-      {showInfoModal && selectedCourse && (() => {
-        const foreignCode = selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode;
-        const foreignName = selectedCourse.Bologna_Fagnavn || selectedCourse.Foreign_Fagnavn;
-        const isVerified = !!(selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode);
-
-        return (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowInfoModal(false)}>
-            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6" onClick={(e) => e.stopPropagation()}>
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-2">
-                  <Info className="text-blue-600" size={24} />
-                  <h3 className="text-xl font-bold text-slate-900">Kursinformasjon</h3>
-                </div>
-                <button
-                  onClick={() => setShowInfoModal(false)}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X size={24} />
-                </button>
+      {showInfoModal && selectedCourse && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowInfoModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex items-center gap-2">
+                <Info className="text-blue-600" size={24} />
+                <h3 className="text-xl font-bold text-slate-900">Kursinformasjon</h3>
               </div>
-
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-bold text-slate-800 text-lg">{foreignName}</h4>
-                  <p className="text-sm text-slate-500">{foreignCode}</p>
-                  <p className="text-sm text-slate-600 mt-1">{selectedCourse.University}</p>
-                </div>
-
-                {isVerified ? (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <ShieldCheck className="text-blue-600" size={20} />
-                      <span className="font-semibold text-blue-900">Verifisert kurs</span>
-                    </div>
-                    <p className="text-sm text-slate-700 mb-3">
-                      Bekreftet gjennom NTNU sine wikisider for utveksling.
-                    </p>
-                    {selectedCourse.Wiki_URL && (
-                      <a
-                        href={selectedCourse.Wiki_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-blue-600 hover:text-blue-800 underline break-all"
-                      >
-                        {selectedCourse.Wiki_URL}
-                      </a>
-                    )}
-                    {selectedCourse.Behandlingsdato && (
-                      <p className="text-xs text-slate-500 mt-2">
-                        Behandlingsdato: {new Date(selectedCourse.Behandlingsdato).toLocaleDateString('nb-NO')}
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Info className="text-amber-600" size={20} />
-                      <span className="font-semibold text-amber-900">Brukerlagt kurs</span>
-                    </div>
-                    <p className="text-sm text-slate-700">
-                      Lagt til av: <span className="font-medium">Ukjent bruker</span>
-                    </p>
-                  </div>
-                )}
-
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                  <p className="text-sm text-green-800">
-                    <strong>Matcher NTNU-kurs:</strong> {selectedCourse.NTNU_Emnekode} - {selectedCourse.NTNU_Fagnavn}
-                  </p>
-                  <p className="text-xs text-green-700 mt-1">
-                    <strong>ECTS:</strong> {selectedCourse.ECTS}
-                  </p>
-                </div>
-              </div>
-
               <button
                 onClick={() => setShowInfoModal(false)}
-                className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
               >
-                Lukk
+                <X size={24} />
               </button>
             </div>
+
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-bold text-slate-800 text-lg">
+                  {selectedCourse.Bologna_Fagnavn || selectedCourse.Foreign_Fagnavn}
+                </h4>
+                <p className="text-sm text-slate-500">
+                  {selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode}
+                </p>
+                <p className="text-sm text-slate-600 mt-1">{selectedCourse.University}</p>
+              </div>
+
+              {!!(selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode) ? (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <ShieldCheck className="text-blue-600" size={20} />
+                    <span className="font-semibold text-blue-900">Verifisert kurs</span>
+                  </div>
+                  <p className="text-sm text-slate-700 mb-3">
+                    Bekreftet gjennom NTNU sine wikisider for utveksling.
+                  </p>
+                  {selectedCourse.Wiki_URL && (
+                    <a
+                      href={selectedCourse.Wiki_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-600 hover:text-blue-800 underline break-all"
+                    >
+                      {selectedCourse.Wiki_URL}
+                    </a>
+                  )}
+                  {selectedCourse.Behandlingsdato && (
+                    <p className="text-xs text-slate-500 mt-2">
+                      Behandlingsdato: {new Date(selectedCourse.Behandlingsdato).toLocaleDateString('nb-NO')}
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Info className="text-amber-600" size={20} />
+                    <span className="font-semibold text-amber-900">Brukerlagt kurs</span>
+                  </div>
+                  <p className="text-sm text-slate-700">
+                    Lagt til av: <span className="font-medium">Ukjent bruker</span>
+                  </p>
+                </div>
+              )}
+
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <p className="text-sm text-green-800">
+                  <strong>Matcher NTNU-kurs:</strong> {selectedCourse.NTNU_Emnekode} - {selectedCourse.NTNU_Fagnavn}
+                </p>
+                <p className="text-xs text-green-700 mt-1">
+                  <strong>ECTS:</strong> {selectedCourse.ECTS}
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowInfoModal(false)}
+              className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+            >
+              Lukk
+            </button>
           </div>
-        );
-      })()}
+        </div>
+      )}
 
       {/* Add Course Modal */}
       {showAddCourseModal && (
