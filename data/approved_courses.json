@@ -3311,5 +3311,1949 @@
     "NTNU_Emnekode": null,
     "NTNU_Fagnavn": "Teknisk fyllfag/valgemne EMIL",
     "Behandlingsdato": "2025-08-21"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "2303AFE",
+    "Foreign_Fagnavn": "Economics for Decision Making 2",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind. økonomisk analyse",
+    "Behandlingsdato": "2018-04-19"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "2503 ENG",
+    "Foreign_Fagnavn": "Thermodynamics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4120",
+    "NTNU_Fagnavn": "Termo 1",
+    "Behandlingsdato": "2018-05-24"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "3320ENG",
+    "Foreign_Fagnavn": "Electrical Machines and Renewable Generators",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": "2018-04-16"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "3304ENG",
+    "Foreign_Fagnavn": "Control Systems",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TTk4105",
+    "NTNU_Fagnavn": "Reguleringsteknikk",
+    "Behandlingsdato": "2019-04-19"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "1801ICT",
+    "Foreign_Fagnavn": "Programming Languages",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4102",
+    "NTNU_Fagnavn": "Pros &obj or progr",
+    "Behandlingsdato": "2018-04-18"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "1014SCG",
+    "Foreign_Fagnavn": "Statistics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-03-21"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "1031SCG",
+    "Foreign_Fagnavn": "Physics 1A",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TFY4106",
+    "NTNU_Fagnavn": "Fysikk",
+    "Behandlingsdato": "2018-04-15"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "1003MKT",
+    "Foreign_Fagnavn": "Introduction to Marketing",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2018-04-19"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "2201AFE",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring",
+    "Behandlingsdato": "2020-02-22"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "2314AFE",
+    "Foreign_Fagnavn": "Microeconomic analysis",
+    "ECTS": "10 cred/7,5 sp",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell Økonomisk Analyse",
+    "Behandlingsdato": "2024-09-12"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "7201",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "",
+    "Behandlingsdato": "2024-09-09"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "3203NSC",
+    "Foreign_Fagnavn": "Complex analysis and applications",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4120",
+    "NTNU_Fagnavn": "Matte 4K",
+    "Behandlingsdato": "2024-09-21"
+  },
+  {
+    "University": "Griffith University",
+    "Foreign_Emnekode": "2002ENG",
+    "Foreign_Fagnavn": "Fluid Mechanics and Hydraulics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2023-05-08"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MGB227",
+    "Foreign_Fagnavn": "Entrepenourship",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104250",
+    "NTNU_Fagnavn": "Entreprenørskap",
+    "Behandlingsdato": "2018-06-11"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MATS1192",
+    "Foreign_Fagnavn": "Design & Application of Materials in Science & Eng",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMM4100",
+    "NTNU_Fagnavn": "Materialteknikk",
+    "Behandlingsdato": "2017-01-20"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "BEB111",
+    "Foreign_Fagnavn": "Managing Project Quality",
+    "ECTS": null,
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektstyring",
+    "Behandlingsdato": "2016-10-31"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB432",
+    "Foreign_Fagnavn": "Asset Management and Maintenance",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Ind sikkerhet",
+    "Behandlingsdato": "2016-10-31"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB332",
+    "Foreign_Fagnavn": "Optimisation Modelling",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104126",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2016-11-18"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EFB223",
+    "Foreign_Fagnavn": "Economics 2",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2018-04-16"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB201",
+    "Foreign_Fagnavn": "Advanced Linear Algebra",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4110",
+    "NTNU_Fagnavn": "Matte 3",
+    "Behandlingsdato": "2017-03-09"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB201",
+    "Foreign_Fagnavn": "Advanced Linear Algebra",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4115",
+    "NTNU_Fagnavn": "Matte 3",
+    "Behandlingsdato": "2017-03-09"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB107",
+    "Foreign_Fagnavn": "Introduction to Statistical Modelling",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-01-23"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MGB331",
+    "Foreign_Fagnavn": "Learning and devolopment in Organisations",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2018-02-08"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EFN406",
+    "Foreign_Fagnavn": "Managerial Finance",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2018-02-07"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "AMB303",
+    "Foreign_Fagnavn": "International Logistics",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2018-02-08"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MGB335",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektstyring",
+    "Behandlingsdato": "2018-02-08"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "BSB126",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T104165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2018-02-23"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "AMB140",
+    "Foreign_Fagnavn": "Marketing for the Real World (tidligere: Marketplace Simulation)",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TI04165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2023-09-07"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "AMB299",
+    "Foreign_Fagnavn": "Marketing Communication",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TI04165",
+    "NTNU_Fagnavn": "Markedføringsledelse",
+    "Behandlingsdato": "2023-09-07"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB241",
+    "Foreign_Fagnavn": "Electromagnetics and Machines",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": "2018-01-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGH443",
+    "Foreign_Fagnavn": "Advanced Telecommunications",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TTM4190",
+    "NTNU_Fagnavn": "Kommunikasjonsteknologi for smartgrid",
+    "Behandlingsdato": "2018-01-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB213",
+    "Foreign_Fagnavn": "Energy Systems Fundamentals",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2018-01-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB422",
+    "Foreign_Fagnavn": "Energy Management",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2018-01-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGH445",
+    "Foreign_Fagnavn": "Modern Control",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TTK4105",
+    "NTNU_Fagnavn": "Reguleringsteknikk",
+    "Behandlingsdato": "2018-01-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "CAB201",
+    "Foreign_Fagnavn": "Programming Principles",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4102",
+    "NTNU_Fagnavn": "Prosedyre og obj or progr",
+    "Behandlingsdato": "2018-04-16"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB214",
+    "Foreign_Fagnavn": "Materials and Manufactoring",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMM4100",
+    "NTNU_Fagnavn": "Materialteknikk",
+    "Behandlingsdato": "2018-12-04"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB315",
+    "Foreign_Fagnavn": "Materials Degradation",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMM4100",
+    "NTNU_Fagnavn": "Materialteknikk",
+    "Behandlingsdato": "2019-01-22"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXN500",
+    "Foreign_Fagnavn": "Statistical Data Analysis",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-01-24"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXN500",
+    "Foreign_Fagnavn": "Statistical Data Analysis",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-01-24"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB232",
+    "Foreign_Fagnavn": "Introduction to Operations Research",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TI04126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2019-02-21"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB275",
+    "Foreign_Fagnavn": "Structural mechanics",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TKT4123",
+    "NTNU_Fagnavn": "Mekanikk 2",
+    "Behandlingsdato": "2019-01-04"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB103",
+    "Foreign_Fagnavn": "Introduction to Computational mathematics",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": "2019-01-01"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MGB214",
+    "Foreign_Fagnavn": "Introducing People Management and Analytics",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TI04161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2019-07-15"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MGB131",
+    "Foreign_Fagnavn": "Introducing Human Resource Management",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TI04161",
+    "NTNU_Fagnavn": "Prosjekt- og personalledelse",
+    "Behandlingsdato": "2023-09-07"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "IFD509",
+    "Foreign_Fagnavn": "Data Exploration and Mining",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavare data gruve",
+    "Behandlingsdato": "2020-01-24"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "CAB430",
+    "Foreign_Fagnavn": "Data systems and Information Integration",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavare og Datagruve",
+    "Behandlingsdato": "2020-01-24"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "IFN680.3",
+    "Foreign_Fagnavn": "Artificial Intelligence and Machine Learning",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": "2022-02-01"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "CAB420",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Maskinlæring",
+    "Behandlingsdato": "2023-09-24"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "CAB320",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro KI",
+    "Behandlingsdato": "2023-10-07"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "EGB323",
+    "Foreign_Fagnavn": "Fluid Mechanics",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2025-09-01"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "MXB322",
+    "Foreign_Fagnavn": "Partial Differential Equations",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matematikk 4N",
+    "Behandlingsdato": "2025-09-12"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "PMN604",
+    "Foreign_Fagnavn": "Strategy and Projects",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": "T105210",
+    "NTNU_Fagnavn": "Program- og porteføljeledelse",
+    "Behandlingsdato": "2022-08-31"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "PMN601",
+    "Foreign_Fagnavn": "Projects and Performance",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Valgfag Proman",
+    "Behandlingsdato": "2024-03-22"
+  },
+  {
+    "University": "Queensland University of Technology",
+    "Foreign_Emnekode": "PMN602",
+    "Foreign_Fagnavn": "Organizations and Projects",
+    "ECTS": 7.5,
+    "NTNU_Emnekode": null,
+    "NTNU_Fagnavn": "Valgfag Proman",
+    "Behandlingsdato": "2024-03-22"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "ECON1092",
+    "Foreign_Fagnavn": "Applied Microeconomics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind økonomisk analyse",
+    "Behandlingsdato": "2018-03-01"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "BUSM3119",
+    "Foreign_Fagnavn": "Human Resource Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2018-03-26"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "MKTG1024",
+    "Foreign_Fagnavn": "Marketing principles",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "ECON1020",
+    "Foreign_Fagnavn": "Prices and Markets",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind økonomisk analyse",
+    "Behandlingsdato": "2018-08-08"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "PROC2082",
+    "Foreign_Fagnavn": "Heat and Mass Transfer",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": "Varme masse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "BAFI1008/BAF11059",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-09-01"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "MATH2123",
+    "Foreign_Fagnavn": "Mathematics and statistics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-01-31"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "MATH2123",
+    "Foreign_Fagnavn": "Mathematics and statistics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2019-01-31"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "BUSM1273",
+    "Foreign_Fagnavn": "Project management Techniques",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Project management/Prosjektstyring",
+    "Behandlingsdato": "2019-03-27"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "BUSM1273",
+    "Foreign_Fagnavn": "Project management Techniques",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Project management/Prosjektstyring",
+    "Behandlingsdato": "2019-03-27"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "MATH1288",
+    "Foreign_Fagnavn": "Operations research 1",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2019-01-30"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "COSC2111",
+    "Foreign_Fagnavn": "Data Mining",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Data gruve",
+    "Behandlingsdato": "2019-03-13"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "MGMT90010",
+    "Foreign_Fagnavn": "Strategic Human Resources",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2019-01-24"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "NRMT90018",
+    "Foreign_Fagnavn": "Human Resource Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2019-01-24"
+  },
+  {
+    "University": "RMIT University",
+    "Foreign_Emnekode": "EEET2274",
+    "Foreign_Fagnavn": "Electrical Energy Conversion",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4190",
+    "NTNU_Fagnavn": "Kraftelektronikk",
+    "Behandlingsdato": "2019-10-09"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINM2415",
+    "Foreign_Fagnavn": "CORPORATE FINANCE",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2028-06-10"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG6020",
+    "Foreign_Fagnavn": "Systems Safety Engineering",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK5160",
+    "NTNU_Fagnavn": "Risikoanalyse",
+    "Behandlingsdato": "2024-03-21"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MATH3202",
+    "Foreign_Fagnavn": "Operations Research & Mathematical Planning",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2023-10-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "METR4201",
+    "Foreign_Fagnavn": "Control Engineering 1",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TTK4105",
+    "NTNU_Fagnavn": "Reguleringsteknikk",
+    "Behandlingsdato": "2016-01-05"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGY4000",
+    "Foreign_Fagnavn": "Energy Systems",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2016-01-05"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINM3401",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2017-05-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MKTG1501",
+    "Foreign_Fagnavn": "Foundations of Marketing",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2017-04-05"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MKTG7501",
+    "Foreign_Fagnavn": "Fundamentals of Marketing",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2024-01-22"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG4800",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4162",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 2",
+    "Behandlingsdato": "2024-01-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG4800",
+    "Foreign_Fagnavn": "Project Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK5100",
+    "NTNU_Fagnavn": "Praktisk prosjektledelse",
+    "Behandlingsdato": "2024-10-28"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MGTS2604",
+    "Foreign_Fagnavn": "Introduction to Human Resource Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2017-04-09"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ECON1010",
+    "Foreign_Fagnavn": "Introductory Microeconomics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Mikroøkonomi/Industriell økonomisk analyse",
+    "Behandlingsdato": "2017-04-18"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ECON2320",
+    "Foreign_Fagnavn": "Business & Economic Decision Techniques",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering",
+    "Behandlingsdato": "2023-01-04"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ACCT1101",
+    "Foreign_Fagnavn": "Accounting for Decision Making",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4105",
+    "NTNU_Fagnavn": "Styring og intern regnskap",
+    "Behandlingsdato": "2017-05-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MECH3410",
+    "Foreign_Fagnavn": "Fluid Mechanics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TEP4135",
+    "NTNU_Fagnavn": "Fluidmekanikk 2",
+    "Behandlingsdato": "2023-02-15"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MECH3300",
+    "Foreign_Fagnavn": "Finite Element Method & Fracture Mechanics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMM4135",
+    "NTNU_Fagnavn": "Dimensjonering basert på elementmetoden",
+    "Behandlingsdato": "2017-05-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MGTS7303",
+    "Foreign_Fagnavn": "Principles of Strategic Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2017-05-17"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MGTS3301",
+    "Foreign_Fagnavn": "Global Strategic Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2025-02-06"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG4020",
+    "Foreign_Fagnavn": "Systems Safety Engineering",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
+    "Behandlingsdato": "2017-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG7020",
+    "Foreign_Fagnavn": "Systems Safety Engineering",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
+    "Behandlingsdato": "2017-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG6020",
+    "Foreign_Fagnavn": "Systems Safety Engineering",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
+    "Behandlingsdato": "2024-01-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "PHYS1001",
+    "Foreign_Fagnavn": "Mechanics & Thermal Physics I",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TFY4104",
+    "NTNU_Fagnavn": "Fysikk",
+    "Behandlingsdato": "2017-09-22"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MECH2410",
+    "Foreign_Fagnavn": "Fundamentals of Fluid Mechanics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2024-10-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT3001",
+    "Foreign_Fagnavn": "Mathematical Statistics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA4267",
+    "NTNU_Fagnavn": "Stokastiske prosesser",
+    "Behandlingsdato": "2017-09-22"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MECH3600",
+    "Foreign_Fagnavn": "Engineering Management & Communication",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektstyring",
+    "Behandlingsdato": "2017-02-27"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT7203",
+    "Foreign_Fagnavn": "Applied Probability and Statistics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "COMP3702",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til KI",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "COMP4702",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i kunstig intelligens",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "COMP4702",
+    "Foreign_Fagnavn": "Machine Learning",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4173",
+    "NTNU_Fagnavn": "Maskinlæring",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MATH7232",
+    "Foreign_Fagnavn": "Operations Research & Mathematical Planning",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutn støtte",
+    "Behandlingsdato": "2023-09-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT2003",
+    "Foreign_Fagnavn": "Probability and Statistics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-09-04"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT2003",
+    "Foreign_Fagnavn": "Probability and Statistics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-09-04"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT1201",
+    "Foreign_Fagnavn": "Analysis of Scientific Data",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-08-28"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "STAT1201",
+    "Foreign_Fagnavn": "Analysis of Scientific Data",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2018-08-28"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINM2401",
+    "Foreign_Fagnavn": "Financial Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2019-01-26"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "COM3200",
+    "Foreign_Fagnavn": "Computer networks 1",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TTM4190",
+    "NTNU_Fagnavn": "Kommunikasjonsteknologi for smartgrid",
+    "Behandlingsdato": "2019-02-26"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINM7402",
+    "Foreign_Fagnavn": "Corporate Finance - Sem 1 2018",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "CHEE3002",
+    "Foreign_Fagnavn": "Heat and Mass Transfer",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": "Varme masse",
+    "Behandlingsdato": "2018-10-22"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "CHEE2040",
+    "Foreign_Fagnavn": "Heat and Mass Transfer",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": "Varme- og massetransport",
+    "Behandlingsdato": "2023-08-17"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINM1415",
+    "Foreign_Fagnavn": "Introduction to Finance",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2020-02-12"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MATH4202",
+    "Foreign_Fagnavn": "Advanced Topics in Operations Research",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4130",
+    "NTNU_Fagnavn": "Optimeringsmetoder",
+    "Behandlingsdato": "2021-02-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MATH2100",
+    "Foreign_Fagnavn": "Applied Mathematical Analysis",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matematikk 4N",
+    "Behandlingsdato": "2024-01-16"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "INFS7203",
+    "Foreign_Fagnavn": "Data Mining",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "INFS4203",
+    "Foreign_Fagnavn": "Data Mining",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2025-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ELEC3310",
+    "Foreign_Fagnavn": "Electrical Energy Conversion and Utilisation",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4105",
+    "NTNU_Fagnavn": "Elektriske kraftsystemer 1",
+    "Behandlingsdato": "2023-02-06"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MGTS1601",
+    "Foreign_Fagnavn": "Organisational Behaviour",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4101",
+    "NTNU_Fagnavn": "Organisasjonsteori og Selskapsrett",
+    "Behandlingsdato": "2023-04-03"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ECON 2300",
+    "Foreign_Fagnavn": "Introductory Economics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empiriske og kvantitative metoder i finans",
+    "Behandlingsdato": "2023-02-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "TIMS7328",
+    "Foreign_Fagnavn": "Business Sustainability",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4306",
+    "NTNU_Fagnavn": "Strategier for industriell bærekraft",
+    "Behandlingsdato": "2022-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "FINS3616",
+    "Foreign_Fagnavn": "International Business Finance",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-05-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "CSSE7023",
+    "Foreign_Fagnavn": "Advanced Software Engineering/Object Oriented Programming",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4140",
+    "NTNU_Fagnavn": "Programvareutvikling",
+    "Behandlingsdato": "2023-06-20"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "INFS7901",
+    "Foreign_Fagnavn": "Database Principles",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4145",
+    "NTNU_Fagnavn": "Datamodellering og databasesystemer",
+    "Behandlingsdato": "2023-06-20"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "DECO2500",
+    "Foreign_Fagnavn": "HumanComputer -Interaction",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4180",
+    "NTNU_Fagnavn": "Menneske-maskin- interaksjon",
+    "Behandlingsdato": "2023-06-20"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "IBUS7316",
+    "Foreign_Fagnavn": "International Supply Chains",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "CHEE7112",
+    "Foreign_Fagnavn": "Integrated Safety Design and Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TPK4120",
+    "NTNU_Fagnavn": "Industriell sikkerhet og pålitelighet",
+    "Behandlingsdato": "2024-01-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ENGG1300",
+    "Foreign_Fagnavn": "Introduction to Electrical Systems",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4100",
+    "NTNU_Fagnavn": "Kretsanalyse",
+    "Behandlingsdato": "2024-03-23"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "ELEC4310",
+    "Foreign_Fagnavn": "Power Systems Analysis",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4105",
+    "NTNU_Fagnavn": "Elektriske kraftssystemer 1",
+    "Behandlingsdato": "2024-09-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "COMP3320",
+    "Foreign_Fagnavn": "Vulnerability Assessment and Penetration Testing",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvern",
+    "Behandlingsdato": "2024-09-10"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "BISM3206",
+    "Foreign_Fagnavn": "Machine Learning in Practice",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2024-09-23"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "BISM3206",
+    "Foreign_Fagnavn": "Machine Learning in Practice",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i Kunstig Intelligens",
+    "Behandlingsdato": "2024-09-23"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "BISM2202",
+    "Foreign_Fagnavn": "Data Analytics and Information Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2024-09-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "CSSE2010",
+    "Foreign_Fagnavn": "Computer Fundamentals",
+    "ECTS": null,
+    "NTNU_Emnekode": "TDT4160",
+    "NTNU_Fagnavn": "Datamaskiner",
+    "Behandlingsdato": "2024-02-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "TIMS3309",
+    "Foreign_Fagnavn": "Technology and Innovation Management",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TIØ4180",
+    "NTNU_Fagnavn": "Innovasjonsledelse og strategi",
+    "Behandlingsdato": "2025-03-01"
+  },
+  {
+    "University": "The University of Queensland",
+    "Foreign_Emnekode": "MGTS7610",
+    "Foreign_Fagnavn": "Management Communication",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "N/A",
+    "NTNU_Fagnavn": "Studieprogramrelevant valgemne 4. klasse",
+    "Behandlingsdato": "2025-09-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ECON1101",
+    "Foreign_Fagnavn": "Microeconomics 1",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIO4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2023-08-02"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ECON2101",
+    "Foreign_Fagnavn": "Microeconomics 2",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIO4117",
+    "NTNU_Fagnavn": "Mikroøkonomi",
+    "Behandlingsdato": "2016-04-04"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "SOLA3010",
+    "Foreign_Fagnavn": "Low Energy buildings and Photovoltaics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4235",
+    "NTNU_Fagnavn": "Energibruk i bygninger",
+    "Behandlingsdato": "2016-04-19"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "PTRL5010",
+    "Foreign_Fagnavn": "Natural Gas Engineering",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4185",
+    "NTNU_Fagnavn": "Naturgass -4.ärskurs",
+    "Behandlingsdato": "2016-05-18"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC4617",
+    "Foreign_Fagnavn": "Power system protection",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TET4140",
+    "NTNU_Fagnavn": "Gri.num.modellering i elkrafttekn",
+    "Behandlingsdato": "2016-04-19"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC2146",
+    "Foreign_Fagnavn": "Electrical Engineering Modelling and Simulation",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TET4140",
+    "NTNU_Fagnavn": "Grl.num.modellering i elkrafttekn.",
+    "Behandlingsdato": "2016-03-11"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "CEIC2002",
+    "Foreign_Fagnavn": "Heat and Mass Transfer",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4130",
+    "NTNU_Fagnavn": "Varme masse",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ENGG2500",
+    "Foreign_Fagnavn": "Fluid Mechanics for Engineers",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4100",
+    "NTNU_Fagnavn": "Fluidmekanikk",
+    "Behandlingsdato": "2023-07-12"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "CEIC3001",
+    "Foreign_Fagnavn": "Advanced thermodynamics and separation",
+    "ECTS": null,
+    "NTNU_Emnekode": "TEP4125",
+    "NTNU_Fagnavn": "Termodynarmikk 2",
+    "Behandlingsdato": "2017-10-25"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ECON1203",
+    "Foreign_Fagnavn": "Business & Economic Statistics PartA",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2016-02-19"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "CVEN9702",
+    "Foreign_Fagnavn": "Project planning and Control",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TBA5100",
+    "NTNU_Fagnavn": "Project planning and Control",
+    "Behandlingsdato": "2017-04-17"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MANF6860",
+    "Foreign_Fagnavn": "Strategic Manufacturing Management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK4180",
+    "NTNU_Fagnavn": "Produksjonsstrategi",
+    "Behandlingsdato": "2017-01-14"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MANF9420",
+    "Foreign_Fagnavn": "Operations and supply chain management in Engineering",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2016-04-19"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH2301",
+    "Foreign_Fagnavn": "Mathematical Computing",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": "2016-02-10"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "PHYS1111",
+    "Foreign_Fagnavn": "Fundamentals of Physics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TFY4125",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2015-10-14"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "FINS5511",
+    "Foreign_Fagnavn": "Corporate Finance",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "T104145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2015-11-20"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MGMT2721",
+    "Foreign_Fagnavn": "Managing People",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "T104162",
+    "NTNU_Fagnavn": "Prosjekt-og persenalledelse",
+    "Behandlingsdato": "2024-08-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATS1192",
+    "Foreign_Fagnavn": "Design & Application of Materials in Science & Eng",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMM4100",
+    "NTNU_Fagnavn": "Materialteknikk",
+    "Behandlingsdato": "2017-01-20"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH2089",
+    "Foreign_Fagnavn": "Numerical Methods and Statistics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA..",
+    "NTNU_Fagnavn": "Matte 4",
+    "Behandlingsdato": "2016-05-10"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH2089",
+    "Foreign_Fagnavn": "Numerical Methods and Statistics",
+    "ECTS": null,
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2016-05-10"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MGMT2721",
+    "Foreign_Fagnavn": "Managing People",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TI04102",
+    "NTNU_Fagnavn": "Organisasjon og teknologi 1",
+    "Behandlingsdato": "2024-08-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MBAX9101",
+    "Foreign_Fagnavn": "Project management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TBA5200",
+    "NTNU_Fagnavn": "Project planning and analysis",
+    "Behandlingsdato": "2017-04-17"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MARK2071",
+    "Foreign_Fagnavn": "International and Global Marketing",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
+    "Behandlingsdato": "2017-02-20"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MGMT3001",
+    "Foreign_Fagnavn": "Business and Corporate Strategy",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk Ledelse",
+    "Behandlingsdato": "2017-11-04"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "RISK2001",
+    "Foreign_Fagnavn": "Fundamentals of Risk and Risk Management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK5160",
+    "NTNU_Fagnavn": "Risikoanalyse",
+    "Behandlingsdato": "2017-10-07"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC3105",
+    "Foreign_Fagnavn": "Electrical Energy",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": "2017-11-24"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC5057",
+    "Foreign_Fagnavn": "Energy Efficiency",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2017-11-24"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "SOLA5053",
+    "Foreign_Fagnavn": "Wind Energy converters",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4175",
+    "NTNU_Fagnavn": "Design av vindturbin",
+    "Behandlingsdato": "2017-10-25"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "CVEN9820",
+    "Foreign_Fagnavn": "Computational structural mechanics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMR 4320",
+    "NTNU_Fagnavn": "Simulertbasert Design",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MMAN2400",
+    "Foreign_Fagnavn": "Mechanics of Solids 1-",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TKT 4123",
+    "NTNU_Fagnavn": "Mekanikk 2",
+    "Behandlingsdato": "2018-02-02"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATS1101",
+    "Foreign_Fagnavn": "Engineering Materials and Chemistry",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMM4100",
+    "NTNU_Fagnavn": "Materialteknikk",
+    "Behandlingsdato": "2017-10-19"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "AER3110",
+    "Foreign_Fagnavn": "Aerospace Design",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMR4253",
+    "NTNU_Fagnavn": null,
+    "Behandlingsdato": "2018-06-06"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MFIN6201",
+    "Foreign_Fagnavn": "Empirical Techniques and Applications in finance 2018",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4317",
+    "NTNU_Fagnavn": "Empirisk finans",
+    "Behandlingsdato": "2018-09-12"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "FINS3635",
+    "Foreign_Fagnavn": "Options, Futures and Risk Management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "T104140",
+    "NTNU_Fagnavn": "Prosjektfinans og analyse",
+    "Behandlingsdato": "2018-09-04"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ENGG2400",
+    "Foreign_Fagnavn": "Mechnics of Solids for Civil Engineers",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TKT4123",
+    "NTNU_Fagnavn": "Mekanikk 2",
+    "Behandlingsdato": "2018-11-27"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC4614",
+    "Foreign_Fagnavn": "Power electronics",
+    "ECTS": "7.5",
+    "NTNU_Emnekode": "TET4110",
+    "NTNU_Fagnavn": "Elektriske maskiner",
+    "Behandlingsdato": "2020-01-27"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "SOLA5057",
+    "Foreign_Fagnavn": "Energy Efficiency",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2020-01-27"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "ELEC3114",
+    "Foreign_Fagnavn": "Control systems",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TEP4105",
+    "NTNU_Fagnavn": "Reguleringsteknikk",
+    "Behandlingsdato": "2020-01-27"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MARK2012",
+    "Foreign_Fagnavn": "Marketing Fundamentals",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TI04165",
+    "NTNU_Fagnavn": "Markedsføringsledelse for teknologibedrifter",
+    "Behandlingsdato": "2023-06-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH",
+    "Foreign_Fagnavn": "Optimization",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "T104126",
+    "NTNU_Fagnavn": "Optimering og besluttningsstøtte for teknisk-økonomisk planlegging",
+    "Behandlingsdato": "2023-06-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "FINS3616",
+    "Foreign_Fagnavn": "International Business Finance",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TI04145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2023-05-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH3171",
+    "Foreign_Fagnavn": "Linear & discrete optimization",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "T104126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2023-05-01"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "MATH2018",
+    "Foreign_Fagnavn": "Engineering Mathematics 2D",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4135",
+    "NTNU_Fagnavn": "Matematikk 4D",
+    "Behandlingsdato": "2025-07-18"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "COMP3411",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro KI",
+    "Behandlingsdato": "2024-06-27"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "COMP9417",
+    "Foreign_Fagnavn": "Machine Learning and Data Mining",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder KI",
+    "Behandlingsdato": "2025-09-15"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "INFS5907",
+    "Foreign_Fagnavn": "Fundamentals of Cybersecurity for Business",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4237",
+    "NTNU_Fagnavn": "Programvaresikkerhet og personvem",
+    "Behandlingsdato": "2025-09-15"
+  },
+  {
+    "University": "University of New South Wales",
+    "Foreign_Emnekode": "COMP9444",
+    "Foreign_Fagnavn": "Neural Networks and Deep Learning",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "IT3030",
+    "NTNU_Fagnavn": "Dyp læring",
+    "Behandlingsdato": "2025-09-15"
+  },
+  {
+    "University": "University of Newcastle",
+    "Foreign_Emnekode": "ECON2001",
+    "Foreign_Fagnavn": "Intermediate microeconoimcs",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Ind økonomisk analyse",
+    "Behandlingsdato": "2018-03-18"
+  },
+  {
+    "University": "University of Newcastle",
+    "Foreign_Emnekode": "IRHR2270",
+    "Foreign_Fagnavn": "Introduction to Human Resource Management",
+    "ECTS": null,
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2018-03-18"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "MANT250",
+    "Foreign_Fagnavn": "Managing People",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og Personalledelse",
+    "Behandlingsdato": "2017-11-08"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "MART 112",
+    "Foreign_Fagnavn": "Marketing",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2017-11-06"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "ECON271",
+    "Foreign_Fagnavn": "Intermediate Microeconomic Theory",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2019-01-03"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "COMO303",
+    "Foreign_Fagnavn": "Numerical Methods",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matematikk 4",
+    "Behandlingsdato": "2020-01-23"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "MANT217",
+    "Foreign_Fagnavn": "International Management",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Internasjonal ind. markedsf.",
+    "Behandlingsdato": "2019-11-06"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "FINC206",
+    "Foreign_Fagnavn": "Fundamentals of corporate finance",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4145",
+    "NTNU_Fagnavn": "Finansstyring for foretak",
+    "Behandlingsdato": "2020-01-31"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "STAT110",
+    "Foreign_Fagnavn": "Statistical Methods",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk (implisitt fra fagkode-splitt)",
+    "Behandlingsdato": "2020-01-19"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "STAT110",
+    "Foreign_Fagnavn": "Statistical Methods",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TMA4245",
+    "NTNU_Fagnavn": "Statistikk (implisitt fra fagkode-splitt)",
+    "Behandlingsdato": "2020-01-19"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "STAT115",
+    "Foreign_Fagnavn": "Introduction to Biostatistics",
+    "ECTS": "9-10",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2024-01-31"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "COSCI343",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i Al",
+    "Behandlingsdato": "2019-08-14"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "COSC343",
+    "Foreign_Fagnavn": "Artificial Intelligence",
+    "ECTS": "9-10",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Introduksjon til kunstig intelligense",
+    "Behandlingsdato": "2024-01-22"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "EMAN204",
+    "Foreign_Fagnavn": "Energy Resources",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TET4135",
+    "NTNU_Fagnavn": "Energiplanlegging",
+    "Behandlingsdato": "2022-11-15"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "MANT338",
+    "Foreign_Fagnavn": "Cases in Strategy and Innovation",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk ledelse",
+    "Behandlingsdato": "2023-01-23"
+  },
+  {
+    "University": "University of Otago",
+    "Foreign_Emnekode": "MANT217",
+    "Foreign_Fagnavn": "International Management.",
+    "ECTS": "9",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
+    "Behandlingsdato": "2023-01-24"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "ECON215",
+    "Foreign_Fagnavn": "Microeconomic Theory and Policy",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4117",
+    "NTNU_Fagnavn": "Mikroøkonomi",
+    "Behandlingsdato": "2016-03-17"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MARK343",
+    "Foreign_Fagnavn": "International marketing",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4235",
+    "NTNU_Fagnavn": "Industriell markedsføring og internasjonal handel",
+    "Behandlingsdato": "2017-04-17"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MGNT314",
+    "Foreign_Fagnavn": "Strategic management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4265",
+    "NTNU_Fagnavn": "Strategisk Ledelse",
+    "Behandlingsdato": "2017-04-18"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MGNT206",
+    "Foreign_Fagnavn": "Managing Human Resources",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4161",
+    "NTNU_Fagnavn": "Prosjekt og personalledelse",
+    "Behandlingsdato": "2017-04-18"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MARK203",
+    "Foreign_Fagnavn": "Marketing principles",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2017-04-25"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MARK101",
+    "Foreign_Fagnavn": "Marketing Principles",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4165",
+    "NTNU_Fagnavn": "Markedsføringsledelse",
+    "Behandlingsdato": "2023-07-05"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MATH202",
+    "Foreign_Fagnavn": "Differential Equations 2",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4130",
+    "NTNU_Fagnavn": "Matematikk 4",
+    "Behandlingsdato": "2017-04-27"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MATH318",
+    "Foreign_Fagnavn": "Optimisation and Applications",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte",
+    "Behandlingsdato": "2023-08-07"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "OPS935-",
+    "Foreign_Fagnavn": "Project management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektplanlegging og styring",
+    "Behandlingsdato": "2017-04-25"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "OPS 257-",
+    "Foreign_Fagnavn": "Principles of supply chain management",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK4160",
+    "NTNU_Fagnavn": "Verdikjedestyring",
+    "Behandlingsdato": "2017-04-17"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "ENGG461",
+    "Foreign_Fagnavn": "Managing engineering projects",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TPK4115",
+    "NTNU_Fagnavn": "Prosjektplanlegging og styring",
+    "Behandlingsdato": "2017-06-06"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "MGNT 311",
+    "Foreign_Fagnavn": "Management of change",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4276",
+    "NTNU_Fagnavn": "Endringsledelse",
+    "Behandlingsdato": "2017-06-06"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "STAT252",
+    "Foreign_Fagnavn": "Statistics for the Natural Sciences",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2017-06-06"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "CSC1334",
+    "Foreign_Fagnavn": "Software Design",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4240",
+    "NTNU_Fagnavn": "Programvaredesign",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "INFO411",
+    "Foreign_Fagnavn": "Data Mining and Knowledge Discovery",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4300",
+    "NTNU_Fagnavn": "Datavarehus og datagruvedrift",
+    "Behandlingsdato": "2023-03-16"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "ECTE469",
+    "Foreign_Fagnavn": "Queuing Theory and Optimization",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4126",
+    "NTNU_Fagnavn": "Optimering og beslutningsstøtte for teknisk-økonomisk planlegging",
+    "Behandlingsdato": "2023-01-05"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "ISIT224",
+    "Foreign_Fagnavn": "Management for information systems",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4175",
+    "NTNU_Fagnavn": "Informasjonssystemer",
+    "Behandlingsdato": null
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "STAT101",
+    "Foreign_Fagnavn": "Introduction to Statistics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TMA4240",
+    "NTNU_Fagnavn": "Statistikk",
+    "Behandlingsdato": "2023-01-01"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "CSC1218",
+    "Foreign_Fagnavn": "Foundations of Al",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4136",
+    "NTNU_Fagnavn": "Intro til Al",
+    "Behandlingsdato": "2023-03-16"
+  },
+  {
+    "University": "University of Wollongong",
+    "Foreign_Emnekode": "CSC1323",
+    "Foreign_Fagnavn": "Modern Al",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TDT4171",
+    "NTNU_Fagnavn": "Metoder i Al",
+    "Behandlingsdato": "2023-03-16"
+  },
+  {
+    "University": "University of the Sunshine Coast (Queensland)",
+    "Foreign_Emnekode": "BUS201",
+    "Foreign_Fagnavn": "Applied Microeconomics",
+    "ECTS": "7,5",
+    "NTNU_Emnekode": "TIØ4118",
+    "NTNU_Fagnavn": "Industriell økonomisk analyse",
+    "Behandlingsdato": "2023-01-01"
   }
 ]
