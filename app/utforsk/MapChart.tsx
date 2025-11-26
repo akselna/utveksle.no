@@ -37,6 +37,7 @@ const MapChart = () => {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [universitiesByCountry, setUniversitiesByCountry] = useState<Record<string, string[]>>({});
   const [allExchanges, setAllExchanges] = useState<Exchange[]>([]);
+  const [universityCoordinates, setUniversityCoordinates] = useState<Record<string, { lat: number; lng: number }>>({});
 
   // Update ref whenever state changes
   useEffect(() => {
@@ -61,16 +62,25 @@ const MapChart = () => {
         setAllExchanges(data);
       })
       .catch((err) => console.error("Failed to load exchanges:", err));
+
+    fetch("/extracted-data/university-coordinates.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("University coordinates loaded:", Object.keys(data).length, "universities");
+        setUniversityCoordinates(data);
+      })
+      .catch((err) => console.error("Failed to load coordinates:", err));
   }, []);
 
   useEffect(() => {
     // Wait for data to load before initializing map
-    if (Object.keys(universitiesByCountry).length === 0) {
+    if (Object.keys(universitiesByCountry).length === 0 || Object.keys(universityCoordinates).length === 0) {
       console.log("Waiting for university data to load...");
       return;
     }
 
     console.log("Initializing map with data:", universitiesByCountry);
+    console.log("University coordinates:", universityCoordinates);
 
     // =============================
     // 1. Konfigurasjon
@@ -326,21 +336,22 @@ const MapChart = () => {
               universityMarkersRef.current = L.layerGroup().addTo(mapRef.current);
             }
 
-            // Add university markers (we'll use approximate locations for now)
-            // In a real implementation, you'd have actual coordinates
-            universities.forEach((universityName, index) => {
+            // Add university markers with real GPS coordinates
+            universities.forEach((universityName) => {
               // Get exchanges for this university
               const universityExchanges = allExchanges.filter(
                 (ex) => ex.university === universityName
               );
 
-              // Create a marker (positioned around the country center for now)
-              const center = bounds.getCenter();
-              const offset = 0.5; // Spread markers around
-              const marker = L.marker([
-                center.lat + (Math.random() - 0.5) * offset,
-                center.lng + (Math.random() - 0.5) * offset,
-              ], {
+              // Get the real coordinates for this university
+              const coords = universityCoordinates[universityName];
+              if (!coords) {
+                console.warn(`No coordinates found for ${universityName}`);
+                return; // Skip this university if no coordinates
+              }
+
+              // Create a marker at the real location
+              const marker = L.marker([coords.lat, coords.lng], {
                 icon: L.divIcon({
                   className: 'university-marker',
                   html: `<div style="
@@ -422,7 +433,7 @@ const MapChart = () => {
         mapRef.current = null;
       }
     };
-  }, [universitiesByCountry, allExchanges]);
+  }, [universitiesByCountry, allExchanges, universityCoordinates]);
 
   const resetView = () => {
     if (mapRef.current) {
