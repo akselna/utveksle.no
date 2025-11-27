@@ -5,7 +5,17 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Course } from "@/types/course";
 import approvedCoursesData from "@/data/approved_courses.json";
-import { Search, Filter, X, Info, ShieldCheck, Plus, ChevronLeft, ChevronRight, Lock } from "lucide-react";
+import {
+  Search,
+  Filter,
+  X,
+  Info,
+  ShieldCheck,
+  Plus,
+  ChevronLeft,
+  ChevronRight,
+  Lock,
+} from "lucide-react";
 
 export default function FagbankPage() {
   const { data: session } = useSession();
@@ -19,7 +29,8 @@ export default function FagbankPage() {
   }, []);
 
   // Use shuffled courses if available, otherwise original (e.g. during first render)
-  const displayCourses = shuffledCourses.length > 0 ? shuffledCourses : originalCourses;
+  const displayCourses =
+    shuffledCourses.length > 0 ? shuffledCourses : originalCourses;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState<string>("all");
@@ -46,12 +57,14 @@ export default function FagbankPage() {
       foreignFagnavn: "",
       semester: "Høst",
       ects: "",
-    }
+    },
   ]);
 
   // Get unique values for filters
   const universities = useMemo(() => {
-    const uniqueUniversities = Array.from(new Set(displayCourses.map(c => c.University))).sort();
+    const uniqueUniversities = Array.from(
+      new Set(displayCourses.map((c) => c.University))
+    ).sort();
     return uniqueUniversities;
   }, [displayCourses]);
 
@@ -59,42 +72,58 @@ export default function FagbankPage() {
   const EXCHANGE_UNIVERSITIES = useMemo(() => {
     return [
       "None selected",
-      ...Array.from(new Set((approvedCoursesData as Course[]).map(course =>
-        course.Country && course.University ? `${course.Country} - ${course.University}` : null
-      ).filter(Boolean))).sort()
+      ...Array.from(
+        new Set(
+          (approvedCoursesData as Course[])
+            .map((course) =>
+              course.Country && course.University
+                ? `${course.Country} - ${course.University}`
+                : null
+            )
+            .filter(Boolean)
+        )
+      ).sort(),
     ] as string[];
   }, []);
 
   const countries = useMemo(() => {
-    const uniqueCountries = Array.from(new Set(displayCourses.map(c => c.Country))).sort();
+    const uniqueCountries = Array.from(
+      new Set(displayCourses.map((c) => c.Country))
+    ).sort();
     return uniqueCountries;
   }, [displayCourses]);
 
   const ectsOptions = useMemo(() => {
-    const uniqueECTS = Array.from(new Set(displayCourses.map(c => c.ECTS)))
-      .filter(ects => ects != null && ects !== '')
+    const uniqueECTS = Array.from(new Set(displayCourses.map((c) => c.ECTS)))
+      .filter((ects) => ects != null && ects !== "")
       .sort((a, b) => {
         const strA = String(a);
         const strB = String(b);
-        const numA = parseFloat(strA.replace(',', '.'));
-        const numB = parseFloat(strB.replace(',', '.'));
+        const numA = parseFloat(strA.replace(",", "."));
+        const numB = parseFloat(strB.replace(",", "."));
         return numA - numB;
       });
     return uniqueECTS;
   }, [displayCourses]);
 
-  const hasActiveFilters = searchQuery || selectedUniversity !== "all" || selectedCountry !== "all" || selectedECTS !== "all" || showVerifiedOnly;
+  const hasActiveFilters =
+    searchQuery ||
+    selectedUniversity !== "all" ||
+    selectedCountry !== "all" ||
+    selectedECTS !== "all" ||
+    showVerifiedOnly;
 
   // Filter and search courses - only recalculate when filter dependencies change
   const filteredCourses = useMemo(() => {
-    return displayCourses.filter(course => {
+    return displayCourses.filter((course) => {
       // Verified filter
       const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
       const matchesVerified = !showVerifiedOnly || isVerified;
 
       // Search filter
       const searchLower = searchQuery.toLowerCase();
-      const matchesSearch = !searchQuery ||
+      const matchesSearch =
+        !searchQuery ||
         course.NTNU_Emnekode?.toLowerCase().includes(searchLower) ||
         course.NTNU_Fagnavn?.toLowerCase().includes(searchLower) ||
         course.Bologna_Emnekode?.toLowerCase().includes(searchLower) ||
@@ -105,17 +134,34 @@ export default function FagbankPage() {
         course.Country?.toLowerCase().includes(searchLower);
 
       // University filter
-      const matchesUniversity = selectedUniversity === "all" || course.University === selectedUniversity;
+      const matchesUniversity =
+        selectedUniversity === "all" ||
+        course.University === selectedUniversity;
 
       // Country filter
-      const matchesCountry = selectedCountry === "all" || course.Country === selectedCountry;
+      const matchesCountry =
+        selectedCountry === "all" || course.Country === selectedCountry;
 
       // ECTS filter
-      const matchesECTS = selectedECTS === "all" || course.ECTS === selectedECTS;
+      const matchesECTS =
+        selectedECTS === "all" || course.ECTS === selectedECTS;
 
-      return matchesVerified && matchesSearch && matchesUniversity && matchesCountry && matchesECTS;
+      return (
+        matchesVerified &&
+        matchesSearch &&
+        matchesUniversity &&
+        matchesCountry &&
+        matchesECTS
+      );
     });
-  }, [displayCourses, searchQuery, selectedUniversity, selectedCountry, selectedECTS, showVerifiedOnly]);
+  }, [
+    displayCourses,
+    searchQuery,
+    selectedUniversity,
+    selectedCountry,
+    selectedECTS,
+    showVerifiedOnly,
+  ]);
 
   const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
   const paginatedCourses = filteredCourses.slice(
@@ -135,33 +181,41 @@ export default function FagbankPage() {
 
   // Add new course entry
   const addCourseEntry = useCallback(() => {
-    setCourseEntries(prev => [...prev, {
-      id: Date.now(),
-      ntnuEmnekode: "",
-      ntnuFagnavn: "",
-      foreignEmnekode: "",
-      foreignFagnavn: "",
-      semester: "Høst",
-      ects: "",
-    }]);
+    setCourseEntries((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        ntnuEmnekode: "",
+        ntnuFagnavn: "",
+        foreignEmnekode: "",
+        foreignFagnavn: "",
+        semester: "Høst",
+        ects: "",
+      },
+    ]);
   }, []);
 
   // Remove course entry
   const removeCourseEntry = useCallback((id: number) => {
-    setCourseEntries(prev => {
+    setCourseEntries((prev) => {
       if (prev.length > 1) {
-        return prev.filter(entry => entry.id !== id);
+        return prev.filter((entry) => entry.id !== id);
       }
       return prev;
     });
   }, []);
 
   // Update course entry - optimized with useCallback to prevent re-renders
-  const updateCourseEntry = useCallback((id: number, field: string, value: string) => {
-    setCourseEntries(prev => prev.map(entry =>
-      entry.id === id ? { ...entry, [field]: value } : entry
-    ));
-  }, []);
+  const updateCourseEntry = useCallback(
+    (id: number, field: string, value: string) => {
+      setCourseEntries((prev) =>
+        prev.map((entry) =>
+          entry.id === id ? { ...entry, [field]: value } : entry
+        )
+      );
+    },
+    []
+  );
 
   // Handle add course form submission
   const handleAddCourse = () => {
@@ -172,12 +226,14 @@ export default function FagbankPage() {
     }
 
     // Validate that at least one course has required fields
-    const validEntries = courseEntries.filter(entry =>
-      entry.ntnuEmnekode && entry.foreignEmnekode
+    const validEntries = courseEntries.filter(
+      (entry) => entry.ntnuEmnekode && entry.foreignEmnekode
     );
 
     if (validEntries.length === 0) {
-      alert("Vennligst fyll ut minst ett fag med NTNU emnekode og utvekslings emnekode");
+      alert(
+        "Vennligst fyll ut minst ett fag med NTNU emnekode og utvekslings emnekode"
+      );
       return;
     }
 
@@ -187,7 +243,7 @@ export default function FagbankPage() {
       : ["", exchangeUniversity];
 
     // Create course objects for each valid entry
-    const coursesToAdd = validEntries.map(entry => ({
+    const coursesToAdd = validEntries.map((entry) => ({
       University: university,
       Country: country,
       NTNU_Emnekode: entry.ntnuEmnekode,
@@ -195,7 +251,7 @@ export default function FagbankPage() {
       Foreign_Emnekode: entry.foreignEmnekode,
       Foreign_Fagnavn: entry.foreignFagnavn || "",
       ECTS: entry.ects || "7.5",
-      Behandlingsdato: new Date().toISOString().split('T')[0],
+      Behandlingsdato: new Date().toISOString().split("T")[0],
       Semester: entry.semester,
     }));
 
@@ -203,19 +259,23 @@ export default function FagbankPage() {
 
     // TODO: Send to backend/API to save
     // For now, just show success message
-    alert(`${validEntries.length} kurs er sendt inn! De vil bli gjennomgått og lagt til i fagbanken.`);
+    alert(
+      `${validEntries.length} kurs er sendt inn! De vil bli gjennomgått og lagt til i fagbanken.`
+    );
 
     // Reset form and close modal
     setExchangeUniversity("None selected");
-    setCourseEntries([{
-      id: Date.now(),
-      ntnuEmnekode: "",
-      ntnuFagnavn: "",
-      foreignEmnekode: "",
-      foreignFagnavn: "",
-      semester: "Høst",
-      ects: "",
-    }]);
+    setCourseEntries([
+      {
+        id: Date.now(),
+        ntnuEmnekode: "",
+        ntnuFagnavn: "",
+        foreignEmnekode: "",
+        foreignFagnavn: "",
+        semester: "Høst",
+        ects: "",
+      },
+    ]);
     setShowAddCourseModal(false);
   };
 
@@ -315,8 +375,10 @@ export default function FagbankPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle land</option>
-                    {countries.map(country => (
-                      <option key={country} value={country}>{country}</option>
+                    {countries.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -335,8 +397,10 @@ export default function FagbankPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle universiteter</option>
-                    {universities.map(uni => (
-                      <option key={uni} value={uni}>{uni}</option>
+                    {universities.map((uni) => (
+                      <option key={uni} value={uni}>
+                        {uni}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -355,8 +419,10 @@ export default function FagbankPage() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle studiepoeng</option>
-                    {ectsOptions.map(ects => (
-                      <option key={ects} value={ects}>{ects} ECTS</option>
+                    {ectsOptions.map((ects) => (
+                      <option key={ects} value={ects}>
+                        {ects} ECTS
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -367,15 +433,22 @@ export default function FagbankPage() {
 
         {/* Results Count */}
         <div className="mb-4 text-gray-600">
-          Viser {Math.min((currentPage - 1) * itemsPerPage + 1, filteredCourses.length)}-
-          {Math.min(currentPage * itemsPerPage, filteredCourses.length)} av {displayCourses.length} kurs
+          Viser{" "}
+          {Math.min(
+            (currentPage - 1) * itemsPerPage + 1,
+            filteredCourses.length
+          )}
+          -{Math.min(currentPage * itemsPerPage, filteredCourses.length)} av{" "}
+          {displayCourses.length} kurs
         </div>
 
         {/* Course List */}
         <div className="space-y-4">
           {filteredCourses.length === 0 ? (
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
-              <p className="text-gray-500 text-lg">Ingen kurs funnet med gjeldende filtre</p>
+              <p className="text-gray-500 text-lg">
+                Ingen kurs funnet med gjeldende filtre
+              </p>
               {hasActiveFilters && (
                 <button
                   onClick={resetFilters}
@@ -387,10 +460,14 @@ export default function FagbankPage() {
             </div>
           ) : (
             paginatedCourses.map((course, index) => {
-              const foreignCode = course.Bologna_Emnekode || course.Foreign_Emnekode;
-              const foreignName = course.Bologna_Fagnavn || course.Foreign_Fagnavn;
-              const isVerified = !!(course.Bologna_Emnekode || course.Foreign_Emnekode);
-              
+              const foreignCode =
+                course.Bologna_Emnekode || course.Foreign_Emnekode;
+              const foreignName =
+                course.Bologna_Fagnavn || course.Foreign_Fagnavn;
+              const isVerified = !!(
+                course.Bologna_Emnekode || course.Foreign_Emnekode
+              );
+
               // Use global index from the current display list (shuffled or original)
               // This ensures the first 10 visible cards are unblurred, but search results deep in the list are blurred
               const globalIndex = displayCourses.indexOf(course);
@@ -400,9 +477,13 @@ export default function FagbankPage() {
                 <div
                   key={`${course.NTNU_Emnekode}-${foreignCode}-${index}`}
                   className={`relative bg-white rounded-lg shadow-sm border border-gray-200 transition-all
-                    ${!isBlurred ? 'hover:shadow-md' : 'overflow-hidden group'}`}
+                    ${
+                      !isBlurred ? "hover:shadow-md" : "overflow-hidden group"
+                    }`}
                 >
-                  <div className={`p-6 ${isBlurred ? 'blur-md select-none' : ''}`}>
+                  <div
+                    className={`p-6 ${isBlurred ? "blur-md select-none" : ""}`}
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* NTNU Course */}
                       <div className="border-r-0 md:border-r border-gray-200 pr-0 md:pr-6">
@@ -454,18 +535,23 @@ export default function FagbankPage() {
                           {foreignCode}
                         </p>
                         <p className="text-gray-700 mb-2">{foreignName}</p>
-                        <p className="text-sm text-gray-600">{course.University}</p>
+                        <p className="text-sm text-gray-600">
+                          {course.University}
+                        </p>
                         <p className="text-xs text-gray-500 mt-2">
-                          Godkjent: {new Date(course.Behandlingsdato).toLocaleDateString('nb-NO')}
+                          Godkjent:{" "}
+                          {new Date(course.Behandlingsdato).toLocaleDateString(
+                            "nb-NO"
+                          )}
                         </p>
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Login Overlay for Blurred Items */}
                   {isBlurred && (
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/50 z-10">
-                      <Link 
+                      <Link
                         href="/auth/signin"
                         className="flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-slate-800 transform transition-transform hover:scale-105"
                       >
@@ -484,13 +570,13 @@ export default function FagbankPage() {
         {filteredCourses.length > itemsPerPage && (
           <div className="mt-8 flex justify-center items-center gap-4">
             <button
-              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
               className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               <ChevronLeft size={20} />
             </button>
-            
+
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium text-gray-700">
                 Side {currentPage} av {totalPages}
@@ -498,7 +584,7 @@ export default function FagbankPage() {
             </div>
 
             <button
-              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
               className="p-2 rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
@@ -510,12 +596,20 @@ export default function FagbankPage() {
 
       {/* Info Modal */}
       {showInfoModal && selectedCourse && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowInfoModal(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowInfoModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-2">
                 <Info className="text-blue-600" size={24} />
-                <h3 className="text-xl font-bold text-slate-900">Kursinformasjon</h3>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Kursinformasjon
+                </h3>
               </div>
               <button
                 onClick={() => setShowInfoModal(false)}
@@ -528,19 +622,28 @@ export default function FagbankPage() {
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-slate-800 text-lg">
-                  {selectedCourse.Bologna_Fagnavn || selectedCourse.Foreign_Fagnavn}
+                  {selectedCourse.Bologna_Fagnavn ||
+                    selectedCourse.Foreign_Fagnavn}
                 </h4>
                 <p className="text-sm text-slate-500">
-                  {selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode}
+                  {selectedCourse.Bologna_Emnekode ||
+                    selectedCourse.Foreign_Emnekode}
                 </p>
-                <p className="text-sm text-slate-600 mt-1">{selectedCourse.University}</p>
+                <p className="text-sm text-slate-600 mt-1">
+                  {selectedCourse.University}
+                </p>
               </div>
 
-              {!!(selectedCourse.Bologna_Emnekode || selectedCourse.Foreign_Emnekode) ? (
+              {!!(
+                selectedCourse.Bologna_Emnekode ||
+                selectedCourse.Foreign_Emnekode
+              ) ? (
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <ShieldCheck className="text-blue-600" size={20} />
-                    <span className="font-semibold text-blue-900">Verifisert kurs</span>
+                    <span className="font-semibold text-blue-900">
+                      Verifisert erstatning
+                    </span>
                   </div>
                   <p className="text-sm text-slate-700 mb-3">
                     Bekreftet gjennom NTNU sine wikisider for utveksling.
@@ -557,7 +660,10 @@ export default function FagbankPage() {
                   )}
                   {selectedCourse.Behandlingsdato && (
                     <p className="text-xs text-slate-500 mt-2">
-                      Behandlingsdato: {new Date(selectedCourse.Behandlingsdato).toLocaleDateString('nb-NO')}
+                      Behandlingsdato:{" "}
+                      {new Date(
+                        selectedCourse.Behandlingsdato
+                      ).toLocaleDateString("nb-NO")}
                     </p>
                   )}
                 </div>
@@ -565,17 +671,21 @@ export default function FagbankPage() {
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="text-amber-600" size={20} />
-                    <span className="font-semibold text-amber-900">Brukerlagt kurs</span>
+                    <span className="font-semibold text-amber-900">
+                      Brukerlagt kurs
+                    </span>
                   </div>
                   <p className="text-sm text-slate-700">
-                    Lagt til av: <span className="font-medium">Ukjent bruker</span>
+                    Lagt til av:{" "}
+                    <span className="font-medium">Ukjent bruker</span>
                   </p>
                 </div>
               )}
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                 <p className="text-sm text-green-800">
-                  <strong>Matcher NTNU-kurs:</strong> {selectedCourse.NTNU_Emnekode} - {selectedCourse.NTNU_Fagnavn}
+                  <strong>Matcher NTNU-kurs:</strong>{" "}
+                  {selectedCourse.NTNU_Emnekode} - {selectedCourse.NTNU_Fagnavn}
                 </p>
                 <p className="text-xs text-green-700 mt-1">
                   <strong>ECTS:</strong> {selectedCourse.ECTS}
@@ -595,12 +705,20 @@ export default function FagbankPage() {
 
       {/* Add Course Modal */}
       {showAddCourseModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowAddCourseModal(false)}>
-          <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 my-8 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto"
+          onClick={() => setShowAddCourseModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 my-8 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-start mb-6">
               <div className="flex items-center gap-2">
                 <Plus className="text-blue-600" size={24} />
-                <h3 className="text-2xl font-bold text-slate-900">Legg til godkjente kurs</h3>
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Legg til godkjente kurs
+                </h3>
               </div>
               <button
                 onClick={() => setShowAddCourseModal(false)}
@@ -612,7 +730,8 @@ export default function FagbankPage() {
 
             <div className="space-y-6">
               <p className="text-sm text-gray-600">
-                Bidra til fagbanken ved å dele kurs du har fått godkjent på utveksling!
+                Bidra til fagbanken ved å dele kurs du har fått godkjent på
+                utveksling!
               </p>
 
               {/* University Selection */}
@@ -625,19 +744,26 @@ export default function FagbankPage() {
                   onChange={(e) => setExchangeUniversity(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                 >
-                  {EXCHANGE_UNIVERSITIES.map(uni => (
-                    <option key={uni} value={uni}>{uni}</option>
+                  {EXCHANGE_UNIVERSITIES.map((uni) => (
+                    <option key={uni} value={uni}>
+                      {uni}
+                    </option>
                   ))}
                 </select>
               </div>
 
               {/* Course Entries */}
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Fag</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  Fag
+                </h4>
 
                 <div className="space-y-6">
                   {courseEntries.map((entry, index) => (
-                    <div key={entry.id} className="bg-gray-50 rounded-lg p-4 relative">
+                    <div
+                      key={entry.id}
+                      className="bg-gray-50 rounded-lg p-4 relative"
+                    >
                       {/* Remove button (only show if more than 1 entry) */}
                       {courseEntries.length > 1 && (
                         <button
@@ -650,20 +776,29 @@ export default function FagbankPage() {
                       )}
 
                       <div className="mb-3">
-                        <span className="text-sm font-semibold text-gray-700">Fag {index + 1}</span>
+                        <span className="text-sm font-semibold text-gray-700">
+                          Fag {index + 1}
+                        </span>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* NTNU Course Code */}
                         <div>
                           <label className="block text-xs font-medium text-gray-600 mb-1">
-                            NTNU Emnekode <span className="text-red-500">*</span>
+                            NTNU Emnekode{" "}
+                            <span className="text-red-500">*</span>
                           </label>
                           <input
                             type="text"
                             placeholder="F.eks. TDT4120"
                             value={entry.ntnuEmnekode}
-                            onChange={(e) => updateCourseEntry(entry.id, "ntnuEmnekode", e.target.value.toUpperCase())}
+                            onChange={(e) =>
+                              updateCourseEntry(
+                                entry.id,
+                                "ntnuEmnekode",
+                                e.target.value.toUpperCase()
+                              )
+                            }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           />
                         </div>
@@ -677,7 +812,13 @@ export default function FagbankPage() {
                             type="text"
                             placeholder="F.eks. Algoritmer og datastrukturer"
                             value={entry.ntnuFagnavn}
-                            onChange={(e) => updateCourseEntry(entry.id, "ntnuFagnavn", e.target.value.toUpperCase())}
+                            onChange={(e) =>
+                              updateCourseEntry(
+                                entry.id,
+                                "ntnuFagnavn",
+                                e.target.value.toUpperCase()
+                              )
+                            }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           />
                         </div>
@@ -685,13 +826,20 @@ export default function FagbankPage() {
                         {/* Exchange Course Code */}
                         <div>
                           <label className="block text-xs font-medium text-gray-600 mb-1">
-                            Utvekslings Emnekode <span className="text-red-500">*</span>
+                            Utvekslings Emnekode{" "}
+                            <span className="text-red-500">*</span>
                           </label>
                           <input
                             type="text"
                             placeholder="F.eks. CS101"
                             value={entry.foreignEmnekode}
-                            onChange={(e) => updateCourseEntry(entry.id, "foreignEmnekode", e.target.value.toUpperCase())}
+                            onChange={(e) =>
+                              updateCourseEntry(
+                                entry.id,
+                                "foreignEmnekode",
+                                e.target.value.toUpperCase()
+                              )
+                            }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           />
                         </div>
@@ -705,7 +853,13 @@ export default function FagbankPage() {
                             type="text"
                             placeholder="F.eks. Algorithms and Data Structures"
                             value={entry.foreignFagnavn}
-                            onChange={(e) => updateCourseEntry(entry.id, "foreignFagnavn", e.target.value.toUpperCase())}
+                            onChange={(e) =>
+                              updateCourseEntry(
+                                entry.id,
+                                "foreignFagnavn",
+                                e.target.value.toUpperCase()
+                              )
+                            }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           />
                         </div>
@@ -717,7 +871,13 @@ export default function FagbankPage() {
                           </label>
                           <select
                             value={entry.semester}
-                            onChange={(e) => updateCourseEntry(entry.id, "semester", e.target.value)}
+                            onChange={(e) =>
+                              updateCourseEntry(
+                                entry.id,
+                                "semester",
+                                e.target.value
+                              )
+                            }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           >
                             <option value="Høst">Høst</option>
@@ -736,8 +896,14 @@ export default function FagbankPage() {
                             value={entry.ects}
                             onChange={(e) => {
                               const value = e.target.value;
-                              const sanitizedValue = value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-                              updateCourseEntry(entry.id, "ects", sanitizedValue);
+                              const sanitizedValue = value
+                                .replace(/[^0-9.]/g, "")
+                                .replace(/(\..*)\./g, "$1");
+                              updateCourseEntry(
+                                entry.id,
+                                "ects",
+                                sanitizedValue
+                              );
                             }}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
                           />
@@ -768,7 +934,10 @@ export default function FagbankPage() {
                 onClick={handleAddCourse}
                 className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
               >
-                Send inn {courseEntries.length > 1 ? `${courseEntries.length} kurs` : "kurs"}
+                Send inn{" "}
+                {courseEntries.length > 1
+                  ? `${courseEntries.length} kurs`
+                  : "kurs"}
               </button>
             </div>
           </div>
