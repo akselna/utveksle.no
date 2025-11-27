@@ -48,33 +48,41 @@ export async function GET(request: Request) {
         }
       });
     } else {
-      // Get all plans for user
+      // Get all plans with courses in one query using JOIN and aggregation
       const result = await query(
-        `SELECT ep.*, u.name as university_display_name
+        `SELECT
+          ep.*,
+          u.name as university_display_name,
+          COALESCE(
+            json_agg(
+              CASE WHEN sc.id IS NOT NULL THEN
+                json_build_object(
+                  'id', sc.id,
+                  'course_code', sc.course_code,
+                  'course_name', sc.course_name,
+                  'ects_points', sc.ects_points,
+                  'semester', sc.semester,
+                  'replaces_course_code', sc.replaces_course_code,
+                  'replaces_course_name', sc.replaces_course_name,
+                  'notes', sc.notes
+                )
+              END
+              ORDER BY sc.semester, sc.course_code
+            ) FILTER (WHERE sc.id IS NOT NULL),
+            '[]'
+          ) as courses
          FROM exchange_plans ep
          LEFT JOIN universities u ON ep.university_id = u.id
+         LEFT JOIN saved_courses sc ON sc.exchange_plan_id = ep.id
          WHERE ep.user_id = $1
+         GROUP BY ep.id, u.name
          ORDER BY ep.created_at DESC`,
         [parseInt(session.user.id)]
       );
 
-      // Get courses for each plan
-      const plansWithCourses = await Promise.all(
-        result.rows.map(async (plan) => {
-          const coursesResult = await query(
-            `SELECT * FROM saved_courses WHERE exchange_plan_id = $1 ORDER BY semester, course_code`,
-            [plan.id]
-          );
-          return {
-            ...plan,
-            courses: coursesResult.rows
-          };
-        })
-      );
-
       return NextResponse.json({
         success: true,
-        plans: plansWithCourses
+        plans: result.rows
       });
     }
   } catch (error: any) {

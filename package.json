@@ -10,7 +10,8 @@
     "db:migrate": "tsx db/migrate.ts",
     "db:add-users": "tsx db/add-users-table.ts",
     "db:add-plans": "tsx db/add-exchange-plans-table.ts",
-    "db:update-plans": "tsx db/update-exchange-plans.ts"
+    "db:update-plans": "tsx db/update-exchange-plans.ts",
+    "db:add-experiences": "tsx db/add-experiences-table.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

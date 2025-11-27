@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import {
   Star,
   MapPin,
@@ -17,6 +19,8 @@ import {
   Plus,
   ThumbsUp,
   ThumbsDown,
+  LogIn,
+  Trash2,
 } from "lucide-react";
 
 interface Exchange {
@@ -39,9 +43,12 @@ interface Exchange {
   rating?: number;
   pros?: string[];
   cons?: string[];
+  userId?: number;
 }
 
 export default function ErfaringerPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [exchanges, setExchanges] = useState<Exchange[]>([]);
   const [filteredExchanges, setFilteredExchanges] = useState<Exchange[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string>("all");
@@ -53,6 +60,10 @@ export default function ErfaringerPage() {
   );
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
+  const [showLoginPrompt, setShowLoginPrompt] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>("");
+  const [isLoadingExperiences, setIsLoadingExperiences] = useState<boolean>(true);
   const [universityCoordinates, setUniversityCoordinates] = useState<
     Record<string, { country: string }>
   >({});
@@ -61,7 +72,7 @@ export default function ErfaringerPage() {
   const [formData, setFormData] = useState({
     university: "",
     country: "",
-    study: "",
+    study: "Industriell økonomi",
     studyYear: "",
     semester: "Høst",
     year: new Date().getFullYear().toString(),
@@ -75,6 +86,105 @@ export default function ErfaringerPage() {
     cons: [""],
   });
 
+  // Load experiences from database
+  const loadExperiences = async () => {
+    try {
+      // Try to load from cache first for instant display
+      try {
+        const cachedData = sessionStorage.getItem('cached_experiences_full');
+        if (cachedData) {
+          const parsed = JSON.parse(cachedData);
+          console.log("Using cached experiences:", parsed.length);
+
+          // Sort cached data
+          const sorted = parsed.sort((a: Exchange, b: Exchange) => {
+            const aIsOwn = session?.user?.id && a.userId === parseInt(session.user.id);
+            const bIsOwn = session?.user?.id && b.userId === parseInt(session.user.id);
+            if (aIsOwn && !bIsOwn) return -1;
+            if (!aIsOwn && bIsOwn) return 1;
+            return 0;
+          });
+
+          setExchanges(sorted);
+          setFilteredExchanges(sorted);
+          setIsLoadingExperiences(false); // Show content immediately
+        }
+      } catch (e) {
+        console.error('Failed to load cached experiences:', e);
+      }
+
+      // Then fetch fresh data in background
+      const res = await fetch("/api/experiences");
+      const data = await res.json();
+
+      if (data.success) {
+        // Convert database experiences to Exchange format
+        const dbExperiences: Exchange[] = data.experiences.map((exp: any) => ({
+          id: `db-${exp.id}`,
+          university: exp.university_name,
+          country: exp.country,
+          study: exp.study_program,
+          specialization: exp.specialization,
+          studyYear: exp.study_year.toString(),
+          numSemesters: exp.semester === "Høst + Vår" ? 2 : 1,
+          semester: exp.semester,
+          year: exp.year.toString(),
+          studentName: exp.student_name,
+          review: exp.review,
+          rating: exp.rating,
+          // PostgreSQL JSONB returns as objects, not strings
+          pros: Array.isArray(exp.pros) ? exp.pros : (exp.pros ? [exp.pros] : []),
+          cons: Array.isArray(exp.cons) ? exp.cons : (exp.cons ? [exp.cons] : []),
+          beerPrice: exp.beer_price,
+          mealPrice: exp.meal_price,
+          rentPrice: exp.rent_price,
+          images: Array.isArray(exp.images) ? exp.images : undefined,
+          userId: exp.user_id // Store user_id for ownership check
+        }));
+
+        // Sort: User's own experiences first, then by date
+        const sorted = dbExperiences.sort((a, b) => {
+          const aIsOwn = session?.user?.id && a.userId === parseInt(session.user.id);
+          const bIsOwn = session?.user?.id && b.userId === parseInt(session.user.id);
+
+          if (aIsOwn && !bIsOwn) return -1;
+          if (!aIsOwn && bIsOwn) return 1;
+          return 0; // Keep original order for rest
+        });
+
+        console.log("Loaded experiences from database:", sorted);
+        setExchanges(sorted);
+        setFilteredExchanges(sorted);
+        setIsLoadingExperiences(false);
+
+        // Update cache for Erfaringer page (full data)
+        try {
+          sessionStorage.setItem('cached_experiences_full', JSON.stringify(sorted));
+        } catch (e) {
+          console.error('Failed to update full cache:', e);
+        }
+
+        // Update cache for MapChart (minimal data)
+        try {
+          const mapExchanges = dbExperiences.map(exp => ({
+            id: exp.id,
+            university: exp.university,
+            country: exp.country,
+            study: exp.study,
+            year: exp.year,
+            numSemesters: exp.numSemesters,
+          }));
+          sessionStorage.setItem('cached_experiences', JSON.stringify(mapExchanges));
+        } catch (e) {
+          console.error('Failed to update map cache:', e);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to load experiences:", err);
+      setIsLoadingExperiences(false);
+    }
+  };
+
   useEffect(() => {
     // Check if there's a university filter in URL params
     const params = new URLSearchParams(window.location.search);
@@ -83,16 +193,8 @@ export default function ErfaringerPage() {
       setSelectedUniversity(universityParam);
     }
 
-    // Load exchanges
-    fetch("/extracted-data/all-exchanges.json")
-      .then((res) => res.json())
-      .then((data) => {
-        // Only show exchanges with reviews
-        const withReviews = data.filter((ex: Exchange) => ex.review);
-        setExchanges(withReviews);
-        setFilteredExchanges(withReviews);
-      })
-      .catch((err) => console.error("Failed to load exchanges:", err));
+    // Load experiences from database
+    loadExperiences();
 
     // Load university coordinates
     fetch("/extracted-data/university-coordinates.json")
@@ -171,6 +273,31 @@ export default function ErfaringerPage() {
   const currentYear = new Date().getFullYear();
   const yearOptions = Array.from({ length: 11 }, (_, i) => currentYear - i);
 
+  // Delete experience
+  const handleDeleteExperience = async (experienceId: string) => {
+    if (!confirm("Er du sikker på at du vil slette denne erfaringen?")) {
+      return;
+    }
+
+    try {
+      const dbId = experienceId.replace('db-', '');
+      const res = await fetch(`/api/experiences?id=${dbId}`, {
+        method: 'DELETE',
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to delete experience');
+      }
+
+      // Reload experiences
+      await loadExperiences();
+    } catch (error: any) {
+      alert(`Kunne ikke slette erfaring: ${error.message}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -186,7 +313,19 @@ export default function ErfaringerPage() {
             </p>
           </div>
           <button
-            onClick={() => setShowAddModal(true)}
+            onClick={() => {
+              if (!session) {
+                setShowLoginPrompt(true);
+              } else {
+                // Auto-fill study program from user profile
+                setFormData(prev => ({
+                  ...prev,
+                  study: session.user?.study_program || "",
+                  studentName: session.user?.name || ""
+                }));
+                setShowAddModal(true);
+              }
+            }}
             className="bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
           >
             <Plus size={20} /> Legg til erfaring
@@ -270,13 +409,22 @@ export default function ErfaringerPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-4 text-gray-600">
-          Viser {filteredExchanges.length} av {exchanges.length} erfaringer
-        </div>
+        {!isLoadingExperiences && (
+          <div className="mb-4 text-gray-600">
+            Viser {filteredExchanges.length} av {exchanges.length} erfaringer
+          </div>
+        )}
 
         {/* Experience Cards */}
         <div className="space-y-6">
-          {filteredExchanges.length === 0 ? (
+          {isLoadingExperiences ? (
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <p className="text-gray-600 text-lg font-medium">Laster erfaringer...</p>
+              </div>
+            </div>
+          ) : filteredExchanges.length === 0 ? (
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
               <p className="text-gray-500 text-lg">Ingen erfaringer funnet</p>
             </div>
@@ -332,10 +480,25 @@ export default function ErfaringerPage() {
                         <h2 className="text-2xl font-bold text-gray-900">
                           {exchange.university}
                         </h2>
-                        <span className="inline-flex items-center gap-1 text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
-                          <MapPin size={14} />
-                          {exchange.country}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex items-center gap-1 text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                            <MapPin size={14} />
+                            {exchange.country}
+                          </span>
+                          {/* Delete button for own experiences */}
+                          {session?.user?.id && exchange.userId === parseInt(session.user.id) && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDeleteExperience(exchange.id);
+                              }}
+                              className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                              title="Slett erfaring"
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          )}
+                        </div>
                       </div>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
                         <span className="flex items-center gap-1">
@@ -349,7 +512,7 @@ export default function ErfaringerPage() {
                         {exchange.studentName && (
                           <span className="flex items-center gap-1">
                             <span className="font-medium">
-                              av {exchange.studentName}
+                              av {session?.user?.id && exchange.userId === parseInt(session.user.id) ? "Deg" : exchange.studentName}
                             </span>
                           </span>
                         )}
@@ -586,10 +749,25 @@ export default function ErfaringerPage() {
                   <h2 className="text-3xl font-bold text-gray-900">
                     {selectedExchange.university}
                   </h2>
-                  <span className="inline-flex items-center gap-1 text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
-                    <MapPin size={14} />
-                    {selectedExchange.country}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1 text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                      <MapPin size={14} />
+                      {selectedExchange.country}
+                    </span>
+                    {/* Delete button for own experiences */}
+                    {session?.user?.id && selectedExchange.userId === parseInt(session.user.id) && (
+                      <button
+                        onClick={async () => {
+                          await handleDeleteExperience(selectedExchange.id);
+                          setSelectedExchange(null);
+                        }}
+                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        title="Slett erfaring"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    )}
+                  </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
                   <span className="flex items-center gap-1">
@@ -607,7 +785,7 @@ export default function ErfaringerPage() {
                   {selectedExchange.studentName && (
                     <span className="flex items-center gap-1">
                       <span className="font-medium">
-                        av {selectedExchange.studentName}
+                        av {session?.user?.id && selectedExchange.userId === parseInt(session.user.id) ? "Deg" : selectedExchange.studentName}
                       </span>
                     </span>
                   )}
@@ -783,12 +961,77 @@ export default function ErfaringerPage() {
 
             {/* Form */}
             <div className="p-8">
+              {submitError && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+                  {submitError}
+                </div>
+              )}
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  // Handle form submission
-                  console.log("Form data:", formData);
-                  setShowAddModal(false);
+                  setSubmitError("");
+                  setIsSubmitting(true);
+
+                  try {
+                    // Find university_id from coordinates
+                    const university_id = null; // We don't have this mapping yet, will add later
+
+                    const response = await fetch("/api/experiences", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        university_id,
+                        university_name: formData.university,
+                        country: formData.country,
+                        study_program: formData.study,
+                        specialization: null,
+                        study_year: parseInt(formData.studyYear),
+                        semester: formData.semester,
+                        year: parseInt(formData.year),
+                        student_name: formData.studentName,
+                        review: formData.review,
+                        rating: formData.rating,
+                        pros: formData.pros,
+                        cons: formData.cons,
+                        beer_price: formData.beerPrice,
+                        meal_price: formData.mealPrice,
+                        rent_price: formData.rentPrice,
+                      }),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                      throw new Error(data.error || "Failed to add experience");
+                    }
+
+                    // Reset form
+                    setFormData({
+                      university: "",
+                      country: "",
+                      study: "Industriell økonomi",
+                      studyYear: "",
+                      semester: "Høst",
+                      year: new Date().getFullYear().toString(),
+                      studentName: "",
+                      review: "",
+                      beerPrice: "",
+                      mealPrice: "",
+                      rentPrice: "",
+                      rating: 5,
+                      pros: [""],
+                      cons: [""],
+                    });
+
+                    // Reload experiences
+                    await loadExperiences();
+
+                    setShowAddModal(false);
+                  } catch (error: any) {
+                    setSubmitError(error.message);
+                  } finally {
+                    setIsSubmitting(false);
+                  }
                 }}
               >
                 {/* University */}
@@ -828,21 +1071,16 @@ export default function ErfaringerPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Studie *
                   </label>
-                  <select
+                  <input
+                    type="text"
                     required
                     value={formData.study}
                     onChange={(e) =>
                       setFormData({ ...formData, study: e.target.value })
                     }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  >
-                    <option value="">Velg studie</option>
-                    {studies.map((study) => (
-                      <option key={study} value={study}>
-                        {study}
-                      </option>
-                    ))}
-                  </select>
+                    placeholder="F.eks. Industriell økonomi"
+                  />
                 </div>
 
                 {/* Year, Semester, and Study Year */}
@@ -1142,20 +1380,87 @@ export default function ErfaringerPage() {
                 <div className="flex gap-3 justify-end pt-6 border-t border-gray-200">
                   <button
                     type="button"
-                    onClick={() => setShowAddModal(false)}
-                    className="px-5 py-2 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+                    onClick={() => {
+                      setShowAddModal(false);
+                      setSubmitError("");
+                    }}
+                    disabled={isSubmitting}
+                    className="px-5 py-2 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Avbryt
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    disabled={isSubmitting}
+                    className="px-5 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Plus size={18} />
-                    Legg til erfaring
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        Lagrer...
+                      </>
+                    ) : (
+                      <>
+                        <Plus size={18} />
+                        Legg til erfaring
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Login Prompt Modal */}
+      {showLoginPrompt && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowLoginPrompt(false)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-md w-full p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowLoginPrompt(false)}
+              className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-700" />
+            </button>
+
+            {/* Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                <LogIn className="w-8 h-8 text-blue-600" />
+              </div>
+            </div>
+
+            {/* Content */}
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
+              Logg inn for å dele din erfaring
+            </h2>
+            <p className="text-gray-600 text-center mb-6">
+              Du må være logget inn for å kunne legge til dine erfaringer fra utveksling.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowLoginPrompt(false)}
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+              >
+                Avbryt
+              </button>
+              <button
+                onClick={() => router.push("/auth/signin")}
+                className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+              >
+                <LogIn size={18} />
+                Logg inn
+              </button>
             </div>
           </div>
         </div>

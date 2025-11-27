@@ -797,7 +797,19 @@ export default function ExchangePlannerFull() {
 
     // Load plans from database when logged in
     if (session) {
-      setPlansLoading(true);
+      // Try to load from cache first for instant display
+      try {
+        const cached = sessionStorage.getItem('cached_plans');
+        if (cached) {
+          const cachedPlans = JSON.parse(cached);
+          setMyPlans(cachedPlans);
+          setPlansLoading(false);
+        }
+      } catch (e) {
+        console.error('Failed to load cached plans:', e);
+      }
+
+      // Then fetch fresh data in background
       getUserPlans()
         .then((response) => {
           if (response.success && response.plans) {
@@ -835,6 +847,12 @@ export default function ExchangePlannerFull() {
               };
             });
             setMyPlans(dbPlans);
+            // Cache the plans for next time
+            try {
+              sessionStorage.setItem('cached_plans', JSON.stringify(dbPlans));
+            } catch (e) {
+              console.error('Failed to cache plans:', e);
+            }
           }
         })
         .catch((error) => {
@@ -849,6 +867,15 @@ export default function ExchangePlannerFull() {
   }, [session]);
 
   // --- HJELPEFUNKSJONER ---
+  // Helper to update cache whenever plans change
+  const updatePlansCache = (plans: ExchangePlan[]) => {
+    try {
+      sessionStorage.setItem('cached_plans', JSON.stringify(plans));
+    } catch (e) {
+      console.error('Failed to update cache:', e);
+    }
+  };
+
   const calculatedSemester =
     semesterChoice === "Høst" ? studyYear * 2 - 1 : studyYear * 2;
 
@@ -976,9 +1003,9 @@ export default function ExchangePlannerFull() {
 
         // Optimistic update - oppdater UI med en gang
         const previousPlans = myPlans;
-        setMyPlans(
-          myPlans.map((p) => (p.id === editingPlanId ? updatedPlan : p))
-        );
+        const newPlans = myPlans.map((p) => (p.id === editingPlanId ? updatedPlan : p));
+        setMyPlans(newPlans);
+        updatePlansCache(newPlans);
 
         try {
           await updateExchangePlan(dbId, {
@@ -991,6 +1018,7 @@ export default function ExchangePlannerFull() {
         } catch (error: any) {
           // Rollback hvis det feiler
           setMyPlans(previousPlans);
+          updatePlansCache(previousPlans);
           throw error;
         }
       } else {
@@ -1013,7 +1041,11 @@ export default function ExchangePlannerFull() {
         };
 
         // Optimistic update - legg til plan i UI med en gang
-        setMyPlans((prevPlans) => [tempPlan, ...prevPlans]);
+        setMyPlans((prevPlans) => {
+          const newPlans = [tempPlan, ...prevPlans];
+          updatePlansCache(newPlans);
+          return newPlans;
+        });
 
         try {
           const result = await saveExchangePlan({
@@ -1028,15 +1060,21 @@ export default function ExchangePlannerFull() {
           });
 
           // Erstatt midlertidig ID med ekte database ID
-          setMyPlans((prevPlans) =>
-            prevPlans.map(p => p.id === tempId
+          setMyPlans((prevPlans) => {
+            const updatedPlans = prevPlans.map(p => p.id === tempId
               ? {...p, id: `db-${result.plan.id}`}
               : p
-            )
-          );
+            );
+            updatePlansCache(updatedPlans);
+            return updatedPlans;
+          });
         } catch (error: any) {
           // Fjern midlertidig plan hvis det feiler
-          setMyPlans((prevPlans) => prevPlans.filter(p => p.id !== tempId));
+          setMyPlans((prevPlans) => {
+            const filteredPlans = prevPlans.filter(p => p.id !== tempId);
+            updatePlansCache(filteredPlans);
+            return filteredPlans;
+          });
           throw error;
         }
       }
@@ -1057,7 +1095,9 @@ export default function ExchangePlannerFull() {
   const handleDeletePlan = async (planId: string) => {
     // Optimistic update - fjern plan fra UI med en gang
     const previousPlans = myPlans;
-    setMyPlans(myPlans.filter((p) => p.id !== planId));
+    const newPlans = myPlans.filter((p) => p.id !== planId);
+    setMyPlans(newPlans);
+    updatePlansCache(newPlans);
 
     if (planId.startsWith('db-')) {
       // Delete from database
@@ -1067,6 +1107,7 @@ export default function ExchangePlannerFull() {
       } catch (error: any) {
         // Rollback hvis det feiler
         setMyPlans(previousPlans);
+        updatePlansCache(previousPlans);
         alert(`Kunne ikke slette plan: ${error.message}`);
       }
     }
@@ -1247,18 +1288,26 @@ export default function ExchangePlannerFull() {
                                 const oldName = plan.planName;
 
                                 // Optimistic update - oppdater UI med en gang
-                                setMyPlans(prev => prev.map(p =>
-                                  p.id === plan.id ? {...p, planName: newName} : p
-                                ));
+                                setMyPlans(prev => {
+                                  const updated = prev.map(p =>
+                                    p.id === plan.id ? {...p, planName: newName} : p
+                                  );
+                                  updatePlansCache(updated);
+                                  return updated;
+                                });
                                 setEditingPlanName(null);
 
                                 try {
                                   await updateExchangePlan(dbId, { plan_name: newName });
                                 } catch (error) {
                                   // Rollback hvis det feiler
-                                  setMyPlans(prev => prev.map(p =>
-                                    p.id === plan.id ? {...p, planName: oldName} : p
-                                  ));
+                                  setMyPlans(prev => {
+                                    const rolledBack = prev.map(p =>
+                                      p.id === plan.id ? {...p, planName: oldName} : p
+                                    );
+                                    updatePlansCache(rolledBack);
+                                    return rolledBack;
+                                  });
                                   alert('Kunne ikke oppdatere plannavn');
                                   console.error('Failed to update plan name:', error);
                                 }
@@ -1828,23 +1877,6 @@ export default function ExchangePlannerFull() {
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  {/* Plan name input */}
-                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
-                    <label className="block text-sm font-semibold text-slate-800 mb-2">
-                      Navn på plan (valgfritt)
-                    </label>
-                    <input
-                      type="text"
-                      value={planName}
-                      onChange={(e) => setPlanName(e.target.value)}
-                      placeholder={`${exchangeUniversity} - ${semesterChoice} ${studyYear}`}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                    />
-                    <p className="text-xs text-slate-600 mt-2">
-                      Gi planen et navn for å skille den fra andre planer (f.eks. "Bologna - Robotikk")
-                    </p>
-                  </div>
-
                   <div className="bg-slate-50 p-4 rounded-xl">
                     <h3 className="font-semibold text-slate-800 mb-2">
                       Plandetaljer
@@ -2223,8 +2255,11 @@ function PlannerInterface({
                       Dekkes av:
                     </p>
                     <h4 className="font-bold text-xs text-slate-800">
-                      {sub.matchedWith.name}
+                      {sub.matchedWith.code}
                     </h4>
+                    <p className="text-[10px] text-slate-600 line-clamp-1">
+                      {sub.matchedWith.name}
+                    </p>
                     <p className="text-[10px] text-slate-500">
                       {sub.matchedWith.university}
                     </p>

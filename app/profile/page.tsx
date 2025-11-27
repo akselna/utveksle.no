@@ -144,7 +144,7 @@ export default function ProfilePage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 disabled={!editing}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600 text-slate-900"
                 placeholder="Ditt navn"
               />
             </div>
@@ -159,7 +159,7 @@ export default function ProfilePage() {
                 value={formData.study_program}
                 onChange={(e) => setFormData({ ...formData, study_program: e.target.value })}
                 disabled={!editing}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600 text-slate-900"
               >
                 <option value="">Velg studieprogram</option>
                 <option value="Kybernetikk og robotikk">Kybernetikk og robotikk</option>
@@ -183,7 +183,7 @@ export default function ProfilePage() {
                 value={formData.specialization}
                 onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
                 disabled={!editing}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600 text-slate-900"
                 placeholder="F.eks. Autonome systemer"
               />
             </div>
@@ -198,7 +198,7 @@ export default function ProfilePage() {
                 value={formData.study_year}
                 onChange={(e) => setFormData({ ...formData, study_year: e.target.value })}
                 disabled={!editing}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600 text-slate-900"
               >
                 <option value="">Velg årstrinn</option>
                 <option value="1">1. klasse</option>
@@ -220,7 +220,7 @@ export default function ProfilePage() {
                 value={formData.university}
                 onChange={(e) => setFormData({ ...formData, university: e.target.value })}
                 disabled={!editing}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all disabled:bg-gray-50 disabled:text-gray-600 text-slate-900"
                 placeholder="NTNU"
               />
             </div>

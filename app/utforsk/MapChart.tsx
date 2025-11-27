@@ -55,6 +55,7 @@ const MapChart = () => {
     Record<string, { lat: number; lng: number }>
   >({});
   const [mapMode, setMapMode] = useState<"reviews" | "planned">("reviews"); // Toggle between reviews and planned exchanges
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Update ref whenever state changes
   useEffect(() => {
@@ -65,13 +66,77 @@ const MapChart = () => {
   useEffect(() => {
     console.log("Loading exchange data...");
 
-    fetch("/extracted-data/all-exchanges.json")
+    // Try to load from cache first for instant display
+    try {
+      const cachedExchanges = sessionStorage.getItem('cached_experiences');
+      if (cachedExchanges) {
+        const parsed = JSON.parse(cachedExchanges);
+        console.log("Using cached experiences:", parsed.length);
+        setAllExchanges(parsed);
+        setIsLoading(false); // Show map immediately with cached data
+      }
+    } catch (e) {
+      console.error('Failed to load cached experiences:', e);
+    }
+
+    // Then fetch fresh data in background
+    fetch("/api/experiences")
       .then((res) => res.json())
-      .then((data) => {
-        console.log("Exchanges loaded:", data.length, "exchanges");
-        setAllExchanges(data);
+      .then((apiData) => {
+        if (apiData.success && apiData.experiences && apiData.experiences.length > 0) {
+          console.log("Database experiences loaded:", apiData.experiences.length, "experiences");
+
+          // Convert database experiences to Exchange format
+          const dbExchanges: Exchange[] = apiData.experiences.map((exp: any) => ({
+            id: `db-${exp.id}`,
+            university: exp.university_name,
+            country: exp.country,
+            study: exp.study_program,
+            year: exp.year.toString(),
+            numSemesters: exp.semester === "Høst + Vår" ? 2 : 1,
+          }));
+
+          // Cache the experiences for next time
+          try {
+            sessionStorage.setItem('cached_experiences', JSON.stringify(dbExchanges));
+          } catch (e) {
+            console.error('Failed to cache experiences:', e);
+          }
+
+          console.log("Using database exchanges for map");
+          setAllExchanges(dbExchanges);
+          setIsLoading(false);
+        } else {
+          // Fallback to static data if no database experiences
+          console.log("No database experiences, loading static data as fallback");
+          fetch("/extracted-data/all-exchanges.json")
+            .then((res) => res.json())
+            .then((staticData) => {
+              console.log("Static exchanges loaded:", staticData.length, "exchanges");
+              setAllExchanges(staticData);
+              setIsLoading(false);
+            })
+            .catch((err) => {
+              console.error("Failed to load static exchanges:", err);
+              setIsLoading(false);
+            });
+        }
       })
-      .catch((err) => console.error("Failed to load exchanges:", err));
+      .catch((err) => {
+        console.error("Failed to load database experiences:", err);
+        // Fallback to static data on error
+        fetch("/extracted-data/all-exchanges.json")
+          .then((res) => res.json())
+          .then((staticData) => {
+            console.log("Static exchanges loaded (fallback):", staticData.length, "exchanges");
+            setAllExchanges(staticData);
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            console.error("Failed to load static exchanges:", err);
+            setIsLoading(false);
+          });
+      });
 
     fetch("/extracted-data/planned-exchanges.json")
       .then((res) => res.json())
@@ -705,6 +770,41 @@ const MapChart = () => {
       }}
     >
       <div id="map" style={{ width: "100%", height: "100%" }}></div>
+
+      {/* Loading Indicator */}
+      {isLoading && (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 1001,
+            backgroundColor: "white",
+            padding: "30px 40px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "15px",
+          }}
+        >
+          <div
+            style={{
+              width: "40px",
+              height: "40px",
+              border: "4px solid #f3f3f3",
+              borderTop: "4px solid #DC143C",
+              borderRadius: "50%",
+              animation: "spin 1s linear infinite",
+            }}
+          ></div>
+          <div style={{ fontSize: "16px", color: "#333", fontWeight: "500" }}>
+            Laster kartdata...
+          </div>
+        </div>
+      )}
 
       {/* Toggle Button - Map Mode Selector */}
       {!selectedCountry && (
