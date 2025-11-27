@@ -22,6 +22,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import approvedCoursesData from "../../data/approved_courses.json";
+import { saveExchangePlan, updateExchangePlan, getUserPlans, deletePlan } from "@/lib/exchange-plans";
 
 // --- TYPER ---
 type Subject = {
@@ -51,6 +52,7 @@ type AbroadSubject = {
 
 type ExchangePlan = {
   id: string;
+  planName?: string; // Custom name for the plan
   university: string; // Home university
   exchangeUniversity: string; // New field for exchange university
   program: string;
@@ -745,8 +747,11 @@ export default function ExchangePlannerFull() {
   const [showSaveNotification, setShowSaveNotification] = useState(false);
 
   // State for plans
-  const [myPlans, setMyPlans] = useState<ExchangePlan[]>(MOCK_EXCHANGE_PLANS);
+  const [myPlans, setMyPlans] = useState<ExchangePlan[]>([]);
+  const [plansLoading, setPlansLoading] = useState(true);
   const [editingPlanId, setEditingPlanId] = useState<string | null>(null);
+  const [editingPlanName, setEditingPlanName] = useState<{id: string, name: string} | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   // State: Steg 1
   const [university, setUniversity] = useState("NTNU"); // Home university
@@ -760,6 +765,7 @@ export default function ExchangePlannerFull() {
 
   // State: Steg 2 & 3
   const [mySubjects, setMySubjects] = useState<Subject[]>([]);
+  const [planName, setPlanName] = useState("");
 
   // State: Legge til manuelt fag
   const [newSubjectCode, setNewSubjectCode] = useState("");
@@ -769,12 +775,6 @@ export default function ExchangePlannerFull() {
   useEffect(() => {
     const savedProgress = localStorage.getItem("unsaved_plan_progress");
     if (savedProgress) {
-      // Only restore if we are in a session (just logged in)
-      // Or maybe we restore it anyway? The user said "sender den deg til logg inn-siden, men samtidig lagrer progressen"
-      // which implies we want to recover it after login.
-      // If we restore it without session, it might be confusing if they are not logged in yet.
-      // But we want to show it.
-
       if (session) {
         try {
           const parsed = JSON.parse(savedProgress);
@@ -793,6 +793,58 @@ export default function ExchangePlannerFull() {
           localStorage.removeItem("unsaved_plan_progress");
         }
       }
+    }
+
+    // Load plans from database when logged in
+    if (session) {
+      setPlansLoading(true);
+      getUserPlans()
+        .then((response) => {
+          if (response.success && response.plans) {
+            // Convert database plans to local format
+            const dbPlans = response.plans.map((dbPlan: any) => {
+              // Convert database courses to Subject format
+              const subjects: Subject[] = (dbPlan.courses || []).map((course: any) => ({
+                id: `${course.course_code}-${course.id}`,
+                code: course.course_code,
+                name: course.course_name,
+                credits: course.ects_points || 0,
+                isSelected: true,
+                matchedWith: course.replaces_course_code ? {
+                  id: `abroad-${course.id}`,
+                  code: course.replaces_course_code,
+                  name: course.replaces_course_name || '',
+                  university: dbPlan.university_name,
+                  country: dbPlan.country || '',
+                  matchesHomeSubjectCode: course.course_code,
+                  ects: course.ects_points?.toString() || '',
+                } : null
+              }));
+
+              return {
+                id: `db-${dbPlan.id}`,
+                planName: dbPlan.plan_name,
+                university: 'NTNU',
+                exchangeUniversity: dbPlan.university_name,
+                program: '',
+                technologyDirection: '',
+                specialization: '',
+                studyYear: 4,
+                semesterChoice: dbPlan.semester || 'Høst',
+                subjects,
+              };
+            });
+            setMyPlans(dbPlans);
+          }
+        })
+        .catch((error) => {
+          console.error('Failed to load plans from database:', error);
+        })
+        .finally(() => {
+          setPlansLoading(false);
+        });
+    } else {
+      setPlansLoading(false);
     }
   }, [session]);
 
@@ -818,7 +870,12 @@ export default function ExchangePlannerFull() {
       MOCK_STUDY_PLANS[fallbackKey1] ||
       MOCK_STUDY_PLANS[fallbackKey2] ||
       [];
-    setMySubjects(defaultPlan);
+
+    // Only set subjects if they're empty (first time loading)
+    // This preserves user selections when navigating back
+    if (mySubjects.length === 0) {
+      setMySubjects(defaultPlan);
+    }
     setStep(2);
   };
 
@@ -857,7 +914,10 @@ export default function ExchangePlannerFull() {
     setEditingPlanId(null);
   };
 
-  const handleSavePlan = () => {
+  const handleSavePlan = async () => {
+    // Prevent double-clicking
+    if (isSaving) return;
+
     // Check if user is logged in
     if (!session) {
       const progressToSave = {
@@ -878,51 +938,138 @@ export default function ExchangePlannerFull() {
       return;
     }
 
+    setIsSaving(true);
+
     // Filtrer ut ikke-valgte valgfrie fag før lagring
     const selectedSubjects = mySubjects.filter(
       (sub) => !sub.isElective || sub.isSelected === true
     );
 
-    if (editingPlanId) {
-      const updatedPlan: ExchangePlan = {
-        id: editingPlanId,
-        university,
-        exchangeUniversity,
-        program,
-        technologyDirection,
-        specialization,
-        studyYear,
-        semesterChoice,
-        subjects: selectedSubjects,
-      };
-      setMyPlans(
-        myPlans.map((p) => (p.id === editingPlanId ? updatedPlan : p))
-      );
-    } else {
-      const newPlan: ExchangePlan = {
-        id: `plan-${Date.now()}`,
-        university,
-        exchangeUniversity,
-        program,
-        technologyDirection,
-        specialization,
-        studyYear,
-        semesterChoice,
-        subjects: selectedSubjects,
-      };
-      setMyPlans((prevPlans) => [...prevPlans, newPlan]);
-    }
+    // Prepare courses for database
+    const courses = selectedSubjects.map(sub => ({
+      course_code: sub.matchedWith?.code || '',
+      course_name: sub.matchedWith?.name || '',
+      ects_points: sub.matchedWith?.ects ? parseFloat(sub.matchedWith.ects) : undefined,
+      semester: semesterChoice,
+      replaces_course_code: sub.code,
+      replaces_course_name: sub.name,
+    })).filter(c => c.course_code); // Only include matched courses
 
+    // Vis notifikasjon med en gang
     setShowSaveNotification(true);
-    setTimeout(() => {
+
+    try {
+      if (editingPlanId && editingPlanId.startsWith('db-')) {
+        // Update existing database plan
+        const dbId = parseInt(editingPlanId.replace('db-', ''));
+        const updatedPlan: ExchangePlan = {
+          id: editingPlanId,
+          university,
+          exchangeUniversity,
+          program,
+          technologyDirection,
+          specialization,
+          studyYear,
+          semesterChoice,
+          subjects: selectedSubjects,
+        };
+
+        // Optimistic update - oppdater UI med en gang
+        const previousPlans = myPlans;
+        setMyPlans(
+          myPlans.map((p) => (p.id === editingPlanId ? updatedPlan : p))
+        );
+
+        try {
+          await updateExchangePlan(dbId, {
+            semester: `${semesterChoice} ${studyYear}`,
+            duration: 1,
+            selected_courses: courses,
+            notes: `${program} - ${specialization}`,
+            status: 'draft'
+          });
+        } catch (error: any) {
+          // Rollback hvis det feiler
+          setMyPlans(previousPlans);
+          throw error;
+        }
+      } else {
+        // Save new plan to database
+        const defaultPlanName = planName || `${exchangeUniversity} - ${semesterChoice} ${studyYear}`;
+
+        // Opprett midlertidig plan med en gang
+        const tempId = `temp-${Date.now()}`;
+        const tempPlan: ExchangePlan = {
+          id: tempId,
+          planName: defaultPlanName,
+          university,
+          exchangeUniversity,
+          program,
+          technologyDirection,
+          specialization,
+          studyYear,
+          semesterChoice,
+          subjects: selectedSubjects,
+        };
+
+        // Optimistic update - legg til plan i UI med en gang
+        setMyPlans((prevPlans) => [tempPlan, ...prevPlans]);
+
+        try {
+          const result = await saveExchangePlan({
+            plan_name: defaultPlanName,
+            university_name: exchangeUniversity,
+            country: '',
+            semester: `${semesterChoice} ${studyYear}`,
+            duration: 1,
+            selected_courses: courses,
+            notes: `${program} - ${specialization}`,
+            status: 'draft'
+          });
+
+          // Erstatt midlertidig ID med ekte database ID
+          setMyPlans((prevPlans) =>
+            prevPlans.map(p => p.id === tempId
+              ? {...p, id: `db-${result.plan.id}`}
+              : p
+            )
+          );
+        } catch (error: any) {
+          // Fjern midlertidig plan hvis det feiler
+          setMyPlans((prevPlans) => prevPlans.filter(p => p.id !== tempId));
+          throw error;
+        }
+      }
+
+      setTimeout(() => {
+        setShowSaveNotification(false);
+        setIsSaving(false);
+        setStep(0);
+        resetCreatorForm();
+      }, 1500);
+    } catch (error: any) {
       setShowSaveNotification(false);
-      setStep(0);
-      resetCreatorForm();
-    }, 2000);
+      setIsSaving(false);
+      alert(`Kunne ikke lagre plan: ${error.message}`);
+    }
   };
 
-  const handleDeletePlan = (planId: string) => {
+  const handleDeletePlan = async (planId: string) => {
+    // Optimistic update - fjern plan fra UI med en gang
+    const previousPlans = myPlans;
     setMyPlans(myPlans.filter((p) => p.id !== planId));
+
+    if (planId.startsWith('db-')) {
+      // Delete from database
+      const dbId = parseInt(planId.replace('db-', ''));
+      try {
+        await deletePlan(dbId);
+      } catch (error: any) {
+        // Rollback hvis det feiler
+        setMyPlans(previousPlans);
+        alert(`Kunne ikke slette plan: ${error.message}`);
+      }
+    }
   };
 
   const handleOpenPlan = (planId: string) => {
@@ -954,10 +1101,24 @@ export default function ExchangePlannerFull() {
               {step === 3 && (
                 <button
                   onClick={handleSavePlan}
-                  className="text-sm font-medium text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-colors flex items-center gap-2"
+                  disabled={isSaving}
+                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+                    isSaving
+                      ? 'text-blue-400 bg-blue-50 cursor-not-allowed'
+                      : 'text-blue-600 hover:bg-blue-50'
+                  }`}
                 >
-                  <Save size={16} />{" "}
-                  {editingPlanId ? "Lagre endringer" : "Lagre utkast"}
+                  {isSaving ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                      Lagrer...
+                    </>
+                  ) : (
+                    <>
+                      <Save size={16} />
+                      {editingPlanId ? "Lagre endringer" : "Lagre utkast"}
+                    </>
+                  )}
                 </button>
               )}
             </div>
@@ -1045,32 +1206,88 @@ export default function ExchangePlannerFull() {
               </button>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {myPlans.map((plan) => (
-                <div
-                  key={plan.id}
-                  className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="flex justify-between items-start">
-                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
-                        {plan.program}
-                      </span>
-                      <button
-                        onClick={() => handleDeletePlan(plan.id)}
-                        className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100"
-                      >
-                        <Trash2 size={16} />
-                      </button>
+            {plansLoading ? (
+              <div className="text-center py-20">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <p className="mt-4 text-slate-500">Laster planer...</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {myPlans.map((plan) => (
+                  <div
+                    key={plan.id}
+                    className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start">
+                        <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                          {plan.program}
+                        </span>
+                        <button
+                          onClick={() => handleDeletePlan(plan.id)}
+                          className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                      {editingPlanName?.id === plan.id ? (
+                        <div className="mt-3 flex gap-2">
+                          <input
+                            type="text"
+                            value={editingPlanName.name}
+                            onChange={(e) => setEditingPlanName({id: plan.id, name: e.target.value})}
+                            className="flex-1 px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold"
+                            autoFocus
+                          />
+                          <button
+                            onClick={async () => {
+                              if (plan.id.startsWith('db-')) {
+                                const dbId = parseInt(plan.id.replace('db-', ''));
+                                const newName = editingPlanName.name;
+                                const oldName = plan.planName;
+
+                                // Optimistic update - oppdater UI med en gang
+                                setMyPlans(prev => prev.map(p =>
+                                  p.id === plan.id ? {...p, planName: newName} : p
+                                ));
+                                setEditingPlanName(null);
+
+                                try {
+                                  await updateExchangePlan(dbId, { plan_name: newName });
+                                } catch (error) {
+                                  // Rollback hvis det feiler
+                                  setMyPlans(prev => prev.map(p =>
+                                    p.id === plan.id ? {...p, planName: oldName} : p
+                                  ));
+                                  alert('Kunne ikke oppdatere plannavn');
+                                  console.error('Failed to update plan name:', error);
+                                }
+                              }
+                            }}
+                            className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                          >
+                            <CheckCircle size={16} />
+                          </button>
+                          <button
+                            onClick={() => setEditingPlanName(null)}
+                            className="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                          >
+                            <X size={16} />
+                          </button>
+                        </div>
+                      ) : (
+                        <h3
+                          className="font-bold text-slate-800 mt-3 text-lg cursor-pointer hover:text-blue-600 transition-colors"
+                          onClick={() => setEditingPlanName({id: plan.id, name: plan.planName || plan.exchangeUniversity})}
+                        >
+                          {plan.planName || plan.exchangeUniversity}
+                        </h3>
+                      )}
+                      <p className="text-sm text-slate-500">
+                        {plan.exchangeUniversity} | {plan.university} | {plan.studyYear}. klasse -{" "}
+                        {plan.semesterChoice}
+                      </p>
                     </div>
-                    <h3 className="font-bold text-slate-800 mt-3 text-lg">
-                      {plan.exchangeUniversity}
-                    </h3>
-                    <p className="text-sm text-slate-500">
-                      {plan.university} | {plan.studyYear}. klasse -{" "}
-                      {plan.semesterChoice}
-                    </p>
-                  </div>
                   <div className="mt-6">
                     <p className="text-sm font-medium text-slate-600 mb-2">
                       Fag ({plan.subjects.length})
@@ -1114,9 +1331,10 @@ export default function ExchangePlannerFull() {
                   </button>
                 </div>
               ))}
-            </div>
+              </div>
+            )}
 
-            {myPlans.length === 0 && (
+            {!plansLoading && myPlans.length === 0 && (
               <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl mt-6">
                 <GraduationCap size={40} className="mx-auto text-gray-300" />
                 <h3 className="mt-4 text-lg font-semibold text-slate-700">
@@ -1610,6 +1828,23 @@ export default function ExchangePlannerFull() {
                 </div>
 
                 <div className="space-y-4 mb-8">
+                  {/* Plan name input */}
+                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                    <label className="block text-sm font-semibold text-slate-800 mb-2">
+                      Navn på plan (valgfritt)
+                    </label>
+                    <input
+                      type="text"
+                      value={planName}
+                      onChange={(e) => setPlanName(e.target.value)}
+                      placeholder={`${exchangeUniversity} - ${semesterChoice} ${studyYear}`}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    />
+                    <p className="text-xs text-slate-600 mt-2">
+                      Gi planen et navn for å skille den fra andre planer (f.eks. "Bologna - Robotikk")
+                    </p>
+                  </div>
+
                   <div className="bg-slate-50 p-4 rounded-xl">
                     <h3 className="font-semibold text-slate-800 mb-2">
                       Plandetaljer
@@ -1679,9 +1914,23 @@ export default function ExchangePlannerFull() {
                   </button>
                   <button
                     onClick={handleSavePlan}
-                    className="flex-1 bg-slate-900 text-white py-3 px-6 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2"
+                    disabled={isSaving}
+                    className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 ${
+                      isSaving
+                        ? 'bg-slate-700 cursor-not-allowed'
+                        : 'bg-slate-900 hover:bg-slate-800'
+                    } text-white`}
                   >
-                    <Save size={20} /> Lagre plan
+                    {isSaving ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        Lagrer...
+                      </>
+                    ) : (
+                      <>
+                        <Save size={20} /> Lagre plan
+                      </>
+                    )}
                   </button>
                 </div>
               </div>

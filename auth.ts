@@ -1,17 +1,7 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-
-// TODO: Replace this with a real database
-// For now, we'll use an in-memory array
-// In production, you should use a database like PostgreSQL, MongoDB, etc.
-const users: Array<{
-  id: string;
-  email: string;
-  password: string;
-  name: string;
-}> = [];
+import { verifyPassword, getUserByGoogleId, createUser, getUserById } from "./lib/users";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -32,22 +22,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const email = credentials.email as string;
         const password = credentials.password as string;
 
-        // Find user by email
-        const user = users.find((u) => u.email === email);
+        // Verify user credentials from database
+        const user = await verifyPassword(email, password);
 
         if (!user) {
           return null;
         }
 
-        // Verify password
-        const isValidPassword = await bcrypt.compare(password, user.password);
-
-        if (!isValidPassword) {
-          return null;
-        }
-
         return {
-          id: user.id,
+          id: user.id.toString(),
           email: user.email,
           name: user.name,
         };
@@ -55,15 +38,51 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async signIn({ user, account, profile }) {
+      // Handle Google OAuth
+      if (account?.provider === "google" && profile?.email) {
+        try {
+          // Check if user exists
+          let dbUser = await getUserByGoogleId(account.providerAccountId);
+
+          if (!dbUser) {
+            // Create new user
+            dbUser = await createUser({
+              email: profile.email,
+              name: profile.name || "User",
+              google_id: account.providerAccountId,
+              provider: "google",
+            });
+          }
+
+          user.id = dbUser.id.toString();
+        } catch (error) {
+          console.error("Error in signIn callback:", error);
+          return false;
+        }
+      }
+      return true;
+    },
+    async jwt({ token, user, account }) {
       if (user) {
         token.id = user.id;
       }
       return token;
     },
     async session({ session, token }) {
-      if (session.user) {
+      if (session.user && token.id) {
         session.user.id = token.id as string;
+
+        // Fetch full user data from database
+        const userId = parseInt(token.id as string);
+        const dbUser = await getUserById(userId);
+
+        if (dbUser) {
+          session.user.study_program = dbUser.study_program;
+          session.user.specialization = dbUser.specialization;
+          session.user.study_year = dbUser.study_year;
+          session.user.university = dbUser.university;
+        }
       }
       return session;
     },
@@ -73,34 +92,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 });
 
-// Helper function to register new users
-export async function registerUser(
-  email: string,
-  password: string,
-  name: string
-) {
-  // Check if user already exists
-  const existingUser = users.find((u) => u.email === email);
-  if (existingUser) {
-    throw new Error("User already exists");
-  }
-
-  // Hash password
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  // Create new user
-  const newUser = {
-    id: Math.random().toString(36).substring(7),
-    email,
-    password: hashedPassword,
-    name,
-  };
-
-  users.push(newUser);
-
-  return {
-    id: newUser.id,
-    email: newUser.email,
-    name: newUser.name,
-  };
-}
+// Re-export registerUser from lib/users for backwards compatibility
+export { createUser as registerUser } from "./lib/users";

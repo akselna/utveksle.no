@@ -59,10 +59,13 @@ export default function Navbar() {
             <div className="text-slate-400">Laster...</div>
           ) : session ? (
             <>
-              <div className="flex items-center gap-2 text-slate-700">
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 text-slate-700 hover:text-blue-600 transition-colors"
+              >
                 <User size={20} />
                 <span className="font-medium">{session.user?.name || session.user?.email}</span>
-              </div>
+              </Link>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="text-lg text-slate-600 hover:text-red-600 transition-colors font-medium flex items-center gap-2"

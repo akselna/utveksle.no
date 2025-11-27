@@ -15,6 +15,9 @@ export default function SignInPage() {
     email: "",
     password: "",
     name: "",
+    study_program: "",
+    specialization: "",
+    study_year: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,7 +28,7 @@ export default function SignInPage() {
     try {
       if (isRegistering) {
         // Register new user
-        const res = await fetch("/api/register", {
+        const res = await fetch("/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -149,6 +152,50 @@ export default function SignInPage() {
                   />
                 </div>
               </div>
+            )}
+
+            {isRegistering && (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Studieprogram
+                  </label>
+                  <select
+                    value={formData.study_program}
+                    onChange={(e) =>
+                      setFormData({ ...formData, study_program: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  >
+                    <option value="">Velg studieprogram (valgfritt)</option>
+                    <option value="Kybernetikk og robotikk">Kybernetikk og robotikk</option>
+                    <option value="Datateknologi">Datateknologi</option>
+                    <option value="Elektronisk systemdesign">Elektronisk systemdesign</option>
+                    <option value="Industriell økonomi">Industriell økonomi</option>
+                    <option value="Annet">Annet</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Årstrinn
+                  </label>
+                  <select
+                    value={formData.study_year}
+                    onChange={(e) =>
+                      setFormData({ ...formData, study_year: e.target.value })
+                    }
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                  >
+                    <option value="">Velg årstrinn (valgfritt)</option>
+                    <option value="1">1. klasse</option>
+                    <option value="2">2. klasse</option>
+                    <option value="3">3. klasse</option>
+                    <option value="4">4. klasse</option>
+                    <option value="5">5. klasse</option>
+                  </select>
+                </div>
+              </>
             )}
 
             <div>
