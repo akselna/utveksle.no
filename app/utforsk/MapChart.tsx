@@ -35,6 +35,7 @@ interface PlannedExchange {
   study: string;
   studentName: string;
   semester: string;
+  year?: number;
 }
 
 const MapChart = () => {
@@ -138,13 +139,44 @@ const MapChart = () => {
           });
       });
 
-    fetch("/extracted-data/planned-exchanges.json")
+    // Fetch planned exchanges for the upcoming academic year
+    const now = new Date();
+    const currentMonth = now.getMonth(); // 0-indexed (0 = January, 11 = December)
+    
+    // If currently in first half of year (Jan-July), the next academic year starts in Autumn of THIS year.
+    // If currently in second half of year (Aug-Dec), the NEXT academic year starts in Autumn of NEXT year.
+    // (Note: This strictly follows "Next Study Year". If you are in August planning for Spring, that's "Current Study Year")
+    const academicYearStart = currentMonth < 7 ? now.getFullYear() : now.getFullYear() + 1;
+    
+    console.log(`Fetching planned exchanges for academic year starting: ${academicYearStart}`);
+
+    fetch(`/api/exchange-plans/planned?academic_year_start=${academicYearStart}`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log("Planned exchanges loaded:", data.length, "planned");
-        setPlannedExchanges(data);
+      .then((apiData) => {
+        if (apiData.success && apiData.plannedExchanges && apiData.plannedExchanges.length > 0) {
+          console.log("Planned exchanges loaded from DB:", apiData.plannedExchanges.length, "planned");
+          setPlannedExchanges(apiData.plannedExchanges);
+        } else {
+          console.log("No planned exchanges in DB for next study year, falling back to static data");
+          // Fallback only if no DB data found
+          fetch("/extracted-data/planned-exchanges.json")
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("Planned exchanges loaded (fallback):", data.length, "planned");
+              setPlannedExchanges(data);
+            })
+            .catch((err) => console.error("Failed to load planned exchanges fallback:", err));
+        }
       })
-      .catch((err) => console.error("Failed to load planned exchanges:", err));
+      .catch((err) => {
+        console.error("Failed to load planned exchanges from API:", err);
+        fetch("/extracted-data/planned-exchanges.json")
+          .then((res) => res.json())
+          .then((data) => {
+            setPlannedExchanges(data);
+          })
+          .catch((e) => console.error("Failed to load fallback:", e));
+      });
 
     fetch("/extracted-data/university-coordinates.json")
       .then((res) => res.json())

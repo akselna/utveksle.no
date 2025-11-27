@@ -113,6 +113,7 @@ export async function POST(request: Request) {
       university_name,
       country,
       semester,
+      exchange_year,
       duration,
       selected_courses,
       notes,
@@ -133,8 +134,8 @@ export async function POST(request: Request) {
     // Insert exchange plan
     const planResult = await query(
       `INSERT INTO exchange_plans
-       (user_id, university_id, plan_name, university_name, country, semester, duration, selected_courses, notes, status)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       (user_id, university_id, plan_name, university_name, country, semester, exchange_year, duration, selected_courses, notes, status)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
        RETURNING *`,
       [
         parseInt(session.user.id),
@@ -143,6 +144,7 @@ export async function POST(request: Request) {
         university_name,
         country || null,
         semester || null,
+        exchange_year || null,
         duration || null,
         selected_courses ? JSON.stringify(selected_courses) : null,
         notes || null,
@@ -218,7 +220,7 @@ export async function PATCH(request: Request) {
     }
 
     const body = await request.json();
-    const { plan_name, semester, duration, selected_courses, notes, status, is_favorite } = body;
+    const { plan_name, semester, exchange_year, duration, selected_courses, notes, status, is_favorite } = body;
 
     const updates: string[] = [];
     const values: any[] = [];
@@ -231,6 +233,10 @@ export async function PATCH(request: Request) {
     if (semester !== undefined) {
       updates.push(`semester = $${paramIndex++}`);
       values.push(semester);
+    }
+    if (exchange_year !== undefined) {
+      updates.push(`exchange_year = $${paramIndex++}`);
+      values.push(exchange_year);
     }
     if (duration !== undefined) {
       updates.push(`duration = $${paramIndex++}`);

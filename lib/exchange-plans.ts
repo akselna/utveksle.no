@@ -8,6 +8,7 @@ export interface ExchangePlan {
   university_name: string;
   country?: string;
   semester?: string;
+  exchange_year?: number;
   duration?: number;
   selected_courses?: any[];
   notes?: string;

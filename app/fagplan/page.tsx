@@ -761,6 +761,7 @@ export default function ExchangePlannerFull() {
     useState("Ingen retning");
   const [specialization, setSpecialization] = useState("Ingen fagretning");
   const [studyYear, setStudyYear] = useState<number>(4);
+  const [exchangeYear, setExchangeYear] = useState<number>(new Date().getFullYear());
   const [semesterChoice, setSemesterChoice] = useState("Høst");
 
   // State: Steg 2 & 3
@@ -936,6 +937,7 @@ export default function ExchangePlannerFull() {
     setTechnologyDirection("Ingen retning");
     setSpecialization("Ingen fagretning");
     setStudyYear(4);
+    setExchangeYear(new Date().getFullYear());
     setSemesterChoice("Høst");
     setMySubjects([]);
     setEditingPlanId(null);
@@ -986,6 +988,11 @@ export default function ExchangePlannerFull() {
     setShowSaveNotification(true);
 
     try {
+      // Split "Country - University" string
+      const parts = exchangeUniversity.split(' - ');
+      const countryName = parts.length > 1 ? parts[0] : '';
+      const universityName = parts.length > 1 ? parts.slice(1).join(' - ') : exchangeUniversity;
+
       if (editingPlanId && editingPlanId.startsWith('db-')) {
         // Update existing database plan
         const dbId = parseInt(editingPlanId.replace('db-', ''));
@@ -1009,7 +1016,10 @@ export default function ExchangePlannerFull() {
 
         try {
           await updateExchangePlan(dbId, {
-            semester: `${semesterChoice} ${studyYear}`,
+            university_name: universityName,
+            country: countryName,
+            semester: semesterChoice,
+            exchange_year: exchangeYear,
             duration: 1,
             selected_courses: courses,
             notes: `${program} - ${specialization}`,
@@ -1023,7 +1033,7 @@ export default function ExchangePlannerFull() {
         }
       } else {
         // Save new plan to database
-        const defaultPlanName = planName || `${exchangeUniversity} - ${semesterChoice} ${studyYear}`;
+        const defaultPlanName = planName || `${exchangeUniversity} - ${semesterChoice} ${exchangeYear}`;
 
         // Opprett midlertidig plan med en gang
         const tempId = `temp-${Date.now()}`;
@@ -1050,9 +1060,10 @@ export default function ExchangePlannerFull() {
         try {
           const result = await saveExchangePlan({
             plan_name: defaultPlanName,
-            university_name: exchangeUniversity,
-            country: '',
-            semester: `${semesterChoice} ${studyYear}`,
+            university_name: universityName,
+            country: countryName,
+            semester: semesterChoice,
+            exchange_year: exchangeYear,
             duration: 1,
             selected_courses: courses,
             notes: `${program} - ${specialization}`,
@@ -1514,10 +1525,10 @@ export default function ExchangePlannerFull() {
                 })()}
 
                 {/* Studieår og Semester */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
-                      <Calendar size={14} /> Studieår
+                      <GraduationCap size={14} /> Årstrinn
                     </label>
                     <select
                       className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
@@ -1532,6 +1543,22 @@ export default function ExchangePlannerFull() {
                     </select>
                   </div>
                   <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                      <Calendar size={14} /> Utvekslingsår
+                    </label>
+                    <select
+                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      value={exchangeYear}
+                      onChange={(e) => setExchangeYear(Number(e.target.value))}
+                    >
+                      {Array.from({ length: 5 }, (_, i) => new Date().getFullYear() + i).map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1">
                       Semester
                     </label>
@@ -1541,9 +1568,9 @@ export default function ExchangePlannerFull() {
                       onChange={(e) => setSemesterChoice(e.target.value)}
                     >
                       <option value="Høst">
-                        Høst ({studyYear * 2 - 1}. sem)
+                        Høst
                       </option>
-                      <option value="Vår">Vår ({studyYear * 2}. sem)</option>
+                      <option value="Vår">Vår</option>
                     </select>
                   </div>
                 </div>
