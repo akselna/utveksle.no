@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { LogOut, User } from "lucide-react";
+import Notifications from "./Notifications";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -59,6 +60,7 @@ export default function Navbar() {
             <div className="text-slate-400">Laster...</div>
           ) : session ? (
             <>
+              <Notifications />
               <Link
                 href="/profile"
                 className="flex items-center gap-2 text-slate-700 hover:text-blue-600 transition-colors"

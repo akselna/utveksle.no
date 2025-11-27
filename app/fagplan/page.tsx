@@ -761,7 +761,7 @@ export default function ExchangePlannerFull() {
     useState("Ingen retning");
   const [specialization, setSpecialization] = useState("Ingen fagretning");
   const [studyYear, setStudyYear] = useState<number>(4);
-  const [exchangeYear, setExchangeYear] = useState<number>(new Date().getFullYear());
+  const [exchangeYear, setExchangeYear] = useState<number>(new Date().getFullYear() + 1);
   const [semesterChoice, setSemesterChoice] = useState("Høst");
 
   // State: Steg 2 & 3
@@ -937,7 +937,7 @@ export default function ExchangePlannerFull() {
     setTechnologyDirection("Ingen retning");
     setSpecialization("Ingen fagretning");
     setStudyYear(4);
-    setExchangeYear(new Date().getFullYear());
+    setExchangeYear(new Date().getFullYear() + 1);
     setSemesterChoice("Høst");
     setMySubjects([]);
     setEditingPlanId(null);
@@ -1551,7 +1551,7 @@ export default function ExchangePlannerFull() {
                       value={exchangeYear}
                       onChange={(e) => setExchangeYear(Number(e.target.value))}
                     >
-                      {Array.from({ length: 5 }, (_, i) => new Date().getFullYear() + i).map((year) => (
+                      {Array.from({ length: 5 }, (_, i) => new Date().getFullYear() + 1 + i).map((year) => (
                         <option key={year} value={year}>
                           {year}
                         </option>

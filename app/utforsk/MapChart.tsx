@@ -30,12 +30,14 @@ interface Exchange {
 
 interface PlannedExchange {
   id: string;
+  userId: number; // Added for contact request
   university: string;
   country: string;
   study: string;
   studentName: string;
   semester: string;
   year?: number;
+  contactStatus: 'none' | 'pending_sent' | 'pending_received' | 'accepted' | 'self';
 }
 
 const MapChart = () => {
@@ -43,6 +45,14 @@ const MapChart = () => {
   const geojsonLayerRef = useRef<L.GeoJSON | null>(null);
   const universityMarkersRef = useRef<L.LayerGroup | null>(null);
   const selectedCountryRef = useRef<string | null>(null);
+
+  // Contact Request State
+  const [confirmModal, setConfirmModal] = useState<{isOpen: boolean, userId: number | null, name: string}>({
+    isOpen: false,
+    userId: null,
+    name: ''
+  });
+  const [isSendingRequest, setIsSendingRequest] = useState(false);
 
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [universitiesByCountry, setUniversitiesByCountry] = useState<
@@ -58,10 +68,54 @@ const MapChart = () => {
   const [mapMode, setMapMode] = useState<"reviews" | "planned">("reviews"); // Toggle between reviews and planned exchanges
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Update ref whenever state changes
+  // --- Handlers for Global Window Functions (triggered by popup HTML) ---
   useEffect(() => {
-    selectedCountryRef.current = selectedCountry;
-  }, [selectedCountry]);
+    // Define global function for the popup button to call
+    (window as any).askToShareName = (userId: number, studyProgram: string) => {
+      setConfirmModal({
+        isOpen: true,
+        userId: userId,
+        name: studyProgram // Just displaying study program as identifier for now
+      });
+    };
+
+    return () => {
+      // Cleanup
+      delete (window as any).askToShareName;
+    };
+  }, []);
+
+  const handleConfirmRequest = async () => {
+    if (!confirmModal.userId) return;
+    
+    setIsSendingRequest(true);
+    try {
+      const res = await fetch('/api/contact-requests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ receiver_id: confirmModal.userId }),
+      });
+      
+      if (res.ok) {
+        // Optimistic update: Update the local state to show 'pending_sent'
+        setPlannedExchanges(prev => prev.map(p => 
+          p.userId === confirmModal.userId 
+            ? { ...p, contactStatus: 'pending_sent' } 
+            : p
+        ));
+        setConfirmModal({ ...confirmModal, isOpen: false });
+        alert("Forespørsel sendt!");
+      } else {
+        alert("Kunne ikke sende forespørsel. Du må være logget inn.");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Noe gikk galt.");
+    } finally {
+      setIsSendingRequest(false);
+    }
+  };
+
 
   // Load university and exchange data
   useEffect(() => {
@@ -139,25 +193,35 @@ const MapChart = () => {
           });
       });
 
-    // Fetch planned exchanges for the upcoming academic year
+    // Fetch planned exchanges based on "Next Semester" logic
+    // Rule:
+    // - Jan (0) to June (5): Show upcoming Autumn (Same Year)
+    // - July (6) to Dec (11): Show upcoming Spring (Next Year)
     const now = new Date();
-    const currentMonth = now.getMonth(); // 0-indexed (0 = January, 11 = December)
+    const currentMonth = now.getMonth(); 
     
-    // If currently in first half of year (Jan-July), the next academic year starts in Autumn of THIS year.
-    // If currently in second half of year (Aug-Dec), the NEXT academic year starts in Autumn of NEXT year.
-    // (Note: This strictly follows "Next Study Year". If you are in August planning for Spring, that's "Current Study Year")
-    const academicYearStart = currentMonth < 7 ? now.getFullYear() : now.getFullYear() + 1;
-    
-    console.log(`Fetching planned exchanges for academic year starting: ${academicYearStart}`);
+    let targetSemester, targetYear;
 
-    fetch(`/api/exchange-plans/planned?academic_year_start=${academicYearStart}`)
+    if (currentMonth <= 5) {
+      // January - June -> Look for Autumn this year
+      targetSemester = 'Høst';
+      targetYear = now.getFullYear();
+    } else {
+      // July - December -> Look for Spring next year
+      targetSemester = 'Vår';
+      targetYear = now.getFullYear() + 1;
+    }
+    
+    console.log(`Fetching planned exchanges for: ${targetSemester} ${targetYear}`);
+
+    fetch(`/api/exchange-plans/planned?year=${targetYear}&semester=${targetSemester}`)
       .then((res) => res.json())
       .then((apiData) => {
         if (apiData.success && apiData.plannedExchanges && apiData.plannedExchanges.length > 0) {
           console.log("Planned exchanges loaded from DB:", apiData.plannedExchanges.length, "planned");
           setPlannedExchanges(apiData.plannedExchanges);
         } else {
-          console.log("No planned exchanges in DB for next study year, falling back to static data");
+          console.log(`No planned exchanges found for ${targetSemester} ${targetYear}, falling back to static data`);
           // Fallback only if no DB data found
           fetch("/extracted-data/planned-exchanges.json")
             .then((res) => res.json())
@@ -541,7 +605,14 @@ const MapChart = () => {
               }
 
               // Get the real coordinates for this university
-              const coords = universityCoordinates[universityName];
+              let coords = universityCoordinates[universityName];
+              
+              // If not found, try removing "The " prefix
+              if (!coords && universityName.startsWith("The ")) {
+                const nameWithoutThe = universityName.substring(4);
+                coords = universityCoordinates[nameWithoutThe];
+              }
+
               if (!coords) {
                 console.warn(`No coordinates found for ${universityName}`);
                 return; // Skip this university if no coordinates
@@ -629,7 +700,7 @@ const MapChart = () => {
               } else {
                 const planned = universityData as PlannedExchange[];
                 popupContent = `
-                  <div style="min-width: 200px;">
+                  <div style="min-width: 220px;">
                     <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
                       ${universityName}
                     </h3>
@@ -641,12 +712,33 @@ const MapChart = () => {
                     ${planned
                       .slice(0, 3)
                       .map(
-                        (ex) => `
-                      <div style="margin: 5px 0; padding: 5px; background: #e3f2fd; border-radius: 3px; font-size: 11px;">
-                        <div><strong>${ex.study}</strong></div>
-                        <div>${ex.semester}</div>
-                      </div>
-                    `
+                        (ex) => {
+                          // Determine button/status HTML
+                          let actionHtml = '';
+                          if (ex.contactStatus === 'none') {
+                            actionHtml = `
+                              <button 
+                                onclick="window.askToShareName(${ex.userId}, '${ex.study}')"
+                                style="margin-top:4px; padding:2px 6px; background:#2196F3; color:white; border:none; border-radius:4px; font-size:10px; cursor:pointer;"
+                              >
+                                Spør om å dele navn
+                              </button>
+                            `;
+                          } else if (ex.contactStatus === 'pending_sent') {
+                            actionHtml = `<span style="font-size:10px; color:#999; font-style:italic;">Forespørsel sendt</span>`;
+                          } else if (ex.contactStatus === 'accepted') {
+                            // Name is already in studentName from API if accepted
+                          }
+
+                          return `
+                            <div style="margin: 5px 0; padding: 8px; background: #e3f2fd; border-radius: 4px; font-size: 11px; border-left: 3px solid ${ex.contactStatus === 'accepted' || ex.contactStatus === 'self' ? '#4CAF50' : '#2196F3'}">
+                              <div style="font-weight:bold;">${ex.studentName}</div>
+                              <div style="color:#555;">${ex.study}</div>
+                              <div style="color:#777;">${ex.semester} ${ex.year}</div>
+                              ${actionHtml}
+                            </div>
+                          `;
+                        }
                       )
                       .join("")}
                     ${
@@ -993,6 +1085,34 @@ const MapChart = () => {
           <span>Ingen utveksling</span>
         </div>
       </div>
+      {/* Confirmation Modal */}
+      {confirmModal.isOpen && (
+        <div className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in-95 duration-200">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Spør om kontakt?</h3>
+            <p className="text-slate-600 mb-6">
+              Du sender nå en forespørsel til studenten som går <strong>{confirmModal.name}</strong>.
+              <br/><br/>
+              Dersom personen godtar forespørselen, vil <strong>dere begge</strong> få se hverandres fulle navn.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setConfirmModal({...confirmModal, isOpen: false})}
+                className="flex-1 py-3 px-4 bg-gray-100 text-slate-700 font-bold rounded-xl hover:bg-gray-200 transition-colors"
+              >
+                Avbryt
+              </button>
+              <button
+                onClick={handleConfirmRequest}
+                disabled={isSendingRequest}
+                className="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors flex justify-center items-center"
+              >
+                {isSendingRequest ? 'Sender...' : 'Send forespørsel'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
