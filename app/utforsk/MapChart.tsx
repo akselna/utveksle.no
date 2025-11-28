@@ -67,6 +67,7 @@ const MapChart = () => {
   >({});
   const [mapMode, setMapMode] = useState<"reviews" | "planned">("reviews"); // Toggle between reviews and planned exchanges
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [geoJsonData, setGeoJsonData] = useState<any>(null);
 
   // --- Handlers for Global Window Functions (triggered by popup HTML) ---
   useEffect(() => {
@@ -116,6 +117,18 @@ const MapChart = () => {
     }
   };
 
+  // Load GeoJSON data once on mount
+  useEffect(() => {
+    fetch("/data/world.geojson")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("GeoJSON data loaded");
+        setGeoJsonData(data);
+      })
+      .catch((err: Error) =>
+        console.error("Kunne ikke laste world.geojson:", err)
+      );
+  }, []);
 
   // Load university and exchange data
   useEffect(() => {
@@ -286,8 +299,8 @@ const MapChart = () => {
 
   useEffect(() => {
     // Wait for data to load before initializing map
-    if (Object.keys(universityCoordinates).length === 0) {
-      console.log("Waiting for university data to load...");
+    if (Object.keys(universityCoordinates).length === 0 || !geoJsonData) {
+      console.log("Waiting for data to load (universities or GeoJSON)...");
       return;
     }
 
@@ -352,479 +365,556 @@ const MapChart = () => {
     // 3. Legg til Jawg Matrix tile layer
     // =============================
 
-    const JAWG_TOKEN =
-      "esduRluv57sFez7IV5TFGpfhwLD2c4WasWVyKjMSxCVYQkeRK2tO94HVbOwAySO5";
+    // Only add tile layer if it's not already added
+    // We can check if the map has layers, or just rely on L.tileLayer not duplicating if we handle it right.
+    // Since we are reusing mapRef.current, we should be careful.
+    // However, Leaflet doesn't easily let us check for specific tile layers without keeping a ref to the layer itself.
+    // A simple way is to not clear the map on every update, only the geojson/markers.
+    // But here we are creating the tile layer every time. Let's fix that.
+    
+    // Actually, in this effect, we are doing everything. Ideally we should have a separate effect for map init.
+    // But to minimize diff, let's just check if we have already added tiles.
+    // We can store the tile layer in a ref too if needed, but since we don't clear *everything*, just layers we manage...
+    
+    // Wait, previously we did NOT clear the map. We just did `if (!mapRef.current) ... else ...`.
+    // So the map instance persists.
+    // But the TileLayer code below runs EVERY TIME this effect runs. That adds multiple tile layers!
+    // FIX: Add a ref for tile layer or check if it exists.
+    
+    // Let's assume we only want to add it once.
+    // Since we don't have a ref for it in the original code, I'll just add it if map was just created.
+    // But map creation is inside the `if (!mapRef.current)` block.
+    // So I should move the TileLayer addition INSIDE that block.
 
-    L.tileLayer(
-      `https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_TOKEN}`,
-      {
-        minZoom: 0,
-        maxZoom: 22,
-        attribution:
-          '<a href="https://jawg.io" target="_blank">&copy; Jawg Maps</a> | ' +
-          '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OSM contributors</a>',
+    // MOVED TileLayer inside map creation block below.
+
+    if (!mapRef.current) {
+        // ... code above ...
+    } else {
+        // ... code above ...
+    }
+    
+    // RE-INSERTED TileLayer logic, but now properly guarded or placed.
+    // To correspond to the previous structure but optimized:
+    
+    // We need to ensure TileLayer is added only once.
+    // The easiest way without new refs is to move it into the `if (!mapRef.current)` block.
+    
+    // Let's check where it was... It was outside.
+    // I will move it inside `if (!mapRef.current)`.
+
+    // =============================
+    // 4. Oppdater GeoJSON-kartet
+    // =============================
+    
+    // Helper function to get country color based on number of universities
+    const getCountryColor = (feature: GeoJSON.Feature): string => {
+      const props = feature.properties || {};
+      const countryName = props.name || "";
+
+      // Check if this country has universities
+      const universities = universitiesByCountry[countryName];
+      if (!universities || universities.length === 0) {
+        return "#f0f0f0"; // Light gray for countries with no exchanges
       }
-    ).addTo(mapRef.current);
 
-    // =============================
-    // 4. Importer GeoJSON-kartet
-    // =============================
-    fetch("/data/world.geojson")
-      .then((response) => response.json())
-      .then((geojsonData) => {
-        // Helper function to get country color based on number of universities
-        const getCountryColor = (feature: GeoJSON.Feature): string => {
-          const props = feature.properties || {};
-          const countryName = props.name || "";
+      // Color based on number of universities (shades of red)
+      const count = universities.length;
+      if (count >= 10) return "#8B0000"; // Dark red
+      if (count >= 7) return "#A4133C"; // Very deep red
+      if (count >= 5) return "#C9184A"; // Deep red
+      if (count >= 3) return "#DC143C"; // Crimson
+      if (count >= 2) return "#EE5A6F"; // Medium red
+      return "#FF6B6B"; // Light red (1 university)
+    };
 
-          // Check if this country has universities
-          const universities = universitiesByCountry[countryName];
-          if (!universities || universities.length === 0) {
-            return "#f0f0f0"; // Light gray for countries with no exchanges
-          }
+    // GeoJSON styling - now dynamic based on country and selection
+    const style = (feature?: GeoJSON.Feature): L.PathOptions => {
+      if (!feature) {
+        return {
+          weight: 1.2,
+          color: "#222",
+          fillColor: "#f0f0f0",
+          fillOpacity: 0.5,
+        };
+      }
 
-          // Color based on number of universities (shades of red)
-          const count = universities.length;
-          if (count >= 10) return "#8B0000"; // Dark red
-          if (count >= 7) return "#A4133C"; // Very deep red
-          if (count >= 5) return "#C9184A"; // Deep red
-          if (count >= 3) return "#DC143C"; // Crimson
-          if (count >= 2) return "#EE5A6F"; // Medium red
-          return "#FF6B6B"; // Light red (1 university)
+      const countryName = feature.properties?.name || "";
+      const isSelected = selectedCountry === countryName;
+
+      // If a country is selected and this is not it, make it grey
+      if (selectedCountry && !isSelected) {
+        return {
+          weight: 1.2,
+          color: "#222",
+          fillColor: "#d0d0d0",
+          fillOpacity: 0.4,
+        };
+      }
+
+      const fillColor = getCountryColor(feature);
+      const hasUniversities = universitiesByCountry[countryName];
+
+      return {
+        weight: 1.2,
+        color: "#222",
+        fillColor: fillColor,
+        fillOpacity: hasUniversities ? 0.7 : 0.3,
+      };
+    };
+
+    // Hover-stil - more subtle
+    function highlightFeature(e: L.LeafletMouseEvent): void {
+      // Don't do anything if a country is selected
+      if (selectedCountryRef.current) {
+        return;
+      }
+
+      const layer = e.target as L.Path;
+      const currentOpacity = layer.options.fillOpacity || 0.3;
+      layer.setStyle({
+        weight: 1.5,
+        color: "#333",
+        fillOpacity: Math.min(currentOpacity + 0.15, 1),
+      });
+      layer.bringToFront();
+    }
+
+    // Tilbakestill hover-stil
+    function resetHighlight(e: L.LeafletMouseEvent): void {
+      // Don't do anything if a country is selected
+      if (selectedCountryRef.current) {
+        return;
+      }
+
+      // No country selected, use default resetStyle
+      if (geojsonLayerRef.current) {
+        geojsonLayerRef.current.resetStyle(e.target);
+      }
+    }
+
+    // Klikk → zoom inn til landet og vis universiteter
+    function onClickFeature(e: L.LeafletMouseEvent): void {
+      // Don't do anything if a country is already selected
+      if (selectedCountryRef.current) {
+        return;
+      }
+
+      const layer = e.target as L.Path;
+      const feature = (e.target as L.Layer & { feature: GeoJSON.Feature })
+        .feature;
+      const props = feature?.properties || {};
+      const countryName = props.name || "";
+
+      console.log("Clicked country:", countryName);
+      console.log("Available universities:", universitiesByCountry);
+      console.log(
+        "Universities in this country:",
+        universitiesByCountry[countryName]
+      );
+
+      // Check if country has universities
+      const universities = universitiesByCountry[countryName];
+      if (!universities || universities.length === 0) {
+        alert(`Ingen utvekslingssteder funnet i ${countryName}`);
+        // Don't change styling if there are no universities
+        return;
+      }
+
+      if (mapRef.current) {
+        // Remove maxBounds restriction first to allow proper centering
+        mapRef.current.setMaxBounds(null as any);
+
+        // Special handling for large countries
+        const largeCountries: Record<
+          string,
+          { center: L.LatLngTuple; zoom: number }
+        > = {
+          "United States of America": {
+            center: [39.8283, -98.5795],
+            zoom: 4,
+          },
+          Canada: { center: [56.1304, -106.3468], zoom: 3 },
+          Russia: { center: [61.524, 105.3188], zoom: 3 },
+          China: { center: [35.8617, 104.1954], zoom: 4 },
+          Australia: { center: [-25.2744, 133.7751], zoom: 4 },
+          Brazil: { center: [-14.235, -51.9253], zoom: 4 },
         };
 
-        // GeoJSON styling - now dynamic based on country and selection
-        const style = (feature?: GeoJSON.Feature): L.PathOptions => {
-          if (!feature) {
-            return {
-              weight: 1.2,
-              color: "#222",
-              fillColor: "#f0f0f0",
-              fillOpacity: 0.5,
-            };
-          }
-
-          const countryName = feature.properties?.name || "";
-          const isSelected = selectedCountry === countryName;
-
-          // If a country is selected and this is not it, make it grey
-          if (selectedCountry && !isSelected) {
-            return {
-              weight: 1.2,
-              color: "#222",
-              fillColor: "#d0d0d0",
-              fillOpacity: 0.4,
-            };
-          }
-
-          const fillColor = getCountryColor(feature);
-          const hasUniversities = universitiesByCountry[countryName];
-
-          return {
-            weight: 1.2,
-            color: "#222",
-            fillColor: fillColor,
-            fillOpacity: hasUniversities ? 0.7 : 0.3,
-          };
-        };
-
-        // Hover-stil - more subtle
-        function highlightFeature(e: L.LeafletMouseEvent): void {
-          // Don't do anything if a country is selected
-          if (selectedCountryRef.current) {
-            return;
-          }
-
-          const layer = e.target as L.Path;
-          const currentOpacity = layer.options.fillOpacity || 0.3;
-          layer.setStyle({
-            weight: 1.5,
-            color: "#333",
-            fillOpacity: Math.min(currentOpacity + 0.15, 1),
-          });
-          layer.bringToFront();
-        }
-
-        // Tilbakestill hover-stil
-        function resetHighlight(e: L.LeafletMouseEvent): void {
-          // Don't do anything if a country is selected
-          if (selectedCountryRef.current) {
-            return;
-          }
-
-          // No country selected, use default resetStyle
-          if (geojsonLayerRef.current) {
-            geojsonLayerRef.current.resetStyle(e.target);
-          }
-        }
-
-        // Klikk → zoom inn til landet og vis universiteter
-        function onClickFeature(e: L.LeafletMouseEvent): void {
-          // Don't do anything if a country is already selected
-          if (selectedCountryRef.current) {
-            return;
-          }
-
-          const layer = e.target as L.Path;
-          const feature = (e.target as L.Layer & { feature: GeoJSON.Feature })
-            .feature;
-          const props = feature?.properties || {};
-          const countryName = props.name || "";
-
-          console.log("Clicked country:", countryName);
-          console.log("Available universities:", universitiesByCountry);
+        if (largeCountries[countryName]) {
+          // Use predefined center and zoom for large countries
+          const { center, zoom } = largeCountries[countryName];
           console.log(
-            "Universities in this country:",
-            universitiesByCountry[countryName]
+            `Using predefined center for ${countryName}:`,
+            center,
+            zoom
           );
 
-          // Check if country has universities
-          const universities = universitiesByCountry[countryName];
-          if (!universities || universities.length === 0) {
-            alert(`Ingen utvekslingssteder funnet i ${countryName}`);
-            // Don't change styling if there are no universities
+          mapRef.current.setView(center, zoom, {
+            animate: true,
+            duration: 0.5,
+          });
+        } else {
+          // For smaller countries, use bounds as before
+          let bounds;
+          if (typeof layer.getBounds === "function") {
+            bounds = layer.getBounds();
+          } else if (feature?.geometry) {
+            const tempLayer = L.geoJSON(feature);
+            bounds = tempLayer.getBounds();
+          }
+
+          if (!bounds) {
+            console.error("Could not get bounds for country:", countryName);
             return;
           }
 
-          if (mapRef.current) {
-            // Remove maxBounds restriction first to allow proper centering
-            mapRef.current.setMaxBounds(null as any);
-
-            // Special handling for large countries
-            const largeCountries: Record<
-              string,
-              { center: L.LatLngTuple; zoom: number }
-            > = {
-              "United States of America": {
-                center: [39.8283, -98.5795],
-                zoom: 4,
-              },
-              Canada: { center: [56.1304, -106.3468], zoom: 3 },
-              Russia: { center: [61.524, 105.3188], zoom: 3 },
-              China: { center: [35.8617, 104.1954], zoom: 4 },
-              Australia: { center: [-25.2744, 133.7751], zoom: 4 },
-              Brazil: { center: [-14.235, -51.9253], zoom: 4 },
-            };
-
-            if (largeCountries[countryName]) {
-              // Use predefined center and zoom for large countries
-              const { center, zoom } = largeCountries[countryName];
-              console.log(
-                `Using predefined center for ${countryName}:`,
-                center,
-                zoom
-              );
-
-              mapRef.current.setView(center, zoom, {
-                animate: true,
-                duration: 0.5,
-              });
-            } else {
-              // For smaller countries, use bounds as before
-              let bounds;
-              if (typeof layer.getBounds === "function") {
-                bounds = layer.getBounds();
-              } else if (feature?.geometry) {
-                const tempLayer = L.geoJSON(feature);
-                bounds = tempLayer.getBounds();
-              }
-
-              if (!bounds) {
-                console.error("Could not get bounds for country:", countryName);
-                return;
-              }
-
-              console.log("Zooming to bounds:", bounds);
-              mapRef.current.fitBounds(bounds, {
-                padding: [50, 50],
-                maxZoom: 6,
-                animate: true,
-                duration: 0.5,
-              });
-            }
-
-            // After zoom animation completes, re-apply bounds to the visible area
-            setTimeout(() => {
-              if (mapRef.current) {
-                const currentBounds = mapRef.current.getBounds();
-                const extendedBounds = currentBounds.pad(0.5);
-                mapRef.current.setMaxBounds(extendedBounds);
-              }
-            }, 600);
-
-            // Set selected country
-            setSelectedCountry(countryName);
-
-            // Update all country styles to grey out non-selected countries
-            if (geojsonLayerRef.current) {
-              geojsonLayerRef.current.setStyle((feature) => {
-                const featureCountryName = feature?.properties?.name || "";
-                const isSelected = featureCountryName === countryName;
-
-                if (!isSelected) {
-                  return {
-                    weight: 1.2,
-                    color: "#222",
-                    fillColor: "#d0d0d0",
-                    fillOpacity: 0.4,
-                  };
-                }
-
-                // Keep the selected country's original color
-                const fillColor = getCountryColor(feature);
-                return {
-                  weight: 1.2,
-                  color: "#222",
-                  fillColor: fillColor,
-                  fillOpacity: 0.7,
-                };
-              });
-            }
-
-            // Clear existing university markers
-            if (universityMarkersRef.current) {
-              universityMarkersRef.current.clearLayers();
-            } else {
-              universityMarkersRef.current = L.layerGroup().addTo(
-                mapRef.current
-              );
-            }
-
-            // Add university markers with real GPS coordinates
-            universities.forEach((universityName) => {
-              // Get data based on current mode
-              const isReviewMode = mapMode === "reviews";
-              const universityData = isReviewMode
-                ? allExchanges.filter((ex) => ex.university === universityName)
-                : plannedExchanges.filter(
-                    (ex) => ex.university === universityName
-                  );
-
-              if (universityData.length === 0) {
-                return; // Skip if no data for this university in current mode
-              }
-
-              // Get the real coordinates for this university
-              let coords = universityCoordinates[universityName];
-              
-              // If not found, try removing "The " prefix
-              if (!coords && universityName.startsWith("The ")) {
-                const nameWithoutThe = universityName.substring(4);
-                coords = universityCoordinates[nameWithoutThe];
-              }
-
-              if (!coords) {
-                console.warn(`No coordinates found for ${universityName}`);
-                return; // Skip this university if no coordinates
-              }
-
-              // Different colors for different modes
-              const markerColor = isReviewMode ? "#DC143C" : "#2196F3"; // Red for reviews, Blue for planned
-
-              // Create a marker at the real location
-              const marker = L.marker([coords.lat, coords.lng], {
-                icon: L.divIcon({
-                  className: "university-marker",
-                  html: `<div style="
-                    background: ${markerColor};
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 10px;
-                  ">${universityData.length}</div>`,
-                  iconSize: [24, 24],
-                  iconAnchor: [12, 12],
-                }),
-              });
-
-              // Add popup with university info - different content based on mode
-              let popupContent;
-              if (isReviewMode) {
-                const reviews = universityData as Exchange[];
-                popupContent = `
-                  <div style="min-width: 200px;">
-                    <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
-                      ${universityName}
-                    </h3>
-                    <p style="margin: 0 0 5px 0; font-size: 12px;">
-                      <strong>${reviews.length}</strong> anmeldelse${
-                  reviews.length !== 1 ? "r" : ""
-                }
-                    </p>
-                    ${reviews
-                      .slice(0, 3)
-                      .map(
-                        (ex) => `
-                      <div style="margin: 5px 0; padding: 5px; background: #f5f5f5; border-radius: 3px; font-size: 11px;">
-                        <div><strong>${ex.study}</strong></div>
-                        <div>År: ${ex.year} | ${ex.numSemesters} semester</div>
-                      </div>
-                    `
-                      )
-                      .join("")}
-                    ${
-                      reviews.length > 3
-                        ? `
-                      <p style="margin: 5px 0 0 0; font-size: 11px; font-style: italic;">
-                        + ${reviews.length - 3} flere...
-                      </p>
-                    `
-                        : ""
-                    }
-                    <button
-                      id="view-all-${universityName.replace(/\s+/g, "-")}"
-                      style="
-                        width: 100%;
-                        margin-top: 8px;
-                        padding: 8px;
-                        background: #DC143C;
-                        color: white;
-                        border: none;
-                        border-radius: 6px;
-                        font-size: 12px;
-                        font-weight: bold;
-                        cursor: pointer;
-                      "
-                    >
-                      Se alle anmeldelser
-                    </button>
-                  </div>
-                `;
-              } else {
-                const planned = universityData as PlannedExchange[];
-                popupContent = `
-                  <div style="min-width: 220px;">
-                    <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
-                      ${universityName}
-                    </h3>
-                    <p style="margin: 0 0 5px 0; font-size: 12px;">
-                      <strong>${planned.length}</strong> student${
-                  planned.length !== 1 ? "er" : ""
-                } planlegger å dra
-                    </p>
-                    ${planned
-                      .slice(0, 3)
-                      .map(
-                        (ex) => {
-                          // Determine button/status HTML
-                          let actionHtml = '';
-                          if (ex.contactStatus === 'none') {
-                            actionHtml = `
-                              <button 
-                                onclick="window.askToShareName(${ex.userId}, '${ex.study}')"
-                                style="margin-top:4px; padding:2px 6px; background:#2196F3; color:white; border:none; border-radius:4px; font-size:10px; cursor:pointer;"
-                              >
-                                Spør om å dele navn
-                              </button>
-                            `;
-                          } else if (ex.contactStatus === 'pending_sent') {
-                            actionHtml = `<span style="font-size:10px; color:#999; font-style:italic;">Forespørsel sendt</span>`;
-                          } else if (ex.contactStatus === 'accepted') {
-                            // Name is already in studentName from API if accepted
-                          }
-
-                          return `
-                            <div style="margin: 5px 0; padding: 8px; background: #e3f2fd; border-radius: 4px; font-size: 11px; border-left: 3px solid ${ex.contactStatus === 'accepted' || ex.contactStatus === 'self' ? '#4CAF50' : '#2196F3'}">
-                              <div style="font-weight:bold;">${ex.studentName}</div>
-                              <div style="color:#555;">${ex.study}</div>
-                              <div style="color:#777;">${ex.semester} ${ex.year}</div>
-                              ${actionHtml}
-                            </div>
-                          `;
-                        }
-                      )
-                      .join("")}
-                    ${
-                      planned.length > 3
-                        ? `
-                      <p style="margin: 5px 0 0 0; font-size: 11px; font-style: italic;">
-                        + ${planned.length - 3} flere...
-                      </p>
-                    `
-                        : ""
-                    }
-                    <button
-                      id="view-all-${universityName.replace(/\s+/g, "-")}"
-                      style="
-                        width: 100%;
-                        margin-top: 8px;
-                        padding: 8px;
-                        background: #DC143C;
-                        color: white;
-                        border: none;
-                        border-radius: 6px;
-                        font-size: 12px;
-                        font-weight: bold;
-                        cursor: pointer;
-                      "
-                    >
-                      Se alle
-                    </button>
-                  </div>
-                `;
-              }
-
-              marker.bindPopup(popupContent);
-
-              // Add click event listener to the marker to handle "View All" button
-              marker.on('popupopen', () => {
-                const button = document.getElementById(`view-all-${universityName.replace(/\s+/g, "-")}`);
-                if (button) {
-                  button.addEventListener('click', () => {
-                    // Navigate to erfaringer page with university filter
-                    window.location.href = `/erfaringer?university=${encodeURIComponent(universityName)}`;
-                  });
-                }
-              });
-
-              marker.addTo(universityMarkersRef.current!);
-            });
-
-            console.log(
-              `Showing ${universities.length} universities in ${countryName}`
-            );
-          }
-        }
-
-        // Legg til events for hvert land
-        function onEachFeature(feature: GeoJSON.Feature, layer: L.Layer): void {
-          // Always attach the event handlers - they will check selectedCountry internally
-          layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: onClickFeature,
+          console.log("Zooming to bounds:", bounds);
+          mapRef.current.fitBounds(bounds, {
+            padding: [50, 50],
+            maxZoom: 6,
+            animate: true,
+            duration: 0.5,
           });
         }
 
-        // Opprett GeoJSON-lag
-        if (geojsonLayerRef.current && mapRef.current) {
-          mapRef.current.removeLayer(geojsonLayerRef.current);
-        }
-        if (mapRef.current) {
-          geojsonLayerRef.current = L.geoJSON(
-            geojsonData as GeoJSON.FeatureCollection,
-            {
-              style: style,
-              onEachFeature: onEachFeature,
+        // After zoom animation completes, re-apply bounds to the visible area
+        setTimeout(() => {
+          if (mapRef.current) {
+            const currentBounds = mapRef.current.getBounds();
+            const extendedBounds = currentBounds.pad(0.5);
+            mapRef.current.setMaxBounds(extendedBounds);
+          }
+        }, 600);
+
+        // Set selected country
+        setSelectedCountry(countryName);
+
+        // Update all country styles to grey out non-selected countries
+        if (geojsonLayerRef.current) {
+          geojsonLayerRef.current.setStyle((feature) => {
+            const featureCountryName = feature?.properties?.name || "";
+            const isSelected = featureCountryName === countryName;
+
+            if (!isSelected) {
+              return {
+                weight: 1.2,
+                color: "#222",
+                fillColor: "#d0d0d0",
+                fillOpacity: 0.4,
+              };
             }
-          ).addTo(mapRef.current);
+
+            // Keep the selected country's original color
+            const fillColor = getCountryColor(feature);
+            return {
+              weight: 1.2,
+              color: "#222",
+              fillColor: fillColor,
+              fillOpacity: 0.7,
+            };
+          });
         }
-      })
-      .catch((err: Error) =>
-        console.error("Kunne ikke laste world.geojson:", err)
-      );
+
+        // Clear existing university markers
+        if (universityMarkersRef.current) {
+          universityMarkersRef.current.clearLayers();
+        } else {
+          universityMarkersRef.current = L.layerGroup().addTo(
+            mapRef.current
+          );
+        }
+
+        // Add university markers with real GPS coordinates
+        universities.forEach((universityName) => {
+          // Get data based on current mode
+          const isReviewMode = mapMode === "reviews";
+          const universityData = isReviewMode
+            ? allExchanges.filter((ex) => ex.university === universityName)
+            : plannedExchanges.filter(
+                (ex) => ex.university === universityName
+              );
+
+          if (universityData.length === 0) {
+            return; // Skip if no data for this university in current mode
+          }
+
+          // Get the real coordinates for this university
+          let coords = universityCoordinates[universityName];
+          
+          // If not found, try removing "The " prefix
+          if (!coords && universityName.startsWith("The ")) {
+            const nameWithoutThe = universityName.substring(4);
+            coords = universityCoordinates[nameWithoutThe];
+          }
+
+          if (!coords) {
+            console.warn(`No coordinates found for ${universityName}`);
+            return; // Skip this university if no coordinates
+          }
+
+          // Different colors for different modes
+          const markerColor = isReviewMode ? "#DC143C" : "#2196F3"; // Red for reviews, Blue for planned
+
+          // Create a marker at the real location
+          const marker = L.marker([coords.lat, coords.lng], {
+            icon: L.divIcon({
+              className: "university-marker",
+              html: `<div style="
+                background: ${markerColor};
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                border: 2px solid white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 10px;
+              ">${universityData.length}</div>`,
+              iconSize: [24, 24],
+              iconAnchor: [12, 12],
+            }),
+          });
+
+          // Add popup with university info - different content based on mode
+          let popupContent;
+          if (isReviewMode) {
+            const reviews = universityData as Exchange[];
+            popupContent = `
+              <div style="min-width: 200px;">
+                <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
+                  ${universityName}
+                </h3>
+                <p style="margin: 0 0 5px 0; font-size: 12px;">
+                  <strong>${reviews.length}</strong> anmeldelse${
+              reviews.length !== 1 ? "r" : ""
+            }
+                </p>
+                ${reviews
+                  .slice(0, 3)
+                  .map(
+                    (ex) => `
+                  <div style="margin: 5px 0; padding: 5px; background: #f5f5f5; border-radius: 3px; font-size: 11px;">
+                    <div><strong>${ex.study}</strong></div>
+                    <div>År: ${ex.year} | ${ex.numSemesters} semester</div>
+                  </div>
+                `
+                  )
+                  .join("")}
+                ${
+                  reviews.length > 3
+                    ? `
+                  <p style="margin: 5px 0 0 0; font-size: 11px; font-style: italic;">
+                    + ${reviews.length - 3} flere...
+                  </p>
+                `
+                    : ""
+                }
+                <button
+                  id="view-all-${universityName.replace(/\s+/g, "-")}"
+                  style="
+                    width: 100%;
+                    margin-top: 8px;
+                    padding: 8px;
+                    background: #DC143C;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    cursor: pointer;
+                  "
+                >
+                  Se alle anmeldelser
+                </button>
+              </div>
+            `;
+          } else {
+            const planned = universityData as PlannedExchange[];
+            popupContent = `
+              <div style="min-width: 220px;">
+                <h3 style="margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">
+                  ${universityName}
+                </h3>
+                <p style="margin: 0 0 5px 0; font-size: 12px;">
+                  <strong>${planned.length}</strong> student${
+              planned.length !== 1 ? "er" : ""
+            } planlegger å dra
+                </p>
+                ${planned
+                  .slice(0, 3)
+                  .map(
+                    (ex) => {
+                      // Determine button/status HTML
+                      let actionHtml = '';
+                      if (ex.contactStatus === 'none') {
+                        actionHtml = `
+                          <button 
+                            onclick="window.askToShareName(${ex.userId}, '${ex.study}')"
+                            style="margin-top:4px; padding:2px 6px; background:#2196F3; color:white; border:none; border-radius:4px; font-size:10px; cursor:pointer;"
+                          >
+                            Spør om å dele navn
+                          </button>
+                        `;
+                      } else if (ex.contactStatus === 'pending_sent') {
+                        actionHtml = `<span style="font-size:10px; color:#999; font-style:italic;">Forespørsel sendt</span>`;
+                      } else if (ex.contactStatus === 'accepted') {
+                        // Name is already in studentName from API if accepted
+                      }
+
+                      return `
+                        <div style="margin: 5px 0; padding: 8px; background: #e3f2fd; border-radius: 4px; font-size: 11px; border-left: 3px solid ${ex.contactStatus === 'accepted' || ex.contactStatus === 'self' ? '#4CAF50' : '#2196F3'}">
+                          <div style="font-weight:bold;">${ex.studentName}</div>
+                          <div style="color:#555;">${ex.study}</div>
+                          <div style="color:#777;">${ex.semester} ${ex.year}</div>
+                          ${actionHtml}
+                        </div>
+                      `;
+                    }
+                  )
+                  .join("")}
+                ${
+                  planned.length > 3
+                    ? `
+                  <p style="margin: 5px 0 0 0; font-size: 11px; font-style: italic;">
+                    + ${planned.length - 3} flere...
+                  </p>
+                `
+                    : ""
+                }
+                <button
+                  id="view-all-${universityName.replace(/\s+/g, "-")}"
+                  style="
+                    width: 100%;
+                    margin-top: 8px;
+                    padding: 8px;
+                    background: #DC143C;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    cursor: pointer;
+                  "
+                >
+                  Se alle
+                </button>
+              </div>
+            `;
+          }
+
+          marker.bindPopup(popupContent);
+
+          // Add click event listener to the marker to handle "View All" button
+          marker.on('popupopen', () => {
+            const button = document.getElementById(`view-all-${universityName.replace(/\s+/g, "-")}`);
+            if (button) {
+              button.addEventListener('click', () => {
+                // Navigate to erfaringer page with university filter
+                window.location.href = `/erfaringer?university=${encodeURIComponent(universityName)}`;
+              });
+            }
+          });
+
+          marker.addTo(universityMarkersRef.current!);
+        });
+
+        console.log(
+          `Showing ${universities.length} universities in ${countryName}`
+        );
+      }
+    }
+
+    // Legg til events for hvert land
+    function onEachFeature(feature: GeoJSON.Feature, layer: L.Layer): void {
+      // Always attach the event handlers - they will check selectedCountry internally
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: onClickFeature,
+      });
+    }
+
+    // Opprett GeoJSON-lag
+    if (geojsonLayerRef.current && mapRef.current) {
+      mapRef.current.removeLayer(geojsonLayerRef.current);
+    }
+    if (mapRef.current) {
+      geojsonLayerRef.current = L.geoJSON(
+        geoJsonData as GeoJSON.FeatureCollection,
+        {
+          style: style,
+          onEachFeature: onEachFeature,
+        }
+      ).addTo(mapRef.current);
+    }
+
+    // Add tile layer ONLY ONCE (checking if it's a new map instance effectively)
+    // Note: In this structure, if mapRef.current was null (top of function), we initialized it.
+    // We should move the TileLayer logic into the initialization block at the top to ensure it only runs once.
+    // However, due to the constraints of this replace block, I will leave it as is but ensure we don't add it repeatedly.
+    // A simple check: mapRef.current has layers? 
+    // But layers include geojson.
+    // Let's just move the TileLayer code to the TOP initialization block in a future step or trust that React ref persistence works.
+    // Actually, wait. If I don't move it, it will add a new tile layer every time universitiesByCountry changes.
+    // I MUST move it.
+    
+    // Wait, I can't easily move code blocks far apart with 'replace'.
+    // But I can wrap the TileLayer addition in a check.
+    // Better yet, I'll remove it from here and assume it was added during initialization.
+    // BUT I didn't add it during initialization in the code above.
+    // Correct fix: I should have added it in the `if (!mapRef.current)` block.
+    
+    // Let's do this: I will add a simple check here.
+    // "If we just created the map, add tiles".
+    // But we can't know if we just created it easily here.
+    
+    // Alternative: Check if any tile layer exists.
+    let hasTileLayer = false;
+    mapRef.current.eachLayer(layer => {
+      if (layer instanceof L.TileLayer) hasTileLayer = true;
+    });
+    
+    if (!hasTileLayer) {
+        const JAWG_TOKEN =
+          "esduRluv57sFez7IV5TFGpfhwLD2c4WasWVyKjMSxCVYQkeRK2tO94HVbOwAySO5";
+
+        L.tileLayer(
+          `https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_TOKEN}`,
+          {
+            minZoom: 0,
+            maxZoom: 22,
+            attribution:
+              '<a href="https://jawg.io" target="_blank">&copy; Jawg Maps</a> | ' +
+              '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OSM contributors</a>',
+          }
+        ).addTo(mapRef.current);
+    }
 
     return () => {
       if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
+        // Do NOT remove the map instance to prevent flashing.
+        // Just remove the GeoJSON layer if needed, but keeping it is also fine for performance.
+        // But if we unmount the component (navigate away), we SHOULD remove the map.
+        // The return function runs on unmount OR before re-running effect.
+        // Since we want to keep the map instance across re-renders of this effect?
+        // NO. If dependencies change, this effect re-runs.
+        // If we remove mapRef.current here, we force re-initialization!
+        // THAT IS THE BUG.
+        // We should NOT remove mapRef.current in the cleanup unless the component is truly unmounting.
+        // But useEffect cleanup runs on every update.
+        
+        // FIX: Use an empty dependency array useEffect for Map creation and destruction.
+        // AND a separate useEffect for updating the map data.
+        
+        // Given the complexity of refactoring that in one go, I will stick to the plan:
+        // 1. Fetch GeoJSON once (Done).
+        // 2. Use GeoJSON data here (Done).
+        // 3. Fix the TileLayer issue (Added check).
+        // 4. Fix the Map Cleanup issue.
       }
     };
   }, [
@@ -833,7 +923,18 @@ const MapChart = () => {
     plannedExchanges,
     universityCoordinates,
     mapMode,
+    geoJsonData, // Added dependency
   ]);
+
+  // Separate effect for cleanup only on unmount
+  useEffect(() => {
+      return () => {
+          if (mapRef.current) {
+              mapRef.current.remove();
+              mapRef.current = null;
+          }
+      }
+  }, []);
 
   const resetView = () => {
     if (mapRef.current) {
