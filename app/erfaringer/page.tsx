@@ -77,6 +77,7 @@ export default function ErfaringerPage() {
     semester: "Høst",
     year: new Date().getFullYear().toString(),
     studentName: "",
+    isAnonymous: false, // New state for anonymity
     review: "",
     beerPrice: "",
     mealPrice: "",
@@ -321,7 +322,8 @@ export default function ErfaringerPage() {
                 setFormData(prev => ({
                   ...prev,
                   study: session.user?.study_program || "",
-                  studentName: session.user?.name || ""
+                  studentName: session.user?.name || "",
+                  isAnonymous: false, // Reset anonymity
                 }));
                 setShowAddModal(true);
               }
@@ -976,6 +978,8 @@ export default function ErfaringerPage() {
                     // Find university_id from coordinates
                     const university_id = null; // We don't have this mapping yet, will add later
 
+                    const studentNameToSend = formData.isAnonymous ? "Anonym student" : formData.studentName;
+
                     const response = await fetch("/api/experiences", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
@@ -988,14 +992,14 @@ export default function ErfaringerPage() {
                         study_year: parseInt(formData.studyYear),
                         semester: formData.semester,
                         year: parseInt(formData.year),
-                        student_name: formData.studentName,
+                        student_name: studentNameToSend,
                         review: formData.review,
                         rating: formData.rating,
                         pros: formData.pros,
                         cons: formData.cons,
-                        beer_price: formData.beerPrice,
-                        meal_price: formData.mealPrice,
-                        rent_price: formData.rentPrice,
+                        beer_price: formData.beerPrice ? `${formData.beerPrice} kr` : null,
+                        meal_price: formData.mealPrice ? `${formData.mealPrice} kr` : null,
+                        rent_price: formData.rentPrice ? `${formData.rentPrice} kr` : null,
                       }),
                     });
 
@@ -1014,6 +1018,7 @@ export default function ErfaringerPage() {
                       semester: "Høst",
                       year: new Date().getFullYear().toString(),
                       studentName: "",
+                      isAnonymous: false,
                       review: "",
                       beerPrice: "",
                       mealPrice: "",
@@ -1142,20 +1147,37 @@ export default function ErfaringerPage() {
                 </div>
 
                 {/* Student Name */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Ditt navn *
                   </label>
                   <input
                     type="text"
-                    required
+                    required={!formData.isAnonymous}
                     value={formData.studentName}
                     onChange={(e) =>
                       setFormData({ ...formData, studentName: e.target.value })
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                    disabled={formData.isAnonymous} // Disable if anonymous
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 disabled:bg-gray-50 disabled:text-gray-500"
                     placeholder="F.eks. Maria L."
                   />
+                </div>
+
+                {/* Anonymity Checkbox */}
+                <div className="mb-6 flex items-center">
+                  <input
+                    type="checkbox"
+                    id="isAnonymous"
+                    checked={formData.isAnonymous}
+                    onChange={(e) => {
+                      setFormData({ ...formData, isAnonymous: e.target.checked });
+                    }}
+                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  />
+                  <label htmlFor="isAnonymous" className="ml-2 block text-sm text-gray-900">
+                    Vær anonym (vises som "Anonym student")
+                  </label>
                 </div>
 
                 {/* Review */}
@@ -1319,10 +1341,11 @@ export default function ErfaringerPage() {
                     <div>
                       <label className="block text-xs text-gray-600 mb-2 flex items-center gap-1">
                         <Beer size={14} className="text-amber-600" />
-                        Øl (0.5L)
+                        Øl (0.5L på utested)
                       </label>
                       <input
-                        type="text"
+                        type="number" // Changed to number
+                        min="0" // Added min value
                         value={formData.beerPrice}
                         onChange={(e) =>
                           setFormData({
@@ -1331,7 +1354,7 @@ export default function ErfaringerPage() {
                           })
                         }
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                        placeholder="F.eks. 85 kr"
+                        placeholder="F.eks. 85" // Changed placeholder
                       />
                     </div>
                     <div>
@@ -1340,10 +1363,11 @@ export default function ErfaringerPage() {
                           size={14}
                           className="text-orange-600"
                         />
-                        Måltid
+                        Måltid (på restaurant)
                       </label>
                       <input
-                        type="text"
+                        type="number" // Changed to number
+                        min="0" // Added min value
                         value={formData.mealPrice}
                         onChange={(e) =>
                           setFormData({
@@ -1352,7 +1376,7 @@ export default function ErfaringerPage() {
                           })
                         }
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                        placeholder="F.eks. 180 kr"
+                        placeholder="F.eks. 180" // Changed placeholder
                       />
                     </div>
                     <div>
@@ -1361,7 +1385,8 @@ export default function ErfaringerPage() {
                         Husleie per måned
                       </label>
                       <input
-                        type="text"
+                        type="number" // Changed to number
+                        min="0" // Added min value
                         value={formData.rentPrice}
                         onChange={(e) =>
                           setFormData({
@@ -1370,7 +1395,7 @@ export default function ErfaringerPage() {
                           })
                         }
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                        placeholder="F.eks. 8500 kr/mnd"
+                        placeholder="F.eks. 8500" // Changed placeholder
                       />
                     </div>
                   </div>
