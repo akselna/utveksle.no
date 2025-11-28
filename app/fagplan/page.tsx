@@ -1134,7 +1134,54 @@ export default function ExchangePlannerFull() {
       setSpecialization(planToOpen.specialization || "Ingen fagretning");
       setStudyYear(planToOpen.studyYear);
       setSemesterChoice(planToOpen.semesterChoice);
-      setMySubjects(planToOpen.subjects);
+
+      // Hent standard fagplan for å gjenopprette valgmuligheter
+      const techDir =
+        (planToOpen.technologyDirection || "Ingen retning") === "Ingen retning"
+          ? "default"
+          : planToOpen.technologyDirection;
+      const spec =
+        (planToOpen.specialization || "Ingen fagretning") === "Ingen fagretning"
+          ? "default"
+          : planToOpen.specialization;
+
+      const key = `${planToOpen.program}_${techDir}_${planToOpen.studyYear}_${planToOpen.semesterChoice}_${spec}`;
+      const fallbackKey1 = `${planToOpen.program}_${techDir}_${planToOpen.studyYear}_${planToOpen.semesterChoice}_default`;
+      const fallbackKey2 = `${planToOpen.program}_default_${planToOpen.studyYear}_${planToOpen.semesterChoice}_default`;
+
+      const defaultPlan =
+        MOCK_STUDY_PLANS[key] ||
+        MOCK_STUDY_PLANS[fallbackKey1] ||
+        MOCK_STUDY_PLANS[fallbackKey2] ||
+        [];
+
+      // Flett sammen lagrede fag med standardvalg
+      const savedSubjectsMap = new Map(planToOpen.subjects.map(s => [s.code, s]));
+      const mergedSubjects: Subject[] = [];
+
+      // 1. Legg til fag fra standardplanen (behold rekkefølge)
+      defaultPlan.forEach(defSub => {
+        if (savedSubjectsMap.has(defSub.code)) {
+          // Bruk lagret versjon (med matching/status)
+          mergedSubjects.push(savedSubjectsMap.get(defSub.code)!);
+          savedSubjectsMap.delete(defSub.code);
+        } else {
+          // Legg til fag som ikke var valgt (gjenopprett som ikke-valgt)
+          const restoredSub = { ...defSub };
+          if (restoredSub.isElective) {
+            restoredSub.isSelected = false;
+          }
+          // Hvis obligatorisk fag mangler (slettet), legges det til igjen
+          mergedSubjects.push(restoredSub);
+        }
+      });
+
+      // 2. Legg til gjenværende fag (manuelt lagt til)
+      savedSubjectsMap.forEach(sub => {
+        mergedSubjects.push(sub);
+      });
+
+      setMySubjects(mergedSubjects);
       setEditingPlanId(planId);
       setStep(3); // Gå direkte til planleggeren
     }
