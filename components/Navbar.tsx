@@ -4,93 +4,97 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { LogOut, User } from "lucide-react";
 import Notifications from "./Notifications";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm z-30 shrink-0">
-      <div className="w-full px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-6">
-          <ul className="flex items-center gap-6">
-            <li>
-              <Link
-                href="/utforsk"
-                className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                Utforsk
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/fagplan"
-                className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                Min utveksling
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/erfaringer"
-                className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                Erfaringer
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/fagbank"
-                className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                Fagbank
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/faq"
-                className="text-lg text-slate-600 hover:text-blue-600 transition-colors font-medium"
-              >
-                FAQ
-              </Link>
-            </li>
-          </ul>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors">
+          NTNU Utveksling
+        </Link>
+        
+        <div className="hidden md:flex items-center gap-8">
+          <Link
+            href="/utforsk"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/utforsk")
+                ? "text-gray-900"
+                : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            Utforsk
+          </Link>
+          <Link
+            href="/fagplan"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/fagplan")
+                ? "text-gray-900"
+                : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            Min utveksling
+          </Link>
+          <Link
+            href="/erfaringer"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/erfaringer")
+                ? "text-gray-900"
+                : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            Erfaringer
+          </Link>
+          <Link
+            href="/fagbank"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/fagbank")
+                ? "text-gray-900"
+                : "text-gray-600 hover:text-gray-900"
+            }`}
+          >
+            Fagbank
+          </Link>
         </div>
+
         <div className="flex items-center gap-4">
           {status === "loading" ? (
-            <div className="text-slate-400">Laster...</div>
+            <div className="w-8 h-8 border-2 border-gray-200 border-t-gray-900 rounded-full animate-spin" />
           ) : session ? (
             <>
               <Notifications />
-              <Link
-                href="/profile"
-                className="flex items-center gap-2 text-slate-700 hover:text-blue-600 transition-colors"
-              >
-                <User size={20} />
-                <span className="font-medium">{session.user?.name || session.user?.email}</span>
-              </Link>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <User size={16} />
+                <span className="hidden sm:inline font-medium">{session.user?.name || session.user?.email}</span>
+              </div>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="text-lg text-slate-600 hover:text-red-600 transition-colors font-medium flex items-center gap-2"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1.5"
               >
-                <LogOut size={20} />
-                Logg ut
+                <LogOut size={16} />
+                <span className="hidden sm:inline">Logg ut</span>
               </button>
             </>
           ) : (
-            <>
+            <div className="flex items-center gap-3">
               <Link
                 href="/auth/signin"
-                className="text-lg text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
               >
                 Logg inn
               </Link>
               <Link
                 href="/auth/signin"
-                className="text-lg bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                className="text-sm font-medium bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
               >
                 Registrer
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>

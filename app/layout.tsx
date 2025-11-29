@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Utvekslingsapp - Planlegg din utveksling",
-  description: "Planlegg og match fag for din utveksling",
+  title: "NTNU Utveksling - Utforsk utvekslingsmuligheter",
+  description: "Finn perfekt utvekslingssted basert på ditt studieprogram ved NTNU. Utforsk destinasjoner, universiteter og fag som kan godkjennes.",
 };
 
 export default function RootLayout({
