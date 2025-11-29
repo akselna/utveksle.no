@@ -35,7 +35,7 @@ async function runMigration() {
     let universityCount = 0;
     const universityIdMap: { [key: string]: number } = {};
 
-    for (const [name, data] of Object.entries(universityCoordinates) as [string, any][]) {
+    for (const [name, data] of Object.entries(universityCoordinates) as any) {
       const result = await client.query(
         `INSERT INTO universities (name, latitude, longitude, country, continent, city)
          VALUES ($1, $2, $3, $4, $5, $6)
@@ -87,7 +87,7 @@ async function runMigration() {
 
       // Insert courses for this exchange
       if (exchange.courses) {
-        for (const [semester, courses] of Object.entries(exchange.courses) as [string, any[]]) {
+        for (const [semester, courses] of Object.entries(exchange.courses) as any) {
           if (!Array.isArray(courses)) continue;
 
           for (const course of courses) {

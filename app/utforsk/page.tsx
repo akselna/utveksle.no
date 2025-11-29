@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
-import MapChart from "./MapChart";
+import dynamic from "next/dynamic";
 import "./styles.css";
+
+const MapChart = dynamic(() => import("./MapChart"), { ssr: false });
 
 function App() {
   return (

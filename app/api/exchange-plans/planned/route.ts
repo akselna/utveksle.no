@@ -65,7 +65,7 @@ export async function GET(request: Request) {
     const result = await query(sqlQuery, values);
 
     // Transform to match the PlannedExchange interface in frontend
-    const plannedExchanges = result.rows.map(row => {
+    const plannedExchanges = result.rows.map((row: any) => {
       // Determine display name based on privacy rules
       let studentName = 'Anonym student';
       if (row.contact_status === 'self') {

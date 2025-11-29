@@ -9,4 +9,5 @@ export interface Course {
   NTNU_Fagnavn: string;
   Behandlingsdato: string;
   Country: string;
+  Wiki_URL?: string;
 }

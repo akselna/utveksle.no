@@ -23,7 +23,7 @@ export async function GET() {
       data: {
         currentTime: timeResult.rows[0].current_time,
         version: versionResult.rows[0].version,
-        tables: tablesResult.rows.map(row => row.table_name),
+        tables: tablesResult.rows.map((row: any) => row.table_name),
         tableCount: tablesResult.rows.length
       }
     });

@@ -21,7 +21,12 @@ export async function POST(request: Request) {
     }
 
     // Register user
-    const user = await registerUser(email, password, name);
+    const user = await registerUser({
+      email,
+      password,
+      name,
+      provider: 'credentials'
+    });
 
     return NextResponse.json(
       { message: "User created successfully", user },

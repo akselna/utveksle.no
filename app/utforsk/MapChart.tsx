@@ -37,7 +37,12 @@ interface PlannedExchange {
   studentName: string;
   semester: string;
   year?: number;
-  contactStatus: 'none' | 'pending_sent' | 'pending_received' | 'accepted' | 'self';
+  contactStatus:
+    | "none"
+    | "pending_sent"
+    | "pending_received"
+    | "accepted"
+    | "self";
 }
 
 const MapChart = () => {
@@ -47,10 +52,14 @@ const MapChart = () => {
   const selectedCountryRef = useRef<string | null>(null);
 
   // Contact Request State
-  const [confirmModal, setConfirmModal] = useState<{isOpen: boolean, userId: number | null, name: string}>({
+  const [confirmModal, setConfirmModal] = useState<{
+    isOpen: boolean;
+    userId: number | null;
+    name: string;
+  }>({
     isOpen: false,
     userId: null,
-    name: ''
+    name: "",
   });
   const [isSendingRequest, setIsSendingRequest] = useState(false);
 
@@ -76,7 +85,7 @@ const MapChart = () => {
       setConfirmModal({
         isOpen: true,
         userId: userId,
-        name: studyProgram // Just displaying study program as identifier for now
+        name: studyProgram, // Just displaying study program as identifier for now
       });
     };
 
@@ -88,22 +97,24 @@ const MapChart = () => {
 
   const handleConfirmRequest = async () => {
     if (!confirmModal.userId) return;
-    
+
     setIsSendingRequest(true);
     try {
-      const res = await fetch('/api/contact-requests', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ receiver_id: confirmModal.userId }),
       });
-      
+
       if (res.ok) {
         // Optimistic update: Update the local state to show 'pending_sent'
-        setPlannedExchanges(prev => prev.map(p => 
-          p.userId === confirmModal.userId 
-            ? { ...p, contactStatus: 'pending_sent' } 
-            : p
-        ));
+        setPlannedExchanges((prev) =>
+          prev.map((p) =>
+            p.userId === confirmModal.userId
+              ? { ...p, contactStatus: "pending_sent" }
+              : p
+          )
+        );
         setConfirmModal({ ...confirmModal, isOpen: false });
         alert("Forespørsel sendt!");
       } else {
@@ -136,7 +147,7 @@ const MapChart = () => {
 
     // Try to load from cache first for instant display
     try {
-      const cachedExchanges = sessionStorage.getItem('cached_experiences');
+      const cachedExchanges = sessionStorage.getItem("cached_experiences");
       if (cachedExchanges) {
         const parsed = JSON.parse(cachedExchanges);
         console.log("Using cached experiences:", parsed.length);
@@ -144,31 +155,44 @@ const MapChart = () => {
         setIsLoading(false); // Show map immediately with cached data
       }
     } catch (e) {
-      console.error('Failed to load cached experiences:', e);
+      console.error("Failed to load cached experiences:", e);
     }
 
     // Then fetch fresh data in background
     fetch("/api/experiences")
       .then((res) => res.json())
       .then((apiData) => {
-        if (apiData.success && apiData.experiences && apiData.experiences.length > 0) {
-          console.log("Database experiences loaded:", apiData.experiences.length, "experiences");
+        if (
+          apiData.success &&
+          apiData.experiences &&
+          apiData.experiences.length > 0
+        ) {
+          console.log(
+            "Database experiences loaded:",
+            apiData.experiences.length,
+            "experiences"
+          );
 
           // Convert database experiences to Exchange format
-          const dbExchanges: Exchange[] = apiData.experiences.map((exp: any) => ({
-            id: `db-${exp.id}`,
-            university: exp.university_name,
-            country: exp.country,
-            study: exp.study_program,
-            year: exp.year.toString(),
-            numSemesters: exp.semester === "Høst + Vår" ? 2 : 1,
-          }));
+          const dbExchanges: Exchange[] = apiData.experiences.map(
+            (exp: any) => ({
+              id: `db-${exp.id}`,
+              university: exp.university_name,
+              country: exp.country,
+              study: exp.study_program,
+              year: exp.year.toString(),
+              numSemesters: exp.semester === "Høst + Vår" ? 2 : 1,
+            })
+          );
 
           // Cache the experiences for next time
           try {
-            sessionStorage.setItem('cached_experiences', JSON.stringify(dbExchanges));
+            sessionStorage.setItem(
+              "cached_experiences",
+              JSON.stringify(dbExchanges)
+            );
           } catch (e) {
-            console.error('Failed to cache experiences:', e);
+            console.error("Failed to cache experiences:", e);
           }
 
           console.log("Using database exchanges for map");
@@ -176,11 +200,17 @@ const MapChart = () => {
           setIsLoading(false);
         } else {
           // Fallback to static data if no database experiences
-          console.log("No database experiences, loading static data as fallback");
+          console.log(
+            "No database experiences, loading static data as fallback"
+          );
           fetch("/extracted-data/all-exchanges.json")
             .then((res) => res.json())
             .then((staticData) => {
-              console.log("Static exchanges loaded:", staticData.length, "exchanges");
+              console.log(
+                "Static exchanges loaded:",
+                staticData.length,
+                "exchanges"
+              );
               setAllExchanges(staticData);
               setIsLoading(false);
             })
@@ -196,7 +226,11 @@ const MapChart = () => {
         fetch("/extracted-data/all-exchanges.json")
           .then((res) => res.json())
           .then((staticData) => {
-            console.log("Static exchanges loaded (fallback):", staticData.length, "exchanges");
+            console.log(
+              "Static exchanges loaded (fallback):",
+              staticData.length,
+              "exchanges"
+            );
             setAllExchanges(staticData);
             setIsLoading(false);
           })
@@ -211,38 +245,58 @@ const MapChart = () => {
     // - Jan (0) to June (5): Show upcoming Autumn (Same Year)
     // - July (6) to Dec (11): Show upcoming Spring (Next Year)
     const now = new Date();
-    const currentMonth = now.getMonth(); 
-    
-    let targetSemester, targetYear;
+    const currentMonth = now.getMonth();
+
+    let targetSemester: string, targetYear: number;
 
     if (currentMonth <= 5) {
       // January - June -> Look for Autumn this year
-      targetSemester = 'Høst';
+      targetSemester = "Høst";
       targetYear = now.getFullYear();
     } else {
       // July - December -> Look for Spring next year
-      targetSemester = 'Vår';
+      targetSemester = "Vår";
       targetYear = now.getFullYear() + 1;
     }
-    
-    console.log(`Fetching planned exchanges for: ${targetSemester} ${targetYear}`);
 
-    fetch(`/api/exchange-plans/planned?year=${targetYear}&semester=${targetSemester}`)
+    console.log(
+      `Fetching planned exchanges for: ${targetSemester} ${targetYear}`
+    );
+
+    fetch(
+      `/api/exchange-plans/planned?year=${targetYear}&semester=${targetSemester}`
+    )
       .then((res) => res.json())
       .then((apiData) => {
-        if (apiData.success && apiData.plannedExchanges && apiData.plannedExchanges.length > 0) {
-          console.log("Planned exchanges loaded from DB:", apiData.plannedExchanges.length, "planned");
+        if (
+          apiData.success &&
+          apiData.plannedExchanges &&
+          apiData.plannedExchanges.length > 0
+        ) {
+          console.log(
+            "Planned exchanges loaded from DB:",
+            apiData.plannedExchanges.length,
+            "planned"
+          );
           setPlannedExchanges(apiData.plannedExchanges);
         } else {
-          console.log(`No planned exchanges found for ${targetSemester} ${targetYear}, falling back to static data`);
+          console.log(
+            `No planned exchanges found for ${targetSemester} ${targetYear}, falling back to static data`
+          );
           // Fallback only if no DB data found
           fetch("/extracted-data/planned-exchanges.json")
             .then((res) => res.json())
             .then((data) => {
-              console.log("Planned exchanges loaded (fallback):", data.length, "planned");
+              console.log(
+                "Planned exchanges loaded (fallback):",
+                data.length,
+                "planned"
+              );
               setPlannedExchanges(data);
             })
-            .catch((err) => console.error("Failed to load planned exchanges fallback:", err));
+            .catch((err) =>
+              console.error("Failed to load planned exchanges fallback:", err)
+            );
         }
       })
       .catch((err) => {
@@ -371,16 +425,16 @@ const MapChart = () => {
     // However, Leaflet doesn't easily let us check for specific tile layers without keeping a ref to the layer itself.
     // A simple way is to not clear the map on every update, only the geojson/markers.
     // But here we are creating the tile layer every time. Let's fix that.
-    
+
     // Actually, in this effect, we are doing everything. Ideally we should have a separate effect for map init.
     // But to minimize diff, let's just check if we have already added tiles.
     // We can store the tile layer in a ref too if needed, but since we don't clear *everything*, just layers we manage...
-    
+
     // Wait, previously we did NOT clear the map. We just did `if (!mapRef.current) ... else ...`.
     // So the map instance persists.
     // But the TileLayer code below runs EVERY TIME this effect runs. That adds multiple tile layers!
     // FIX: Add a ref for tile layer or check if it exists.
-    
+
     // Let's assume we only want to add it once.
     // Since we don't have a ref for it in the original code, I'll just add it if map was just created.
     // But map creation is inside the `if (!mapRef.current)` block.
@@ -389,26 +443,26 @@ const MapChart = () => {
     // MOVED TileLayer inside map creation block below.
 
     if (!mapRef.current) {
-        // ... code above ...
+      // ... code above ...
     } else {
-        // ... code above ...
+      // ... code above ...
     }
-    
+
     // RE-INSERTED TileLayer logic, but now properly guarded or placed.
     // To correspond to the previous structure but optimized:
-    
+
     // We need to ensure TileLayer is added only once.
     // The easiest way without new refs is to move it into the `if (!mapRef.current)` block.
-    
+
     // Let's check where it was... It was outside.
     // I will move it inside `if (!mapRef.current)`.
 
     // =============================
     // 4. Oppdater GeoJSON-kartet
     // =============================
-    
+
     // Helper function to get country color based on number of universities
-    const getCountryColor = (feature: GeoJSON.Feature): string => {
+    const getCountryColor = (feature: any): string => {
       const props = feature.properties || {};
       const countryName = props.name || "";
 
@@ -429,7 +483,7 @@ const MapChart = () => {
     };
 
     // GeoJSON styling - now dynamic based on country and selection
-    const style = (feature?: GeoJSON.Feature): L.PathOptions => {
+    const style = (feature: any): L.PathOptions => {
       if (!feature) {
         return {
           weight: 1.2,
@@ -557,8 +611,8 @@ const MapChart = () => {
         } else {
           // For smaller countries, use bounds as before
           let bounds;
-          if (typeof layer.getBounds === "function") {
-            bounds = layer.getBounds();
+          if (typeof (layer as any).getBounds === "function") {
+            bounds = (layer as any).getBounds();
           } else if (feature?.geometry) {
             const tempLayer = L.geoJSON(feature);
             bounds = tempLayer.getBounds();
@@ -620,9 +674,7 @@ const MapChart = () => {
         if (universityMarkersRef.current) {
           universityMarkersRef.current.clearLayers();
         } else {
-          universityMarkersRef.current = L.layerGroup().addTo(
-            mapRef.current
-          );
+          universityMarkersRef.current = L.layerGroup().addTo(mapRef.current);
         }
 
         // Add university markers with real GPS coordinates
@@ -631,9 +683,7 @@ const MapChart = () => {
           const isReviewMode = mapMode === "reviews";
           const universityData = isReviewMode
             ? allExchanges.filter((ex) => ex.university === universityName)
-            : plannedExchanges.filter(
-                (ex) => ex.university === universityName
-              );
+            : plannedExchanges.filter((ex) => ex.university === universityName);
 
           if (universityData.length === 0) {
             return; // Skip if no data for this university in current mode
@@ -641,7 +691,7 @@ const MapChart = () => {
 
           // Get the real coordinates for this university
           let coords = universityCoordinates[universityName];
-          
+
           // If not found, try removing "The " prefix
           if (!coords && universityName.startsWith("The ")) {
             const nameWithoutThe = universityName.substring(4);
@@ -746,12 +796,11 @@ const MapChart = () => {
                 </p>
                 ${planned
                   .slice(0, 3)
-                  .map(
-                    (ex) => {
-                      // Determine button/status HTML
-                      let actionHtml = '';
-                      if (ex.contactStatus === 'none') {
-                        actionHtml = `
+                  .map((ex) => {
+                    // Determine button/status HTML
+                    let actionHtml = "";
+                    if (ex.contactStatus === "none") {
+                      actionHtml = `
                           <button 
                             onclick="window.askToShareName(${ex.userId}, '${ex.study}')"
                             style="margin-top:4px; padding:2px 6px; background:#2196F3; color:white; border:none; border-radius:4px; font-size:10px; cursor:pointer;"
@@ -759,22 +808,28 @@ const MapChart = () => {
                             Spør om å dele navn
                           </button>
                         `;
-                      } else if (ex.contactStatus === 'pending_sent') {
-                        actionHtml = `<span style="font-size:10px; color:#999; font-style:italic;">Forespørsel sendt</span>`;
-                      } else if (ex.contactStatus === 'accepted') {
-                        // Name is already in studentName from API if accepted
-                      }
+                    } else if (ex.contactStatus === "pending_sent") {
+                      actionHtml = `<span style="font-size:10px; color:#999; font-style:italic;">Forespørsel sendt</span>`;
+                    } else if (ex.contactStatus === "accepted") {
+                      // Name is already in studentName from API if accepted
+                    }
 
-                      return `
-                        <div style="margin: 5px 0; padding: 8px; background: #e3f2fd; border-radius: 4px; font-size: 11px; border-left: 3px solid ${ex.contactStatus === 'accepted' || ex.contactStatus === 'self' ? '#4CAF50' : '#2196F3'}">
+                    return `
+                        <div style="margin: 5px 0; padding: 8px; background: #e3f2fd; border-radius: 4px; font-size: 11px; border-left: 3px solid ${
+                          ex.contactStatus === "accepted" ||
+                          ex.contactStatus === "self"
+                            ? "#4CAF50"
+                            : "#2196F3"
+                        }">
                           <div style="font-weight:bold;">${ex.studentName}</div>
                           <div style="color:#555;">${ex.study}</div>
-                          <div style="color:#777;">${ex.semester} ${ex.year}</div>
+                          <div style="color:#777;">${ex.semester} ${
+                      ex.year
+                    }</div>
                           ${actionHtml}
                         </div>
                       `;
-                    }
-                  )
+                  })
                   .join("")}
                 ${
                   planned.length > 3
@@ -809,12 +864,16 @@ const MapChart = () => {
           marker.bindPopup(popupContent);
 
           // Add click event listener to the marker to handle "View All" button
-          marker.on('popupopen', () => {
-            const button = document.getElementById(`view-all-${universityName.replace(/\s+/g, "-")}`);
+          marker.on("popupopen", () => {
+            const button = document.getElementById(
+              `view-all-${universityName.replace(/\s+/g, "-")}`
+            );
             if (button) {
-              button.addEventListener('click', () => {
+              button.addEventListener("click", () => {
                 // Navigate to erfaringer page with university filter
-                window.location.href = `/erfaringer?university=${encodeURIComponent(universityName)}`;
+                window.location.href = `/erfaringer?university=${encodeURIComponent(
+                  universityName
+                )}`;
               });
             }
           });
@@ -829,7 +888,8 @@ const MapChart = () => {
     }
 
     // Legg til events for hvert land
-    function onEachFeature(feature: GeoJSON.Feature, layer: L.Layer): void {
+
+    function onEachFeature(feature: any, layer: L.Layer): void {
       // Always attach the event handlers - they will check selectedCountry internally
       layer.on({
         mouseover: highlightFeature,
@@ -856,42 +916,42 @@ const MapChart = () => {
     // Note: In this structure, if mapRef.current was null (top of function), we initialized it.
     // We should move the TileLayer logic into the initialization block at the top to ensure it only runs once.
     // However, due to the constraints of this replace block, I will leave it as is but ensure we don't add it repeatedly.
-    // A simple check: mapRef.current has layers? 
+    // A simple check: mapRef.current has layers?
     // But layers include geojson.
     // Let's just move the TileLayer code to the TOP initialization block in a future step or trust that React ref persistence works.
     // Actually, wait. If I don't move it, it will add a new tile layer every time universitiesByCountry changes.
     // I MUST move it.
-    
+
     // Wait, I can't easily move code blocks far apart with 'replace'.
     // But I can wrap the TileLayer addition in a check.
     // Better yet, I'll remove it from here and assume it was added during initialization.
     // BUT I didn't add it during initialization in the code above.
     // Correct fix: I should have added it in the `if (!mapRef.current)` block.
-    
+
     // Let's do this: I will add a simple check here.
     // "If we just created the map, add tiles".
     // But we can't know if we just created it easily here.
-    
+
     // Alternative: Check if any tile layer exists.
     let hasTileLayer = false;
-    mapRef.current.eachLayer(layer => {
+    mapRef.current.eachLayer((layer) => {
       if (layer instanceof L.TileLayer) hasTileLayer = true;
     });
-    
-    if (!hasTileLayer) {
-        const JAWG_TOKEN =
-          "esduRluv57sFez7IV5TFGpfhwLD2c4WasWVyKjMSxCVYQkeRK2tO94HVbOwAySO5";
 
-        L.tileLayer(
-          `https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_TOKEN}`,
-          {
-            minZoom: 0,
-            maxZoom: 22,
-            attribution:
-              '<a href="https://jawg.io" target="_blank">&copy; Jawg Maps</a> | ' +
-              '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OSM contributors</a>',
-          }
-        ).addTo(mapRef.current);
+    if (!hasTileLayer) {
+      const JAWG_TOKEN =
+        "esduRluv57sFez7IV5TFGpfhwLD2c4WasWVyKjMSxCVYQkeRK2tO94HVbOwAySO5";
+
+      L.tileLayer(
+        `https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=${JAWG_TOKEN}`,
+        {
+          minZoom: 0,
+          maxZoom: 22,
+          attribution:
+            '<a href="https://jawg.io" target="_blank">&copy; Jawg Maps</a> | ' +
+            '<a href="https://www.openstreetmap.org/copyright" target="_blank">© OSM contributors</a>',
+        }
+      ).addTo(mapRef.current);
     }
 
     return () => {
@@ -906,10 +966,8 @@ const MapChart = () => {
         // THAT IS THE BUG.
         // We should NOT remove mapRef.current in the cleanup unless the component is truly unmounting.
         // But useEffect cleanup runs on every update.
-        
         // FIX: Use an empty dependency array useEffect for Map creation and destruction.
         // AND a separate useEffect for updating the map data.
-        
         // Given the complexity of refactoring that in one go, I will stick to the plan:
         // 1. Fetch GeoJSON once (Done).
         // 2. Use GeoJSON data here (Done).
@@ -928,12 +986,12 @@ const MapChart = () => {
 
   // Separate effect for cleanup only on unmount
   useEffect(() => {
-      return () => {
-          if (mapRef.current) {
-              mapRef.current.remove();
-              mapRef.current = null;
-          }
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
       }
+    };
   }, []);
 
   const resetView = () => {
@@ -1190,15 +1248,22 @@ const MapChart = () => {
       {confirmModal.isOpen && (
         <div className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in-95 duration-200">
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Spør om kontakt?</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">
+              Spør om kontakt?
+            </h3>
             <p className="text-slate-600 mb-6">
-              Du sender nå en forespørsel til studenten som går <strong>{confirmModal.name}</strong>.
-              <br/><br/>
-              Dersom personen godtar forespørselen, vil <strong>dere begge</strong> få se hverandres fulle navn.
+              Du sender nå en forespørsel til studenten som går{" "}
+              <strong>{confirmModal.name}</strong>.
+              <br />
+              <br />
+              Dersom personen godtar forespørselen, vil{" "}
+              <strong>dere begge</strong> få se hverandres fulle navn.
             </p>
             <div className="flex gap-3">
               <button
-                onClick={() => setConfirmModal({...confirmModal, isOpen: false})}
+                onClick={() =>
+                  setConfirmModal({ ...confirmModal, isOpen: false })
+                }
                 className="flex-1 py-3 px-4 bg-gray-100 text-slate-700 font-bold rounded-xl hover:bg-gray-200 transition-colors"
               >
                 Avbryt
@@ -1208,7 +1273,7 @@ const MapChart = () => {
                 disabled={isSendingRequest}
                 className="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors flex justify-center items-center"
               >
-                {isSendingRequest ? 'Sender...' : 'Send forespørsel'}
+                {isSendingRequest ? "Sender..." : "Send forespørsel"}
               </button>
             </div>
           </div>
