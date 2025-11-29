@@ -41,9 +41,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
         {destinations.map((dest, index) => (
           <div
             key={dest.id}
@@ -183,6 +183,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
