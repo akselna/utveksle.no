@@ -4,19 +4,66 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const destinations = [
+// Slideshow destinations (6 total)
+const slideshowDestinations = [
   {
     id: 1,
-    university: 'Università degli Studi di Padova',
+    university: 'Università degli Studi di Bologna',
     country: 'Italia',
-    image: '/padova.jpg',
+    image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=1920&q=90&auto=format',
     exchanges: 12
   },
   {
     id: 2,
     university: 'The University of Queensland',
     country: 'Australia',
-    image: '/brisbane.jpg',
+    image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=1920&q=90&auto=format',
+    exchanges: 8
+  },
+  {
+    id: 3,
+    university: 'University of California, Berkeley',
+    country: 'USA',
+    image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1920&q=90&auto=format',
+    exchanges: 15
+  },
+  {
+    id: 4,
+    university: 'Instituto Superior Técnico',
+    country: 'Portugal',
+    image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1920&q=90&auto=format',
+    exchanges: 10
+  },
+  {
+    id: 5,
+    university: 'Technische Universität München',
+    country: 'Tyskland',
+    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920&q=90&auto=format',
+    exchanges: 9
+  },
+  {
+    id: 6,
+    university: 'Technische Universiteit Delft',
+    country: 'Nederland',
+    image: 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1920&q=90&auto=format',
+    exchanges: 7
+  }
+];
+
+// Featured destinations for grid (keep the original 3)
+const featuredDestinations = [
+  {
+    id: 1,
+    university: 'Università degli Studi di Bologna',
+    country: 'Italia',
+    image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=1920&q=90&auto=format',
+    exchanges: 12
+  },
+  {
+    id: 2,
+    university: 'The University of Queensland',
+    country: 'Australia',
+    image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=1920&q=90&auto=format',
     exchanges: 8
   },
   {
@@ -34,7 +81,7 @@ export default function Home() {
   // Auto-rotate destinations every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % destinations.length);
+      setCurrentIndex((prev) => (prev + 1) % slideshowDestinations.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -44,7 +91,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
-        {destinations.map((dest, index) => (
+        {slideshowDestinations.map((dest, index) => (
           <div
             key={dest.id}
             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -80,8 +127,8 @@ export default function Home() {
         </div>
 
         {/* Navigation dots */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10 flex gap-3">
-          {destinations.map((_, index) => (
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex gap-3">
+          {slideshowDestinations.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
@@ -93,24 +140,6 @@ export default function Home() {
               aria-label={`Gå til destinasjon ${index + 1}`}
             />
           ))}
-        </div>
-
-        {/* Auto-rotate destinations */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-2 text-white/70 text-sm">
-            <span>Scroll</span>
-            <svg
-              className="w-5 h-5 animate-bounce"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
         </div>
       </section>
 
@@ -127,7 +156,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {destinations.map((dest) => (
+            {featuredDestinations.map((dest) => (
               <Link
                 key={dest.id}
                 href="/utforsk"

@@ -48,6 +48,11 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/om-oss" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                  Om oss
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -87,6 +92,9 @@ export default function Footer() {
           <div className="flex gap-6">
             <Link href="/faq" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
               FAQ
+            </Link>
+            <Link href="/om-oss" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
+              Om oss
             </Link>
             <Link href="#" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
               Personvern

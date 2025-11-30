@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+        pathname: '/**',
+      },
     ],
     qualities: [75, 90],
   },

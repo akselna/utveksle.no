@@ -1188,13 +1188,13 @@ export default function ExchangePlannerFull() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50 text-slate-800 font-sans overflow-hidden">
+    <div className="h-screen flex flex-col bg-white text-gray-900 font-sans overflow-hidden">
       {/* --- GLOBAL HEADER (Vises kun under oppretting) --- */}
       {step > 0 && (
         <header className="bg-white border-b border-gray-200 shadow-sm z-30 shrink-0">
           <div className="max-w-6xl mx-auto px-6 py-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-slate-900">
+              <h2 className="text-lg font-medium text-gray-900">
                 {editingPlanId ? "Endre plan" : "Opprett ny plan"}
               </h2>
               {step === 3 && (
@@ -1226,7 +1226,7 @@ export default function ExchangePlannerFull() {
             <div className="flex items-center justify-between w-full max-w-5xl mx-auto relative">
               <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 rounded"></div>
               <div
-                className="absolute top-1/2 left-0 h-1 bg-blue-600 -z-10 rounded transition-all duration-500"
+                className="absolute top-1/2 left-0 h-1 bg-gray-900 -z-10 rounded transition-all duration-500"
                 style={{
                   width:
                     step === 1
@@ -1249,7 +1249,7 @@ export default function ExchangePlannerFull() {
                   className="flex flex-col items-center bg-white px-2"
                 >
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium border-2 transition-all ${
                       step >= item.num
                         ? "border-blue-600 bg-blue-600 text-white"
                         : "border-gray-300 text-gray-400"
@@ -1274,7 +1274,7 @@ export default function ExchangePlannerFull() {
       {/* --- MAIN CONTENT AREA --- */}
       <div className="flex-1 overflow-y-auto relative">
         {showSaveNotification && (
-          <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-in slide-in-from-top fade-in z-50">
+          <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-in slide-in-from-top fade-in z-50">
             <CheckCircle className="text-green-400" size={20} />
             <span className="font-medium">
               {editingPlanId ? "Planen er oppdatert!" : "Planen er lagret!"}
@@ -1287,10 +1287,10 @@ export default function ExchangePlannerFull() {
           <div className="p-6 sm:p-10 max-w-7xl mx-auto animate-in fade-in duration-500">
             <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10">
               <div>
-                <h1 className="text-3xl font-bold text-slate-900">
+                <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4">
                   Mine utvekslinger
                 </h1>
-                <p className="text-slate-500 mt-1">
+                <p className="text-gray-600 mt-1">
                   Se, endre eller opprett nye utvekslingsplaner.
                 </p>
               </div>
@@ -1299,7 +1299,7 @@ export default function ExchangePlannerFull() {
                   resetCreatorForm();
                   setStep(1);
                 }}
-                className="mt-4 sm:mt-0 bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+                className="mt-4 sm:mt-0 bg-gray-900 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
               >
                 <Plus size={20} /> Opprett ny plan
               </button>
@@ -1308,7 +1308,7 @@ export default function ExchangePlannerFull() {
             {plansLoading ? (
               <div className="text-center py-20">
                 <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                <p className="mt-4 text-slate-500">Laster planer...</p>
+                <p className="mt-4 text-gray-600">Laster planer...</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1319,7 +1319,7 @@ export default function ExchangePlannerFull() {
                   >
                     <div>
                       <div className="flex justify-between items-start">
-                        <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                        <span className="text-xs font-medium text-gray-900 bg-gray-100 px-2 py-1 rounded-full">
                           {plan.program}
                         </span>
                         <button
@@ -1335,7 +1335,7 @@ export default function ExchangePlannerFull() {
                             type="text"
                             value={editingPlanName.name}
                             onChange={(e) => setEditingPlanName({id: plan.id, name: e.target.value})}
-                            className="flex-1 px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold"
+                            className="flex-1 px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium"
                             autoFocus
                           />
                           <button
@@ -1371,7 +1371,7 @@ export default function ExchangePlannerFull() {
                                 }
                               }
                             }}
-                            className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            className="px-3 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-colors"
                           >
                             <CheckCircle size={16} />
                           </button>
@@ -1384,19 +1384,19 @@ export default function ExchangePlannerFull() {
                         </div>
                       ) : (
                         <h3
-                          className="font-bold text-slate-800 mt-3 text-lg cursor-pointer hover:text-blue-600 transition-colors"
+                          className="font-medium text-gray-900 mt-3 text-lg cursor-pointer hover:text-blue-600 transition-colors"
                           onClick={() => setEditingPlanName({id: plan.id, name: plan.planName || plan.exchangeUniversity})}
                         >
                           {plan.planName || plan.exchangeUniversity}
                         </h3>
                       )}
-                      <p className="text-sm text-slate-500">
+                      <p className="text-sm text-gray-600">
                         {plan.exchangeUniversity} | {plan.university} | {plan.studyYear}. klasse -{" "}
                         {plan.semesterChoice}
                       </p>
                     </div>
                   <div className="mt-6">
-                    <p className="text-sm font-medium text-slate-600 mb-2">
+                    <p className="text-sm font-medium text-gray-600 mb-2">
                       Fag ({plan.subjects.length})
                     </p>
                     <div className="space-y-2">
@@ -1415,16 +1415,16 @@ export default function ExchangePlannerFull() {
                               <div className="w-3.5 h-3.5 border-2 border-gray-300 rounded-full" />
                             )}
                           </div>
-                          <span className="text-slate-600 font-medium">
+                          <span className="text-gray-600 font-medium">
                             {sub.code}
                           </span>
-                          <span className="text-slate-400 truncate">
+                          <span className="text-gray-500 truncate">
                             {sub.name}
                           </span>
                         </div>
                       ))}
                       {plan.subjects.length > 3 && (
-                        <p className="text-xs text-slate-400 mt-1">
+                        <p className="text-xs text-gray-500 mt-1">
                           + {plan.subjects.length - 3} til...
                         </p>
                       )}
@@ -1432,7 +1432,7 @@ export default function ExchangePlannerFull() {
                   </div>
                   <button
                     onClick={() => handleOpenPlan(plan.id)}
-                    className="w-full mt-6 bg-slate-100 text-slate-700 py-2 rounded-lg font-semibold hover:bg-slate-200 transition-colors text-sm"
+                    className="w-full mt-6 bg-gray-100 text-gray-600 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm"
                   >
                     Åpne plan
                   </button>
@@ -1444,10 +1444,10 @@ export default function ExchangePlannerFull() {
             {!plansLoading && myPlans.length === 0 && (
               <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-2xl mt-6">
                 <GraduationCap size={40} className="mx-auto text-gray-300" />
-                <h3 className="mt-4 text-lg font-semibold text-slate-700">
+                <h3 className="mt-4 text-lg font-medium text-gray-600">
                   Ingen planer ennå
                 </h3>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-gray-600">
                   Trykk på "Opprett ny plan" for å starte.
                 </p>
               </div>
@@ -1459,17 +1459,17 @@ export default function ExchangePlannerFull() {
         {step === 1 && (
           <div className="flex flex-col items-center justify-center min-h-full p-6 animate-in fade-in duration-500">
             <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border border-gray-100">
-              <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">
+              <h1 className="text-2xl font-medium text-gray-900 text-center mb-6">
                 Start planleggingen
               </h1>
               <div className="space-y-5">
                 {/* Hjemmeuniversitet */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                     <School size={14} /> Hjemmeuniversitet
                   </label>
                   <select
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                     value={university}
                     onChange={(e) => setUniversity(e.target.value)}
                   >
@@ -1480,11 +1480,11 @@ export default function ExchangePlannerFull() {
 
                 {/* Utvekslingsuniversitet */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                     <MapPin size={14} /> Utvekslingsuniversitet
                   </label>
                   <select
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                     value={exchangeUniversity}
                     onChange={(e) => setExchangeUniversity(e.target.value)}
                   >
@@ -1498,11 +1498,11 @@ export default function ExchangePlannerFull() {
 
                 {/* Studieprogram */}
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                     <GraduationCap size={14} /> Studieprogram
                   </label>
                   <select
-                    className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                     value={program}
                     onChange={(e) => {
                       setProgram(e.target.value);
@@ -1519,11 +1519,11 @@ export default function ExchangePlannerFull() {
                 {/* Teknologiretning (kun for Indøk) */}
                 {TECHNOLOGY_DIRECTIONS[program] && (
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                       <School size={14} /> Teknologiretning
                     </label>
                     <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                       value={technologyDirection}
                       onChange={(e) => {
                         setTechnologyDirection(e.target.value);
@@ -1553,11 +1553,11 @@ export default function ExchangePlannerFull() {
 
                   return availableSpecs.length > 1 ? (
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                      <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                         <BookOpen size={14} /> Fagretning
                       </label>
                       <select
-                        className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                         value={specialization}
                         onChange={(e) => setSpecialization(e.target.value)}
                       >
@@ -1574,11 +1574,11 @@ export default function ExchangePlannerFull() {
                 {/* Studieår og Semester */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                       <GraduationCap size={14} /> Årstrinn
                     </label>
                     <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                       value={studyYear}
                       onChange={(e) => setStudyYear(Number(e.target.value))}
                     >
@@ -1590,11 +1590,11 @@ export default function ExchangePlannerFull() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1 flex items-center gap-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
                       <Calendar size={14} /> Utvekslingsår
                     </label>
                     <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                       value={exchangeYear}
                       onChange={(e) => setExchangeYear(Number(e.target.value))}
                     >
@@ -1606,11 +1606,11 @@ export default function ExchangePlannerFull() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1">
                       Semester
                     </label>
                     <select
-                      className="w-full p-3 rounded-xl border border-gray-300 bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 rounded-md border border-gray-300 bg-white outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900"
                       value={semesterChoice}
                       onChange={(e) => setSemesterChoice(e.target.value)}
                     >
@@ -1624,7 +1624,7 @@ export default function ExchangePlannerFull() {
                 <div className="pt-4">
                   <button
                     onClick={handleFetchSubjects}
-                    className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full bg-gray-900 text-white py-4 rounded-xl font-medium hover:bg-gray-800 transition-all flex items-center justify-center gap-2 shadow-lg"
                   >
                     Hent fagplan <ArrowRight size={20} />
                   </button>
@@ -1644,16 +1644,16 @@ export default function ExchangePlannerFull() {
             <div className="max-w-3xl w-full">
               <button
                 onClick={() => setStep(1)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+                className="text-gray-500 hover:text-gray-600 flex items-center gap-1 mb-6 text-sm"
               >
                 <ArrowLeft size={16} /> Tilbake til profil
               </button>
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                 <div className="mb-6 border-b border-gray-100 pb-4">
-                  <h2 className="text-2xl font-bold text-slate-900">
+                  <h2 className="text-3xl font-light text-gray-900">
                     Bekreft dine fag
                   </h2>
-                  <p className="text-slate-500 mt-1">
+                  <p className="text-gray-600 mt-1">
                     Dette er fagene vi forventer at du tar i{" "}
                     <strong>
                       {studyYear}. klasse ({semesterChoice.toLowerCase()})
@@ -1698,7 +1698,7 @@ export default function ExchangePlannerFull() {
                               }}
                               className={`flex items-center justify-between p-4 rounded-xl transition-all ${
                                 isObligatory
-                                  ? "bg-slate-50 border border-gray-200"
+                                  ? "bg-gray-50 border border-gray-200"
                                   : isSelected
                                   ? "bg-green-50 border-2 border-green-400 cursor-pointer hover:border-green-500 hover:bg-green-100"
                                   : "bg-white border border-gray-200 cursor-pointer hover:border-blue-300"
@@ -1708,10 +1708,10 @@ export default function ExchangePlannerFull() {
                                 <div
                                   className={`p-2 rounded-lg border ${
                                     isObligatory
-                                      ? "bg-white border-gray-200 text-slate-600"
+                                      ? "bg-white border-gray-200 text-gray-600"
                                       : isSelected
                                       ? "bg-green-100 border-green-200 text-green-700"
-                                      : "bg-white border-gray-200 text-slate-600"
+                                      : "bg-white border-gray-200 text-gray-600"
                                   }`}
                                 >
                                   <BookOpen size={20} />
@@ -1719,9 +1719,9 @@ export default function ExchangePlannerFull() {
                                 <div>
                                   <div className="flex items-center gap-2">
                                     <div
-                                      className={`font-bold ${
+                                      className={`font-medium ${
                                         isObligatory || !isSelected
-                                          ? "text-slate-800"
+                                          ? "text-gray-900"
                                           : "text-green-900"
                                       }`}
                                     >
@@ -1744,7 +1744,7 @@ export default function ExchangePlannerFull() {
                                   <div
                                     className={`text-sm ${
                                       isObligatory || !isSelected
-                                        ? "text-slate-500"
+                                        ? "text-gray-600"
                                         : "text-green-700"
                                     }`}
                                   >
@@ -1782,7 +1782,7 @@ export default function ExchangePlannerFull() {
                               key={groupKey}
                               className="border-2 border-dashed border-purple-200 bg-purple-50/30 rounded-xl p-4"
                             >
-                              <div className="text-xs font-semibold text-purple-700 mb-2 flex items-center gap-2">
+                              <div className="text-xs font-medium text-purple-700 mb-2 flex items-center gap-2">
                                 <CheckCircle size={14} /> {groupName}
                               </div>
                               <div className="space-y-2">
@@ -1797,7 +1797,7 @@ export default function ExchangePlannerFull() {
                                       className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${
                                         isSelected
                                           ? "bg-green-50 border-2 border-green-400 hover:border-green-500 hover:bg-green-100"
-                                          : "bg-white border border-gray-200 hover:border-blue-300"
+                                          : "bg-white border border-gray-200 hover:border-gray-400"
                                       }`}
                                     >
                                       <div className="flex items-center gap-3 flex-1">
@@ -1805,7 +1805,7 @@ export default function ExchangePlannerFull() {
                                           className={`p-1.5 rounded-lg border ${
                                             isSelected
                                               ? "bg-green-100 border-green-200 text-green-700"
-                                              : "bg-white border-gray-200 text-slate-600"
+                                              : "bg-white border-gray-200 text-gray-600"
                                           }`}
                                         >
                                           <BookOpen size={16} />
@@ -1813,10 +1813,10 @@ export default function ExchangePlannerFull() {
                                         <div className="flex-1">
                                           <div className="flex items-center gap-2">
                                             <div
-                                              className={`font-bold text-sm ${
+                                              className={`font-medium text-sm ${
                                                 isSelected
                                                   ? "text-green-900"
-                                                  : "text-slate-800"
+                                                  : "text-gray-900"
                                               }`}
                                             >
                                               {sub.code}
@@ -1837,7 +1837,7 @@ export default function ExchangePlannerFull() {
                                             className={`text-xs ${
                                               isSelected
                                                 ? "text-green-700"
-                                                : "text-slate-500"
+                                                : "text-gray-600"
                                             }`}
                                           >
                                             {sub.name}
@@ -1895,7 +1895,7 @@ export default function ExchangePlannerFull() {
                       // Gå videre uten å filtrere - alle fag beholdes
                       setStep(3);
                     }}
-                    className="bg-green-600 text-white py-3 px-8 rounded-xl font-bold hover:bg-green-700 transition-all shadow-lg shadow-green-100 flex items-center gap-2"
+                    className="bg-green-600 text-white py-3 px-8 rounded-xl font-medium hover:bg-green-700 transition-all shadow-lg shadow-green-100 flex items-center gap-2"
                   >
                     Alt ser riktig ut <ArrowRight size={20} />
                   </button>
@@ -1911,7 +1911,7 @@ export default function ExchangePlannerFull() {
             <div className="max-w-6xl w-full">
               <button
                 onClick={() => setStep(2)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+                className="text-gray-500 hover:text-gray-600 flex items-center gap-1 mb-6 text-sm"
               >
                 <ArrowLeft size={16} /> Tilbake til dine fag
               </button>
@@ -1933,7 +1933,7 @@ export default function ExchangePlannerFull() {
             <div className="max-w-4xl w-full">
               <button
                 onClick={() => setStep(3)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-6 text-sm"
+                className="text-gray-500 hover:text-gray-600 flex items-center gap-1 mb-6 text-sm"
               >
                 <ArrowLeft size={16} /> Tilbake til planlegger
               </button>
@@ -1942,43 +1942,43 @@ export default function ExchangePlannerFull() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="text-green-600" size={32} />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                  <h2 className="text-2xl font-medium text-gray-900 mb-2">
                     Planen din er klar!
                   </h2>
-                  <p className="text-slate-600">
+                  <p className="text-gray-600">
                     Du har matchet alle fagene dine. Last ned planen som PDF.
                   </p>
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <div className="bg-slate-50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-slate-800 mb-2">
+                  <div className="bg-gray-50 p-4 rounded-xl">
+                    <h3 className="font-medium text-gray-900 mb-2">
                       Plandetaljer
                     </h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Studieprogram:</span>
-                        <span className="font-medium text-slate-800">
+                        <span className="text-gray-600">Studieprogram:</span>
+                        <span className="font-medium text-gray-900">
                           {program}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">
+                        <span className="text-gray-600">
                           Utvekslingsuniversitet:
                         </span>
-                        <span className="font-medium text-slate-800">
+                        <span className="font-medium text-gray-900">
                           {exchangeUniversity}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Periode:</span>
-                        <span className="font-medium text-slate-800">
+                        <span className="text-gray-600">Periode:</span>
+                        <span className="font-medium text-gray-900">
                           {studyYear}. klasse - {semesterChoice}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Antall fag:</span>
-                        <span className="font-medium text-slate-800">
+                        <span className="text-gray-600">Antall fag:</span>
+                        <span className="font-medium text-gray-900">
                           {
                             mySubjects.filter(
                               (s) => !s.isElective || s.isSelected
@@ -2014,17 +2014,17 @@ export default function ExchangePlannerFull() {
                       // TODO: Implementer PDF-nedlasting
                       alert("PDF-nedlasting kommer snart!");
                     }}
-                    className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-2"
+                    className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-xl font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-2"
                   >
                     <Save size={20} /> Last ned PDF
                   </button>
                   <button
                     onClick={handleSavePlan}
                     disabled={isSaving}
-                    className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 ${
+                    className={`flex-1 py-3 px-6 rounded-xl font-medium transition-all shadow-lg flex items-center justify-center gap-2 ${
                       isSaving
                         ? 'bg-slate-700 cursor-not-allowed'
-                        : 'bg-slate-900 hover:bg-slate-800'
+                        : 'bg-gray-900 hover:bg-gray-800'
                     } text-white`}
                   >
                     {isSaving ? (
@@ -2200,8 +2200,8 @@ function PlannerInterface({
       {/* Venstre side (Sticky) */}
       <aside className="w-1/3 bg-white border-r border-gray-200 p-6 flex flex-col shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 overflow-hidden">
         <div className="mb-6 shrink-0">
-          <h3 className="text-lg font-bold text-slate-800 mb-1">Dine krav</h3>
-          <p className="text-sm text-slate-500 mb-4">{semesterLabel}</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-1">Dine krav</h3>
+          <p className="text-sm text-gray-600 mb-4">{semesterLabel}</p>
 
           {/* Progress Bar inside Panel */}
           <div className="w-full bg-gray-100 rounded-full h-2 mb-4">
@@ -2229,7 +2229,7 @@ function PlannerInterface({
               <button
                 onClick={onNext}
                 disabled={!allMatched}
-                className={`w-full py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 text-sm ${
+                className={`w-full py-3 px-4 rounded-xl font-medium transition-all flex items-center justify-center gap-2 text-sm ${
                   allMatched
                     ? "bg-green-600 text-white hover:bg-green-700 shadow-md"
                     : "bg-gray-100 text-gray-400 cursor-not-allowed"
@@ -2271,10 +2271,10 @@ function PlannerInterface({
                   >
                     <Trash2 size={14} />
                   </button>
-                  <span className="font-bold text-slate-700 text-sm">
+                  <span className="font-medium text-gray-600 text-sm">
                     {sub.code}
                   </span>
-                  <span className="text-xs text-slate-500 line-clamp-1">
+                  <span className="text-xs text-gray-600 line-clamp-1">
                     {sub.name}
                   </span>
                   <div className="mt-2 text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-medium">
@@ -2305,7 +2305,7 @@ function PlannerInterface({
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle size={14} className="text-green-600" />
-                    <span className="text-xs font-bold text-green-800 uppercase">
+                    <span className="text-xs font-medium text-green-800 uppercase">
                       Dekket
                     </span>
                   </div>
@@ -2315,10 +2315,10 @@ function PlannerInterface({
                     <p className="text-[10px] text-green-700 font-medium mb-0.5">
                       NTNU-fag:
                     </p>
-                    <p className="font-bold text-xs text-slate-800">
+                    <p className="font-medium text-xs text-gray-900">
                       {sub.code}
                     </p>
-                    <p className="text-[10px] text-slate-600 line-clamp-1">
+                    <p className="text-[10px] text-gray-600 line-clamp-1">
                       {sub.name}
                     </p>
                   </div>
@@ -2328,13 +2328,13 @@ function PlannerInterface({
                     <p className="text-[10px] text-green-700 font-medium mb-0.5">
                       Dekkes av:
                     </p>
-                    <h4 className="font-bold text-xs text-slate-800">
+                    <h4 className="font-medium text-xs text-gray-900">
                       {sub.matchedWith.code}
                     </h4>
-                    <p className="text-[10px] text-slate-600 line-clamp-1">
+                    <p className="text-[10px] text-gray-600 line-clamp-1">
                       {sub.matchedWith.name}
                     </p>
-                    <p className="text-[10px] text-slate-500">
+                    <p className="text-[10px] text-gray-600">
                       {sub.matchedWith.university}
                     </p>
                   </div>
@@ -2346,10 +2346,10 @@ function PlannerInterface({
       </aside>
 
       {/* Høyre side (Scrollable) */}
-      <main className="w-2/3 bg-slate-50 p-8 overflow-y-auto">
+      <main className="w-2/3 bg-gray-50 p-8 overflow-y-auto">
         <div className="max-w-4xl mx-auto pb-20">
           <div className="relative mb-8 sticky top-0 z-20">
-            <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-sm -z-10 -m-4 rounded-xl"></div>
+            <div className="absolute inset-0 bg-gray-50/80 backdrop-blur-sm -z-10 -m-4 rounded-xl"></div>
             <Search
               className="absolute left-4 top-3.5 text-gray-400"
               size={20}
@@ -2375,7 +2375,7 @@ function PlannerInterface({
             ) : (
               <div className="bg-white p-5 rounded-xl border-2 border-blue-200 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h4 className="font-bold text-slate-800">
+                  <h4 className="font-medium text-gray-900">
                     Legg til match manuelt
                   </h4>
                   <button
@@ -2393,7 +2393,7 @@ function PlannerInterface({
 
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1">
                       NTNU emnekode
                     </label>
                     <input
@@ -2406,7 +2406,7 @@ function PlannerInterface({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1">
                       Utvekslingsfag emnekode
                     </label>
                     <input
@@ -2419,7 +2419,7 @@ function PlannerInterface({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1">
                       Utvekslingsfag navn
                     </label>
                     <input
@@ -2470,13 +2470,13 @@ function PlannerInterface({
                   key={opt.id}
                   className={`bg-white p-5 rounded-xl border transition-all flex justify-between items-center ${
                     isCompatible
-                      ? "border-blue-100 shadow-sm hover:shadow-md"
+                      ? "border-gray-200 shadow-sm hover:shadow-md"
                       : "border-gray-100 opacity-70"
                   }`}
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                      <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
                         {opt.university}
                       </span>
                       <span className="text-xs text-gray-400 flex items-center gap-1">
@@ -2488,8 +2488,8 @@ function PlannerInterface({
                         </span>
                       )}
                     </div>
-                    <h3 className="font-bold text-slate-800">{opt.name}</h3>
-                    <p className="text-sm text-slate-500">{opt.code}</p>
+                    <h3 className="font-medium text-gray-900">{opt.name}</h3>
+                    <p className="text-sm text-gray-600">{opt.code}</p>
 
                     {isCompatible && (
                       <div className="mt-2 flex items-center gap-2 flex-wrap">
@@ -2529,7 +2529,7 @@ function PlannerInterface({
                           matchingHomeSub &&
                           handleMatch(opt, matchingHomeSub.id)
                         }
-                        className="bg-slate-900 text-white p-2 rounded-full hover:bg-blue-600 transition-colors shadow-md hover:scale-105 transform active:scale-95"
+                        className="bg-gray-900 text-white p-2 rounded-full hover:bg-blue-600 transition-colors shadow-md hover:scale-105 transform active:scale-95"
                       >
                         <Plus size={20} />
                       </button>
@@ -2555,7 +2555,7 @@ function PlannerInterface({
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-2">
                 <Info className="text-blue-600" size={24} />
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-xl font-medium text-gray-900">
                   Fagsinformasjon
                 </h3>
               </div>
@@ -2569,13 +2569,13 @@ function PlannerInterface({
 
             <div className="space-y-4">
               <div>
-                <h4 className="font-bold text-slate-800 text-lg">
+                <h4 className="font-medium text-gray-900 text-lg">
                   {selectedCourseInfo.name}
                 </h4>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-gray-600">
                   {selectedCourseInfo.code}
                 </p>
-                <p className="text-sm text-slate-600 mt-1">
+                <p className="text-sm text-gray-600 mt-1">
                   {selectedCourseInfo.university}
                 </p>
               </div>
@@ -2584,11 +2584,11 @@ function PlannerInterface({
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <ShieldCheck className="text-blue-600" size={20} />
-                    <span className="font-semibold text-blue-900">
+                    <span className="font-medium text-blue-900">
                       Verifisert fag
                     </span>
                   </div>
-                  <p className="text-sm text-slate-700 mb-3">
+                  <p className="text-sm text-gray-600 mb-3">
                     Bekreftet gjennom NTNU sine wikisider for utveksling.
                   </p>
                   {selectedCourseInfo.wikiUrl && (
@@ -2602,7 +2602,7 @@ function PlannerInterface({
                     </a>
                   )}
                   {selectedCourseInfo.behandlingsdato && (
-                    <p className="text-xs text-slate-500 mt-2">
+                    <p className="text-xs text-gray-600 mt-2">
                       Behandlingsdato: {selectedCourseInfo.behandlingsdato}
                     </p>
                   )}
@@ -2611,11 +2611,11 @@ function PlannerInterface({
                 <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Info className="text-amber-600" size={20} />
-                    <span className="font-semibold text-amber-900">
+                    <span className="font-medium text-amber-900">
                       Brukerlagt fag
                     </span>
                   </div>
-                  <p className="text-sm text-slate-700">
+                  <p className="text-sm text-gray-600">
                     Lagt til av:{" "}
                     <span className="font-medium">
                       {selectedCourseInfo.addedBy || "Ukjent bruker"}
@@ -2636,7 +2636,7 @@ function PlannerInterface({
 
             <button
               onClick={() => setShowInfoModal(false)}
-              className="w-full mt-6 bg-slate-900 text-white py-3 rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+              className="w-full mt-6 bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors"
             >
               Lukk
             </button>

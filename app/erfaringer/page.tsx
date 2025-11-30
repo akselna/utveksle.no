@@ -300,12 +300,12 @@ export default function ErfaringerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Header */}
-        <div className="mb-8 flex justify-between items-start">
+        <div className="mb-12 flex justify-between items-start">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4">
               Erfaringer fra utveksling
             </h1>
             <p className="text-lg text-gray-600">
@@ -328,14 +328,14 @@ export default function ErfaringerPage() {
                 setShowAddModal(true);
               }
             }}
-            className="bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+            className="bg-gray-900 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
           >
             <Plus size={20} /> Legg til erfaring
           </button>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+        <div className="bg-gray-50 rounded-lg border border-gray-200 p-6 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Search */}
             <div>
@@ -347,7 +347,7 @@ export default function ErfaringerPage() {
                 placeholder="Søk etter universitet, land..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
               />
             </div>
 
@@ -359,7 +359,7 @@ export default function ErfaringerPage() {
               <select
                 value={selectedUniversity}
                 onChange={(e) => setSelectedUniversity(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
               >
                 <option value="all">Alle universiteter</option>
                 {universities.map((university) => (
@@ -378,7 +378,7 @@ export default function ErfaringerPage() {
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
               >
                 <option value="all">Alle land</option>
                 {countries.map((country) => (
@@ -397,7 +397,7 @@ export default function ErfaringerPage() {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
               >
                 <option value="all">Alle år</option>
                 {years.map((year) => (
@@ -1057,7 +1057,7 @@ export default function ErfaringerPage() {
                         country,
                       });
                     }}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                   >
                     <option value="">Velg universitet</option>
                     {allUniversities.map((uni) => {
@@ -1083,7 +1083,7 @@ export default function ErfaringerPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, study: e.target.value })
                     }
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                     placeholder="F.eks. Industriell økonomi"
                   />
                 </div>
@@ -1100,7 +1100,7 @@ export default function ErfaringerPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, year: e.target.value })
                       }
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                     >
                       {yearOptions.map((year) => (
                         <option key={year} value={year.toString()}>
@@ -1119,7 +1119,7 @@ export default function ErfaringerPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, semester: e.target.value })
                       }
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                     >
                       <option value="Høst">Høst</option>
                       <option value="Vår">Vår</option>
@@ -1136,7 +1136,7 @@ export default function ErfaringerPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, studyYear: e.target.value })
                       }
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                     >
                       <option value="">Velg år</option>
                       <option value="3">3. år</option>
@@ -1192,7 +1192,7 @@ export default function ErfaringerPage() {
                       setFormData({ ...formData, review: e.target.value })
                     }
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                     placeholder="Fortell om din opplevelse fra utvekslingen..."
                   />
                 </div>
@@ -1353,7 +1353,7 @@ export default function ErfaringerPage() {
                             beerPrice: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                         placeholder="F.eks. 85" // Changed placeholder
                       />
                     </div>
@@ -1375,7 +1375,7 @@ export default function ErfaringerPage() {
                             mealPrice: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                         placeholder="F.eks. 180" // Changed placeholder
                       />
                     </div>
@@ -1394,7 +1394,7 @@ export default function ErfaringerPage() {
                             rentPrice: e.target.value,
                           })
                         }
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
                         placeholder="F.eks. 8500" // Changed placeholder
                       />
                     </div>

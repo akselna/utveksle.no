@@ -280,26 +280,26 @@ export default function FagbankPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Header */}
-        <div className="mb-8 flex justify-between items-start">
+        <div className="mb-12 flex justify-between items-start">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Fagbank</h1>
+            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4">Fagbank</h1>
             <p className="text-lg text-gray-600">
               Søk blant {originalCourses.length} godkjente utvekslingskurs
             </p>
           </div>
           <button
             onClick={() => setShowAddCourseModal(true)}
-            className="bg-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+            className="bg-gray-900 text-white py-3 px-6 rounded-md font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
           >
             <Plus size={20} /> Legg til kurs
           </button>
         </div>
 
         {/* Search and Filter Controls */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+        <div className="bg-gray-50 rounded-lg border border-gray-200 p-6 mb-8">
           {/* Search Bar */}
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -311,7 +311,7 @@ export default function FagbankPage() {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none bg-white text-gray-900"
             />
           </div>
 
@@ -319,7 +319,7 @@ export default function FagbankPage() {
           <div className="flex items-center justify-between">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
             >
               <Filter className="w-5 h-5" />
               <span className="font-medium">
@@ -351,10 +351,10 @@ export default function FagbankPage() {
                       setShowVerifiedOnly(e.target.checked);
                       setCurrentPage(1);
                     }}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    className="w-4 h-4 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
                   />
                   <span className="text-sm font-medium text-gray-700 flex items-center gap-1">
-                    <ShieldCheck className="w-4 h-4 text-blue-600" />
+                    <ShieldCheck className="w-4 h-4 text-gray-900" />
                     Vis kun verifiserte kurs
                   </span>
                 </label>
