@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NTNU Utveksling - Utforsk utvekslingsmuligheter",
-  description: "Finn perfekt utvekslingssted basert på ditt studieprogram ved NTNU. Utforsk destinasjoner, universiteter og fag som kan godkjennes.",
+  title: "utveksle.no - Utforsk utvekslingsmuligheter",
+  description:
+    "Finn perfekt utvekslingssted basert på ditt studieprogram ved NTNU. Utforsk destinasjoner, universiteter og fag som kan godkjennes.",
 };
 
 export default function RootLayout({
@@ -45,9 +46,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </AuthProvider>
       </body>

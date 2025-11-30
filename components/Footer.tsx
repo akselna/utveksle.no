@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,8 +12,8 @@ export default function Footer() {
               NTNU Utveksling
             </h3>
             <p className="text-sm text-gray-600 max-w-md">
-              Planlegg og utforsk utvekslingsmuligheter ved NTNU. 
-              Finn perfekt destinasjon basert på ditt studieprogram.
+              Planlegg og utforsk utvekslingsmuligheter ved NTNU. Finn perfekt
+              destinasjon basert på ditt studieprogram.
             </p>
           </div>
 
@@ -24,27 +24,42 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/utforsk" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                <Link
+                  href="/utforsk"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Utforsk
                 </Link>
               </li>
               <li>
-                <Link href="/fagplan" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                <Link
+                  href="/fagplan"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Min utveksling
                 </Link>
               </li>
               <li>
-                <Link href="/erfaringer" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                <Link
+                  href="/erfaringer"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Erfaringer
                 </Link>
               </li>
               <li>
-                <Link href="/fagbank" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                <Link
+                  href="/fagbank"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Fagbank
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                <Link
+                  href="/faq"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   FAQ
                 </Link>
               </li>
@@ -64,21 +79,25 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-gray-400 mt-0.5 shrink-0" />
-                <a href="mailto:utveksling@ntnu.no" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  utveksling@ntnu.no
+                <a
+                  href="mailto:utveksling@ntnu.no"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Email
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={16} className="text-gray-400 mt-0.5 shrink-0" />
-                <a href="tel:+4773595000" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  +47 73 59 50 00
+                <a
+                  href="tel:+4773595000"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  +47 XX XX XX XX
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-gray-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-gray-600">
-                  NTNU, Trondheim
-                </span>
+                <span className="text-sm text-gray-600">NTNU, Trondheim</span>
               </li>
             </ul>
           </div>
@@ -87,10 +106,13 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} NTNU Utveksling. Alle rettigheter reservert.
+            © {new Date().getFullYear()} utveksle.no Alle rettigheter reservert.
           </p>
           <div className="flex gap-6">
-            <Link href="/faq" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
+            <Link
+              href="/faq"
+              className="text-xs text-gray-500 hover:text-gray-900 transition-colors"
+            >
               FAQ
             </Link>
             <Link href="/om-oss" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
@@ -99,7 +121,10 @@ export default function Footer() {
             <Link href="#" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
               Personvern
             </Link>
-            <Link href="#" className="text-xs text-gray-500 hover:text-gray-900 transition-colors">
+            <Link
+              href="#"
+              className="text-xs text-gray-500 hover:text-gray-900 transition-colors"
+            >
               Vilkår
             </Link>
           </div>
@@ -108,4 +133,3 @@ export default function Footer() {
     </footer>
   );
 }
-
