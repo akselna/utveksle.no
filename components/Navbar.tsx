@@ -15,10 +15,13 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors">
-          NTNU Utveksling
+        <Link
+          href="/"
+          className="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors"
+        >
+          utveksle.no
         </Link>
-        
+
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/utforsk"
@@ -70,7 +73,9 @@ export default function Navbar() {
               <Notifications />
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <User size={16} />
-                <span className="hidden sm:inline font-medium">{session.user?.name || session.user?.email}</span>
+                <span className="hidden sm:inline font-medium">
+                  {session.user?.name || session.user?.email}
+                </span>
               </div>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
