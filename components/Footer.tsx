@@ -101,8 +101,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} NTNU Utveksling. Alle rettigheter
-            reservert.
+            © {new Date().getFullYear()} utveksle.no Alle rettigheter reservert.
           </p>
           <div className="flex gap-6">
             <Link
