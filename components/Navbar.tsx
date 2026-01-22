@@ -145,17 +145,17 @@ export default function Navbar() {
             {status === "authenticated" && session && (
               <Notifications />
             )}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X size={24} />
-              ) : (
-                <Menu size={24} />
-              )}
-            </button>
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X size={24} />
+            ) : (
+              <Menu size={24} />
+            )}
+          </button>
           </div>
         </div>
       </nav>

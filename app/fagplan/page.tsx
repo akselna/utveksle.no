@@ -5599,9 +5599,9 @@ export default function ExchangePlannerFull() {
       }
 
       // Gå tilbake til dashboard først
-      setIsSaving(false);
-      setStep(0);
-      resetCreatorForm();
+        setIsSaving(false);
+        setStep(0);
+        resetCreatorForm();
 
       // Vis suksess-varslingen etter kort delay
       setTimeout(() => {
@@ -5609,7 +5609,7 @@ export default function ExchangePlannerFull() {
 
         // Skjul varslingen etter 3 sekunder
         setTimeout(() => {
-          setShowSaveNotification(false);
+      setShowSaveNotification(false);
         }, 1000);
       }, 100);
     } catch (error: any) {
@@ -5644,7 +5644,7 @@ export default function ExchangePlannerFull() {
     if (planToOpen) {
       setUniversity(planToOpen.university);
       setExchangeUniversity(planToOpen.exchangeUniversity);
-      setProgram(planToOpen.program);
+        setProgram(planToOpen.program);
       setTechnologyDirection(planToOpen.technologyDirection || "Ingen retning");
       setSpecialization(planToOpen.specialization || "Ingen fagretning");
       setStudyYear(planToOpen.studyYear);
@@ -6120,8 +6120,8 @@ export default function ExchangePlannerFull() {
                     }}
                     placeholder="Søk etter studieprogram..."
                     className="w-full"
-                  />
-                </div>
+                    />
+                  </div>
 
                 {/* Teknologiretning (kun for Indøk) */}
                 {TECHNOLOGY_DIRECTIONS[program === "Industriell økonomi og teknologiledelse" ? "Indøk" : program] && (
@@ -6553,16 +6553,16 @@ export default function ExchangePlannerFull() {
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-stretch sm:items-stretch">
                       {/* Kurskode med autocomplete */}
                       <div className="relative w-full sm:w-40">
-                        <input
+                    <input
                           placeholder="Kurskode"
                           className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-full outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                          value={newSubjectCode}
+                      value={newSubjectCode}
                           onChange={(e) => {
                             setNewSubjectCode(e.target.value);
                             setActiveField("code");
                           }}
                           onFocus={() => setActiveField("code")}
-                        />
+                    />
                         {activeField === "code" && isSearching && (
                           <div className="absolute right-3 top-1/2 -translate-y-1/2">
                             <Loader2
@@ -6601,16 +6601,16 @@ export default function ExchangePlannerFull() {
 
                       {/* Kursnavn med autocomplete */}
                       <div className="relative flex-1">
-                        <input
+                    <input
                           placeholder="Kursnavn"
                           className="p-3 rounded-lg border border-gray-300 bg-white text-sm w-full outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                          value={newSubjectName}
+                      value={newSubjectName}
                           onChange={(e) => {
                             setNewSubjectName(e.target.value);
                             setActiveField("name");
                           }}
                           onFocus={() => setActiveField("name")}
-                        />
+                    />
                         {activeField === "name" && isSearching && (
                           <div className="absolute right-3 top-1/2 -translate-y-1/2">
                             <Loader2
@@ -6660,19 +6660,19 @@ export default function ExchangePlannerFull() {
                       </div>
 
                       {/* Legg til knapp */}
-                      <button
-                        onClick={handleAddSubject}
+                    <button
+                      onClick={handleAddSubject}
                         disabled={!newSubjectCode || !newSubjectName}
                         className="bg-primary/10 text-primary font-medium px-4 py-3 rounded-lg hover:bg-primary/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-                      >
-                        <Plus size={18} /> Legg til
-                      </button>
-                    </div>
+                    >
+                      <Plus size={18} /> Legg til
+                    </button>
+                  </div>
                     <p className="text-xs text-gray-500">
                       Skriv kurskode eller kursnavn for å søke. Velg fra listen
                       eller fyll ut manuelt hvis kurset ikke finnes.
                     </p>
-                  </div>
+                </div>
                 </div>
 
                 {/* Studiepoeng-teller */}
@@ -7282,9 +7282,9 @@ function PlannerInterface({
     // Vis alle kompatible først, fyll opp til max limit med ikke-kompatible
     const remainingSlots = maxTotal - compatibleOptions.length;
     availableOptions = [
-      ...compatibleOptions,
+    ...compatibleOptions,
       ...nonCompatibleOptions.slice(0, Math.max(0, remainingSlots)),
-    ];
+  ];
   } else {
     // Ingen kompatible fag, vis maks 10 ikke-kompatible
     availableOptions = nonCompatibleOptions.slice(0, 10);

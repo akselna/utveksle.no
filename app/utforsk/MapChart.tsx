@@ -673,8 +673,8 @@ const MapChart = () => {
           if (!coords) {
             // Try removing "The " prefix
             if (universityName.startsWith("The ")) {
-              coords = universityCoordinates[universityName.substring(4)];
-            }
+            coords = universityCoordinates[universityName.substring(4)];
+          }
             // Try case-insensitive matching
             if (!coords) {
               const matchingKey = Object.keys(universityCoordinates).find(
@@ -997,7 +997,7 @@ const MapChart = () => {
   // Handle scroll attempts without Ctrl key (desktop only)
   useEffect(() => {
     if (isMobile) return; // Don't show hint on mobile
-
+    
     const mapDiv = document.getElementById("map");
     if (!mapDiv) return;
 
