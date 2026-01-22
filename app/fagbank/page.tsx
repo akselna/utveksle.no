@@ -662,7 +662,7 @@ export default function FagbankPage() {
                     onChange={(e) => {
                       setSelectedCountry(e.target.value);
                     }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
+                    className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle land</option>
                     {filterOptions.countries.map((country) => (
@@ -703,7 +703,7 @@ export default function FagbankPage() {
                     onChange={(e) => {
                       setSelectedECTS(e.target.value);
                     }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
+                    className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
                   >
                     <option value="all">Alle studiepoeng</option>
                     {filterOptions.ects.map((ects) => (
