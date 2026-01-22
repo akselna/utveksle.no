@@ -37,7 +37,7 @@ export async function GET(request: Request) {
           null
         );
       }
-      
+
       return NextResponse.json({
         success: true,
         experience
