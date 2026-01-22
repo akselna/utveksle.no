@@ -6994,6 +6994,18 @@ function PlannerInterface({
     );
   };
 
+  const softDeleteSubject = (sub: Subject) => {
+    if (sub.isElective) {
+      setSubjects((prev) =>
+        prev.map((s) =>
+          s.id === sub.id ? { ...s, isSelected: false } : s
+        )
+      );
+    } else {
+      setSubjects((prev) => prev.filter((s) => s.id !== sub.id));
+    }
+  };
+
   const addManualMatchToList = (
     ntnuCode: string,
     exchangeCode: string,
@@ -7395,11 +7407,7 @@ function PlannerInterface({
               {sub.matchedWith.length === 0 ? (
                 <div className="border-2 border-dashed border-gray-300 rounded-xl p-3 sm:p-4 bg-gray-50/50 flex flex-col justify-center items-center text-center transition-colors hover:border-gray-400 hover:bg-gray-100/30">
                   <button
-                    onClick={() => {
-                      setSubjects((prev) =>
-                        prev.filter((s) => s.id !== sub.id)
-                      );
-                    }}
+                    onClick={() => softDeleteSubject(sub)}
                     className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 p-1 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
                     title="Fjern fag"
                   >
@@ -7446,19 +7454,6 @@ function PlannerInterface({
                 </div>
               ) : (
                 <div className="border border-green-200 bg-green-50 rounded-xl p-3 sm:p-4 shadow-sm relative">
-                  <div className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 flex gap-1">
-                    <button
-                      onClick={() => {
-                        setSubjects((prev) =>
-                          prev.filter((s) => s.id !== sub.id)
-                        );
-                      }}
-                      className="p-1 text-green-700 hover:text-red-500 hover:bg-red-50 rounded-full opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
-                      title="Fjern fag"
-                    >
-                      <Trash2 size={12} className="sm:w-[14px] sm:h-[14px]" />
-                    </button>
-                  </div>
                   <div className="flex items-center gap-1.5 sm:gap-2 mb-2">
                     <CheckCircle
                       size={12}
@@ -7500,7 +7495,7 @@ function PlannerInterface({
                       >
                         <button
                           onClick={() => handleRemoveMatch(sub.id, match.id)}
-                          className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 p-0.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded opacity-100 sm:opacity-0 sm:group-hover/match:opacity-100 transition-all"
+                          className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 p-0.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded opacity-100 transition-all"
                           title="Fjern denne matchen"
                         >
                           <X size={10} className="sm:w-3 sm:h-3" />
