@@ -755,7 +755,8 @@ export default function FagbankPage() {
               // Use global index from the current display list (shuffled or original)
               const globalIndex =
                 (pagination.page - 1) * pagination.limit + index;
-              const isBlurred = !session && globalIndex >= 10;
+              const isBlurred =
+                !session && (!!hasActiveFilters || globalIndex >= 10);
 
               return (
                 <div
