@@ -245,14 +245,23 @@ export default function ErfaringerPage() {
     // Load experiences from database
     loadExperiences();
 
-    // Load university coordinates
-    fetch("/extracted-data/university-coordinates.json")
+    // Load university coordinates from API
+    fetch("/api/universities")
       .then((res) => res.json())
       .then((data) => {
-        setUniversityCoordinates(data);
+        if (data.success && data.universities) {
+          const coordsMap: Record<string, { country: string; city?: string }> = {};
+          data.universities.forEach((uni: any) => {
+            coordsMap[uni.name] = { 
+              country: uni.country, 
+              city: uni.city 
+            };
+          });
+          setUniversityCoordinates(coordsMap);
+        }
       })
       .catch((err) =>
-        console.error("Failed to load university coordinates:", err)
+        console.error("Failed to load universities:", err)
       );
   }, []);
 

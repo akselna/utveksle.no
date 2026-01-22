@@ -246,6 +246,13 @@ const MapChart = () => {
             })
           );
           setAllUniversities(universities);
+
+          // Populate universityCoordinates from API data
+          const coordsMap: Record<string, { lat: number; lng: number; city?: string }> = {};
+          universities.forEach((uni) => {
+            coordsMap[uni.name] = { lat: uni.lat, lng: uni.lng, city: uni.city };
+          });
+          setUniversityCoordinates(coordsMap);
         }
       });
 
@@ -307,9 +314,9 @@ const MapChart = () => {
           });
       });
 
-    fetch("/extracted-data/university-coordinates.json")
-      .then((res) => res.json())
-      .then((data) => setUniversityCoordinates(data));
+    // fetch("/extracted-data/university-coordinates.json")
+    //   .then((res) => res.json())
+    //   .then((data) => setUniversityCoordinates(data));
   }, [plannedSemesterFilter]);
 
   // Build Map Data
