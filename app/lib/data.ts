@@ -1,7 +1,9 @@
 import { Exchange, PopularDestination, University, Country, Study } from './types';
-import exchangesData from '../../extracted-data/all-exchanges.json';
-import countriesData from '../../extracted-data/countries-list.json';
-import universitiesByCountryData from '../../extracted-data/universities-by-country.json';
+
+// Fallback empty data since extracted-data files are not in the repo
+const exchangesData: any[] = [];
+const countriesData: any[] = [];
+const universitiesByCountryData: any = {};
 
 const exchanges = exchangesData as Exchange[];
 
@@ -187,4 +189,3 @@ export function getUniversitiesByCountry(country: string): string[] {
 }
 
 export { exchanges };
-
