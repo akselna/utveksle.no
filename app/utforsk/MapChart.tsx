@@ -189,7 +189,16 @@ const MapChart = () => {
     }
 
     fetch("/api/experiences")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON');
+        }
+        return res.json();
+      })
       .then((apiData) => {
         if (apiData.success && apiData.experiences) {
           const dbExchanges: Exchange[] = apiData.experiences.map(
@@ -214,24 +223,49 @@ const MapChart = () => {
         } else {
           // Fallback
           fetch("/extracted-data/all-exchanges.json")
-            .then((res) => res.json())
+            .then((res) => {
+              if (!res.ok) throw new Error('Fallback fetch failed');
+              return res.json();
+            })
             .then((staticData) => {
               setAllExchanges(staticData);
+              setIsLoading(false);
+            })
+            .catch((err) => {
+              console.error('Failed to load fallback data:', err);
               setIsLoading(false);
             });
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('Failed to load experiences:', err);
+        // Fallback to static data
         fetch("/extracted-data/all-exchanges.json")
-          .then((res) => res.json())
+          .then((res) => {
+            if (!res.ok) throw new Error('Fallback fetch failed');
+            return res.json();
+          })
           .then((staticData) => {
             setAllExchanges(staticData);
+            setIsLoading(false);
+          })
+          .catch((fallbackErr) => {
+            console.error('Failed to load fallback data:', fallbackErr);
             setIsLoading(false);
           });
       });
 
     fetch("/api/universities")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON');
+        }
+        return res.json();
+      })
       .then((apiData) => {
         if (apiData.success && apiData.universities) {
           const universities: UniversityData[] = apiData.universities.map(
@@ -254,6 +288,9 @@ const MapChart = () => {
           });
           setUniversityCoordinates(coordsMap);
         }
+      })
+      .catch((err) => {
+        console.error('Failed to load universities:', err);
       });
 
     const now = new Date();

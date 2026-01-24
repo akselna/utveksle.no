@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import StatsCounter from '@/components/StatsCounter';
+import ScrollReveal from '@/components/ScrollReveal';
 
 // Slideshow destinations (6 total)
 const slideshowDestinations = [
@@ -96,13 +97,30 @@ export default function Home() {
   // Load stats
   useEffect(() => {
     fetch('/api/stats')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Response is not JSON');
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.success) {
           setStats(data.stats);
         }
       })
-      .catch((err) => console.error('Failed to load stats:', err));
+      .catch((err) => {
+        console.error('Failed to load stats:', err);
+        // Set default values on error
+        setStats({
+          courses: 0,
+          experiences: 0,
+          users: 0,
+        });
+      });
   }, []);
 
   return (
@@ -164,75 +182,90 @@ export default function Home() {
       {/* Destinations Grid */}
       <section className="py-12 md:py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-3 md:mb-4">
-              Populære destinasjoner
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Utforsk de mest populære utvekslingsstedene for NTNU-studenter
-            </p>
-          </div>
+          <ScrollReveal direction="up" delay={0}>
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-3 md:mb-4">
+                Populære destinasjoner
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                Utforsk de mest populære utvekslingsstedene for NTNU-studenter
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-            {featuredDestinations.map((dest) => (
-              <Link
+            {featuredDestinations.map((dest, index) => (
+              <ScrollReveal
                 key={dest.id}
-                href="/utforsk"
-                className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100"
+                direction="up"
+                delay={index * 100}
               >
-                <Image
-                  src={dest.image}
-                  alt={`${dest.university}, ${dest.country}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  quality={85}
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="text-sm font-medium text-white/90 mb-1">
-                    {dest.country}
+                <Link
+                  href="/utforsk"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 block"
+                >
+                  <Image
+                    src={dest.image}
+                    alt={`${dest.university}, ${dest.country}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    quality={85}
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="text-sm font-medium text-white/90 mb-1">
+                      {dest.country}
+                    </div>
+                    <h3 className="text-xl font-semibold">
+                      {dest.university}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold">
-                    {dest.university}
-                  </h3>
-                </div>
-              </Link>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Stats Counter Section */}
-      <StatsCounter
-        courses={stats.courses}
-        experiences={stats.experiences}
-        users={stats.users}
-      />
+      <ScrollReveal direction="up" delay={0}>
+        <StatsCounter
+          courses={stats.courses}
+          experiences={stats.experiences}
+          users={stats.users}
+        />
+      </ScrollReveal>
 
       {/* CTA Section */}
       <section className="py-12 md:py-24 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 md:mb-6">
-            Klar til å starte?
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
-            Begynn å planlegge din utveksling i dag
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/utforsk"
-              className="px-8 py-4 bg-primary text-white rounded-md text-lg font-medium hover:bg-primary-hover transition-colors"
-            >
-              Utforsk destinasjoner
-            </Link>
-            <Link
-              href="/fagplan"
-              className="px-8 py-4 bg-white text-gray-900 border border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors"
-            >
-              Planlegg utveksling
-            </Link>
-          </div>
+          <ScrollReveal direction="up" delay={0}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 md:mb-6">
+              Klar til å starte?
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={100}>
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+              Begynn å planlegge din utveksling i dag
+            </p>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={200}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/utforsk"
+                className="px-8 py-4 bg-primary text-white rounded-md text-lg font-medium hover:bg-primary-hover transition-colors"
+              >
+                Utforsk destinasjoner
+              </Link>
+              <Link
+                href="/fagplan"
+                className="px-8 py-4 bg-white text-gray-900 border border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors"
+              >
+                Planlegg utveksling
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </>
