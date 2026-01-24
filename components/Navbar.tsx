@@ -85,6 +85,16 @@ export default function Navbar() {
             >
               Fagbank
             </Link>
+            <Link
+              href="/guide"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/guide")
+                  ? "text-gray-900"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              Guide
+            </Link>
           </div>
 
           {/* Desktop User Actions - Right aligned */}
@@ -215,6 +225,17 @@ export default function Navbar() {
               }`}
             >
               Fagbank
+            </Link>
+            <Link
+              href="/guide"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                isActive("/guide")
+                  ? "bg-gray-100 text-gray-900"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              }`}
+            >
+              Guide
             </Link>
 
             {/* Mobile User Actions */}
