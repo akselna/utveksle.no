@@ -26,11 +26,47 @@ interface Destination {
   review_count?: number;
 }
 
+const STORAGE_KEY = "guide_progress";
+
 export default function GuidePage() {
   const [currentStep, setCurrentStep] = useState(0); // 0 = intro, 1-5 = steps
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [topDestinations, setTopDestinations] = useState<Destination[]>([]);
   const [loadingDestinations, setLoadingDestinations] = useState(false);
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [hasProgress, setHasProgress] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Check if we're on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Load saved progress on mount
+  useEffect(() => {
+    if (!isClient) return;
+    
+    const savedStep = localStorage.getItem(STORAGE_KEY);
+    if (savedStep) {
+      setHasProgress(true);
+      const step = parseInt(savedStep, 10);
+      // If completed (step 6), show completion modal and stay at step 5
+      if (step === 6) {
+        setCurrentStep(5);
+        setShowCompletionModal(true);
+      } else if (step > 0 && step <= 5) {
+        setCurrentStep(step);
+      }
+    }
+  }, [isClient]);
+
+  // Save progress whenever currentStep changes
+  useEffect(() => {
+    if (!isClient || currentStep === 0) return;
+    
+    localStorage.setItem(STORAGE_KEY, currentStep.toString());
+    setHasProgress(true);
+  }, [currentStep, isClient]);
 
   // Load top destinations when step 1 is reached
   useEffect(() => {
@@ -46,11 +82,53 @@ export default function GuidePage() {
       if (response.ok) {
         const data = await response.json();
         if (data.success && data.universities) {
-          // Sort by review count and take top 6
-          const sorted = [...data.universities]
-            .sort((a: any, b: any) => (b.review_count || 0) - (a.review_count || 0))
-            .slice(0, 6);
-          setTopDestinations(sorted);
+          // Specific universities to show (with various name variations)
+          const targetUniversities: { keywords: string[]; found?: any }[] = [
+            { keywords: ["dtu", "technical university of denmark", "danmarks tekniske"] },
+            { keywords: ["university of queensland", "queensland"] },
+            { keywords: ["berkeley", "university of california", "uc berkeley"] }
+          ];
+          
+          // Find DTU
+          const dtu = data.universities.find((uni: any) => {
+            const name = uni.name.toLowerCase();
+            return targetUniversities[0].keywords.some(keyword => name.includes(keyword));
+          });
+          if (dtu) targetUniversities[0].found = dtu;
+          
+          // Find University of Queensland
+          const uq = data.universities.find((uni: any) => {
+            const name = uni.name.toLowerCase();
+            return targetUniversities[1].keywords.some(keyword => name.includes(keyword));
+          });
+          if (uq) targetUniversities[1].found = uq;
+          
+          // Find Berkeley
+          const berkeley = data.universities.find((uni: any) => {
+            const name = uni.name.toLowerCase();
+            return targetUniversities[2].keywords.some(keyword => name.includes(keyword));
+          });
+          if (berkeley) targetUniversities[2].found = berkeley;
+          
+          // Collect found universities
+          const specific = targetUniversities
+            .map(t => t.found)
+            .filter(Boolean);
+          
+          // Filter to only destinations with available images
+          const withImages = specific.filter((dest: any) => {
+            const isAllowedSource = dest.image_url && (
+              dest.image_url.includes('images.unsplash.com') ||
+              dest.image_url.includes('source.unsplash.com')
+            );
+            const imageUrl = getUniversityImage(
+              dest.name,
+              isAllowedSource ? dest.image_url : null
+            );
+            return imageUrl !== null;
+          });
+          
+          setTopDestinations(withImages);
         }
       }
     } catch (error) {
@@ -63,9 +141,25 @@ export default function GuidePage() {
   const handleNextStep = () => {
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentStep((prev) => prev + 1);
+      const nextStep = currentStep + 1;
+      if (nextStep > steps.length) {
+        // Guide completed
+        localStorage.setItem(STORAGE_KEY, "6"); // Mark as completed
+        setShowCompletionModal(true);
+      } else {
+        setCurrentStep(nextStep);
+      }
       setIsTransitioning(false);
     }, 300);
+  };
+
+  const handleStartOver = () => {
+    if (isClient) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+    setCurrentStep(0);
+    setShowCompletionModal(false);
+    setHasProgress(false);
   };
 
   const handleOpenFagbank = () => {
@@ -130,13 +224,23 @@ export default function GuidePage() {
             </p>
           </div>
 
-          <button
-            onClick={handleNextStep}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-lg font-medium text-lg hover:bg-primary-hover transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            Kom i gang
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={handleNextStep}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-lg font-medium text-lg hover:bg-primary-hover transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              {hasProgress ? "Fortsett der du slapp" : "Kom i gang"}
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            {hasProgress && (
+              <button
+                onClick={handleStartOver}
+                className="inline-flex items-center gap-2 px-6 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              >
+                Start på nytt
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -201,18 +305,44 @@ export default function GuidePage() {
             {currentStep === 1 && (
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Populære destinasjoner
+                  Finn ut hvor du kan reise
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Her er noen av de mest populære utvekslingsstedene for
-                  NTNU-studenter:
+                  Sjekk hvilke partneruniversiteter som er tilgjengelige for ditt studieprogram. 
+                  Vurder språk, fagtilbud, semesterstruktur og land.
+                </p>
+
+                <div className="mb-6 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+                  <p className="text-sm text-gray-700 mb-3">
+                    <strong>Viktig om snitt:</strong> Snitt har mye å si for noen av stedene, 
+                    mindre for andre. I Europa er det gjerne varierende og det er umulig å si 
+                    nøyaktig hva snittet blir. Sjekk Mobility-Online for oppdatert informasjon 
+                    om tilgjengelige destinasjoner og eventuelle krav.
+                  </p>
+                  <a
+                    href="https://www.service4mobility.com/europe/PortalServlet?identifier=TRONDHE01&showAll=0&showAgreements=1&showPartner=1&preselectTab=ver_nav_button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-all transform hover:scale-105 text-sm"
+                  >
+                    <Globe className="w-4 h-4" />
+                    Åpne Mobility-Online i ny fane
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                  Populære destinasjoner
+                </h4>
+                <p className="text-gray-600 mb-6">
+                  Her er noen av de mest populære utvekslingsstedene for NTNU-studenter:
                 </p>
 
                 {loadingDestinations ? (
                   <div className="flex items-center justify-center py-12">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                   </div>
-                ) : (
+                ) : topDestinations.length > 0 ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                     {topDestinations.map((dest, index) => {
                       // Check if database image is from allowed source
@@ -253,21 +383,15 @@ export default function GuidePage() {
                             <div className="text-sm font-medium text-white/90 mb-1">
                               {dest.country}
                             </div>
-                            <h4 className="text-lg font-semibold mb-1">
+                            <h4 className="text-lg font-semibold">
                               {dest.name}
                             </h4>
-                            {dest.review_count && dest.review_count > 0 && (
-                              <div className="text-xs text-white/80 flex items-center gap-1">
-                                <Users className="w-3 h-3" />
-                                {dest.review_count} erfaringer
-                              </div>
-                            )}
                           </div>
                         </div>
                       );
                     })}
                   </div>
-                )}
+                ) : null}
 
                 <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                   <p className="text-sm text-blue-800">
@@ -562,7 +686,8 @@ export default function GuidePage() {
                 onClick={() => {
                   setIsTransitioning(true);
                   setTimeout(() => {
-                    setCurrentStep((prev) => prev - 1);
+                    const prevStep = currentStep - 1;
+                    setCurrentStep(prevStep);
                     setIsTransitioning(false);
                   }, 300);
                 }}
@@ -581,17 +706,52 @@ export default function GuidePage() {
                 <ArrowRight className="w-5 h-5" />
               </button>
             ) : (
-              <Link
-                href="/utforsk"
+              <button
+                onClick={handleNextStep}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-all transform hover:scale-105"
               >
-                Start utforskning
-                <MapPin className="w-5 h-5" />
-              </Link>
+                Fullfør guide
+                <CheckCircle className="w-5 h-5" />
+              </button>
             )}
           </div>
         </div>
       </div>
+
+      {/* Completion Modal */}
+      {showCompletionModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center animate-in fade-in zoom-in duration-300">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+              <CheckCircle className="w-12 h-12 text-green-600" />
+            </div>
+            <h2 className="text-3xl font-light text-gray-900 mb-4">
+              Gratulerer! 🎉
+            </h2>
+            <p className="text-lg text-gray-600 mb-2">
+              Du har fullført guiden!
+            </p>
+            <p className="text-base text-gray-500 mb-8">
+              Du er nå klar til å starte din utvekslingsreise. Lykke til!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/utforsk"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-all transform hover:scale-105"
+              >
+                Start utforskning
+                <MapPin className="w-5 h-5" />
+              </Link>
+              <button
+                onClick={handleStartOver}
+                className="flex-1 px-6 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              >
+                Start på nytt
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
