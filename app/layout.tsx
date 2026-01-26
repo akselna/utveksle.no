@@ -5,6 +5,7 @@ import AuthProvider from "@/components/AuthProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +77,13 @@ export default function RootLayout({
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
           crossOrigin=""
         ></script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LNYVQJ7SRV" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-LNYVQJ7SRV');
+        `}} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased pt-16 flex flex-col min-h-screen`}
