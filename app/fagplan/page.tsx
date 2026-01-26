@@ -5746,7 +5746,7 @@ export default function ExchangePlannerFull() {
               </h2>
               {step === 3 && (
                 <button
-                  onClick={handleSavePlan}
+                  onClick={() => handleSavePlan()}
                   disabled={isSaving}
                   className={`text-xs sm:text-sm font-medium px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg transition-colors flex items-center gap-1 sm:gap-2 ${
                     isSaving
