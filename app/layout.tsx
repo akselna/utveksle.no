@@ -77,12 +77,12 @@ export default function RootLayout({
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
           crossOrigin=""
         ></script>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LNYVQJ7SRV" strategy="afterInteractive" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-WMBB99PWFL" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-LNYVQJ7SRV');
+          gtag('config', 'G-WMBB99PWFL');
         `}} />
       </head>
       <body
