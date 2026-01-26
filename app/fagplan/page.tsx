@@ -5435,7 +5435,7 @@ export default function ExchangePlannerFull() {
     setEditingPlanId(null);
   };
 
-  const handleSavePlan = async () => {
+  const handleSavePlan = async (shouldExit: boolean = true) => {
     // Prevent double-clicking
     if (isSaving) return;
 
@@ -5587,6 +5587,7 @@ export default function ExchangePlannerFull() {
             updatePlansCache(updatedPlans);
             return updatedPlans;
           });
+          setEditingPlanId(`db-${result.plan.id}`);
         } catch (error: any) {
           // Fjern midlertidig plan hvis det feiler
           setMyPlans((prevPlans) => {
@@ -5600,8 +5601,10 @@ export default function ExchangePlannerFull() {
 
       // Gå tilbake til dashboard først
         setIsSaving(false);
-        setStep(0);
-        resetCreatorForm();
+        if (shouldExit) {
+          setStep(0);
+          resetCreatorForm();
+        }
 
       // Vis suksess-varslingen etter kort delay
       setTimeout(() => {
@@ -5706,7 +5709,7 @@ export default function ExchangePlannerFull() {
 
       setMySubjects(mergedSubjects);
       setEditingPlanId(planId);
-      setStep(3); // Gå direkte til planleggeren
+      setStep(4); // Gå direkte til oppsummering
     }
   };
 
@@ -6746,70 +6749,179 @@ export default function ExchangePlannerFull() {
           </div>
         )}
 
-        {/* --- STEG 4: LAST NED PDF --- */}
+        {/* --- STEG 4: OPPSUMMERING / BEKREFTELSE --- */}
         {step === 4 && (
           <div className="flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-10 min-h-full p-4 sm:p-6 animate-in slide-in-from-right duration-500 overflow-y-auto">
             <div className="max-w-4xl w-full">
-              <button
-                onClick={() => setStep(3)}
-                className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-4 sm:mb-6 text-sm"
-              >
-                <ArrowLeft size={16} /> Tilbake til planlegger
-              </button>
+              {editingPlanId ? (
+                <button
+                  onClick={() => {
+                    setStep(0);
+                    resetCreatorForm();
+                  }}
+                  className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-4 sm:mb-6 text-sm"
+                >
+                  <ArrowLeft size={16} /> Tilbake til oversikt
+                </button>
+              ) : (
+                <button
+                  onClick={() => setStep(3)}
+                  className="text-slate-400 hover:text-slate-600 flex items-center gap-1 mb-4 sm:mb-6 text-sm"
+                >
+                  <ArrowLeft size={16} /> Tilbake til planlegger
+                </button>
+              )}
+
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="text-green-600" size={32} />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                    Planen din er klar!
+                    {editingPlanId ? "Din fagplan" : "Se over og bekreft"}
                   </h2>
                   <p className="text-slate-600">
-                    Du har matchet alle fagene dine. Last ned planen som PDF.
+                    {editingPlanId
+                      ? "Her er oversikten over din lagrede fagplan."
+                      : "Se over at alt stemmer før du bekrefter planen."}
                   </p>
                 </div>
 
-                <div className="space-y-4 mb-8">
-                  <div className="bg-slate-50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-slate-800 mb-2">
-                      Plandetaljer
+                {/* Sammendrag av info */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-slate-50 p-5 rounded-xl border border-gray-200">
+                    <h3 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                      <School size={18} className="text-slate-500" /> Utveksling
                     </h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Studieprogram:</span>
-                        <span className="font-medium text-slate-800">
-                          {program}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-600">
-                          Utvekslingsuniversitet:
-                        </span>
+                        <span className="text-slate-500">Universitet:</span>
                         <span className="font-medium text-slate-800">
                           {exchangeUniversity}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Periode:</span>
+                        <span className="text-slate-500">Periode:</span>
                         <span className="font-medium text-slate-800">
                           {studyYear}. klasse - {semesterChoice}
                         </span>
                       </div>
+                    </div>
+                  </div>
+                  <div className="bg-slate-50 p-5 rounded-xl border border-gray-200">
+                    <h3 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                      <GraduationCap size={18} className="text-slate-500" />{" "}
+                      Studieprogram
+                    </h3>
+                    <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Antall fag:</span>
-                        <span className="font-medium text-slate-800">
-                          {
-                            mySubjects.filter(
-                              (s) => !s.isElective || s.isSelected
-                            ).length
-                          }
+                        <span className="text-slate-500">Program:</span>
+                        <span className="font-medium text-slate-800 text-right">
+                          {program}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-500">Retning:</span>
+                        <span className="font-medium text-slate-800 text-right">
+                          {specialization !== "Ingen fagretning"
+                            ? specialization
+                            : technologyDirection !== "Ingen retning"
+                            ? technologyDirection
+                            : "-"}
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                {/* Fagliste Tabell */}
+                <div className="mb-8 overflow-hidden border border-gray-200 rounded-xl">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-200 text-gray-500 font-medium">
+                      <tr>
+                        <th className="p-4">NTNU Emne</th>
+                        <th className="p-4">Utvekslingsemne</th>
+                        <th className="p-4 text-right">ECTS</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {mySubjects
+                        .filter((s) => !s.isElective || s.isSelected)
+                        .map((sub) => {
+                          const isMatched = sub.matchedWith.length > 0;
+                          return (
+                            <tr key={sub.id} className="hover:bg-gray-50/50">
+                              <td className="p-4 align-top">
+                                <div className="font-semibold text-slate-900">
+                                  {sub.code}
+                                </div>
+                                <div className="text-slate-500 text-xs">
+                                  {sub.name}
+                                </div>
+                                <div className="text-slate-400 text-xs mt-0.5">
+                                  {sub.credits} sp
+                                </div>
+                              </td>
+                              <td className="p-4 align-top">
+                                {isMatched ? (
+                                  <div className="space-y-2">
+                                    {sub.matchedWith.map((match) => (
+                                      <div key={match.id}>
+                                        <div className="font-medium text-slate-900">
+                                          {match.code}
+                                        </div>
+                                        <div className="text-slate-500 text-xs">
+                                          {match.name}
+                                        </div>
+                                        <div className="text-slate-400 text-xs mt-0.5">
+                                          {match.university}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-red-500 text-xs italic flex items-center gap-1">
+                                    <AlertCircle size={12} /> Ikke matchet
+                                  </span>
+                                )}
+                              </td>
+                              <td className="p-4 text-right align-top font-medium text-slate-700">
+                                {isMatched
+                                  ? sub.matchedWith.reduce(
+                                      (sum, m) =>
+                                        sum + (parseFloat(m.ects || "0") || 0),
+                                      0
+                                    )
+                                  : 0}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                    <tfoot className="bg-gray-50 border-t border-gray-200">
+                      <tr>
+                        <td className="p-4 font-bold text-slate-900">Totalt</td>
+                        <td className="p-4"></td>
+                        <td className="p-4 text-right font-bold text-slate-900">
+                          {mySubjects
+                            .filter((s) => !s.isElective || s.isSelected)
+                            .reduce((total, sub) => {
+                              return (
+                                total +
+                                sub.matchedWith.reduce(
+                                  (mTotal, m) =>
+                                    mTotal + (parseFloat(m.ects || "0") || 0),
+                                  0
+                                )
+                              );
+                            }, 0)}
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={async () => {
                       if (!session) {
@@ -6847,30 +6959,40 @@ export default function ExchangePlannerFull() {
                         }
                       );
                     }}
-                    className="flex-1 bg-primary text-white py-3 px-6 rounded-xl font-bold hover:bg-primary-hover transition-all shadow-lg shadow-gray-100 flex items-center justify-center gap-2"
+                    className="flex-1 bg-white border border-gray-300 text-slate-700 py-3 px-6 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
                   >
                     <Save size={20} /> Last ned PDF
                   </button>
-                  <button
-                    onClick={handleSavePlan}
-                    disabled={isSaving}
-                    className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 ${
-                      isSaving
-                        ? "bg-slate-700 cursor-not-allowed"
-                        : "bg-slate-900 hover:bg-slate-800"
-                    } text-white`}
-                  >
-                    {isSaving ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                        Lagrer...
-                      </>
-                    ) : (
-                      <>
-                        <Save size={20} /> Lagre plan
-                      </>
-                    )}
-                  </button>
+
+                  {editingPlanId ? (
+                    <button
+                      onClick={() => setStep(3)}
+                      className="flex-1 bg-slate-900 text-white py-3 px-6 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2"
+                    >
+                      Rediger plan
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleSavePlan(false)}
+                      disabled={isSaving}
+                      className={`flex-1 py-3 px-6 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 ${
+                        isSaving
+                          ? "bg-primary/70 cursor-not-allowed"
+                          : "bg-primary hover:bg-primary-hover"
+                      } text-white`}
+                    >
+                      {isSaving ? (
+                        <>
+                          <Loader2 className="animate-spin" size={20} />
+                          Lagrer...
+                        </>
+                      ) : (
+                        <>
+                          <CheckCircle size={20} /> Bekreft og lagre
+                        </>
+                      )}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
