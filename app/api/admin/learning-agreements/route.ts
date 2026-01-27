@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { Pool } from 'pg';
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
+import pool from '@/lib/db';
 
 // GET - Fetch all learning agreements
 export async function GET(request: NextRequest) {

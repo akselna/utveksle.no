@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { v2 as cloudinary } from 'cloudinary';
-import { Pool } from 'pg';
+import pool from '@/lib/db';
 import { PDFDocument } from 'pdf-lib';
 
 // Configure Cloudinary
@@ -9,14 +9,6 @@ cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-// Database connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
 });
 
 export async function GET(request: NextRequest) {
