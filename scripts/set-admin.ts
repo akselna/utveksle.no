@@ -19,8 +19,8 @@ async function setAdmin() {
       console.log('Could not load .env.local');
   }
 
-  if (!process.env.DATABASE_URL) {
-      console.error('DATABASE_URL is not set');
+  if (!process.env.POSTGRES_URL) {
+      console.error('POSTGRES_URL is not set');
       process.exit(1);
   }
 
@@ -32,7 +32,7 @@ async function setAdmin() {
   }
 
   const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.POSTGRES_URL,
     ssl: {
       rejectUnauthorized: false 
     }

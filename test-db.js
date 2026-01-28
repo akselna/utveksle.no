@@ -2,7 +2,7 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.POSTGRES_URL,
   ssl: {
     rejectUnauthorized: false
   }
@@ -11,7 +11,7 @@ const pool = new Pool({
 async function testConnection() {
   try {
     const client = await pool.connect();
-    console.log('✅ Successfully connected to Heroku Postgres!');
+    console.log('✅ Successfully connected to Vercel Postgres!');
 
     const res = await client.query('SELECT NOW()');
     console.log('📅 Current database time:', res.rows[0].now);

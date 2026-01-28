@@ -3,9 +3,9 @@ import { Pool } from 'pg';
 
 // Create a connection pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.POSTGRES_URL,
   ssl: {
-    rejectUnauthorized: false // Required for Heroku Postgres
+    rejectUnauthorized: false // Required for Vercel Postgres
   }
 });
 
